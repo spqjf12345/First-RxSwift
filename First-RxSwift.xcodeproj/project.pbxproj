@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		4BAD1A3EF3D160C8601E52E5 /* Pods_First_RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14D641DECD6F009F3A72A040 /* Pods_First_RxSwift.framework */; };
+		8E7877D6273ED6F7007C43E0 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7877D5273ED6F7007C43E0 /* MainViewController.swift */; };
+		8E7877D9273ED912007C43E0 /* TaskListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7877D8273ED912007C43E0 /* TaskListViewController.swift */; };
+		8E7877DB273EDB5E007C43E0 /* AddTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7877DA273EDB5D007C43E0 /* AddTaskViewController.swift */; };
+		8E7877DE273EDC54007C43E0 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7877DD273EDC54007C43E0 /* Task.swift */; };
 		8ED47D3E272BAEDD00393397 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED47D3D272BAEDD00393397 /* AppDelegate.swift */; };
 		8ED47D40272BAEDD00393397 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED47D3F272BAEDD00393397 /* SceneDelegate.swift */; };
 		8ED47D42272BAEDD00393397 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED47D41272BAEDD00393397 /* ViewController.swift */; };
@@ -48,6 +52,10 @@
 		390C55802077CEEA7C2BC09C /* Pods-First-RxSwift-First-RxSwiftUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-First-RxSwift-First-RxSwiftUITests.release.xcconfig"; path = "Target Support Files/Pods-First-RxSwift-First-RxSwiftUITests/Pods-First-RxSwift-First-RxSwiftUITests.release.xcconfig"; sourceTree = "<group>"; };
 		4B40CF55A2F63045F1142CD3 /* Pods-First-RxSwiftTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-First-RxSwiftTests.release.xcconfig"; path = "Target Support Files/Pods-First-RxSwiftTests/Pods-First-RxSwiftTests.release.xcconfig"; sourceTree = "<group>"; };
 		667A3DFE82C346A8BFD50878 /* Pods-First-RxSwiftTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-First-RxSwiftTests.debug.xcconfig"; path = "Target Support Files/Pods-First-RxSwiftTests/Pods-First-RxSwiftTests.debug.xcconfig"; sourceTree = "<group>"; };
+		8E7877D5273ED6F7007C43E0 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		8E7877D8273ED912007C43E0 /* TaskListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListViewController.swift; sourceTree = "<group>"; };
+		8E7877DA273EDB5D007C43E0 /* AddTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskViewController.swift; sourceTree = "<group>"; };
+		8E7877DD273EDC54007C43E0 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		8ED47D3A272BAEDD00393397 /* First-RxSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "First-RxSwift.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8ED47D3D272BAEDD00393397 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8ED47D3F272BAEDD00393397 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -109,6 +117,23 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		8E7877D7273ED8F0007C43E0 /* PhotoFilter */ = {
+			isa = PBXGroup;
+			children = (
+				8ED47D41272BAEDD00393397 /* ViewController.swift */,
+				8ED47D70272BAF4C00393397 /* PhotosCollectionViewController.swift */,
+			);
+			path = PhotoFilter;
+			sourceTree = "<group>";
+		};
+		8E7877DC273EDC37007C43E0 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8E7877DD273EDC54007C43E0 /* Task.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		8ED47D31272BAEDD00393397 = {
 			isa = PBXGroup;
 			children = (
@@ -134,9 +159,9 @@
 		8ED47D3C272BAEDD00393397 /* First-RxSwift */ = {
 			isa = PBXGroup;
 			children = (
-				8ED47D75272BB00B00393397 /* Controlller */,
+				8E7877DC273EDC37007C43E0 /* Models */,
+				8ED47D75272BB00B00393397 /* Controlllers */,
 				8ED47D74272BAFF400393397 /* StoryBoard */,
-				8ED47D73272BAFEA00393397 /* ViewModels */,
 				8ED47D72272BAFDF00393397 /* Services */,
 				8ED47D3D272BAEDD00393397 /* AppDelegate.swift */,
 				8ED47D3F272BAEDD00393397 /* SceneDelegate.swift */,
@@ -173,13 +198,6 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
-		8ED47D73272BAFEA00393397 /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModels;
-			sourceTree = "<group>";
-		};
 		8ED47D74272BAFF400393397 /* StoryBoard */ = {
 			isa = PBXGroup;
 			children = (
@@ -190,13 +208,15 @@
 			path = StoryBoard;
 			sourceTree = "<group>";
 		};
-		8ED47D75272BB00B00393397 /* Controlller */ = {
+		8ED47D75272BB00B00393397 /* Controlllers */ = {
 			isa = PBXGroup;
 			children = (
-				8ED47D41272BAEDD00393397 /* ViewController.swift */,
-				8ED47D70272BAF4C00393397 /* PhotosCollectionViewController.swift */,
+				8E7877D7273ED8F0007C43E0 /* PhotoFilter */,
+				8E7877D5273ED6F7007C43E0 /* MainViewController.swift */,
+				8E7877D8273ED912007C43E0 /* TaskListViewController.swift */,
+				8E7877DA273EDB5D007C43E0 /* AddTaskViewController.swift */,
 			);
-			path = Controlller;
+			path = Controlllers;
 			sourceTree = "<group>";
 		};
 		8ED47D76272BB65800393397 /* Cells */ = {
@@ -462,9 +482,13 @@
 				8ED47D42272BAEDD00393397 /* ViewController.swift in Sources */,
 				8ED47D3E272BAEDD00393397 /* AppDelegate.swift in Sources */,
 				8ED47D7A272BBC4800393397 /* FilterService.swift in Sources */,
+				8E7877DE273EDC54007C43E0 /* Task.swift in Sources */,
 				8ED47D71272BAF4C00393397 /* PhotosCollectionViewController.swift in Sources */,
+				8E7877D9273ED912007C43E0 /* TaskListViewController.swift in Sources */,
 				8ED47D40272BAEDD00393397 /* SceneDelegate.swift in Sources */,
 				8ED47D78272BB67200393397 /* PhotoCollectionViewCell.swift in Sources */,
+				8E7877D6273ED6F7007C43E0 /* MainViewController.swift in Sources */,
+				8E7877DB273EDB5E007C43E0 /* AddTaskViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
