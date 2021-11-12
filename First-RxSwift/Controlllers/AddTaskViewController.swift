@@ -15,12 +15,16 @@ class AddTaskViewController: UIViewController {
     var taskSubkectObservable: Observable<Task> {
         return taskSubject.asObservable()
     }
+    
     @IBOutlet weak var prioritySegmentedControl: UISegmentedControl!
     @IBOutlet weak var textField: UITextField!
+    
     @IBAction func save(){
         guard let priority = Priority(rawValue: self.prioritySegmentedControl.selectedSegmentIndex) else { return }
         guard let title = textField.text else { return }
-    let  task = Task(title: title, priority: priority)
+        let  task = Task(title: title, priority: priority)
+        taskSubject.onNext(task)
+        self.dismiss(animated: true, completion: nil)
     }
     
     override func viewDidLoad() {
