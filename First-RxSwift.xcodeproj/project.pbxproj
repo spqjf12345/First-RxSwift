@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		4BAD1A3EF3D160C8601E52E5 /* Pods_First_RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14D641DECD6F009F3A72A040 /* Pods_First_RxSwift.framework */; };
+		8E12409127423800000F97EF /* NewsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E12409027423800000F97EF /* NewsTableViewController.swift */; };
+		8E12409327423A2B000F97EF /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E12409227423A2B000F97EF /* Article.swift */; };
+		8E12409527423B1A000F97EF /* ArticleTableviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E12409427423B1A000F97EF /* ArticleTableviewCell.swift */; };
+		8E12409827423C1F000F97EF /* URLRequest+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E12409727423C1F000F97EF /* URLRequest+Extensions.swift */; };
 		8E7877D6273ED6F7007C43E0 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7877D5273ED6F7007C43E0 /* MainViewController.swift */; };
 		8E7877D9273ED912007C43E0 /* TaskListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7877D8273ED912007C43E0 /* TaskListViewController.swift */; };
 		8E7877DB273EDB5E007C43E0 /* AddTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7877DA273EDB5D007C43E0 /* AddTaskViewController.swift */; };
@@ -52,6 +56,10 @@
 		390C55802077CEEA7C2BC09C /* Pods-First-RxSwift-First-RxSwiftUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-First-RxSwift-First-RxSwiftUITests.release.xcconfig"; path = "Target Support Files/Pods-First-RxSwift-First-RxSwiftUITests/Pods-First-RxSwift-First-RxSwiftUITests.release.xcconfig"; sourceTree = "<group>"; };
 		4B40CF55A2F63045F1142CD3 /* Pods-First-RxSwiftTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-First-RxSwiftTests.release.xcconfig"; path = "Target Support Files/Pods-First-RxSwiftTests/Pods-First-RxSwiftTests.release.xcconfig"; sourceTree = "<group>"; };
 		667A3DFE82C346A8BFD50878 /* Pods-First-RxSwiftTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-First-RxSwiftTests.debug.xcconfig"; path = "Target Support Files/Pods-First-RxSwiftTests/Pods-First-RxSwiftTests.debug.xcconfig"; sourceTree = "<group>"; };
+		8E12409027423800000F97EF /* NewsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewController.swift; sourceTree = "<group>"; };
+		8E12409227423A2B000F97EF /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
+		8E12409427423B1A000F97EF /* ArticleTableviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleTableviewCell.swift; sourceTree = "<group>"; };
+		8E12409727423C1F000F97EF /* URLRequest+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLRequest+Extensions.swift"; sourceTree = "<group>"; };
 		8E7877D5273ED6F7007C43E0 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		8E7877D8273ED912007C43E0 /* TaskListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListViewController.swift; sourceTree = "<group>"; };
 		8E7877DA273EDB5D007C43E0 /* AddTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskViewController.swift; sourceTree = "<group>"; };
@@ -117,6 +125,32 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		8E12408E274237A3000F97EF /* ToDoListPriority */ = {
+			isa = PBXGroup;
+			children = (
+				8E7877D5273ED6F7007C43E0 /* MainViewController.swift */,
+				8E7877D8273ED912007C43E0 /* TaskListViewController.swift */,
+				8E7877DA273EDB5D007C43E0 /* AddTaskViewController.swift */,
+			);
+			path = ToDoListPriority;
+			sourceTree = "<group>";
+		};
+		8E12408F274237BB000F97EF /* NewsAPI */ = {
+			isa = PBXGroup;
+			children = (
+				8E12409027423800000F97EF /* NewsTableViewController.swift */,
+			);
+			path = NewsAPI;
+			sourceTree = "<group>";
+		};
+		8E12409627423C04000F97EF /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				8E12409727423C1F000F97EF /* URLRequest+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		8E7877D7273ED8F0007C43E0 /* PhotoFilter */ = {
 			isa = PBXGroup;
 			children = (
@@ -130,6 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				8E7877DD273EDC54007C43E0 /* Task.swift */,
+				8E12409227423A2B000F97EF /* Article.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -159,6 +194,7 @@
 		8ED47D3C272BAEDD00393397 /* First-RxSwift */ = {
 			isa = PBXGroup;
 			children = (
+				8E12409627423C04000F97EF /* Extensions */,
 				8E7877DC273EDC37007C43E0 /* Models */,
 				8ED47D75272BB00B00393397 /* Controlllers */,
 				8ED47D74272BAFF400393397 /* StoryBoard */,
@@ -211,10 +247,9 @@
 		8ED47D75272BB00B00393397 /* Controlllers */ = {
 			isa = PBXGroup;
 			children = (
+				8E12408F274237BB000F97EF /* NewsAPI */,
 				8E7877D7273ED8F0007C43E0 /* PhotoFilter */,
-				8E7877D5273ED6F7007C43E0 /* MainViewController.swift */,
-				8E7877D8273ED912007C43E0 /* TaskListViewController.swift */,
-				8E7877DA273EDB5D007C43E0 /* AddTaskViewController.swift */,
+				8E12408E274237A3000F97EF /* ToDoListPriority */,
 			);
 			path = Controlllers;
 			sourceTree = "<group>";
@@ -223,6 +258,7 @@
 			isa = PBXGroup;
 			children = (
 				8ED47D77272BB67200393397 /* PhotoCollectionViewCell.swift */,
+				8E12409427423B1A000F97EF /* ArticleTableviewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -478,14 +514,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E12409327423A2B000F97EF /* Article.swift in Sources */,
 				8ED47D48272BAEDD00393397 /* First_RxSwift.xcdatamodeld in Sources */,
 				8ED47D42272BAEDD00393397 /* ViewController.swift in Sources */,
+				8E12409827423C1F000F97EF /* URLRequest+Extensions.swift in Sources */,
 				8ED47D3E272BAEDD00393397 /* AppDelegate.swift in Sources */,
 				8ED47D7A272BBC4800393397 /* FilterService.swift in Sources */,
 				8E7877DE273EDC54007C43E0 /* Task.swift in Sources */,
+				8E12409527423B1A000F97EF /* ArticleTableviewCell.swift in Sources */,
 				8ED47D71272BAF4C00393397 /* PhotosCollectionViewController.swift in Sources */,
 				8E7877D9273ED912007C43E0 /* TaskListViewController.swift in Sources */,
 				8ED47D40272BAEDD00393397 /* SceneDelegate.swift in Sources */,
+				8E12409127423800000F97EF /* NewsTableViewController.swift in Sources */,
 				8ED47D78272BB67200393397 /* PhotoCollectionViewCell.swift in Sources */,
 				8E7877D6273ED6F7007C43E0 /* MainViewController.swift in Sources */,
 				8E7877DB273EDB5E007C43E0 /* AddTaskViewController.swift in Sources */,
