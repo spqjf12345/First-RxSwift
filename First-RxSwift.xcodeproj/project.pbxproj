@@ -16,6 +16,9 @@
 		8E7877D9273ED912007C43E0 /* TaskListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7877D8273ED912007C43E0 /* TaskListViewController.swift */; };
 		8E7877DB273EDB5E007C43E0 /* AddTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7877DA273EDB5D007C43E0 /* AddTaskViewController.swift */; };
 		8E7877DE273EDC54007C43E0 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7877DD273EDC54007C43E0 /* Task.swift */; };
+		8EA90FF52747C14B00F12366 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA90FF42747C14B00F12366 /* WeatherViewController.swift */; };
+		8EA90FF72747C1C100F12366 /* WeatherResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA90FF62747C1C100F12366 /* WeatherResult.swift */; };
+		8EA90FF92747C59600F12366 /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA90FF82747C59600F12366 /* URL.swift */; };
 		8ED47D3E272BAEDD00393397 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED47D3D272BAEDD00393397 /* AppDelegate.swift */; };
 		8ED47D40272BAEDD00393397 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED47D3F272BAEDD00393397 /* SceneDelegate.swift */; };
 		8ED47D42272BAEDD00393397 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED47D41272BAEDD00393397 /* ViewController.swift */; };
@@ -60,10 +63,14 @@
 		8E12409227423A2B000F97EF /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		8E12409427423B1A000F97EF /* ArticleTableviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleTableviewCell.swift; sourceTree = "<group>"; };
 		8E12409727423C1F000F97EF /* URLRequest+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLRequest+Extensions.swift"; sourceTree = "<group>"; };
+		8E12409927424183000F97EF /* RxSwift.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = RxSwift.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		8E7877D5273ED6F7007C43E0 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		8E7877D8273ED912007C43E0 /* TaskListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListViewController.swift; sourceTree = "<group>"; };
 		8E7877DA273EDB5D007C43E0 /* AddTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskViewController.swift; sourceTree = "<group>"; };
 		8E7877DD273EDC54007C43E0 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		8EA90FF42747C14B00F12366 /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
+		8EA90FF62747C1C100F12366 /* WeatherResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherResult.swift; sourceTree = "<group>"; };
+		8EA90FF82747C59600F12366 /* URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URL.swift; sourceTree = "<group>"; };
 		8ED47D3A272BAEDD00393397 /* First-RxSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "First-RxSwift.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8ED47D3D272BAEDD00393397 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8ED47D3F272BAEDD00393397 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -147,6 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				8E12409727423C1F000F97EF /* URLRequest+Extensions.swift */,
+				8EA90FF82747C59600F12366 /* URL.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -165,8 +173,17 @@
 			children = (
 				8E7877DD273EDC54007C43E0 /* Task.swift */,
 				8E12409227423A2B000F97EF /* Article.swift */,
+				8EA90FF62747C1C100F12366 /* WeatherResult.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		8EA90FF32747C13500F12366 /* GoodWeather */ = {
+			isa = PBXGroup;
+			children = (
+				8EA90FF42747C14B00F12366 /* WeatherViewController.swift */,
+			);
+			path = GoodWeather;
 			sourceTree = "<group>";
 		};
 		8ED47D31272BAEDD00393397 = {
@@ -204,6 +221,7 @@
 				8ED47D49272BAEDF00393397 /* Assets.xcassets */,
 				8ED47D4E272BAEDF00393397 /* Info.plist */,
 				8ED47D46272BAEDD00393397 /* First_RxSwift.xcdatamodeld */,
+				8E12409927424183000F97EF /* RxSwift.playground */,
 			);
 			path = "First-RxSwift";
 			sourceTree = "<group>";
@@ -247,6 +265,7 @@
 		8ED47D75272BB00B00393397 /* Controlllers */ = {
 			isa = PBXGroup;
 			children = (
+				8EA90FF32747C13500F12366 /* GoodWeather */,
 				8E12408F274237BB000F97EF /* NewsAPI */,
 				8E7877D7273ED8F0007C43E0 /* PhotoFilter */,
 				8E12408E274237A3000F97EF /* ToDoListPriority */,
@@ -518,11 +537,14 @@
 				8ED47D48272BAEDD00393397 /* First_RxSwift.xcdatamodeld in Sources */,
 				8ED47D42272BAEDD00393397 /* ViewController.swift in Sources */,
 				8E12409827423C1F000F97EF /* URLRequest+Extensions.swift in Sources */,
+				8EA90FF72747C1C100F12366 /* WeatherResult.swift in Sources */,
 				8ED47D3E272BAEDD00393397 /* AppDelegate.swift in Sources */,
+				8EA90FF52747C14B00F12366 /* WeatherViewController.swift in Sources */,
 				8ED47D7A272BBC4800393397 /* FilterService.swift in Sources */,
 				8E7877DE273EDC54007C43E0 /* Task.swift in Sources */,
 				8E12409527423B1A000F97EF /* ArticleTableviewCell.swift in Sources */,
 				8ED47D71272BAF4C00393397 /* PhotosCollectionViewController.swift in Sources */,
+				8EA90FF92747C59600F12366 /* URL.swift in Sources */,
 				8E7877D9273ED912007C43E0 /* TaskListViewController.swift in Sources */,
 				8ED47D40272BAEDD00393397 /* SceneDelegate.swift in Sources */,
 				8E12409127423800000F97EF /* NewsTableViewController.swift in Sources */,
