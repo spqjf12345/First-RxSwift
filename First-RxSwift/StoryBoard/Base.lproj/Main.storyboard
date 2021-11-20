@@ -210,10 +210,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="RS3-ke-z64">
-                                <rect key="frame" x="166.5" y="356" width="81.5" height="184"/>
+                                <rect key="frame" x="159.5" y="330.5" width="95" height="235"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0ph-xf-Zua">
-                                        <rect key="frame" x="0.0" y="0.0" width="81.5" height="31"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="95" height="31"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="filter"/>
                                         <connections>
@@ -221,7 +221,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e46-X0-xZU">
-                                        <rect key="frame" x="0.0" y="51" width="81.5" height="31"/>
+                                        <rect key="frame" x="0.0" y="51" width="95" height="31"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="ToDoList"/>
                                         <connections>
@@ -229,7 +229,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZRg-MM-x1R">
-                                        <rect key="frame" x="0.0" y="102" width="81.5" height="31"/>
+                                        <rect key="frame" x="0.0" y="102" width="95" height="31"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="NewsAPI"/>
                                         <connections>
@@ -237,11 +237,19 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="faC-CH-d08">
-                                        <rect key="frame" x="0.0" y="153" width="81.5" height="31"/>
+                                        <rect key="frame" x="0.0" y="153" width="95" height="31"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="RxCocoa"/>
                                         <connections>
                                             <segue destination="EIJ-iq-BVv" kind="show" id="mkH-XL-WPU"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X0k-gq-uWK">
+                                        <rect key="frame" x="0.0" y="204" width="95" height="31"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="SearchCity"/>
+                                        <connections>
+                                            <segue destination="ISd-9w-NZF" kind="show" id="Uhu-f9-zmh"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -415,7 +423,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RJw-dF-LnC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2078.2608695652175" y="1746.4285714285713"/>
+            <point key="canvasLocation" x="1919" y="1300"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="vpt-LM-eSR">
@@ -434,7 +442,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fw3-yG-xfL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2934.7826086956525" y="1532.8125"/>
+            <point key="canvasLocation" x="3844.9275362318845" y="1532.8125"/>
         </scene>
         <!--GoodNews-->
         <scene sceneID="0rF-nI-WcH">
@@ -492,7 +500,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bKJ-7j-QpI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3818.8405797101454" y="1532.8125"/>
+            <point key="canvasLocation" x="4728.985507246377" y="1532.8125"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="3mM-4S-YAt">
@@ -511,7 +519,75 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CDX-22-Nqr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1168.1159420289855" y="1746.4285714285713"/>
+            <point key="canvasLocation" x="1193" y="1300"/>
+        </scene>
+        <!--Search City View Controller-->
+        <scene sceneID="ihl-XT-K5j">
+            <objects>
+                <viewController id="0ui-zO-pgX" customClass="SearchCityViewController" customModule="First_RxSwift" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wUh-QR-y4s">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="9qc-Oo-S8W">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="51"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="PCK-P8-JQI">
+                                <rect key="frame" x="0.0" y="56" width="414" height="786"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cityPrototypeCell" id="JVs-4D-kkE">
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="JVs-4D-kkE" id="ghD-fa-OcB">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6vF-PZ-I3e"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6vF-PZ-I3e" firstAttribute="bottom" secondItem="PCK-P8-JQI" secondAttribute="bottom" id="3lS-3s-tfx"/>
+                            <constraint firstItem="PCK-P8-JQI" firstAttribute="top" secondItem="6vF-PZ-I3e" secondAttribute="top" id="NgL-Kb-iOR"/>
+                            <constraint firstItem="9qc-Oo-S8W" firstAttribute="leading" secondItem="6vF-PZ-I3e" secondAttribute="leading" id="Obi-gR-Lx4"/>
+                            <constraint firstItem="PCK-P8-JQI" firstAttribute="leading" secondItem="6vF-PZ-I3e" secondAttribute="leading" id="YRZ-nR-K8w"/>
+                            <constraint firstItem="9qc-Oo-S8W" firstAttribute="trailing" secondItem="6vF-PZ-I3e" secondAttribute="trailing" id="fNS-aW-DPf"/>
+                            <constraint firstItem="9qc-Oo-S8W" firstAttribute="top" secondItem="wUh-QR-y4s" secondAttribute="top" id="gjA-v3-ghx"/>
+                            <constraint firstItem="6vF-PZ-I3e" firstAttribute="trailing" secondItem="PCK-P8-JQI" secondAttribute="trailing" id="hLn-KE-7X9"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="is7-4D-Ioa"/>
+                    <connections>
+                        <outlet property="searchBar" destination="9qc-Oo-S8W" id="A23-Uc-g0v"/>
+                        <outlet property="tableView" destination="PCK-P8-JQI" id="60A-Ng-Lfy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OH4-4N-t7L" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2128.985507246377" y="1943.9732142857142"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="7PV-1k-OKQ">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ISd-9w-NZF" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="wbF-u8-6RJ"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="BvT-mc-bc1">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="0ui-zO-pgX" kind="relationship" relationship="rootViewController" id="16f-g7-65V"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="naz-Tc-SVE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1218.840579710145" y="1943.9732142857142"/>
         </scene>
     </scenes>
     <resources>
