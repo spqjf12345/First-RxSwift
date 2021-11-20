@@ -51,10 +51,19 @@ class WeatherViewController: UIViewController {
         }
         
         let resource = Resource<WeatherResult>(url: url)
+//        let search = URLRequest.load(resource: resource)
+//            .observe(on: MainScheduler.instance)
+//            .catchAndReturn(WeatherResult.empty)
+//            .asDriver(onErrorJustReturn: WeatherResult.empty)
+        
         let search = URLRequest.load(resource: resource)
             .observe(on: MainScheduler.instance)
-            .catchAndReturn(WeatherResult.empty)
-            .asDriver(onErrorJustReturn: WeatherResult.empty)
+            .retry(3)
+            .catch { error in
+                print(error.localizedDescription)
+                return Observable.just(WeatherResult.empty)
+            }.asDriver(onErrorJustReturn: WeatherResult.empty)
+        
         search.map { "\($0.main.temp)‰"}
         .drive(self.label1.rx.text)
         .disposed(by: disposeBag)
