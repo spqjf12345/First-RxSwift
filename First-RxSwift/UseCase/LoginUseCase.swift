@@ -9,7 +9,7 @@ import Foundation
 import RxSwift
 
 protocol LoginUseCaseType {
-    func saveLoginInfo(requestValue: User)
+    func logIn(_: User)
 }
 
 class LoginUseCase: LoginUseCaseType {
@@ -22,10 +22,10 @@ class LoginUseCase: LoginUseCaseType {
         self.userRepository = repository
     }
     
-    func saveLoginInfo(requestValue: User) {
-        userRepository.saveLoginInfo(userId: requestValue.id, phoneNumber: requestValue.phoneNumber, nickName: requestValue.nickName)
+    public func logIn(_ requestValue: User) {
+        userRepository.logIn(nickName: requestValue.nickName, password: requestValue.password)
+        
     }
-    
     
     
     

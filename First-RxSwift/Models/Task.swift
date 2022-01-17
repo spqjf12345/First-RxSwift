@@ -14,7 +14,7 @@ enum Priority: Int {
     
 }
 
-struct Task {
+struct Tasks {
     let title: String
     let priority: Priority
 }

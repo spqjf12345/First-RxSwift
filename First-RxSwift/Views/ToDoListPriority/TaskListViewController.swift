@@ -16,8 +16,8 @@ class TaskListViewController: UIViewController {
     @IBOutlet weak var segControl: UISegmentedControl!
     @IBOutlet weak var tableView: UITableView!
     
-    private var tasks = BehaviorRelay<[Task]>(value: [])
-    private var filteredTask = [Task]()
+    private var tasks = BehaviorRelay<[Tasks]>(value: [])
+    private var filteredTask = [Tasks]()
     
     let disposeBag = DisposeBag()
     

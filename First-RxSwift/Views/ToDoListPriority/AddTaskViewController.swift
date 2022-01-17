@@ -10,9 +10,9 @@ import RxSwift
 
 class AddTaskViewController: UIViewController {
 
-    private let taskSubject = PublishSubject<Task>()
+    private let taskSubject = PublishSubject<Tasks>()
     
-    var taskSubkectObservable: Observable<Task> {
+    var taskSubkectObservable: Observable<Tasks> {
         return taskSubject.asObservable()
     }
     
@@ -22,7 +22,7 @@ class AddTaskViewController: UIViewController {
     @IBAction func save(){
         guard let priority = Priority(rawValue: self.prioritySegmentedControl.selectedSegmentIndex) else { return }
         guard let title = textField.text else { return }
-        let  task = Task(title: title, priority: priority)
+        let  task = Tasks(title: title, priority: priority)
         taskSubject.onNext(task)
         self.dismiss(animated: true, completion: nil)
     }

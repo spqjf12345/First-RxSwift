@@ -19,6 +19,9 @@
 		8E21C4F7279560FB00C0AD86 /* LoginUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E21C4F6279560FB00C0AD86 /* LoginUseCase.swift */; };
 		8E21C4FA279561E500C0AD86 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E21C4F9279561E500C0AD86 /* UserRepository.swift */; };
 		8E21C4FC2795628500C0AD86 /* UserDefaultKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E21C4FB2795628500C0AD86 /* UserDefaultKey.swift */; };
+		8E21C4FE2795B48600C0AD86 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E21C4FD2795B48600C0AD86 /* Config.swift */; };
+		8E21C5022795B5B500C0AD86 /* Login+JoinAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E21C5012795B5B500C0AD86 /* Login+JoinAPI.swift */; };
+		8E21C5042795BC0E00C0AD86 /* LoginJoinService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E21C5032795BC0E00C0AD86 /* LoginJoinService.swift */; };
 		8E7877D6273ED6F7007C43E0 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7877D5273ED6F7007C43E0 /* MainViewController.swift */; };
 		8E7877D9273ED912007C43E0 /* TaskListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7877D8273ED912007C43E0 /* TaskListViewController.swift */; };
 		8E7877DB273EDB5E007C43E0 /* AddTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7877DA273EDB5D007C43E0 /* AddTaskViewController.swift */; };
@@ -79,6 +82,9 @@
 		8E21C4F6279560FB00C0AD86 /* LoginUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUseCase.swift; sourceTree = "<group>"; };
 		8E21C4F9279561E500C0AD86 /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
 		8E21C4FB2795628500C0AD86 /* UserDefaultKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultKey.swift; sourceTree = "<group>"; };
+		8E21C4FD2795B48600C0AD86 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		8E21C5012795B5B500C0AD86 /* Login+JoinAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Login+JoinAPI.swift"; sourceTree = "<group>"; };
+		8E21C5032795BC0E00C0AD86 /* LoginJoinService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginJoinService.swift; sourceTree = "<group>"; };
 		8E7877D5273ED6F7007C43E0 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		8E7877D8273ED912007C43E0 /* TaskListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListViewController.swift; sourceTree = "<group>"; };
 		8E7877DA273EDB5D007C43E0 /* AddTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskViewController.swift; sourceTree = "<group>"; };
@@ -189,6 +195,7 @@
 			children = (
 				8E12409627423C04000F97EF /* Extensions */,
 				8E21C4FB2795628500C0AD86 /* UserDefaultKey.swift */,
+				8E21C4FD2795B48600C0AD86 /* Config.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -224,6 +231,23 @@
 				8E21C4F9279561E500C0AD86 /* UserRepository.swift */,
 			);
 			path = Repository;
+			sourceTree = "<group>";
+		};
+		8E21C4FF2795B4DF00C0AD86 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				8E21C5002795B58D00C0AD86 /* API */,
+				8E21C5032795BC0E00C0AD86 /* LoginJoinService.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		8E21C5002795B58D00C0AD86 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				8E21C5012795B5B500C0AD86 /* Login+JoinAPI.swift */,
+			);
+			path = API;
 			sourceTree = "<group>";
 		};
 		8E7877D7273ED8F0007C43E0 /* PhotoFilter */ = {
@@ -279,6 +303,7 @@
 		8ED47D3C272BAEDD00393397 /* First-RxSwift */ = {
 			isa = PBXGroup;
 			children = (
+				8E21C4FF2795B4DF00C0AD86 /* Network */,
 				8E21C4F8279561D000C0AD86 /* Repository */,
 				8E21C4F5279560D300C0AD86 /* UseCase */,
 				8E21C4EA2795517100C0AD86 /* Utils */,
@@ -594,6 +619,7 @@
 				8E12409327423A2B000F97EF /* Article.swift in Sources */,
 				8E21C4F427955B6300C0AD86 /* LoginViewModel.swift in Sources */,
 				8ED47D48272BAEDD00393397 /* First_RxSwift.xcdatamodeld in Sources */,
+				8E21C5022795B5B500C0AD86 /* Login+JoinAPI.swift in Sources */,
 				8ED47D42272BAEDD00393397 /* ViewController.swift in Sources */,
 				8E12409827423C1F000F97EF /* URLRequest+Extensions.swift in Sources */,
 				8EA90FF72747C1C100F12366 /* WeatherResult.swift in Sources */,
@@ -604,11 +630,13 @@
 				8E7877DE273EDC54007C43E0 /* Task.swift in Sources */,
 				8E12409527423B1A000F97EF /* ArticleTableviewCell.swift in Sources */,
 				8ED47D71272BAF4C00393397 /* PhotosCollectionViewController.swift in Sources */,
+				8E21C5042795BC0E00C0AD86 /* LoginJoinService.swift in Sources */,
 				8E21C4FA279561E500C0AD86 /* UserRepository.swift in Sources */,
 				8EA90FF92747C59600F12366 /* URL.swift in Sources */,
 				8E7877D9273ED912007C43E0 /* TaskListViewController.swift in Sources */,
 				8ED47D40272BAEDD00393397 /* SceneDelegate.swift in Sources */,
 				8E21C4FC2795628500C0AD86 /* UserDefaultKey.swift in Sources */,
+				8E21C4FE2795B48600C0AD86 /* Config.swift in Sources */,
 				8EBFF4F22748C45700629B26 /* SearchCityViewController.swift in Sources */,
 				8E21C4F7279560FB00C0AD86 /* LoginUseCase.swift in Sources */,
 				8E12409127423800000F97EF /* NewsTableViewController.swift in Sources */,

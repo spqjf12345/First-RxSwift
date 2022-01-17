@@ -14,10 +14,17 @@ struct User: Codable {
     let email: String
     let phoneNumber: String
     
-    init(nickName: String, password: String, email: String, phoneNumber: String) {
+    init(id: Int32 = 0, nickName: String = "", password: String = "", email: String = "", phoneNumber: String = "") {
+        self.id = id
         self.nickName = nickName
         self.password = password
         self.email = email
         self.phoneNumber = phoneNumber
     }
 }
+
+struct LoginResponse: Codable {
+    var userId: Int32
+    var jwtToken: String
+}
+
