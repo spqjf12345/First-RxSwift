@@ -87,3 +87,22 @@ class WeatherViewController: UIViewController {
 
 
 }
+
+class MethodProgramming {
+    func doSomething(){
+        print("do something")
+    }
+    
+    func doAnotherThing(){
+        print("do another thing")
+    }
+    
+    func execute(tasks:[() -> Void]){
+        for task in tasks {
+            task()
+        }
+    }
+    
+}
+
+

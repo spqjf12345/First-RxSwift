@@ -210,7 +210,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="RS3-ke-z64">
-                                <rect key="frame" x="159.5" y="330.5" width="95" height="235"/>
+                                <rect key="frame" x="159.5" y="305" width="95" height="286"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0ph-xf-Zua">
                                         <rect key="frame" x="0.0" y="0.0" width="95" height="31"/>
@@ -249,7 +249,15 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="SearchCity"/>
                                         <connections>
-                                            <segue destination="ISd-9w-NZF" kind="show" id="Uhu-f9-zmh"/>
+                                            <segue destination="ISd-9w-NZF" kind="show" id="xAN-zQ-wew"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DWa-Fl-t7Z">
+                                        <rect key="frame" x="0.0" y="255" width="95" height="31"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Login"/>
+                                        <connections>
+                                            <segue destination="DWR-1Q-Rxo" kind="show" id="kQT-Oc-94v"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -266,6 +274,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FlU-xP-HeU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="438" y="103"/>
+        </scene>
+        <!--Login-->
+        <scene sceneID="EpV-mH-0Dc">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Login" referencedIdentifier="Login" id="DWR-1Q-Rxo" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="YJR-mc-aPs"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dqX-aC-ePR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-84" y="642"/>
         </scene>
         <!--Photos Collection View Controller-->
         <scene sceneID="L8Y-9A-X8O">
@@ -529,10 +547,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="9qc-Oo-S8W">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="51"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="PCK-P8-JQI">
                                 <rect key="frame" x="0.0" y="56" width="414" height="786"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -553,22 +567,18 @@
                         <constraints>
                             <constraint firstItem="6vF-PZ-I3e" firstAttribute="bottom" secondItem="PCK-P8-JQI" secondAttribute="bottom" id="3lS-3s-tfx"/>
                             <constraint firstItem="PCK-P8-JQI" firstAttribute="top" secondItem="6vF-PZ-I3e" secondAttribute="top" id="NgL-Kb-iOR"/>
-                            <constraint firstItem="9qc-Oo-S8W" firstAttribute="leading" secondItem="6vF-PZ-I3e" secondAttribute="leading" id="Obi-gR-Lx4"/>
                             <constraint firstItem="PCK-P8-JQI" firstAttribute="leading" secondItem="6vF-PZ-I3e" secondAttribute="leading" id="YRZ-nR-K8w"/>
-                            <constraint firstItem="9qc-Oo-S8W" firstAttribute="trailing" secondItem="6vF-PZ-I3e" secondAttribute="trailing" id="fNS-aW-DPf"/>
-                            <constraint firstItem="9qc-Oo-S8W" firstAttribute="top" secondItem="wUh-QR-y4s" secondAttribute="top" id="gjA-v3-ghx"/>
                             <constraint firstItem="6vF-PZ-I3e" firstAttribute="trailing" secondItem="PCK-P8-JQI" secondAttribute="trailing" id="hLn-KE-7X9"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="is7-4D-Ioa"/>
                     <connections>
-                        <outlet property="searchBar" destination="9qc-Oo-S8W" id="A23-Uc-g0v"/>
                         <outlet property="tableView" destination="PCK-P8-JQI" id="60A-Ng-Lfy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OH4-4N-t7L" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2128.985507246377" y="1943.9732142857142"/>
+            <point key="canvasLocation" x="1970" y="1944"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="7PV-1k-OKQ">
@@ -587,7 +597,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="naz-Tc-SVE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1218.840579710145" y="1943.9732142857142"/>
+            <point key="canvasLocation" x="1193" y="1944"/>
         </scene>
     </scenes>
     <resources>

@@ -12,6 +12,9 @@
 		8E12409327423A2B000F97EF /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E12409227423A2B000F97EF /* Article.swift */; };
 		8E12409527423B1A000F97EF /* ArticleTableviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E12409427423B1A000F97EF /* ArticleTableviewCell.swift */; };
 		8E12409827423C1F000F97EF /* URLRequest+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E12409727423C1F000F97EF /* URLRequest+Extensions.swift */; };
+		8E21C4EE2795568600C0AD86 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E21C4ED2795568500C0AD86 /* User.swift */; };
+		8E21C4F0279557B200C0AD86 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E21C4EF279557B200C0AD86 /* Login.storyboard */; };
+		8E21C4F2279557F800C0AD86 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E21C4F1279557F800C0AD86 /* LoginViewController.swift */; };
 		8E7877D6273ED6F7007C43E0 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7877D5273ED6F7007C43E0 /* MainViewController.swift */; };
 		8E7877D9273ED912007C43E0 /* TaskListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7877D8273ED912007C43E0 /* TaskListViewController.swift */; };
 		8E7877DB273EDB5E007C43E0 /* AddTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7877DA273EDB5D007C43E0 /* AddTaskViewController.swift */; };
@@ -65,6 +68,9 @@
 		8E12409427423B1A000F97EF /* ArticleTableviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleTableviewCell.swift; sourceTree = "<group>"; };
 		8E12409727423C1F000F97EF /* URLRequest+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLRequest+Extensions.swift"; sourceTree = "<group>"; };
 		8E12409927424183000F97EF /* RxSwift.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = RxSwift.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		8E21C4ED2795568500C0AD86 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		8E21C4EF279557B200C0AD86 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		8E21C4F1279557F800C0AD86 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		8E7877D5273ED6F7007C43E0 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		8E7877D8273ED912007C43E0 /* TaskListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListViewController.swift; sourceTree = "<group>"; };
 		8E7877DA273EDB5D007C43E0 /* AddTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskViewController.swift; sourceTree = "<group>"; };
@@ -147,6 +153,7 @@
 		8E12408F274237BB000F97EF /* NewsAPI */ = {
 			isa = PBXGroup;
 			children = (
+				8E12409427423B1A000F97EF /* ArticleTableviewCell.swift */,
 				8E12409027423800000F97EF /* NewsTableViewController.swift */,
 			);
 			path = NewsAPI;
@@ -161,10 +168,42 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		8E21C4E92795513A00C0AD86 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		8E21C4EA2795517100C0AD86 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				8E12409627423C04000F97EF /* Extensions */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		8E21C4EB279551D300C0AD86 /* SearchCity */ = {
+			isa = PBXGroup;
+			children = (
+				8EBFF4F12748C45700629B26 /* SearchCityViewController.swift */,
+			);
+			path = SearchCity;
+			sourceTree = "<group>";
+		};
+		8E21C4EC2795527E00C0AD86 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				8E21C4EF279557B200C0AD86 /* Login.storyboard */,
+				8E21C4F1279557F800C0AD86 /* LoginViewController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
 		8E7877D7273ED8F0007C43E0 /* PhotoFilter */ = {
 			isa = PBXGroup;
 			children = (
-				8ED47D41272BAEDD00393397 /* ViewController.swift */,
+				8ED47D77272BB67200393397 /* PhotoCollectionViewCell.swift */,
 				8ED47D70272BAF4C00393397 /* PhotosCollectionViewController.swift */,
 			);
 			path = PhotoFilter;
@@ -176,6 +215,7 @@
 				8E7877DD273EDC54007C43E0 /* Task.swift */,
 				8E12409227423A2B000F97EF /* Article.swift */,
 				8EA90FF62747C1C100F12366 /* WeatherResult.swift */,
+				8E21C4ED2795568500C0AD86 /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -213,10 +253,10 @@
 		8ED47D3C272BAEDD00393397 /* First-RxSwift */ = {
 			isa = PBXGroup;
 			children = (
-				8E12409627423C04000F97EF /* Extensions */,
+				8E21C4EA2795517100C0AD86 /* Utils */,
+				8E21C4E92795513A00C0AD86 /* ViewModels */,
 				8E7877DC273EDC37007C43E0 /* Models */,
-				8ED47D75272BB00B00393397 /* Controlllers */,
-				8ED47D74272BAFF400393397 /* StoryBoard */,
+				8ED47D74272BAFF400393397 /* Views */,
 				8ED47D72272BAFDF00393397 /* Services */,
 				8ED47D3D272BAEDD00393397 /* AppDelegate.swift */,
 				8ED47D3F272BAEDD00393397 /* SceneDelegate.swift */,
@@ -254,35 +294,20 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
-		8ED47D74272BAFF400393397 /* StoryBoard */ = {
+		8ED47D74272BAFF400393397 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				8ED47D76272BB65800393397 /* Cells */,
-				8ED47D4B272BAEDF00393397 /* LaunchScreen.storyboard */,
-				8ED47D43272BAEDD00393397 /* Main.storyboard */,
-			);
-			path = StoryBoard;
-			sourceTree = "<group>";
-		};
-		8ED47D75272BB00B00393397 /* Controlllers */ = {
-			isa = PBXGroup;
-			children = (
+				8ED47D41272BAEDD00393397 /* ViewController.swift */,
+				8E21C4EC2795527E00C0AD86 /* Login */,
+				8E21C4EB279551D300C0AD86 /* SearchCity */,
 				8EA90FF32747C13500F12366 /* GoodWeather */,
 				8E12408F274237BB000F97EF /* NewsAPI */,
 				8E7877D7273ED8F0007C43E0 /* PhotoFilter */,
 				8E12408E274237A3000F97EF /* ToDoListPriority */,
-				8EBFF4F12748C45700629B26 /* SearchCityViewController.swift */,
+				8ED47D4B272BAEDF00393397 /* LaunchScreen.storyboard */,
+				8ED47D43272BAEDD00393397 /* Main.storyboard */,
 			);
-			path = Controlllers;
-			sourceTree = "<group>";
-		};
-		8ED47D76272BB65800393397 /* Cells */ = {
-			isa = PBXGroup;
-			children = (
-				8ED47D77272BB67200393397 /* PhotoCollectionViewCell.swift */,
-				8E12409427423B1A000F97EF /* ArticleTableviewCell.swift */,
-			);
-			path = Cells;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		BAEBE31791E93B7E16DF98A1 /* Pods */ = {
@@ -406,6 +431,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E21C4F0279557B200C0AD86 /* Login.storyboard in Resources */,
 				8ED47D4D272BAEDF00393397 /* LaunchScreen.storyboard in Resources */,
 				8ED47D4A272BAEDF00393397 /* Assets.xcassets in Resources */,
 				8ED47D45272BAEDD00393397 /* Main.storyboard in Resources */,
@@ -536,6 +562,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E21C4F2279557F800C0AD86 /* LoginViewController.swift in Sources */,
 				8E12409327423A2B000F97EF /* Article.swift in Sources */,
 				8ED47D48272BAEDD00393397 /* First_RxSwift.xcdatamodeld in Sources */,
 				8ED47D42272BAEDD00393397 /* ViewController.swift in Sources */,
@@ -544,6 +571,7 @@
 				8ED47D3E272BAEDD00393397 /* AppDelegate.swift in Sources */,
 				8EA90FF52747C14B00F12366 /* WeatherViewController.swift in Sources */,
 				8ED47D7A272BBC4800393397 /* FilterService.swift in Sources */,
+				8E21C4EE2795568600C0AD86 /* User.swift in Sources */,
 				8E7877DE273EDC54007C43E0 /* Task.swift in Sources */,
 				8E12409527423B1A000F97EF /* ArticleTableviewCell.swift in Sources */,
 				8ED47D71272BAF4C00393397 /* PhotosCollectionViewController.swift in Sources */,
