@@ -8,7 +8,7 @@ target 'First-RxSwift' do
   # Pods for First-RxSwift
 pod 'RxSwift', '6.2.0'
 pod 'RxCocoa', '6.2.0'
-
+pod 'ReactorKit'
 pod 'Moya/RxSwift', '~> 15.0'
 
   target 'First-RxSwiftTests' do

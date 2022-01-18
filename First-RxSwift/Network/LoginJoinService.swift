@@ -20,4 +20,11 @@ class LoginJoinService {
       
     }
     
+    func sameIdCheck(nickName: String) -> Observable<Bool> {
+        return self.provider.rx.request(.sameIdCheck(nickname: nickName))
+            .filterSuccessfulStatusCodes()
+            .map(Bool.self)
+            .asObservable()
+    }
+    
 }

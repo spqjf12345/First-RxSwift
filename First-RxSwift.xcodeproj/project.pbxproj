@@ -26,6 +26,8 @@
 		8E7877D9273ED912007C43E0 /* TaskListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7877D8273ED912007C43E0 /* TaskListViewController.swift */; };
 		8E7877DB273EDB5E007C43E0 /* AddTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7877DA273EDB5D007C43E0 /* AddTaskViewController.swift */; };
 		8E7877DE273EDC54007C43E0 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7877DD273EDC54007C43E0 /* Task.swift */; };
+		8E8616F027968B18005B1A88 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8616EF27968B18005B1A88 /* SignUpViewController.swift */; };
+		8E8616F227968EEF005B1A88 /* SignUpViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8616F127968EEF005B1A88 /* SignUpViewReactor.swift */; };
 		8EA90FF52747C14B00F12366 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA90FF42747C14B00F12366 /* WeatherViewController.swift */; };
 		8EA90FF72747C1C100F12366 /* WeatherResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA90FF62747C1C100F12366 /* WeatherResult.swift */; };
 		8EA90FF92747C59600F12366 /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA90FF82747C59600F12366 /* URL.swift */; };
@@ -89,6 +91,8 @@
 		8E7877D8273ED912007C43E0 /* TaskListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListViewController.swift; sourceTree = "<group>"; };
 		8E7877DA273EDB5D007C43E0 /* AddTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskViewController.swift; sourceTree = "<group>"; };
 		8E7877DD273EDC54007C43E0 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		8E8616EF27968B18005B1A88 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		8E8616F127968EEF005B1A88 /* SignUpViewReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewReactor.swift; sourceTree = "<group>"; };
 		8EA90FF42747C14B00F12366 /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
 		8EA90FF62747C1C100F12366 /* WeatherResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherResult.swift; sourceTree = "<group>"; };
 		8EA90FF82747C59600F12366 /* URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URL.swift; sourceTree = "<group>"; };
@@ -213,6 +217,8 @@
 			children = (
 				8E21C4EF279557B200C0AD86 /* Login.storyboard */,
 				8E21C4F1279557F800C0AD86 /* LoginViewController.swift */,
+				8E8616EF27968B18005B1A88 /* SignUpViewController.swift */,
+				8E8616F127968EEF005B1A88 /* SignUpViewReactor.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -625,12 +631,14 @@
 				8EA90FF72747C1C100F12366 /* WeatherResult.swift in Sources */,
 				8ED47D3E272BAEDD00393397 /* AppDelegate.swift in Sources */,
 				8EA90FF52747C14B00F12366 /* WeatherViewController.swift in Sources */,
+				8E8616F227968EEF005B1A88 /* SignUpViewReactor.swift in Sources */,
 				8ED47D7A272BBC4800393397 /* FilterService.swift in Sources */,
 				8E21C4EE2795568600C0AD86 /* User.swift in Sources */,
 				8E7877DE273EDC54007C43E0 /* Task.swift in Sources */,
 				8E12409527423B1A000F97EF /* ArticleTableviewCell.swift in Sources */,
 				8ED47D71272BAF4C00393397 /* PhotosCollectionViewController.swift in Sources */,
 				8E21C5042795BC0E00C0AD86 /* LoginJoinService.swift in Sources */,
+				8E8616F027968B18005B1A88 /* SignUpViewController.swift in Sources */,
 				8E21C4FA279561E500C0AD86 /* UserRepository.swift in Sources */,
 				8EA90FF92747C59600F12366 /* URL.swift in Sources */,
 				8E7877D9273ED912007C43E0 /* TaskListViewController.swift in Sources */,

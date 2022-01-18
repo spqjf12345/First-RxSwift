@@ -109,8 +109,5 @@ private extension LoginViewController {
         UIApplication.shared.windows.first?.rootViewController = rootNC
         UIApplication.shared.windows.first?.makeKeyAndVisible()
     }
-    
-    func showError(){
-        
-    }
+
 }

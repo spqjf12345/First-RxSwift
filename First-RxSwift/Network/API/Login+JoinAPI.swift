@@ -10,7 +10,7 @@ import Moya
 
 enum LoginJoinAPI {
     case login(nickname: String, password: String)
-    
+    case sameIdCheck(nickname: String)
 }
 
 extension LoginJoinAPI: TargetType {
@@ -23,13 +23,16 @@ extension LoginJoinAPI: TargetType {
         switch self {
         case .login:
             return "/api/login"
+        case .sameIdCheck:
+            return "/api/duplicate"
         }
     }
     
     var method: Moya.Method {
         switch self {
-        case .login:
+        case .login, .sameIdCheck:
             return .post
+
         }
     }
     
@@ -37,6 +40,8 @@ extension LoginJoinAPI: TargetType {
         switch self {
         case .login(let nickname, let password):
             return .requestParameters(parameters: ["nickname": nickname, "password": password], encoding: JSONEncoding.default)
+        case .sameIdCheck(let nickname):
+            return .requestParameters(parameters: ["nickname": nickname], encoding: JSONEncoding.default)
         }
     }
     
