@@ -7,11 +7,10 @@
 
 import Foundation
 import UIKit
-import ReactorKit
 import RxCocoa
 import RxSwift
 
-class SignUpViewController: UIViewController, View {
+class SignUpViewController: UIViewController {
     
     @IBOutlet weak var IDTextField: UITextField!
     @IBOutlet weak var IDCheckButton: UIButton!
@@ -44,37 +43,5 @@ class SignUpViewController: UIViewController, View {
         super.viewDidLoad()
     }
     
-    func bind(reactor: SignUpViewReactor) {
-        
-        //reactor input
-        self.IDCheckButton.rx.tap
-            .map{ SignUpViewReactor.Action.sameIdCheck }
-            .bind(to: reactor.action)
-            .disposed(by: disposeBag)
-        
-        self.authenRequestButton.rx.tap
-            .map{ SignUpViewReactor.Action.authenRequest }
-            .bind(to: reactor.action)
-            .disposed(by: disposeBag)
-        
-        self.authenOKButton.rx.tap
-            .map{ SignUpViewReactor.Action.authenCodeCheck }
-            .bind(to: reactor.action)
-            .disposed(by: disposeBag)
-        
-        self.signUpButton.rx.tap
-            .map{ SignUpViewReactor.Action.signUp }
-            .bind(to: reactor.action)
-            .disposed(by: disposeBag)
-        
-        //reactor output
-        reactor.state.map { $0.idValidText }
-        .distinctUntilChanged()
-        .map{ $0 }
-        .subscribe{ text in
-            self.IDValidText.text = text
-        }.disposed(by: disposeBag)
-        
-        
-    }
+    
 }

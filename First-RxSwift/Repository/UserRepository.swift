@@ -12,6 +12,7 @@ import RxSwift
 protocol UserRepositoryType {
     func saveLoginInfo(userId: Int32, jwtToken: String)
     func logIn(nickName: String, password: String)
+    func signUp(user: User)
 }
 
 class UserRepository: UserRepositoryType {
@@ -32,6 +33,10 @@ class UserRepository: UserRepositoryType {
             self.saveLoginInfo(userId: loginResponse.userId, jwtToken: loginResponse.jwtToken)
         }.disposed(by: disposeBag)
         
+    }
+    
+    func signUp(user: User) {
+        //userService.
     }
     
     

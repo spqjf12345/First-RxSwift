@@ -10,7 +10,7 @@ pod 'RxSwift', '6.2.0'
 pod 'RxCocoa', '6.2.0'
 pod 'ReactorKit'
 pod 'Moya/RxSwift', '~> 15.0'
-
+pod 'RxFlow'
   target 'First-RxSwiftTests' do
     inherit! :search_paths
     # Pods for testing

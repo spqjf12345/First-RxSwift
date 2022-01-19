@@ -48,7 +48,7 @@ class LoginViewModel {
                 }else if(password.count < 0){
                     output.errorMessage.accept("비밀번호를 입력해주세요")
                 }else {
-                    let userData = User(id: 0, nickName: id, password: password, email: "", phoneNumber: "")
+                    let userData = User(id: 0, nickName: id, password: password, phoneNumber: "")
                     self.loginUseCase.logIn(userData)
                     
                 }
@@ -58,12 +58,5 @@ class LoginViewModel {
         //self.bindLogin(from: input, with: output, disposeBag: disposeBag)
         return output
     }
-    
-//    private func bindLogin(from input: Input, with output: Output, disposeBag: DisposeBag) {
-//        input.tapLoginButton
-//            .subscribe(onNext: { [weak self] in
-//                self?.loginUseCase.logIn()
-//            }, onError: <#T##((Error) -> Void)?##((Error) -> Void)?##(Error) -> Void#>, onCompleted: <#T##(() -> Void)?##(() -> Void)?##() -> Void#>, onDisposed: <#T##(() -> Void)?##(() -> Void)?##() -> Void#>)
-//    }
 
 }

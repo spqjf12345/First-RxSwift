@@ -27,4 +27,14 @@ class LoginJoinService {
             .asObservable()
     }
     
+//    func signUp(user: User) -> Observable<Result<Data, Error>> {
+//        self.provider.rx.request(.signUp(user: user) { }
+//                                 
+//        return Observable<Result<Data, Error>>.create { emitter in
+//
+//        }
+//        
+//            
+//    }
+    
 }

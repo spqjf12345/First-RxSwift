@@ -68,25 +68,25 @@ final class SignUpViewReactor:Reactor {
     
 }
 
-extension SignUpViewReactor {
-    //Action을 받고, Observable을 생성
-    func mutate(action: Action) -> Observable<Mutation> {
-        switch action {
-        case let .sameIdCheckButton(text):
-            var message: [String: String]
-            if(text?.count == 0) {
-                message = ["아이디 입력": "아이디를 입력해주세요"]
-                return Observable.concat([Observable.just(Mutation.alertInput(message))])
-            }else {
-                //call sameIdCheck
-                //if true
-                var guideMessage = "사용 가능한 아이디입니다."
-                return Observable.concat([Observable.just(Mutation.IdValidText(guideMessage))])
-            }
-        
-            
-        }
-    }
-    
-   
-}
+//extension SignUpViewReactor {
+//    //Action을 받고, Observable을 생성
+//    func mutate(action: Action) -> Observable<Mutation> {
+//        switch action {
+//        case let .sameIdCheckButton(text):
+//            var message: [String: String]
+//            if(text?.count == 0) {
+//                message = ["아이디 입력": "아이디를 입력해주세요"]
+//                return Observable.concat([Observable.just(Mutation.alertInput(message))])
+//            }else {
+//                //call sameIdCheck
+//                //if true
+//                var guideMessage = "사용 가능한 아이디입니다."
+//                return Observable.concat([Observable.just(Mutation.IdValidText(guideMessage))])
+//            }
+//        
+//            
+//        }
+//    }
+//    
+//   
+//}
