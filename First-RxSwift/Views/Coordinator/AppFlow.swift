@@ -15,53 +15,45 @@ class AppFlow: Flow {
         return self.window
     }
     
-    init(window: UIWindow){
+    private let service: AppService
+
+    init(service: AppService, window: UIWindow) {
+        self.service = service
         self.window = window
     }
     
     func navigate(to step: Step) -> FlowContributors {
-        guard let step = step as? AllStep else { return }
+        guard let step = step as? AllStep else { return .none }
         switch step {
         case .login:
-            return self.navigateToLogin()
-        case .signUp:
-            return self.navigateToSignUp()
-        case .findID:
-            return self.navigateToFindID()
-        case .findPassword:
-            return self.navigateToFindPW()
-        case .makeFolder:
-            return self.navigateToMakeFolder()
+            return navigationToLogin()
         case .boxTap:
-            return self.navigateToMain()
-        case .textTap:
-            return self.navigateToTextTap()
-        case .textIn:
-            return self.navigateToTextIn()
-        case .textAdd:
-            return self.navigateToTextAdd()
-        case .linkTap:
-            return self.navigateToLinkTap()
-        case .linkIn:
-            return self.navigateToLinkIn()
-        case .linkAdd:
-            return self.navigateToLinkAdd()
-        case .presentTap:
-            return self.navigateToPresentTap()
-        case .presentAdd:
-            return self.navigateToPresentAdd()
-        case .showPresentImage:
-            return self.navigateToPresentImage()
-        case .calendarTap:
-            return self.navigateToCalendarTap()
-        case .calendarAdd:
-            return self.navigateToCalendarAdd()
-        case .setting:
-            return self.navigateToSetting()
-        case .editProfile:
-            return self.navigateToEditPfofile()
-        case .bookMark:
-            return self.navigateToBookMark()
+            return navigateToMain()
+        default:
+            return .none
         }
+    }
+    
+    private func navigationToLogin() -> FlowContributors {
+        let loginFlow = LoginFlow(withService: self.service)
+        Flows.use(loginFlow, when: .created){ [unowned self] root in
+            DispatchQueue.main.async {
+                self.window.rootViewController = root
+            }
+        }
+        return .one(flowContributor: .contribute(withNextPresentable: loginFlow,
+                                                 withNextStepper: OneStepper(withSingleStep: AllStep.login)))
+    }
+    
+    private func navigateToMain() -> FlowContributors {
+        //TODO 수정
+        let loginFlow = LoginFlow(withService: self.service)
+        Flows.use(loginFlow, when: .created){ [unowned self] root in
+            DispatchQueue.main.async {
+                self.window.rootViewController = root
+            }
+        }
+        return .one(flowContributor: .contribute(withNextPresentable: loginFlow,
+                                                 withNextStepper: OneStepper(withSingleStep: AllStep.login)))
     }
 }

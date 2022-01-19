@@ -9,6 +9,10 @@ import Foundation
 import Moya
 import RxSwift
 
+protocol HasLoginJoinService {
+    var loginJoinService: LoginJoinService { get }
+}
+
 class LoginJoinService {
     let provider = MoyaProvider<LoginJoinAPI>()
     

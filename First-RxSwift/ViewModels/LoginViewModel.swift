@@ -8,10 +8,13 @@
 import Foundation
 import RxSwift
 import RxCocoa
+import RxFlow
 
-class LoginViewModel {
+class LoginViewModel: Stepper {
     
     private let loginUseCase: LoginUseCase
+    var steps = PublishRelay<Step>()
+    
     let disposeBag = DisposeBag()
     
     init(loginUseCase: LoginUseCase) {
@@ -50,12 +53,10 @@ class LoginViewModel {
                 }else {
                     let userData = User(id: 0, nickName: id, password: password, phoneNumber: "")
                     self.loginUseCase.logIn(userData)
-                    
+                    self.steps.accept(AllStep.boxTap) // main tap으로 이동 stepper를 트리거
                 }
             
         }.disposed(by: disposeBag)
-        
-        //self.bindLogin(from: input, with: output, disposeBag: disposeBag)
         return output
     }
 

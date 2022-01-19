@@ -75,10 +75,18 @@ private extension LoginViewController {
         let output = self.viewModel.transform(from: input, disposeBag: self.disposeBag)
         
         // Bind output
-       output.enableLoginInButton
-            .observe(on: MainScheduler.instance)
-           .bind(to: loginButton.rx.isEnabled)
-           .disposed(by: disposeBag)
+        output.enableLoginInButton
+            .asDriver(onErrorJustReturn: false)
+            .drive(onNext: { [weak self] isValid in
+                self?.loginButton.isEnabled = isValid
+                self?.loginButton.backgroundColor = isValid ? .mrPurple : .lightGray
+            })
+            .disposed(by: self.disposeBag)
+        
+//       output.enableLoginInButton
+//            .observe(on: MainScheduler.instance)
+//           .bind(to: loginButton.rx.isEnabled)
+//           .disposed(by: disposeBag)
         
        output.errorMessage
             .observe(on: MainScheduler.instance)
