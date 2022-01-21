@@ -35,12 +35,14 @@ class AppFlow: Flow {
     }
     
     private func navigationToLogin() -> FlowContributors {
+        
         let loginFlow = LoginFlow(withService: self.service)
         Flows.use(loginFlow, when: .created){ [unowned self] root in
             DispatchQueue.main.async {
                 self.window.rootViewController = root
             }
         }
+        
         return .one(flowContributor: .contribute(withNextPresentable: loginFlow,
                                                  withNextStepper: OneStepper(withSingleStep: AllStep.login)))
     }

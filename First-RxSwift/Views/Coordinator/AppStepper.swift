@@ -18,8 +18,10 @@ class AppStepper: Stepper {
 
     var initialStep: Step {
         if(UserDefaults.standard.string(forKey: UserDefaultKey.isNewUser) == "1" && UserDefaults.standard.string(forKey: UserDefaultKey.jwtToken) != nil) {
+            print("AllStep.boxTap")
             return AllStep.boxTap
         }else {
+            print("AllStep.login")
             return AllStep.login
         }
     }

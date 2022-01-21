@@ -28,6 +28,8 @@ class LoginFlow: Flow {
     func navigate(to step: Step) -> FlowContributors {
         guard let step = step as? AllStep else { return .none }
         switch step {
+        case .login:
+            return self.navigateToLogin()
         case .signUp:
             return self.navigateToSignUp()
         case .findID:
@@ -39,6 +41,16 @@ class LoginFlow: Flow {
         default:
             return FlowContributors.none
         }
+    }
+    
+    private func navigateToLogin() -> FlowContributors {
+        let viewModel = LoginViewModel(loginUseCase: LoginUseCase(repository: UserRepository(userService: LoginJoinService())))
+        
+        if let vc = UIStoryboard(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "Login") as? LoginViewController {
+            rootViewController.pushViewController(vc, animated: true)
+            return .one(flowContributor: .contribute(withNextPresentable: vc, withNextStepper: viewModel))
+        }
+        return .none
     }
     
     private func navigateToSignUp() -> FlowContributors {
