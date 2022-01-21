@@ -550,9 +550,6 @@
                                         <state key="normal" title="-&gt; 비밀번호 찾기">
                                             <color key="titleColor" red="0.50567162040000002" green="0.55177193879999997" blue="0.75688809160000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </state>
-                                        <connections>
-                                            <action selector="findPWButton:" destination="C9h-xf-d0Y" eventType="touchUpInside" id="zlV-gc-jI3"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -571,9 +568,6 @@
                                         <state key="normal" title="-&gt; 로그인 하러 가기">
                                             <color key="titleColor" red="0.50567162040000002" green="0.55177193879999997" blue="0.75688809160000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </state>
-                                        <connections>
-                                            <action selector="goToLogin:" destination="C9h-xf-d0Y" eventType="touchUpInside" id="r7Y-8m-yhI"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -609,9 +603,6 @@
                                 <state key="normal" title="문자 발송">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
-                                <connections>
-                                    <action selector="sendMessageButton:" destination="C9h-xf-d0Y" eventType="touchUpInside" id="RAz-pk-0OI"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PjG-hY-Vv5">
                                 <rect key="frame" x="304" y="441.5" width="90" height="36"/>
@@ -624,9 +615,6 @@
                                 <state key="normal" title="확인">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
-                                <connections>
-                                    <action selector="checkAuthenCode:" destination="C9h-xf-d0Y" eventType="touchUpInside" id="jym-GH-eRW"/>
-                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="인증 코드" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6d4-CJ-9M1">
                                 <rect key="frame" x="30" y="407.5" width="374" height="24"/>
@@ -684,16 +672,18 @@
                     <navigationItem key="navigationItem" id="qmW-mk-dWO">
                         <barButtonItem key="leftBarButtonItem" image="chevron.left" catalog="system" id="GEN-cJ-Fce">
                             <color key="tintColor" red="0.1647058824" green="0.20000000000000001" blue="0.3411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <connections>
-                                <action selector="backButton:" destination="C9h-xf-d0Y" id="gIA-Zx-wlG"/>
-                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="AuthenSuccessText" destination="uos-sU-UWT" id="sjN-uk-cgC"/>
+                        <outlet property="authenCodeButton" destination="PjG-hY-Vv5" id="Ii3-nI-Uwu"/>
                         <outlet property="authenCodeTextField" destination="YAh-TK-dJE" id="jD7-42-pBg"/>
+                        <outlet property="backButton" destination="GEN-cJ-Fce" id="NN6-oA-miB"/>
+                        <outlet property="findPWButton" destination="6P9-GD-VOj" id="BrD-oy-u2e"/>
+                        <outlet property="goToLoginButton" destination="3Ik-41-XFh" id="ePO-3C-rDf"/>
                         <outlet property="phoneNumberTextField" destination="teQ-25-d15" id="3ub-gF-o35"/>
                         <outlet property="reAuthenText" destination="psJ-Dg-eAP" id="Ofj-ni-eSB"/>
+                        <outlet property="sendMessageButton" destination="G0l-d6-4Al" id="iU7-zu-zXS"/>
                         <outlet property="sendMessageText" destination="NH9-dq-G48" id="bNn-Tc-k94"/>
                         <segue destination="mou-6c-fCz" kind="show" identifier="findPW" id="twg-Xs-W6e"/>
                     </connections>
@@ -771,10 +761,6 @@
                                         <state key="normal" title="문자 발송">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
-                                        <connections>
-                                            <action selector="sendMessageButton:" destination="C9h-xf-d0Y" eventType="touchUpInside" id="jXW-8f-F3I"/>
-                                            <action selector="sendMessageButton:" destination="mou-6c-fCz" eventType="touchUpInside" id="wnq-F5-dp6"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -801,10 +787,6 @@
                                         <state key="normal" title="확인">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
-                                        <connections>
-                                            <action selector="authenCodeButton:" destination="mou-6c-fCz" eventType="touchUpInside" id="ZXD-lm-cst"/>
-                                            <action selector="sendMessageButton:" destination="C9h-xf-d0Y" eventType="touchUpInside" id="u4T-Wo-YPj"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -826,9 +808,6 @@
                                 <state key="normal" title="-&gt; 로그인 하러 가기">
                                     <color key="titleColor" red="0.50567162040000002" green="0.55177193879999997" blue="0.75688809160000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
-                                <connections>
-                                    <action selector="goToLogin:" destination="mou-6c-fCz" eventType="touchUpInside" id="d4h-Ka-u45"/>
-                                </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="아이디 입력" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pjo-8R-swG">
                                 <rect key="frame" x="35" y="272" width="242" height="44"/>
@@ -868,10 +847,6 @@
                                 <state key="normal" title="확인">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
-                                <connections>
-                                    <action selector="IDCheckButton:" destination="mou-6c-fCz" eventType="touchUpInside" id="jIs-wA-1Wu"/>
-                                    <action selector="sendMessageButton:" destination="C9h-xf-d0Y" eventType="touchUpInside" id="fph-xo-8VE"/>
-                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="존재하지 않는 아이디입니다." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rXh-GP-hs7">
                                 <rect key="frame" x="35" y="317" width="372" height="14.5"/>
@@ -938,18 +913,20 @@
                     <navigationItem key="navigationItem" id="W7h-OK-ULN">
                         <barButtonItem key="leftBarButtonItem" image="chevron.left" catalog="system" id="TwB-4i-yEc">
                             <color key="tintColor" red="0.16470588235294117" green="0.20000000000000001" blue="0.3411764705882353" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <connections>
-                                <action selector="backButton:" destination="mou-6c-fCz" id="N2n-9a-fKA"/>
-                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="AuthenSuccess" destination="zww-33-xZu" id="Erw-PJ-uOq"/>
                         <outlet property="IDTextField" destination="pjo-8R-swG" id="mIO-AI-YbN"/>
+                        <outlet property="authenCodeButton" destination="Q6f-AX-9Uf" id="nhF-zz-zna"/>
                         <outlet property="authenTextField" destination="wii-Ir-oKK" id="ve6-Lg-eg3"/>
+                        <outlet property="backButton" destination="TwB-4i-yEc" id="Sk3-T3-aHm"/>
+                        <outlet property="goToLoginButton" destination="EVX-O6-ZV9" id="1ph-hd-uZU"/>
+                        <outlet property="idCheckButton" destination="FG7-h7-B97" id="7sL-wx-ZhF"/>
                         <outlet property="inValidIDText" destination="rXh-GP-hs7" id="fEh-g6-uNt"/>
                         <outlet property="phoneNumberTextField" destination="yGx-l5-WNp" id="5Xd-Rl-K0C"/>
                         <outlet property="reAuthenText" destination="T4O-oi-nOM" id="rMi-Ew-A9T"/>
+                        <outlet property="sendMessageButton" destination="bc6-6M-9NZ" id="1CR-gz-g4i"/>
                         <outlet property="sendTextLabel" destination="Dav-sI-bEW" id="VTv-h2-dt8"/>
                     </connections>
                 </viewController>
@@ -959,7 +936,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="wGn-eu-S3z"/>
+        <segue reference="twg-Xs-W6e"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="chevron.backward" catalog="system" width="96" height="128"/>
