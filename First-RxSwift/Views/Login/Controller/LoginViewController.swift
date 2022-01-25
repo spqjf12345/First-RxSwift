@@ -8,27 +8,23 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import RxFlow
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, Stepper {
+    var steps = PublishRelay<Step>()
+    
 
     @IBOutlet weak var idTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var signInButton: UIButton!
+    @IBOutlet weak var findIDButton: UIButton!
+    @IBOutlet weak var findPWButton: UIButton!
+    
+    
     private let disposeBag = DisposeBag()
     
     var viewModel = LoginViewModel(loginUseCase: LoginUseCase(repository: UserRepository(userService: LoginJoinService())))
-    
-    @IBAction func signInButton(_ sender: Any) {
-        performSegue(withIdentifier: "signin", sender: nil)
-    }
-    
-    @IBAction func findIDButton(_ sender: Any) {
-        performSegue(withIdentifier: "findID", sender: nil)
-    }
-    
-    @IBAction func findPWButton(_ sender: Any) {
-        performSegue(withIdentifier: "findPW", sender: nil)
-    }
     
     
     override func viewDidLoad() {
@@ -68,11 +64,26 @@ private extension LoginViewController {
         let input = LoginViewModel.Input (
             idTextfield : self.idTextField.rx.text.orEmpty.asObservable(),
             passwordTextfield : self.passwordTextField.rx.text.orEmpty.asObservable(),
-            tapLoginButton: self.loginButton.rx.tap.asObservable()
+            tapLoginButton: self.loginButton.rx.tap.asObservable(),
+            signInButton: self.signInButton.rx.tap.asObservable(),
+            findIDButton: self.findIDButton.rx.tap.asObservable(),
+            findPWButton: self.findPWButton.rx.tap.asObservable()
         )
-
+        
+        input.signInButton.subscribe(onNext: {
+            self.steps.accept(AllStep.signUp)
+        }).disposed(by: disposeBag)
+        
+        input.findIDButton.subscribe(onNext: {
+            self.steps.accept(AllStep.findID)
+        }).disposed(by: disposeBag)
+        
+        input.findPWButton.subscribe(onNext: {
+            self.steps.accept(AllStep.findPassword)
+        }).disposed(by: disposeBag)
         
         let output = self.viewModel.transform(from: input, disposeBag: self.disposeBag)
+        
         
         // Bind output
         output.enableLoginInButton
@@ -97,7 +108,6 @@ private extension LoginViewController {
             .observe(on: MainScheduler.instance)
            .bind(onNext: goToMain)
            .disposed(by: disposeBag)
-            
 
         
     }

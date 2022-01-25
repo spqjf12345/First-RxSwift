@@ -6,9 +6,12 @@
 //
 
 import UIKit
+import RxFlow
+import RxSwift
+import RxCocoa
 
-class FindIDViewController: UIViewController {
-
+class FindIDViewController: UIViewController, Stepper {
+    var steps = PublishRelay<Step>()
     @IBOutlet weak var phoneNumberTextField: UITextField!
     @IBOutlet weak var authenCodeTextField: UITextField!
     @IBOutlet weak var sendMessageText: UILabel!

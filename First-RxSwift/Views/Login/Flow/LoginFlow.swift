@@ -27,11 +27,12 @@ class LoginFlow: Flow {
     
     func navigate(to step: Step) -> FlowContributors {
         guard let step = step as? AllStep else { return .none }
+        print("login flow in step \(step)")
         switch step {
         case .login:
             return self.navigateToLogin()
         case .signUp:
-            return self.navigateToSignUp()
+            return .end(forwardToParentFlowWithStep: AllStep.signUp)
         case .findID:
             return self.navigateToFindID()
         case .findPassword:
@@ -43,41 +44,28 @@ class LoginFlow: Flow {
         }
     }
     
-    private func navigateToLogin() -> FlowContributors {
-        let viewModel = LoginViewModel(loginUseCase: LoginUseCase(repository: UserRepository(userService: LoginJoinService())))
-        
-        if let vc = UIStoryboard(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "Login") as? LoginViewController {
-            rootViewController.pushViewController(vc, animated: true)
-            return .one(flowContributor: .contribute(withNextPresentable: vc, withNextStepper: viewModel))
-        }
-        return .none
+    private func navigateToLogin() -> FlowContributors {"/api/check-nickname"
+       //let viewModel = LoginViewModel(loginUseCase: LoginUseCase(repository: UserRepository(userService: LoginJoinService())))
+        let vc = UIStoryboard(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "Login") as! LoginViewController
+        rootViewController.pushViewController(vc, animated: true)
+        return .one(flowContributor: .contribute(withNext: vc))
+       //return .one(flowContributor: .contribute(withNextPresentable: vc!, withNextStepper: viewModel))
+
     }
-    
-    private func navigateToSignUp() -> FlowContributors {
-        let viewModel = SignUpViewModel(loginUseCase: LoginUseCase(repository: UserRepository(userService: LoginJoinService())))
-        let signUpFlow = SignUpFlow(withService: self.service)
-        Flows.use(signUpFlow, when: .ready) { [unowned self] root in
-            self.rootViewController.pushViewController(root, animated: true)
-        }
-        return .one(flowContributor: .contribute(withNextPresentable: signUpFlow, withNextStepper: viewModel))
-    }
+
     
     private func navigateToFindID() -> FlowContributors {
-        let viewModel = FindIDViewModel(loginUseCase: LoginUseCase(repository: UserRepository(userService: LoginJoinService())))
-        let findIDFlow = FindIDFlow(withService: self.service)
-        Flows.use(findIDFlow, when: .ready) { [unowned self] root in
-            self.rootViewController.pushViewController(root, animated: true)
-        }
-        return .one(flowContributor: .contribute(withNextPresentable: findIDFlow, withNextStepper: viewModel))
+        let vc = UIStoryboard(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "FindIDViewController") as! FindIDViewController
+        rootViewController.pushViewController(vc, animated: true)
+        
+        return .one(flowContributor: .contribute(withNext: vc))
     }
     
     private func navigateToFindPW() -> FlowContributors {
-        let viewModel = FindPWViewModel(loginUseCase: LoginUseCase(repository: UserRepository(userService: LoginJoinService())))
-        let findPWFlow = FindPWFlow(withService: self.service)
-        Flows.use(findPWFlow, when: .ready) { [unowned self] root in
-            self.rootViewController.pushViewController(root, animated: true)
-        }
-        return .one(flowContributor: .contribute(withNextPresentable: findPWFlow, withNextStepper: viewModel))
+        let vc = UIStoryboard(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "FindPWViewController") as! FindPWViewController
+        rootViewController.pushViewController(vc, animated: true)
+        
+        return .end(forwardToParentFlowWithStep: AllStep.findPassword)
     }
     
     private func navigateToMain() -> FlowContributors {

@@ -84,9 +84,6 @@
                                         <state key="normal" title="회원 가입">
                                             <color key="titleColor" red="0.50567162040000002" green="0.55177193879999997" blue="0.75688809160000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </state>
-                                        <connections>
-                                            <action selector="signInButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Za8-VQ-Pgu"/>
-                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="을 진행해주세요." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MSF-gV-nk6">
                                         <rect key="frame" x="214" y="0.0" width="80" height="14.5"/>
@@ -114,9 +111,6 @@
                                         <state key="normal" title=" -&gt; 아이디 찾기">
                                             <color key="titleColor" red="0.50567162040000002" green="0.55177193879999997" blue="0.75688809160000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </state>
-                                        <connections>
-                                            <action selector="findIDButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="5Fr-H4-U34"/>
-                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x07-Y9-EVw">
                                         <rect key="frame" x="121" y="0.0" width="89" height="14.5"/>
@@ -127,9 +121,6 @@
                                         <state key="normal" title=" -&gt; 비밀 번호 찾기">
                                             <color key="titleColor" red="0.50567162040000002" green="0.55177193879999997" blue="0.75688809160000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </state>
-                                        <connections>
-                                            <action selector="findPWButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="aCa-uM-AmY"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -176,12 +167,12 @@
                     </view>
                     <navigationItem key="navigationItem" title="로그인" id="x60-OU-CGu"/>
                     <connections>
+                        <outlet property="findIDButton" destination="Xhg-C6-Tzn" id="61p-bM-8kk"/>
+                        <outlet property="findPWButton" destination="x07-Y9-EVw" id="pXM-yI-Gjg"/>
                         <outlet property="idTextField" destination="GgJ-m9-d4e" id="cjK-WD-bs7"/>
                         <outlet property="loginButton" destination="mzs-Qv-6ww" id="SN0-sk-6yS"/>
                         <outlet property="passwordTextField" destination="8c6-ic-FgL" id="Dwb-xh-u8H"/>
-                        <segue destination="Q1r-Vu-5z4" kind="show" identifier="signin" id="aud-ac-dOR"/>
-                        <segue destination="C9h-xf-d0Y" kind="show" identifier="findID" id="8Oj-Nd-h8T"/>
-                        <segue destination="mou-6c-fCz" kind="show" identifier="findPW" id="wGn-eu-S3z"/>
+                        <outlet property="signInButton" destination="kha-Qv-qMV" id="gNi-bS-a4m"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -197,10 +188,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EON-yS-cpJ">
-                                <rect key="frame" x="0.0" y="88" width="405" height="1078"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="1122"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R5c-hT-uNP">
-                                        <rect key="frame" x="0.0" y="0.0" width="405" height="1100"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1100"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="회원가입" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MPx-d2-BJl">
                                                 <rect key="frame" x="35" y="50" width="125" height="70"/>
@@ -212,7 +203,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gift.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="0IK-2G-0Cb">
-                                                <rect key="frame" x="305" y="50" width="60" height="59.5"/>
+                                                <rect key="frame" x="314" y="50" width="60" height="59.5"/>
                                                 <color key="tintColor" red="0.34372755890000001" green="0.37692308429999999" blue="0.51766455170000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="60" id="4AX-9J-We1"/>
@@ -220,19 +211,19 @@
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="아이디" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jgJ-kI-Np2">
-                                                <rect key="frame" x="40" y="160" width="345" height="24"/>
+                                                <rect key="frame" x="40" y="160" width="354" height="24"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="비밀번호" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="571-GB-NzL">
-                                                <rect key="frame" x="40" y="283.5" width="345" height="24"/>
+                                                <rect key="frame" x="40" y="283.5" width="354" height="24"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder=" 비밀번호 입력" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pat-Jp-oOk">
-                                                <rect key="frame" x="35" y="317.5" width="250" height="44"/>
+                                                <rect key="frame" x="35" y="317.5" width="259" height="44"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="44" id="1XF-M9-44q"/>
                                                 </constraints>
@@ -240,13 +231,13 @@
                                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="비밀번호 확인" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S7N-lo-v8v">
-                                                <rect key="frame" x="40" y="401.5" width="345" height="24"/>
+                                                <rect key="frame" x="40" y="401.5" width="354" height="24"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder=" 비밀번호 입력" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5XY-3s-Zqf">
-                                                <rect key="frame" x="35" y="435.5" width="250" height="44"/>
+                                                <rect key="frame" x="35" y="435.5" width="259" height="44"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="44" id="LeP-Ey-Db0"/>
                                                 </constraints>
@@ -254,16 +245,16 @@
                                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="전화번호" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lxx-ta-lOm">
-                                                <rect key="frame" x="40" y="545" width="345" height="24"/>
+                                                <rect key="frame" x="40" y="545" width="354" height="24"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="kjq-N9-VMZ">
-                                                <rect key="frame" x="35" y="579" width="340" height="44"/>
+                                                <rect key="frame" x="35" y="579" width="349" height="44"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder=" 숫자만 입력" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6g2-Zo-FYA">
-                                                        <rect key="frame" x="0.0" y="0.0" width="220" height="44"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="229" height="44"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="44" id="22d-T0-I9G"/>
                                                             <constraint firstAttribute="width" constant="220" id="GTz-hG-DYe"/>
@@ -272,7 +263,7 @@
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I8u-bc-fEJ">
-                                                        <rect key="frame" x="250" y="0.0" width="90" height="44"/>
+                                                        <rect key="frame" x="259" y="0.0" width="90" height="44"/>
                                                         <color key="backgroundColor" red="0.1647058824" green="0.20000000000000001" blue="0.3411764706" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="90" id="Yxk-eD-gWS"/>
@@ -286,16 +277,16 @@
                                                 </subviews>
                                             </stackView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="인증번호" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KAm-FS-4Lr">
-                                                <rect key="frame" x="40" y="668.5" width="345" height="24"/>
+                                                <rect key="frame" x="40" y="668.5" width="354" height="24"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="0OT-Dc-qKA">
-                                                <rect key="frame" x="35" y="702.5" width="340" height="44"/>
+                                                <rect key="frame" x="35" y="702.5" width="349" height="44"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder=" 인증번호 확인" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Oy-5H-1xl">
-                                                        <rect key="frame" x="0.0" y="0.0" width="220" height="44"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="229" height="44"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="44" id="6fF-2N-M4h"/>
                                                             <constraint firstAttribute="width" constant="220" id="F7j-jf-VeO"/>
@@ -304,7 +295,7 @@
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EVI-1g-VTA">
-                                                        <rect key="frame" x="250" y="0.0" width="90" height="44"/>
+                                                        <rect key="frame" x="259" y="0.0" width="90" height="44"/>
                                                         <color key="backgroundColor" red="0.1647058824" green="0.20000000000000001" blue="0.3411764706" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="90" id="8Dd-y2-Qts"/>
@@ -318,25 +309,25 @@
                                                 </subviews>
                                             </stackView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="사용 가능한 아이디입니다." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dtr-p7-NLg">
-                                                <rect key="frame" x="35" y="239" width="350" height="14.5"/>
+                                                <rect key="frame" x="35" y="239" width="359" height="14.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <color key="textColor" systemColor="systemIndigoColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="비밀번호가 일치하지 않습니다. 다시 입력해주세요." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MHW-HW-JR5">
-                                                <rect key="frame" x="35" y="480.5" width="350" height="14.5"/>
+                                                <rect key="frame" x="35" y="480.5" width="359" height="14.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <color key="textColor" red="0.82435160880000002" green="0.43977215889999999" blue="0.42743447420000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="인증번호를 전송하였습니다." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SdJ-Iy-y3g">
-                                                <rect key="frame" x="35" y="624" width="360" height="14.5"/>
+                                                <rect key="frame" x="35" y="624" width="369" height="14.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <color key="textColor" red="0.1647058824" green="0.20000000000000001" blue="0.3411764706" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="plY-A5-F4w">
-                                                <rect key="frame" x="100" y="782" width="205" height="60"/>
+                                                <rect key="frame" x="100" y="782" width="214" height="60"/>
                                                 <color key="backgroundColor" red="0.50567162040000002" green="0.55177193879999997" blue="0.75688809160000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="60" id="dXp-n7-6ll"/>
@@ -347,22 +338,22 @@
                                                 </state>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="숫자와 문자를 포함해서 8 ~ 20글자 사이로 입력하세요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OV8-oc-S4e">
-                                                <rect key="frame" x="35" y="362.5" width="350" height="14.5"/>
+                                                <rect key="frame" x="35" y="362.5" width="359" height="14.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <color key="textColor" systemColor="systemGrayColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="인증이 정상적으로 확인되었습니다." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8EK-39-gfd">
-                                                <rect key="frame" x="35" y="747.5" width="350" height="14.5"/>
+                                                <rect key="frame" x="35" y="747.5" width="359" height="14.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <color key="textColor" red="0.1647058824" green="0.20000000000000001" blue="0.3411764706" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="MUK-Mt-n22">
-                                                <rect key="frame" x="35" y="194" width="350" height="44"/>
+                                                <rect key="frame" x="35" y="194" width="359" height="44"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder=" 아이디 입력" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ui2-Tb-pB7">
-                                                        <rect key="frame" x="0.0" y="0.0" width="230" height="44"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="239" height="44"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                         <connections>
@@ -370,7 +361,7 @@
                                                         </connections>
                                                     </textField>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qat-T7-Km3">
-                                                        <rect key="frame" x="260" y="0.0" width="90" height="44"/>
+                                                        <rect key="frame" x="269" y="0.0" width="90" height="44"/>
                                                         <color key="backgroundColor" red="0.1647058824" green="0.20000000000000001" blue="0.3411764706" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="90" id="gPC-8j-oq1"/>
@@ -499,13 +490,13 @@
         <!--FindID View Controller-->
         <scene sceneID="xia-Ld-0yF">
             <objects>
-                <viewController id="C9h-xf-d0Y" customClass="FindIDViewController" customModule="First_RxSwift" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FindIDViewController" id="C9h-xf-d0Y" customClass="FindIDViewController" customModule="First_RxSwift" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="82W-DE-n9D">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gift.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ADC-7b-toh">
-                                <rect key="frame" x="314" y="128" width="60" height="59.5"/>
+                                <rect key="frame" x="314" y="84" width="60" height="59.5"/>
                                 <color key="tintColor" red="0.34372755890000001" green="0.37692308429999999" blue="0.51766455170000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="CrL-hf-Qzy"/>
@@ -513,7 +504,7 @@
                                 </constraints>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder=" 숫자만 입력" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="teQ-25-d15">
-                                <rect key="frame" x="35" y="302" width="220" height="40"/>
+                                <rect key="frame" x="35" y="258" width="220" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="cv5-qR-DnH"/>
                                     <constraint firstAttribute="width" secondItem="teQ-25-d15" secondAttribute="height" multiplier="11:2" id="yHK-Hx-6wK"/>
@@ -522,7 +513,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder=" 인증 코드 입력" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YAh-TK-dJE">
-                                <rect key="frame" x="35" y="441.5" width="220" height="40"/>
+                                <rect key="frame" x="35" y="397.5" width="220" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="YAh-TK-dJE" secondAttribute="height" multiplier="11:2" id="JYG-cC-uVM"/>
                                 </constraints>
@@ -530,13 +521,13 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="아이디 찾기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MfG-bu-Cdu">
-                                <rect key="frame" x="35" y="138" width="136.5" height="36"/>
+                                <rect key="frame" x="35" y="94" width="136.5" height="36"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="K8D-7u-wGn">
-                                <rect key="frame" x="35" y="597" width="204.5" height="27"/>
+                                <rect key="frame" x="35" y="553" width="204.5" height="27"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="비밀번호도 찾으시나요?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fdj-fW-ObP">
                                         <rect key="frame" x="0.0" y="0.0" width="113.5" height="27"/>
@@ -554,7 +545,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="ccr-F5-Pe7">
-                                <rect key="frame" x="35" y="634" width="202" height="27"/>
+                                <rect key="frame" x="35" y="590" width="202" height="27"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="아이디를 찾으셨나요?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dHD-u1-dNS">
                                         <rect key="frame" x="0.0" y="0.0" width="103" height="27"/>
@@ -575,25 +566,25 @@
                                 </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="인증번호를 전송하였습니다." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NH9-dq-G48">
-                                <rect key="frame" x="35" y="343" width="369" height="14.5"/>
+                                <rect key="frame" x="35" y="299" width="369" height="14.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" red="0.1647058824" green="0.20000000000000001" blue="0.3411764706" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="인증번호를 다시 입력해주세요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="psJ-Dg-eAP">
-                                <rect key="frame" x="35" y="482.5" width="369" height="14.5"/>
+                                <rect key="frame" x="35" y="438.5" width="369" height="14.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" red="0.82435160880000002" green="0.43977215889999999" blue="0.42743447420000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="인증이 정상적으로 확인되었습니다." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uos-sU-UWT">
-                                <rect key="frame" x="35" y="482.5" width="369" height="14.5"/>
+                                <rect key="frame" x="35" y="438.5" width="369" height="14.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" red="0.1647058824" green="0.20000000000000001" blue="0.3411764706" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G0l-d6-4Al">
-                                <rect key="frame" x="304" y="302" width="90" height="36"/>
+                                <rect key="frame" x="304" y="258" width="90" height="36"/>
                                 <color key="backgroundColor" red="0.16399294140000001" green="0.19996729490000001" blue="0.34119242430000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="90" id="0JG-b0-B2Y"/>
@@ -605,7 +596,7 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PjG-hY-Vv5">
-                                <rect key="frame" x="304" y="441.5" width="90" height="36"/>
+                                <rect key="frame" x="304" y="397.5" width="90" height="36"/>
                                 <color key="backgroundColor" red="0.16399294140000001" green="0.19996729490000001" blue="0.34119242430000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="90" id="UAb-Yo-Xeb"/>
@@ -617,13 +608,13 @@
                                 </state>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="인증 코드" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6d4-CJ-9M1">
-                                <rect key="frame" x="30" y="407.5" width="374" height="24"/>
+                                <rect key="frame" x="30" y="363.5" width="374" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="등록한 전화번호를 입력해주세요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2b9-VU-76v">
-                                <rect key="frame" x="30" y="268" width="374" height="24"/>
+                                <rect key="frame" x="30" y="224" width="374" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -713,13 +704,13 @@
         <!--FindPW View Controller-->
         <scene sceneID="9md-rL-6VD">
             <objects>
-                <viewController id="mou-6c-fCz" customClass="FindPWViewController" customModule="First_RxSwift" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FindPWViewController" id="mou-6c-fCz" customClass="FindPWViewController" customModule="First_RxSwift" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ud5-DC-Q7c">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gift.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="J4w-zL-WA0">
-                                <rect key="frame" x="317" y="128" width="60" height="59.5"/>
+                                <rect key="frame" x="317" y="40" width="60" height="59.5"/>
                                 <color key="tintColor" red="0.34372755890000001" green="0.37692308429999999" blue="0.51766455170000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="8UW-lg-FRB"/>
@@ -727,19 +718,19 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="인증번호를 다시 입력해주세요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T4O-oi-nOM">
-                                <rect key="frame" x="35" y="584" width="372" height="14.5"/>
+                                <rect key="frame" x="35" y="496" width="372" height="14.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" red="0.82435160880000002" green="0.43977215889999999" blue="0.42743447420000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="인증이 정상적으로 확인되었습니다." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zww-33-xZu">
-                                <rect key="frame" x="35" y="584" width="372" height="14.5"/>
+                                <rect key="frame" x="35" y="496" width="372" height="14.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" red="0.1647058824" green="0.20000000000000001" blue="0.3411764706" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="0qm-HS-oEf">
-                                <rect key="frame" x="35" y="405.5" width="362" height="44"/>
+                                <rect key="frame" x="35" y="317.5" width="362" height="44"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="전화번호 입력" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yGx-l5-WNp">
                                         <rect key="frame" x="0.0" y="0.0" width="242" height="44"/>
@@ -765,7 +756,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="LtB-zu-NYE">
-                                <rect key="frame" x="35" y="539" width="362" height="44"/>
+                                <rect key="frame" x="35" y="451" width="362" height="44"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="인증 코드 입력" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wii-Ir-oKK">
                                         <rect key="frame" x="0.0" y="0.0" width="264" height="44"/>
@@ -791,26 +782,26 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="비밀번호 찾기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yAe-Dn-6YN">
-                                <rect key="frame" x="35" y="138" width="162.5" height="36"/>
+                                <rect key="frame" x="35" y="50" width="162.5" height="36"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="비밀번호를 찾으셨나요?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gVc-LR-nf1">
-                                <rect key="frame" x="40" y="765" width="113.5" height="27"/>
+                                <rect key="frame" x="40" y="711" width="113.5" height="27"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" red="0.1647058824" green="0.20000000000000001" blue="0.3411764706" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EVX-O6-ZV9">
-                                <rect key="frame" x="155.5" y="765" width="97" height="27"/>
+                                <rect key="frame" x="155.5" y="711" width="97" height="27"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <state key="normal" title="-&gt; 로그인 하러 가기">
                                     <color key="titleColor" red="0.50567162040000002" green="0.55177193879999997" blue="0.75688809160000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="아이디 입력" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pjo-8R-swG">
-                                <rect key="frame" x="35" y="272" width="242" height="44"/>
+                                <rect key="frame" x="35" y="184" width="242" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="pjo-8R-swG" secondAttribute="height" multiplier="11:2" id="Xkq-Ov-gQX"/>
                                     <constraint firstAttribute="height" constant="44" id="l3B-Wg-6Jf"/>
@@ -819,25 +810,25 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="인증번호를 전송하였습니다." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dav-sI-bEW">
-                                <rect key="frame" x="35" y="450.5" width="372" height="14.5"/>
+                                <rect key="frame" x="35" y="362.5" width="372" height="14.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" red="0.1647058824" green="0.20000000000000001" blue="0.3411764706" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="등록한 전화번호를 입력해주세요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UL4-IX-9WM">
-                                <rect key="frame" x="30" y="371.5" width="367" height="24"/>
+                                <rect key="frame" x="30" y="283.5" width="367" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="아이디를 입력해주세요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OCv-mM-QJd">
-                                <rect key="frame" x="30" y="238" width="367" height="24"/>
+                                <rect key="frame" x="30" y="150" width="367" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FG7-h7-B97">
-                                <rect key="frame" x="307" y="272" width="90" height="40"/>
+                                <rect key="frame" x="307" y="184" width="90" height="40"/>
                                 <color key="backgroundColor" red="0.16399294140000001" green="0.19996729490000001" blue="0.34119242430000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="90" id="TdV-NU-2eM"/>
@@ -849,13 +840,13 @@
                                 </state>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="존재하지 않는 아이디입니다." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rXh-GP-hs7">
-                                <rect key="frame" x="35" y="317" width="372" height="14.5"/>
+                                <rect key="frame" x="35" y="229" width="372" height="14.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" red="0.82435160880000002" green="0.43977215889999999" blue="0.42743447420000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="인증 코드" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Mf-QT-FdJ">
-                                <rect key="frame" x="30" y="505" width="367" height="24"/>
+                                <rect key="frame" x="30" y="417" width="367" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -935,9 +926,6 @@
             <point key="canvasLocation" x="3358" y="27"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="twg-Xs-W6e"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <image name="chevron.backward" catalog="system" width="96" height="128"/>
         <image name="chevron.left" catalog="system" width="96" height="128"/>

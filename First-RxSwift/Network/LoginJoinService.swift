@@ -41,4 +41,11 @@ class LoginJoinService {
 //            
 //    }
     
+    func checkValidId(nickName: String) -> Observable<Int> {
+        return self.provider.rx.request(.checkValidID(nickname: nickName))
+            .filterSuccessfulStatusCodes()
+            .map(Int.self)
+            .asObservable()
+    }
+    
 }

@@ -35,8 +35,14 @@ class UserRepository: UserRepositoryType {
         
     }
     
+    
+    
     func signUp(user: User) {
         //userService.
+    }
+    
+    func checkValidId(nickname: String) -> Observable<Int> {
+        return userService.checkValidId(nickName: nickname)
     }
     
     

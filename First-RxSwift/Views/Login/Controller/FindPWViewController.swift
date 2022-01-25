@@ -6,8 +6,12 @@
 //
 
 import UIKit
+import RxFlow
+import RxSwift
+import RxCocoa
 
-class FindPWViewController: UIViewController {
+class FindPWViewController: UIViewController, Stepper {
+    var steps = PublishRelay<Step>()
     @IBOutlet weak var IDTextField: UITextField!
     @IBOutlet weak var backButton: UIBarButtonItem!
     @IBOutlet weak var idCheckButton: UIButton!

@@ -14,6 +14,10 @@ class SignUpViewModel: Stepper {
     var steps = PublishRelay<Step>()
     private let loginUseCase: LoginUseCase
     
+    var initialStep: Step {
+        return AllStep.signUp
+    }
+    
     
     init(loginUseCase: LoginUseCase) {
         self.loginUseCase = loginUseCase

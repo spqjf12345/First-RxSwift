@@ -9,8 +9,10 @@ import Foundation
 import UIKit
 import RxCocoa
 import RxSwift
-
-class SignUpViewController: UIViewController {
+import RxFlow
+class SignUpViewController: UIViewController, Stepper {
+    var steps = PublishRelay<Step>()
+    
     
     @IBOutlet weak var IDTextField: UITextField!
     @IBOutlet weak var IDCheckButton: UIButton!

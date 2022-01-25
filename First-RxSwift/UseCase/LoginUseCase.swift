@@ -25,6 +25,11 @@ class LoginUseCase: LoginUseCaseType {
         userRepository.logIn(nickName: requestValue.nickName, password: requestValue.password)
     }
     
+    public func checkValidID(nickname: String) -> Observable<Int> {
+        return userRepository.checkValidId(nickname: nickname)
+            
+    }
+    
 //    public func signUp(_requestValue: User) {
 //        userRepository.signUp(requestValue)
 //    }

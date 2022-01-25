@@ -21,17 +21,32 @@ class SignUpFlow: Flow {
     private let service: AppService
     
     init(withService service: AppService){
+        print("SignUpFlow  initial")
         self.service = service
     }
     
     func navigate(to step: Step) -> FlowContributors {
         guard let step = step as? AllStep else { return .none }
+        print("SignUpFlow \(step)")
         switch step {
         case .login:
             return .end(forwardToParentFlowWithStep: AllStep.login)
+        case .signUp:
+            return self.navigateToSignUp()
         default:
-            return FlowContributors.none
+            return .none
         }
     }
+    
+    private func navigateToSignUp() -> FlowContributors {
+        print("SignUpFlow signup")
+        let vc = UIStoryboard(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "SignUpViewController") as! SignUpViewController
+        rootViewController.pushViewController(vc, animated: true)
+        
+        return .one(flowContributor: .contribute(withNext: vc))
+    }
+    
+    
+    
     
 }
