@@ -36,7 +36,7 @@ extension LoginJoinAPI: TargetType {
     
     var method: Moya.Method {
         switch self {
-        case .login, .sameIdCheck, .signUp, checkValidID:
+        case .login, .sameIdCheck, .signUp, .checkValidID:
             return .post
 
         }

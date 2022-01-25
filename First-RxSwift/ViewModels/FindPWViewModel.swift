@@ -49,12 +49,10 @@ class FindPWViewModel: Stepper {
                     output.errorMessage.accept("아이디를 입력해주세요")
                 }else {
                     //call network
-                    self.loginUseCase.checkValidID(nickname: textfield)
-                        .subscribe{onNext: value in
-                        if value == -1 {
-                            output.errorMessage.accept("존재하지 않는 아이디입니다.")
+                    self.loginUseCase.checkValidID(nickname: textfield).asObservable()
+                        .map{ $0  == -1 }.subscribe {
+                            output.errorMessage.accept("아이디를 입력해주세요")
                         }
-                    }
                 }
             }
             .disposed(by: disposeBag)
