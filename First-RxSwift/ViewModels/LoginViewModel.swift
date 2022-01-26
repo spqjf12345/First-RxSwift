@@ -55,7 +55,6 @@ class LoginViewModel {
                 }else {
                     let userData = User(id: 0, nickName: id, password: password, phoneNumber: "")
                     self.loginUseCase.logIn(userData)
-                    //self.steps.accept(AllStep.boxTap) // main tap으로 이동 stepper를 트리거
                 }
             
         }.disposed(by: disposeBag)

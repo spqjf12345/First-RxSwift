@@ -45,5 +45,13 @@ class UserRepository: UserRepositoryType {
         return userService.checkValidId(nickName: nickname)
     }
     
+    func checkIdValid(nickname: String) -> Observable<Bool> {
+        return userService.checkIdValid(nickName: nickname)
+    }
+    
+    func sendMessage(phoneNumber: String) -> Observable<Int> {
+        return userService.sendMessage(phoneNumber: phoneNumber)
+    }
+    
     
 }

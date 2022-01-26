@@ -13,6 +13,8 @@ enum LoginJoinAPI {
     case sameIdCheck(nickname: String)
     case signUp(user: User)
     case checkValidID(nickname: String)
+    case checkIDValid(nickname: String)
+    case sendMessage(number: String)
 }
 
 extension LoginJoinAPI: TargetType {
@@ -31,14 +33,19 @@ extension LoginJoinAPI: TargetType {
             return "/api/signup"
         case .checkValidID:
             return "/api/check-nickname"
+        case .checkIDValid:
+            return "/api/duplicate"
+        case .sendMessage:
+            return "/api/send-sms"
         }
     }
     
     var method: Moya.Method {
         switch self {
-        case .login, .sameIdCheck, .signUp, .checkValidID:
+        case .login, .sameIdCheck, .signUp, .checkValidID, .checkIDValid:
             return .post
-
+        case .sendMessage:
+            return .get
         }
     }
     
@@ -52,6 +59,11 @@ extension LoginJoinAPI: TargetType {
             return .requestParameters(parameters: ["nickname": user.nickName, "password" : user.password, "phone" : user.phoneNumber], encoding: JSONEncoding.default)
         case .checkValidID(let nickname):
             return .requestParameters(parameters: ["nickname": nickname] , encoding: JSONEncoding.default)
+            
+        case .checkIDValid(let nickname):
+            return .requestParameters(parameters: ["nickname": nickname] , encoding: JSONEncoding.default)
+        case .sendMessage(let number):
+            return .requestParameters(parameters: ["toNumber": number], encoding: URLEncoding.queryString)
         }
     }
     

@@ -15,6 +15,13 @@ protocol LoginUseCaseType {
 class LoginUseCase: LoginUseCaseType {
     
     private let userRepository: UserRepository
+    var nicknameValidationState = BehaviorSubject<ValidationState>(value: .failure)
+    var passwordValidationState = BehaviorSubject<ValidationState>(value: .failure)
+    
+    var nickname: String = ""
+    var authenCode: Int = 0
+    var phoneNumber: String = ""
+    
     var disposeBag = DisposeBag()
     
     init(repository: UserRepository) {
@@ -27,8 +34,26 @@ class LoginUseCase: LoginUseCaseType {
     
     public func checkValidID(nickname: String) -> Observable<Int> {
         return userRepository.checkValidId(nickname: nickname)
-            
     }
+    
+    public func checkIdValid() { //signup
+        return userRepository.checkIdValid(nickname: self.nickname)
+            .subscribe(onNext:  { valid in
+                if valid {
+                    self.nicknameValidationState.onNext(.success)
+                }else {
+                    self.nicknameValidationState.onNext(.failure)
+                }
+            }).disposed(by: disposeBag)
+    }
+    
+    public func checkAuthenCode(phoneNumber: String) {
+        return userRepository.sendMessage(phoneNumber: phoneNumber).subscribe(onNext: {
+            code in
+            self.authenCode = code
+        }).disposed(by: disposeBag)
+    }
+    
     
 //    public func signUp(_requestValue: User) {
 //        userRepository.signUp(requestValue)

@@ -34,10 +34,6 @@ class AppFlow: Flow {
         switch step {
         case .login:
             return navigationToLogin()
-        case .signUp:
-            return navigateToSignUp()
-        case .findPassword:
-            return navigateToFindPW()
         case .boxTap:
             return navigateToMain()
         default:
@@ -57,27 +53,27 @@ class AppFlow: Flow {
                                                  withNextStepper: OneStepper(withSingleStep: AllStep.login)))
     }
     
-    public func navigateToSignUp() -> FlowContributors {
-        let signUpFlow = SignUpFlow(withService: self.service)
-        Flows.use(signUpFlow, when: .ready){ [unowned self] root in
-            DispatchQueue.main.async {
-                self.window.rootViewController = root
-            }
-        }
-        return .one(flowContributor: .contribute(withNextPresentable: signUpFlow,
-                                                 withNextStepper: OneStepper(withSingleStep: AllStep.signUp)))
-    }
-    
-    public func navigateToFindPW() -> FlowContributors {
-        let findPWFlow = FindPWFlow(withService: self.service)
-        Flows.use(findPWFlow, when: .ready){ [unowned self] root in
-            DispatchQueue.main.async {
-                self.window.rootViewController = root
-            }
-        }
-        return .one(flowContributor: .contribute(withNextPresentable: findPWFlow,
-                                                 withNextStepper: OneStepper(withSingleStep: AllStep.findPassword)))
-    }
+//    public func navigateToSignUp() -> FlowContributors {
+//        let signUpFlow = SignUpFlow(withService: self.service)
+//        Flows.use(signUpFlow, when: .ready){ [unowned self] root in
+//            DispatchQueue.main.async {
+//                self.rootViewController.pushViewController(root, animated: false)
+//            }
+//        }
+//        return .one(flowContributor: .contribute(withNextPresentable: signUpFlow,
+//                                                 withNextStepper: OneStepper(withSingleStep: AllStep.signUp)))
+//    }
+//
+//    public func navigateToFindPW() -> FlowContributors {
+//        let findPWFlow = FindPWFlow(withService: self.service)
+//        Flows.use(findPWFlow, when: .ready){ [unowned self] root in
+//            DispatchQueue.main.async {
+//                self.rootViewController.pushViewController(root, animated: false)
+//            }
+//        }
+//        return .one(flowContributor: .contribute(withNextPresentable: findPWFlow,
+//                                                 withNextStepper: OneStepper(withSingleStep: AllStep.findPassword)))
+//    }
     
     
     private func navigateToMain() -> FlowContributors {

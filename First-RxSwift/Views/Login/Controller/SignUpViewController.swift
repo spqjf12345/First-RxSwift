@@ -13,7 +13,6 @@ import RxFlow
 class SignUpViewController: UIViewController, Stepper {
     var steps = PublishRelay<Step>()
     
-    
     @IBOutlet weak var IDTextField: UITextField!
     @IBOutlet weak var IDCheckButton: UIButton!
     @IBOutlet weak var IDValidText: UILabel!
