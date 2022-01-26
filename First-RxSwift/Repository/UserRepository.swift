@@ -12,10 +12,11 @@ import RxSwift
 protocol UserRepositoryType {
     func saveLoginInfo(userId: Int32, jwtToken: String)
     func logIn(nickName: String, password: String)
-    func signUp(user: User)
+    func signUp(user: SignUpRequest) ->Observable<Int>
 }
 
 class UserRepository: UserRepositoryType {
+    
     let userService: LoginJoinService
     let disposeBag = DisposeBag()
     
@@ -36,9 +37,8 @@ class UserRepository: UserRepositoryType {
     }
     
     
-    
-    func signUp(user: User) {
-        //userService.
+    func signUp(user: SignUpRequest) -> Observable<Int> {
+        return userService.signUp(user: user)
     }
     
     func checkValidId(nickname: String) -> Observable<Int> {

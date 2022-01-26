@@ -11,7 +11,7 @@ import Moya
 enum LoginJoinAPI {
     case login(nickname: String, password: String)
     case sameIdCheck(nickname: String)
-    case signUp(user: User)
+    case signUp(user: SignUpRequest)
     case checkValidID(nickname: String)
     case checkIDValid(nickname: String)
     case sendMessage(number: String)
@@ -56,7 +56,7 @@ extension LoginJoinAPI: TargetType {
         case .sameIdCheck(let nickname):
             return .requestParameters(parameters: ["nickname": nickname], encoding: JSONEncoding.default)
         case .signUp(let user):
-            return .requestParameters(parameters: ["nickname": user.nickName, "password" : user.password, "phone" : user.phoneNumber], encoding: JSONEncoding.default)
+            return .requestParameters(parameters: ["nickname": user.nickname, "password" : user.password, "phone" : user.phone], encoding: JSONEncoding.default)
         case .checkValidID(let nickname):
             return .requestParameters(parameters: ["nickname": nickname] , encoding: JSONEncoding.default)
             

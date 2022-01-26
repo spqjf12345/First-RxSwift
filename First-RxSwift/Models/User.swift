@@ -26,3 +26,9 @@ struct LoginResponse: Codable {
     var jwtToken: String
 }
 
+struct SignUpRequest: Codable {
+    var nickname: String
+    var password: String
+    var phone: String
+}
+

@@ -21,6 +21,7 @@ class LoginUseCase: LoginUseCaseType {
     var nickname: String = ""
     var authenCode: Int = 0
     var phoneNumber: String = ""
+    var password: String = ""
     
     var disposeBag = DisposeBag()
     
@@ -47,18 +48,73 @@ class LoginUseCase: LoginUseCaseType {
             }).disposed(by: disposeBag)
     }
     
-    public func checkAuthenCode(phoneNumber: String) {
+    public func checkAuthenCode() {
+        let number = phoneNumberDashString() // -지운 전화 번호
+        self.phoneNumber = number
         return userRepository.sendMessage(phoneNumber: phoneNumber).subscribe(onNext: {
             code in
             self.authenCode = code
         }).disposed(by: disposeBag)
     }
     
+    public func phoneNumberDashString() -> String {
+        var number = self.phoneNumber
+        number.remove(at: number.index(number.startIndex, offsetBy: 3))
+        number.remove(at: number.index(number.startIndex, offsetBy: 7))
+        return number
+    }
     
-//    public func signUp(_requestValue: User) {
-//        userRepository.signUp(requestValue)
-//    }
+    func validpassword(mypassword : String) -> Bool {//숫자+문자 포함해서 8~20글자 사이의 text 체크하는 정규표현식
+        let passwordreg = ("(?=.*[A-Za-z])(?=.*[0-9]).{8,20}")
+        let passwordtesting = NSPredicate(format: "SELF MATCHES %@", passwordreg)
+        return passwordtesting.evaluate(with: mypassword)
+    }
     
+    
+    public func signUp() -> Observable<Error> {
+        return self.signInValidCheck()
+    }
+    
+    private func signUpUser() -> Observable<Int> {
+        let userData = SignUpRequest(nickname: self.nickname, password: self.password, phone: self.phoneNumber)
+        return self.userRepository.signUp(user: userData)
+    }
+    
+    func signInValidCheck() -> Observable<Error> {
+        if(self.nickname == ""){
+            return Observable.error(SignUpValidationError.idTextfield)
+        }
+        
+//        if(IDValidText.isHidden == true){
+//            throw SignInError.idValid
+//        }
+        
+        if(self.password == ""){
+            return Observable.error(SignUpValidationError.password)
+        }
+        
+//        if(PasswordInValidText.isHidden == false){
+//            throw SignInError.passwordCorrect
+//        }
+        
+        if(validpassword(mypassword: password) == false){
+            return Observable.error(SignUpValidationError.passwordValid)
+        }
+        
+//        if(phoneNumberGuideText.isHidden == true){
+//            throw SignInError.phoneNumber
+//        }
+        
+        if(phoneNumber != phoneNumberDashString()){
+            return Observable.error(SignUpValidationError.phoneNumber)
+        }
+        
+//        if(authenValidText.isHidden == true){
+//            throw SignInError.authenCode
+//        }
+        return Observable.error(SignUpValidationError.none)
+        
+    }
     
     
 }

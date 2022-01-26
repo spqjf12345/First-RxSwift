@@ -41,6 +41,7 @@
 		8E86170D2797E29E005B1A88 /* FindIDViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E86170C2797E29E005B1A88 /* FindIDViewModel.swift */; };
 		8E86170F2797E2DD005B1A88 /* FindPWViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E86170E2797E2DD005B1A88 /* FindPWViewModel.swift */; };
 		8E949E3827A129C700947EDA /* ValidationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E949E3727A129C600947EDA /* ValidationState.swift */; };
+		8E949E3B27A13EA900947EDA /* SignUpValidationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E949E3A27A13EA900947EDA /* SignUpValidationError.swift */; };
 		8E9A41F1279B188A003215E3 /* FindIDViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9A41F0279B188A003215E3 /* FindIDViewController.swift */; };
 		8E9A41F3279B189B003215E3 /* FindPWViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9A41F2279B189B003215E3 /* FindPWViewController.swift */; };
 		8EA90FF52747C14B00F12366 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA90FF42747C14B00F12366 /* WeatherViewController.swift */; };
@@ -121,6 +122,7 @@
 		8E86170C2797E29E005B1A88 /* FindIDViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindIDViewModel.swift; sourceTree = "<group>"; };
 		8E86170E2797E2DD005B1A88 /* FindPWViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindPWViewModel.swift; sourceTree = "<group>"; };
 		8E949E3727A129C600947EDA /* ValidationState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationState.swift; sourceTree = "<group>"; };
+		8E949E3A27A13EA900947EDA /* SignUpValidationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpValidationError.swift; sourceTree = "<group>"; };
 		8E9A41F0279B188A003215E3 /* FindIDViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindIDViewController.swift; sourceTree = "<group>"; };
 		8E9A41F2279B189B003215E3 /* FindPWViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindPWViewController.swift; sourceTree = "<group>"; };
 		8EA90FF42747C14B00F12366 /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
@@ -232,6 +234,7 @@
 		8E21C4EA2795517100C0AD86 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				8E949E3927A13E9500947EDA /* Error */,
 				8E12409627423C04000F97EF /* Extensions */,
 				8E21C4FB2795628500C0AD86 /* UserDefaultKey.swift */,
 				8E21C4FD2795B48600C0AD86 /* Config.swift */,
@@ -342,6 +345,14 @@
 				8E8617082797D9FB005B1A88 /* FindPWFlow.swift */,
 			);
 			path = Flow;
+			sourceTree = "<group>";
+		};
+		8E949E3927A13E9500947EDA /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				8E949E3A27A13EA900947EDA /* SignUpValidationError.swift */,
+			);
+			path = Error;
 			sourceTree = "<group>";
 		};
 		8EA90FF32747C13500F12366 /* GoodWeather */ = {
@@ -694,6 +705,7 @@
 				8E12409327423A2B000F97EF /* Article.swift in Sources */,
 				8E21C4F427955B6300C0AD86 /* LoginViewModel.swift in Sources */,
 				8ED47D48272BAEDD00393397 /* First_RxSwift.xcdatamodeld in Sources */,
+				8E949E3B27A13EA900947EDA /* SignUpValidationError.swift in Sources */,
 				8E21C5022795B5B500C0AD86 /* Login+JoinAPI.swift in Sources */,
 				8E86170B2797DE5D005B1A88 /* AppService.swift in Sources */,
 				8E8617092797D9FB005B1A88 /* FindPWFlow.swift in Sources */,

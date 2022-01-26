@@ -31,15 +31,12 @@ class LoginJoinService {
             .asObservable()
     }
     
-//    func signUp(user: User) -> Observable<Result<Data, Error>> {
-//        self.provider.rx.request(.signUp(user: user) { }
-//                                 
-//        return Observable<Result<Data, Error>>.create { emitter in
-//
-//        }
-//        
-//            
-//    }
+    func signUp(user: SignUpRequest) -> Observable<Int> {
+        return self.provider.rx.request(.signUp(user: user))
+            .filterSuccessfulStatusCodes()
+            .map(Int.self)
+            .asObservable()
+    }
      
     func checkValidId(nickName: String) -> Observable<Int> { // pw 찾을시
         return self.provider.rx.request(.checkValidID(nickname: nickName))
