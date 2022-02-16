@@ -44,22 +44,6 @@ class SignUpViewModel {
     func transform(from input: Input, disposeBag: DisposeBag) -> Output {
         let output = Output()
         
-        input.passwordTextfield.subscribe(onNext: { password in
-            self.loginUseCase.password = password
-        }).disposed(by: disposeBag)
-        
-        input.rePasswordTextfield
-            .withLatestFrom( Observable.combineLatest(input.passwordTextfield, input.rePasswordTextfield))
-            .bind { (pw, repw) in
-                if(pw == repw){
-                    output.inValidPWMessage.accept("")
-                }else {
-                    output.inValidPWMessage.accept("비밀번호가 일치하지 않습니다. 다시 입력해주세요")
-                }
-        }.disposed(by: disposeBag)
-        
-        
-        
         input.idTextfield.subscribe(onNext: { text in
             self.loginUseCase.nickname = text
         }).disposed(by: disposeBag)
@@ -76,6 +60,30 @@ class SignUpViewModel {
             
         }).disposed(by: disposeBag)
         
+        self.loginUseCase.nicknameValidationState
+            .subscribe(onNext: { state in
+                if state == .success {
+                    output.inValidIDMessage.accept("사용 가능한 아이디입니다.")
+                }else if state == .failure {
+                    output.inValidIDMessage.accept("중복된 아이디가 존재합니다.")
+                }
+            })
+            .disposed(by: disposeBag)
+        
+        
+        input.passwordTextfield.subscribe(onNext: { password in
+            self.loginUseCase.password = password
+        }).disposed(by: disposeBag)
+        
+        input.rePasswordTextfield
+            .withLatestFrom( Observable.combineLatest(input.passwordTextfield, input.rePasswordTextfield))
+            .bind { (pw, repw) in
+                if(pw == repw){
+                    output.inValidPWMessage.accept("")
+                }else {
+                    output.inValidPWMessage.accept("비밀번호가 일치하지 않습니다. 다시 입력해주세요")
+                }
+        }.disposed(by: disposeBag)
         
         input.phoneNumberTextfield.subscribe(onNext: { number in
             self.loginUseCase.phoneNumber = number
@@ -117,16 +125,6 @@ class SignUpViewModel {
                     }).disposed(by: disposeBag)
                     
             }).disposed(by: disposeBag)
-        
-        self.loginUseCase.nicknameValidationState
-            .subscribe(onNext: { state in
-                if state == .success {
-                    output.inValidIDMessage.accept("사용 가능한 아이디입니다.")
-                }else if state == .failure {
-                    output.inValidIDMessage.accept("중복된 아이디가 존재합니다.")
-                }
-            })
-            .disposed(by: disposeBag)
         
         return output
 
