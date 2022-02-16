@@ -61,7 +61,7 @@ private extension FindIDViewController {
         }).disposed(by: disposeBag)
         
         input.goToLoginButton.subscribe(onNext: {
-            self.steps.accept(AllStep.login)
+            self.steps.accept(AllStep.popToLogin)
         }).disposed(by: disposeBag)
         
         let output = self.viewModel.transform(from: input, disposeBag: self.disposeBag)
@@ -72,15 +72,14 @@ private extension FindIDViewController {
            .bind(onNext: showAlert)
            .disposed(by: disposeBag)
         
+        output.sendMessage.filter { $0 == true }
+        .subscribe(onNext : { _ in
+                self.sendMessageText.text = "인증번호를 전송했습니다."
+            }).disposed(by: disposeBag)
         
         output.authenValid
             .subscribe(onNext: { message in
                 self.reAuthenText.text = message
-            }).disposed(by: disposeBag)
-        
-        output.sendMessage.filter { $0 == true }
-        .subscribe(onNext : { _ in
-                self.sendMessageText.text = "인증번호를 전송했습니다."
             }).disposed(by: disposeBag)
     }
     

@@ -9,6 +9,7 @@ import Foundation
 import RxFlow
 
 enum AllStep: Step {
+    case popToLogin
     case back
     case login
     case signUp

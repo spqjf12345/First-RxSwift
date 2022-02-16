@@ -31,6 +31,8 @@ class LoginFlow: Flow {
         switch step {
         case .login:
             return self.navigateToLogin()
+        case .popToLogin:
+            return self.popToLogin()
         case .signUp:
             //return .end(forwardToParentFlowWithStep: AllStep.signUp)
             return self.navigateToSignUp()
@@ -72,6 +74,12 @@ class LoginFlow: Flow {
         let vc = UIStoryboard(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "FindPWViewController") as! FindPWViewController
         rootViewController.pushViewController(vc, animated: true)
         return .one(flowContributor: .contribute(withNext: vc))
+    }
+    
+    private func popToLogin() -> FlowContributors {
+        print("login flow navigation to back")
+        self.rootViewController.popToRootViewController(animated: true)
+        return .none
     }
     
     private func navigateBack() -> FlowContributors {

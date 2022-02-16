@@ -30,7 +30,7 @@ class FindIDViewModel: Stepper {
     
     struct Output {
         let errorMessage = PublishRelay<String>()
-        let sendMessage = PublishRelay<Bool>() // hidden, or not
+        let sendMessage = BehaviorRelay<Bool>.init(value: false) // hidden, or not
         let authenValid = PublishRelay<String>()
     }
     

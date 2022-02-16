@@ -22,6 +22,7 @@ class LoginUseCase: LoginUseCaseType {
     var authenCode: Int = 0
     var phoneNumber: String = ""
     var password: String = ""
+    var setPassword: String = ""
     
     var disposeBag = DisposeBag()
     
@@ -33,7 +34,7 @@ class LoginUseCase: LoginUseCaseType {
         userRepository.logIn(nickName: requestValue.nickName, password: requestValue.password)
     }
     
-    public func checkValidID(nickname: String) -> Observable<Int> {
+    public func checkValidID(nickname: String) -> Observable<Int> { //findPW
         return userRepository.checkValidId(nickname: nickname)
     }
     
