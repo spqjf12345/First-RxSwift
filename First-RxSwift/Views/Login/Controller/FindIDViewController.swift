@@ -47,7 +47,9 @@ private extension FindIDViewController {
             phoneTextField : self.phoneNumberTextField.rx.text.orEmpty.asObservable(),
             authenRequestButton : self.sendMessageButton.rx.tap.asObservable(),
             authenTextField : self.authenCodeTextField.rx.text.orEmpty.asObservable(),
-            authenButton : self.authenCodeButton.rx.tap.asObservable()
+            authenButton : self.authenCodeButton.rx.tap.asObservable(),
+            findPWButton : self.findPWButton.rx.tap.asObservable(),
+            goToLoginButton: self.goToLoginButton.rx.tap.asObservable()
         )
     
         input.backButton.subscribe(onNext : {
