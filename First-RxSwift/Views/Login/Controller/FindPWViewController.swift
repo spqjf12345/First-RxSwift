@@ -57,8 +57,7 @@ private extension FindPWViewController {
             authenTextfield : self.authenTextField.rx.text.orEmpty.asObservable(),
             authenButton : self.authenCodeButton.rx.tap.asObservable(),
             goToLoginButton: self.goToLoginButton.rx.tap.asObservable(),
-            passwordTextfield: self.passwordTextField.rx.text.asObservable()
-        
+            passwordTextfield: self.passwordTextField.rx.text.orEmpty.asObservable()
         )
         
         input.backButton.subscribe(onNext : {

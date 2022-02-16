@@ -23,6 +23,7 @@
 		8E21C5022795B5B500C0AD86 /* Login+JoinAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E21C5012795B5B500C0AD86 /* Login+JoinAPI.swift */; };
 		8E21C5042795BC0E00C0AD86 /* LoginJoinService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E21C5032795BC0E00C0AD86 /* LoginJoinService.swift */; };
 		8E27F7BD27BCE9F800D3E998 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E27F7BC27BCE9F700D3E998 /* UIViewController.swift */; };
+		8E27F7BF27BCEC1700D3E998 /* MainBoxViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E27F7BE27BCEC1700D3E998 /* MainBoxViewModel.swift */; };
 		8E7877D6273ED6F7007C43E0 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7877D5273ED6F7007C43E0 /* MainViewController.swift */; };
 		8E7877D9273ED912007C43E0 /* TaskListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7877D8273ED912007C43E0 /* TaskListViewController.swift */; };
 		8E7877DB273EDB5E007C43E0 /* AddTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7877DA273EDB5D007C43E0 /* AddTaskViewController.swift */; };
@@ -35,9 +36,6 @@
 		8E8616FF2797C5AE005B1A88 /* AppFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8616FE2797C5AE005B1A88 /* AppFlow.swift */; };
 		8E8617012797C851005B1A88 /* UIColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8617002797C851005B1A88 /* UIColors.swift */; };
 		8E8617032797C98A005B1A88 /* AppStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8617022797C98A005B1A88 /* AppStepper.swift */; };
-		8E8617052797D81B005B1A88 /* SignUpFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8617042797D81B005B1A88 /* SignUpFlow.swift */; };
-		8E8617072797D9EE005B1A88 /* FindIDFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8617062797D9EE005B1A88 /* FindIDFlow.swift */; };
-		8E8617092797D9FB005B1A88 /* FindPWFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8617082797D9FB005B1A88 /* FindPWFlow.swift */; };
 		8E86170B2797DE5D005B1A88 /* AppService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E86170A2797DE5D005B1A88 /* AppService.swift */; };
 		8E86170D2797E29E005B1A88 /* FindIDViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E86170C2797E29E005B1A88 /* FindIDViewModel.swift */; };
 		8E86170F2797E2DD005B1A88 /* FindPWViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E86170E2797E2DD005B1A88 /* FindPWViewModel.swift */; };
@@ -105,6 +103,7 @@
 		8E21C5012795B5B500C0AD86 /* Login+JoinAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Login+JoinAPI.swift"; sourceTree = "<group>"; };
 		8E21C5032795BC0E00C0AD86 /* LoginJoinService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginJoinService.swift; sourceTree = "<group>"; };
 		8E27F7BC27BCE9F700D3E998 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		8E27F7BE27BCEC1700D3E998 /* MainBoxViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainBoxViewModel.swift; sourceTree = "<group>"; };
 		8E7877D5273ED6F7007C43E0 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		8E7877D8273ED912007C43E0 /* TaskListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListViewController.swift; sourceTree = "<group>"; };
 		8E7877DA273EDB5D007C43E0 /* AddTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskViewController.swift; sourceTree = "<group>"; };
@@ -117,9 +116,6 @@
 		8E8616FE2797C5AE005B1A88 /* AppFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFlow.swift; sourceTree = "<group>"; };
 		8E8617002797C851005B1A88 /* UIColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColors.swift; sourceTree = "<group>"; };
 		8E8617022797C98A005B1A88 /* AppStepper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStepper.swift; sourceTree = "<group>"; };
-		8E8617042797D81B005B1A88 /* SignUpFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpFlow.swift; sourceTree = "<group>"; };
-		8E8617062797D9EE005B1A88 /* FindIDFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindIDFlow.swift; sourceTree = "<group>"; };
-		8E8617082797D9FB005B1A88 /* FindPWFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindPWFlow.swift; sourceTree = "<group>"; };
 		8E86170A2797DE5D005B1A88 /* AppService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppService.swift; sourceTree = "<group>"; };
 		8E86170C2797E29E005B1A88 /* FindIDViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindIDViewModel.swift; sourceTree = "<group>"; };
 		8E86170E2797E2DD005B1A88 /* FindPWViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindPWViewModel.swift; sourceTree = "<group>"; };
@@ -230,6 +226,7 @@
 				8E8616F42796AA42005B1A88 /* SignUpViewModel.swift */,
 				8E86170C2797E29E005B1A88 /* FindIDViewModel.swift */,
 				8E86170E2797E2DD005B1A88 /* FindPWViewModel.swift */,
+				8E27F7BE27BCEC1700D3E998 /* MainBoxViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -343,9 +340,6 @@
 			isa = PBXGroup;
 			children = (
 				8E8616FC2797C4D9005B1A88 /* LoginFlow.swift */,
-				8E8617042797D81B005B1A88 /* SignUpFlow.swift */,
-				8E8617062797D9EE005B1A88 /* FindIDFlow.swift */,
-				8E8617082797D9FB005B1A88 /* FindPWFlow.swift */,
 			);
 			path = Flow;
 			sourceTree = "<group>";
@@ -711,10 +705,10 @@
 				8E949E3B27A13EA900947EDA /* SignUpValidationError.swift in Sources */,
 				8E21C5022795B5B500C0AD86 /* Login+JoinAPI.swift in Sources */,
 				8E86170B2797DE5D005B1A88 /* AppService.swift in Sources */,
-				8E8617092797D9FB005B1A88 /* FindPWFlow.swift in Sources */,
 				8E86170D2797E29E005B1A88 /* FindIDViewModel.swift in Sources */,
 				8E8616FD2797C4D9005B1A88 /* LoginFlow.swift in Sources */,
 				8E8616FA2796B775005B1A88 /* AllStep.swift in Sources */,
+				8E27F7BF27BCEC1700D3E998 /* MainBoxViewModel.swift in Sources */,
 				8ED47D42272BAEDD00393397 /* ViewController.swift in Sources */,
 				8E12409827423C1F000F97EF /* URLRequest+Extensions.swift in Sources */,
 				8E8616FF2797C5AE005B1A88 /* AppFlow.swift in Sources */,
@@ -734,13 +728,11 @@
 				8E21C4FA279561E500C0AD86 /* UserRepository.swift in Sources */,
 				8E8617032797C98A005B1A88 /* AppStepper.swift in Sources */,
 				8EA90FF92747C59600F12366 /* URL.swift in Sources */,
-				8E8617072797D9EE005B1A88 /* FindIDFlow.swift in Sources */,
 				8E27F7BD27BCE9F800D3E998 /* UIViewController.swift in Sources */,
 				8E9A41F1279B188A003215E3 /* FindIDViewController.swift in Sources */,
 				8E8617012797C851005B1A88 /* UIColors.swift in Sources */,
 				8E7877D9273ED912007C43E0 /* TaskListViewController.swift in Sources */,
 				8ED47D40272BAEDD00393397 /* SceneDelegate.swift in Sources */,
-				8E8617052797D81B005B1A88 /* SignUpFlow.swift in Sources */,
 				8E21C4FC2795628500C0AD86 /* UserDefaultKey.swift in Sources */,
 				8E9A41F3279B189B003215E3 /* FindPWViewController.swift in Sources */,
 				8E949E3827A129C700947EDA /* ValidationState.swift in Sources */,
