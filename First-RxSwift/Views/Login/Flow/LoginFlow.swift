@@ -40,6 +40,8 @@ class LoginFlow: Flow {
             return self.navigateToFindPW()
         case .boxTap:
             return self.navigateToMain()
+        case .back:
+            return self.navigateBack()
         default:
             return FlowContributors.none
         }
@@ -70,6 +72,12 @@ class LoginFlow: Flow {
         let vc = UIStoryboard(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "FindPWViewController") as! FindPWViewController
         rootViewController.pushViewController(vc, animated: true)
         return .one(flowContributor: .contribute(withNext: vc))
+    }
+    
+    private func navigateBack() -> FlowContributors {
+        print("login flow navigation to back")
+        self.rootViewController.popViewController(animated: true)
+        return .none
     }
     
     private func navigateToMain() -> FlowContributors {

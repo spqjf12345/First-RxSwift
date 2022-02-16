@@ -59,7 +59,6 @@ class LoginViewController: UIViewController, Stepper {
 
 private extension LoginViewController {
     func bindViewModel(){
-        print("bindViewModel")
         
         let input = LoginViewModel.Input (
             idTextfield : self.idTextField.rx.text.orEmpty.asObservable(),

@@ -26,7 +26,7 @@ class SignUpViewModel {
         let passwordTextfield: Observable<String>
         let rePasswordTextfield: Observable<String>
         let phoneNumberTextfield: Observable<String>
-        let sendMessageButton: Observable<String>
+        let authenRequestButton: Observable<Void>
         let authenTextfield: Observable<String>
         let authenButton: Observable<Void>
         let signUpButton: Observable<Void>
@@ -38,7 +38,7 @@ class SignUpViewModel {
         let inValidPWMessage = PublishRelay<String>() //
         let sendMessage = PublishRelay<Bool>() // hidden, or not
         let inValidAuthenCode = PublishRelay<String>() //인증이 정상적으로 확인되었습니다, 인증 번호를 다시 입력해주세요.
-        let signUpButtonEnable = PublishRelay<Bool>()
+        let signUpButtonEnable = BehaviorRelay<Bool>.init(value: false)
     }
     
     func transform(from input: Input, disposeBag: DisposeBag) -> Output {
@@ -66,7 +66,14 @@ class SignUpViewModel {
         
         input.checkIDButton.subscribe(onNext: { [weak self] _ in
             guard let self = self else { return }
-            self.loginUseCase.checkIdValid()
+            if(self.loginUseCase.nickname == ""){
+                print("here")
+                output.errorMessage.accept("아이디를 입력해주세요")
+            }
+            else {
+                self.loginUseCase.checkIdValid()
+            }
+            
         }).disposed(by: disposeBag)
         
         
@@ -74,10 +81,16 @@ class SignUpViewModel {
             self.loginUseCase.phoneNumber = number
         }).disposed(by: disposeBag)
         
-        input.sendMessageButton.subscribe(onNext: { [weak self] _ in
+        input.authenRequestButton.subscribe(onNext: { [weak self] _ in
             guard let self = self else { return }
-            self.loginUseCase.checkAuthenCode()
-            output.sendMessage.accept(true)
+            if(self.loginUseCase.phoneNumber == ""){
+                output.errorMessage.accept("핸드폰 번호를 입력해주세요")
+            }else if(self.loginUseCase.validPhoneNumber(number: self.loginUseCase.phoneNumber) == false){
+                output.errorMessage.accept("전화번호 형식이 맞지 않습니다. 다시 입력해주세요")
+            }else{
+                self.loginUseCase.checkAuthenCode()
+                output.sendMessage.accept(true)
+            }
         }).disposed(by: disposeBag)
         
         input.authenButton

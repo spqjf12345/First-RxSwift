@@ -57,6 +57,21 @@ class LoginUseCase: LoginUseCaseType {
         }).disposed(by: disposeBag)
     }
     
+    public func validPhoneNumber(number: String) -> Bool {
+        if(number.count != 13){
+            return false
+        }
+        if(number[number.index(number.startIndex, offsetBy: 3)] != "-" || number[number.index(number.startIndex, offsetBy: 8)] != "-" ){
+            return false
+        }
+        
+        let rangeOfInitial = number.startIndex..<number.index(number.startIndex, offsetBy: 3)
+        if(number[rangeOfInitial] != "010"){
+            return false
+        }
+        return true
+    }
+    
     public func phoneNumberDashString() -> String {
         var number = self.phoneNumber
         number.remove(at: number.index(number.startIndex, offsetBy: 3))
