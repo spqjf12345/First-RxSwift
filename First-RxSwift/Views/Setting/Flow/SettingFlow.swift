@@ -12,8 +12,6 @@ class SettingFlow: Flow {
     
     var root: Presentable
     
-    let rootViewController = UITabBarController()
-    
     private let service: AppService
     
     init(withService service: AppService){
