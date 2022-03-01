@@ -63,6 +63,8 @@
 		8E86170B2797DE5D005B1A88 /* AppService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E86170A2797DE5D005B1A88 /* AppService.swift */; };
 		8E86170D2797E29E005B1A88 /* FindIDViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E86170C2797E29E005B1A88 /* FindIDViewModel.swift */; };
 		8E86170F2797E2DD005B1A88 /* FindPWViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E86170E2797E2DD005B1A88 /* FindPWViewModel.swift */; };
+		8E8AF70A27CE84BD00578816 /* AddGiftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8AF70927CE84BD00578816 /* AddGiftViewController.swift */; };
+		8E8AF70C27CE84E600578816 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8AF70B27CE84E600578816 /* EditProfileViewController.swift */; };
 		8E949E3827A129C700947EDA /* ValidationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E949E3727A129C600947EDA /* ValidationState.swift */; };
 		8E949E3B27A13EA900947EDA /* SignUpValidationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E949E3A27A13EA900947EDA /* SignUpValidationError.swift */; };
 		8E9A41F1279B188A003215E3 /* FindIDViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9A41F0279B188A003215E3 /* FindIDViewController.swift */; };
@@ -165,6 +167,8 @@
 		8E86170A2797DE5D005B1A88 /* AppService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppService.swift; sourceTree = "<group>"; };
 		8E86170C2797E29E005B1A88 /* FindIDViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindIDViewModel.swift; sourceTree = "<group>"; };
 		8E86170E2797E2DD005B1A88 /* FindPWViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindPWViewModel.swift; sourceTree = "<group>"; };
+		8E8AF70927CE84BD00578816 /* AddGiftViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGiftViewController.swift; sourceTree = "<group>"; };
+		8E8AF70B27CE84E600578816 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		8E949E3727A129C600947EDA /* ValidationState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationState.swift; sourceTree = "<group>"; };
 		8E949E3A27A13EA900947EDA /* SignUpValidationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpValidationError.swift; sourceTree = "<group>"; };
 		8E9A41F0279B188A003215E3 /* FindIDViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindIDViewController.swift; sourceTree = "<group>"; };
@@ -461,6 +465,7 @@
 			isa = PBXGroup;
 			children = (
 				8E2494CD27CE7E8D009D03E8 /* ProfileViewController.swift */,
+				8E8AF70B27CE84E600578816 /* EditProfileViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -477,6 +482,7 @@
 			isa = PBXGroup;
 			children = (
 				8E2494C927CE7E58009D03E8 /* GiftViewController.swift */,
+				8E8AF70927CE84BD00578816 /* AddGiftViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -947,6 +953,7 @@
 				8E21C4F2279557F800C0AD86 /* LoginViewController.swift in Sources */,
 				8E12409327423A2B000F97EF /* Article.swift in Sources */,
 				8E21C4F427955B6300C0AD86 /* LoginViewModel.swift in Sources */,
+				8E8AF70C27CE84E600578816 /* EditProfileViewController.swift in Sources */,
 				8E2494A127CE3DB4009D03E8 /* LinkFlow.swift in Sources */,
 				8ED47D48272BAEDD00393397 /* First_RxSwift.xcdatamodeld in Sources */,
 				8E2494D127CE8038009D03E8 /* AllBoxViewController.swift in Sources */,
@@ -980,6 +987,7 @@
 				8E8616F027968B18005B1A88 /* SignUpViewController.swift in Sources */,
 				8E21C4FA279561E500C0AD86 /* UserRepository.swift in Sources */,
 				8E2494A327CE3DBE009D03E8 /* TextFlow.swift in Sources */,
+				8E8AF70A27CE84BD00578816 /* AddGiftViewController.swift in Sources */,
 				8E2494AE27CE7943009D03E8 /* PageViewController.swift in Sources */,
 				8E8617032797C98A005B1A88 /* AppStepper.swift in Sources */,
 				8EA90FF92747C59600F12366 /* URL.swift in Sources */,

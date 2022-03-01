@@ -101,7 +101,7 @@ class MainViewController: UIViewController, Stepper {
         }
 
         @IBAction func profileVC(_ sender: Any) {
-            let profileVC = UIStoryboard(name: "Profile", bundle: nil).instantiateViewController(identifier: "profile") as? ProfileViewController
+            let profileVC = UIStoryboard(name: "Profile", bundle: nil).instantiateViewController(identifier: "ProfileViewController") as? ProfileViewController
             self.navigationController?.setNavigationBarHidden(false, animated: true)
             self.navigationController?.pushViewController(profileVC!, animated: true)
            

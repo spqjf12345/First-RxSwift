@@ -53,9 +53,6 @@
                                         </constraints>
                                         <color key="tintColor" red="0.1647058824" green="0.20000000000000001" blue="0.3411764706" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <state key="normal" backgroundImage="plus" catalog="system"/>
-                                        <connections>
-                                            <action selector="addButton:" destination="rWa-1q-WOo" eventType="touchUpInside" id="bDU-gp-R4M"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -88,11 +85,6 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="d7P-AR-gXl"/>
-                    <connections>
-                        <outlet property="calendar" destination="yUF-8t-Atk" id="qKg-NP-0IS"/>
-                        <outlet property="searchTextField" destination="nMm-qx-FP7" id="N4K-0N-Qpg"/>
-                        <outlet property="tableView" destination="Iwo-1g-GKo" id="JeX-ES-kdD"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TF1-Nr-Jgh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
