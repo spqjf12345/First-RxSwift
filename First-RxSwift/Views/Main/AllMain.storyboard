@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Main View Controller-->
+        <scene sceneID="KNS-bN-hJv">
+            <objects>
+                <viewController storyboardIdentifier="Main" id="tk0-kn-y6q" customClass="MainViewController" customModule="First_RxSwift" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dc7-A1-7OP">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="0pu-jg-gGg">
+                                <rect key="frame" x="20" y="44" width="374" height="70"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qRG-R8-NqF">
+                                        <rect key="frame" x="0.0" y="0.0" width="45.5" height="70"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <state key="normal" title="보관함">
+                                            <color key="titleColor" red="0.099970199169999996" green="0.11900150029999999" blue="0.21177518370000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="allVC:" destination="tk0-kn-y6q" eventType="touchUpInside" id="l4p-5O-zqM"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q8P-Id-fma">
+                                        <rect key="frame" x="65.5" y="0.0" width="46" height="70"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <state key="normal" title="텍스트">
+                                            <color key="titleColor" red="0.099970199169999996" green="0.11900150029999999" blue="0.21177518370000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="textVC:" destination="tk0-kn-y6q" eventType="touchUpInside" id="CFF-Ke-k9O"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z3N-na-XG3">
+                                        <rect key="frame" x="131.5" y="0.0" width="45.5" height="70"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <state key="normal" title="링크">
+                                            <color key="titleColor" red="0.099970199169999996" green="0.11900150029999999" blue="0.21177518370000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="linkVC:" destination="tk0-kn-y6q" eventType="touchUpInside" id="e23-au-pSc"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J7u-7r-Sf1">
+                                        <rect key="frame" x="197" y="0.0" width="45.5" height="70"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <state key="normal" title="선물">
+                                            <color key="titleColor" red="0.099970199169999996" green="0.11900150029999999" blue="0.21177518370000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="giftVC:" destination="tk0-kn-y6q" eventType="touchUpInside" id="b9e-KV-iUn"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LrN-ge-gr0">
+                                        <rect key="frame" x="262.5" y="0.0" width="46" height="70"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <state key="normal" title="캘린더">
+                                            <color key="titleColor" red="0.099970199169999996" green="0.11900150029999999" blue="0.21177518370000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="calendarVC:" destination="tk0-kn-y6q" eventType="touchUpInside" id="W3X-gq-SWE"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U7c-e2-djP">
+                                        <rect key="frame" x="328.5" y="1.5" width="45.5" height="67"/>
+                                        <color key="tintColor" red="0.1647058824" green="0.20000000000000001" blue="0.3411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal">
+                                            <color key="titleColor" red="0.1647058824" green="0.20000000000000001" blue="0.3411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <imageReference key="backgroundImage" image="person.fill" catalog="system" renderingMode="original"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="profileVC:" destination="tk0-kn-y6q" eventType="touchUpInside" id="maR-7p-JR9"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="eZ1-rf-r2x"/>
+                                </constraints>
+                            </stackView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bGe-J2-ACy">
+                                <rect key="frame" x="0.0" y="114" width="414" height="748"/>
+                            </containerView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="OVb-Q6-ff6"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="OVb-Q6-ff6" firstAttribute="bottom" secondItem="bGe-J2-ACy" secondAttribute="bottom" id="J4z-oq-iQ8"/>
+                            <constraint firstItem="bGe-J2-ACy" firstAttribute="leading" secondItem="OVb-Q6-ff6" secondAttribute="leading" id="Olm-6t-l4y"/>
+                            <constraint firstItem="bGe-J2-ACy" firstAttribute="trailing" secondItem="OVb-Q6-ff6" secondAttribute="trailing" id="QyP-5p-Sdk"/>
+                            <constraint firstItem="0pu-jg-gGg" firstAttribute="leading" secondItem="OVb-Q6-ff6" secondAttribute="leading" constant="20" id="aHF-Md-LNw"/>
+                            <constraint firstItem="bGe-J2-ACy" firstAttribute="top" secondItem="0pu-jg-gGg" secondAttribute="bottom" id="jbX-7a-0rL"/>
+                            <constraint firstItem="0pu-jg-gGg" firstAttribute="top" secondItem="OVb-Q6-ff6" secondAttribute="top" id="l72-PW-GxP"/>
+                            <constraint firstItem="OVb-Q6-ff6" firstAttribute="trailing" secondItem="0pu-jg-gGg" secondAttribute="trailing" constant="20" id="zYe-jX-Of3"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="lFS-63-2oP"/>
+                    <connections>
+                        <outlet property="allVC" destination="qRG-R8-NqF" id="abd-bM-sUV"/>
+                        <outlet property="calendarVC" destination="LrN-ge-gr0" id="wV4-rp-sOc"/>
+                        <outlet property="giftVC" destination="J7u-7r-Sf1" id="VNa-Zm-FAX"/>
+                        <outlet property="linkVC" destination="Z3N-na-XG3" id="pbO-Gw-MhY"/>
+                        <outlet property="profileVC" destination="U7c-e2-djP" id="MmX-fC-CEa"/>
+                        <outlet property="textVC" destination="Q8P-Id-fma" id="HdM-yN-Iba"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Fnu-0m-odF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-745" y="71"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ZQs-4g-QGr">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="qup-Vb-dNt" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="jsg-Ij-KGZ">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="tk0-kn-y6q" kind="relationship" relationship="rootViewController" id="oZX-ti-ka1"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Y8f-2L-Qz6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1474" y="71"/>
+        </scene>
+        <!--Make Folder Alert View-->
+        <scene sceneID="d9Y-CU-g6W">
+            <objects>
+                <viewController storyboardIdentifier="makeFolderAlertView" id="sDv-qu-IDY" customClass="makeFolderAlertView" customModule="First_RxSwift" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xAg-JA-Xzg">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jSC-JZ-dlH" customClass="MakeFolder" customModule="First_RxSwift" customModuleProvider="target">
+                                <rect key="frame" x="60" y="202" width="294" height="492"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="jSC-JZ-dlH" secondAttribute="height" multiplier="255:427" id="Jtw-cY-yxx"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="gV2-1V-UrH"/>
+                        <color key="backgroundColor" red="0.92792880899999997" green="0.92792880899999997" blue="0.92792880899999997" alpha="0.81169088" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="jSC-JZ-dlH" firstAttribute="centerY" secondItem="xAg-JA-Xzg" secondAttribute="centerY" id="9dF-CY-dGg"/>
+                            <constraint firstItem="gV2-1V-UrH" firstAttribute="trailing" secondItem="jSC-JZ-dlH" secondAttribute="trailing" constant="60" id="BUD-G1-2Cb"/>
+                            <constraint firstItem="jSC-JZ-dlH" firstAttribute="leading" secondItem="gV2-1V-UrH" secondAttribute="leading" constant="60" id="Dvi-An-HsS"/>
+                            <constraint firstItem="jSC-JZ-dlH" firstAttribute="top" relation="greaterThanOrEqual" secondItem="gV2-1V-UrH" secondAttribute="top" constant="100" id="QSA-9c-Jtf"/>
+                            <constraint firstItem="jSC-JZ-dlH" firstAttribute="centerX" secondItem="xAg-JA-Xzg" secondAttribute="centerX" id="lPX-Dm-uUF"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="folderView" destination="jSC-JZ-dlH" id="Atg-48-ta2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SNv-Am-jKS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1475" y="808"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="person.fill" catalog="system" width="128" height="120"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

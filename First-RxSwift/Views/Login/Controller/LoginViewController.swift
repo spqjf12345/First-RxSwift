@@ -103,10 +103,16 @@ private extension LoginViewController {
            .bind(onNext: showAlert)
            .disposed(by: disposeBag)
         
-       output.goToMain
-            .observe(on: MainScheduler.instance)
-           .bind(onNext: goToMain)
-           .disposed(by: disposeBag)
+        output.goToMain
+            .asDriver(onErrorJustReturn: false)
+            .drive(onNext: { [weak self] goTo in
+                if goTo {
+                    guard let self = self else {return }
+                    print("hhhh")
+                    self.steps.accept(AllStep.boxTap)
+                }
+            }).disposed(by: disposeBag)
+            
 
         
     }
@@ -119,12 +125,5 @@ private extension LoginViewController {
         present(alert, animated: false, completion: nil)
     }
     
-    private func goToMain() {
-        let mainVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(identifier: "VC")
-        let rootNC = UINavigationController(rootViewController: mainVC)
-        
-        UIApplication.shared.windows.first?.rootViewController = rootNC
-        UIApplication.shared.windows.first?.makeKeyAndVisible()
-    }
 
 }

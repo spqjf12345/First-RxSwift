@@ -10,7 +10,11 @@ import RxFlow
 
 class SettingFlow: Flow {
     
-    var root: Presentable
+    var root: Presentable {
+        return self.rootViewController
+    }
+    
+    let rootViewController = UINavigationController()
     
     private let service: AppService
     

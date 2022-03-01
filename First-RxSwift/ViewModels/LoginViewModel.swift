@@ -32,7 +32,7 @@ class LoginViewModel {
     struct Output {
         let enableLoginInButton = PublishRelay<Bool>()
         let errorMessage = PublishRelay<String>()
-        let goToMain = PublishRelay<Void>()
+        let goToMain = PublishRelay<Bool>()
     }
     
     
@@ -50,14 +50,17 @@ class LoginViewModel {
             .bind { (id, password) in
                 if(id.count < 0){
                     output.errorMessage.accept("아이디를 입력해주세요")
+                    output.goToMain.accept(false)
                 }else if(password.count < 0){
                     output.errorMessage.accept("비밀번호를 입력해주세요")
+                    output.goToMain.accept(false)
                 }else {
                     let userData = User(id: 0, nickName: id, password: password, phoneNumber: "")
                     self.loginUseCase.logIn(userData)
+                    output.goToMain.accept(true)
                 }
             
-        }.disposed(by: disposeBag)
+            }.disposed(by: disposeBag)
 
         return output
     }

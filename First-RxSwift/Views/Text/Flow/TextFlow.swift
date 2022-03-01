@@ -10,9 +10,11 @@ import RxFlow
 
 class TextFlow: Flow {
     
-    var root: Presentable
+    var root: Presentable {
+        return self.rootViewController
+    }
     
-    let rootViewController = UITabBarController()
+    let rootViewController = UINavigationController()
     
     private let service: AppService
     
