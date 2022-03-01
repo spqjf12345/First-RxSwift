@@ -22,8 +22,17 @@
 		8E21C4FE2795B48600C0AD86 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E21C4FD2795B48600C0AD86 /* Config.swift */; };
 		8E21C5022795B5B500C0AD86 /* Login+JoinAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E21C5012795B5B500C0AD86 /* Login+JoinAPI.swift */; };
 		8E21C5042795BC0E00C0AD86 /* LoginJoinService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E21C5032795BC0E00C0AD86 /* LoginJoinService.swift */; };
+		8E24948E27CE395A009D03E8 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E24948D27CE395A009D03E8 /* MainViewController.swift */; };
+		8E24949027CE39BB009D03E8 /* MakeFolder.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E24948F27CE39BB009D03E8 /* MakeFolder.xib */; };
+		8E24949C27CE3D8D009D03E8 /* CalendarFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E24949B27CE3D8D009D03E8 /* CalendarFlow.swift */; };
+		8E24949F27CE3DAC009D03E8 /* GiftFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E24949E27CE3DAC009D03E8 /* GiftFlow.swift */; };
+		8E2494A127CE3DB4009D03E8 /* LinkFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2494A027CE3DB4009D03E8 /* LinkFlow.swift */; };
+		8E2494A327CE3DBE009D03E8 /* TextFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2494A227CE3DBE009D03E8 /* TextFlow.swift */; };
+		8E2494A527CE3DCD009D03E8 /* AllBoxFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2494A427CE3DCD009D03E8 /* AllBoxFlow.swift */; };
 		8E27F7BD27BCE9F800D3E998 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E27F7BC27BCE9F700D3E998 /* UIViewController.swift */; };
 		8E27F7BF27BCEC1700D3E998 /* MainBoxViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E27F7BE27BCEC1700D3E998 /* MainBoxViewModel.swift */; };
+		8E27F7C427BCEC9C00D3E998 /* MainFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E27F7C327BCEC9C00D3E998 /* MainFlow.swift */; };
+		8E27F7C627BCECB700D3E998 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E27F7C527BCECB700D3E998 /* Main.storyboard */; };
 		8E7877D6273ED6F7007C43E0 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7877D5273ED6F7007C43E0 /* MainViewController.swift */; };
 		8E7877D9273ED912007C43E0 /* TaskListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7877D8273ED912007C43E0 /* TaskListViewController.swift */; };
 		8E7877DB273EDB5E007C43E0 /* AddTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7877DA273EDB5D007C43E0 /* AddTaskViewController.swift */; };
@@ -102,8 +111,17 @@
 		8E21C4FD2795B48600C0AD86 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		8E21C5012795B5B500C0AD86 /* Login+JoinAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Login+JoinAPI.swift"; sourceTree = "<group>"; };
 		8E21C5032795BC0E00C0AD86 /* LoginJoinService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginJoinService.swift; sourceTree = "<group>"; };
+		8E24948D27CE395A009D03E8 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		8E24948F27CE39BB009D03E8 /* MakeFolder.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MakeFolder.xib; sourceTree = "<group>"; };
+		8E24949B27CE3D8D009D03E8 /* CalendarFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarFlow.swift; sourceTree = "<group>"; };
+		8E24949E27CE3DAC009D03E8 /* GiftFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftFlow.swift; sourceTree = "<group>"; };
+		8E2494A027CE3DB4009D03E8 /* LinkFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkFlow.swift; sourceTree = "<group>"; };
+		8E2494A227CE3DBE009D03E8 /* TextFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFlow.swift; sourceTree = "<group>"; };
+		8E2494A427CE3DCD009D03E8 /* AllBoxFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllBoxFlow.swift; sourceTree = "<group>"; };
 		8E27F7BC27BCE9F700D3E998 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		8E27F7BE27BCEC1700D3E998 /* MainBoxViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainBoxViewModel.swift; sourceTree = "<group>"; };
+		8E27F7C327BCEC9C00D3E998 /* MainFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFlow.swift; sourceTree = "<group>"; };
+		8E27F7C527BCECB700D3E998 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		8E7877D5273ED6F7007C43E0 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		8E7877D8273ED912007C43E0 /* TaskListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListViewController.swift; sourceTree = "<group>"; };
 		8E7877DA273EDB5D007C43E0 /* AddTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskViewController.swift; sourceTree = "<group>"; };
@@ -295,6 +313,113 @@
 			path = API;
 			sourceTree = "<group>";
 		};
+		8E24949127CE3CEE009D03E8 /* AllBox */ = {
+			isa = PBXGroup;
+			children = (
+				8E24949A27CE3D7B009D03E8 /* Flow */,
+			);
+			path = AllBox;
+			sourceTree = "<group>";
+		};
+		8E24949227CE3D1A009D03E8 /* Text */ = {
+			isa = PBXGroup;
+			children = (
+				8E24949927CE3D76009D03E8 /* Flow */,
+			);
+			path = Text;
+			sourceTree = "<group>";
+		};
+		8E24949327CE3D21009D03E8 /* Link */ = {
+			isa = PBXGroup;
+			children = (
+				8E24949827CE3D71009D03E8 /* Flow */,
+			);
+			path = Link;
+			sourceTree = "<group>";
+		};
+		8E24949427CE3D27009D03E8 /* Gift */ = {
+			isa = PBXGroup;
+			children = (
+				8E24949727CE3D6A009D03E8 /* Flow */,
+			);
+			path = Gift;
+			sourceTree = "<group>";
+		};
+		8E24949527CE3D30009D03E8 /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				8E24949627CE3D63009D03E8 /* Flow */,
+			);
+			path = Calendar;
+			sourceTree = "<group>";
+		};
+		8E24949627CE3D63009D03E8 /* Flow */ = {
+			isa = PBXGroup;
+			children = (
+				8E24949B27CE3D8D009D03E8 /* CalendarFlow.swift */,
+			);
+			path = Flow;
+			sourceTree = "<group>";
+		};
+		8E24949727CE3D6A009D03E8 /* Flow */ = {
+			isa = PBXGroup;
+			children = (
+				8E24949E27CE3DAC009D03E8 /* GiftFlow.swift */,
+			);
+			path = Flow;
+			sourceTree = "<group>";
+		};
+		8E24949827CE3D71009D03E8 /* Flow */ = {
+			isa = PBXGroup;
+			children = (
+				8E2494A027CE3DB4009D03E8 /* LinkFlow.swift */,
+			);
+			path = Flow;
+			sourceTree = "<group>";
+		};
+		8E24949927CE3D76009D03E8 /* Flow */ = {
+			isa = PBXGroup;
+			children = (
+				8E2494A227CE3DBE009D03E8 /* TextFlow.swift */,
+			);
+			path = Flow;
+			sourceTree = "<group>";
+		};
+		8E24949A27CE3D7B009D03E8 /* Flow */ = {
+			isa = PBXGroup;
+			children = (
+				8E2494A427CE3DCD009D03E8 /* AllBoxFlow.swift */,
+			);
+			path = Flow;
+			sourceTree = "<group>";
+		};
+		8E27F7C027BCEC7B00D3E998 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				8E24948F27CE39BB009D03E8 /* MakeFolder.xib */,
+				8E27F7C527BCECB700D3E998 /* Main.storyboard */,
+				8E27F7C227BCEC8B00D3E998 /* Controller */,
+				8E27F7C127BCEC8300D3E998 /* Flow */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		8E27F7C127BCEC8300D3E998 /* Flow */ = {
+			isa = PBXGroup;
+			children = (
+				8E27F7C327BCEC9C00D3E998 /* MainFlow.swift */,
+			);
+			path = Flow;
+			sourceTree = "<group>";
+		};
+		8E27F7C227BCEC8B00D3E998 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				8E24948D27CE395A009D03E8 /* MainViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		8E7877D7273ED8F0007C43E0 /* PhotoFilter */ = {
 			isa = PBXGroup;
 			children = (
@@ -432,12 +557,18 @@
 		8ED47D74272BAFF400393397 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				8E27F7C027BCEC7B00D3E998 /* Main */,
 				8E8616F82796B6B6005B1A88 /* Coordinator */,
 				8ED47D41272BAEDD00393397 /* ViewController.swift */,
 				8E21C4EC2795527E00C0AD86 /* Login */,
-				8E21C4EB279551D300C0AD86 /* SearchCity */,
+				8E24949527CE3D30009D03E8 /* Calendar */,
+				8E24949427CE3D27009D03E8 /* Gift */,
+				8E24949327CE3D21009D03E8 /* Link */,
+				8E24949227CE3D1A009D03E8 /* Text */,
+				8E24949127CE3CEE009D03E8 /* AllBox */,
 				8EA90FF32747C13500F12366 /* GoodWeather */,
 				8E12408F274237BB000F97EF /* NewsAPI */,
+				8E21C4EB279551D300C0AD86 /* SearchCity */,
 				8E7877D7273ED8F0007C43E0 /* PhotoFilter */,
 				8E12408E274237A3000F97EF /* ToDoListPriority */,
 				8ED47D4B272BAEDF00393397 /* LaunchScreen.storyboard */,
@@ -568,6 +699,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				8E21C4F0279557B200C0AD86 /* Login.storyboard in Resources */,
+				8E24949027CE39BB009D03E8 /* MakeFolder.xib in Resources */,
+				8E27F7C627BCECB700D3E998 /* Main.storyboard in Resources */,
 				8ED47D4D272BAEDF00393397 /* LaunchScreen.storyboard in Resources */,
 				8ED47D4A272BAEDF00393397 /* Assets.xcassets in Resources */,
 				8ED47D45272BAEDD00393397 /* Main.storyboard in Resources */,
@@ -701,6 +834,7 @@
 				8E21C4F2279557F800C0AD86 /* LoginViewController.swift in Sources */,
 				8E12409327423A2B000F97EF /* Article.swift in Sources */,
 				8E21C4F427955B6300C0AD86 /* LoginViewModel.swift in Sources */,
+				8E2494A127CE3DB4009D03E8 /* LinkFlow.swift in Sources */,
 				8ED47D48272BAEDD00393397 /* First_RxSwift.xcdatamodeld in Sources */,
 				8E949E3B27A13EA900947EDA /* SignUpValidationError.swift in Sources */,
 				8E21C5022795B5B500C0AD86 /* Login+JoinAPI.swift in Sources */,
@@ -708,6 +842,7 @@
 				8E86170D2797E29E005B1A88 /* FindIDViewModel.swift in Sources */,
 				8E8616FD2797C4D9005B1A88 /* LoginFlow.swift in Sources */,
 				8E8616FA2796B775005B1A88 /* AllStep.swift in Sources */,
+				8E24948E27CE395A009D03E8 /* MainViewController.swift in Sources */,
 				8E27F7BF27BCEC1700D3E998 /* MainBoxViewModel.swift in Sources */,
 				8ED47D42272BAEDD00393397 /* ViewController.swift in Sources */,
 				8E12409827423C1F000F97EF /* URLRequest+Extensions.swift in Sources */,
@@ -722,12 +857,15 @@
 				8E7877DE273EDC54007C43E0 /* Task.swift in Sources */,
 				8E12409527423B1A000F97EF /* ArticleTableviewCell.swift in Sources */,
 				8ED47D71272BAF4C00393397 /* PhotosCollectionViewController.swift in Sources */,
+				8E24949F27CE3DAC009D03E8 /* GiftFlow.swift in Sources */,
 				8E21C5042795BC0E00C0AD86 /* LoginJoinService.swift in Sources */,
 				8E86170F2797E2DD005B1A88 /* FindPWViewModel.swift in Sources */,
 				8E8616F027968B18005B1A88 /* SignUpViewController.swift in Sources */,
 				8E21C4FA279561E500C0AD86 /* UserRepository.swift in Sources */,
+				8E2494A327CE3DBE009D03E8 /* TextFlow.swift in Sources */,
 				8E8617032797C98A005B1A88 /* AppStepper.swift in Sources */,
 				8EA90FF92747C59600F12366 /* URL.swift in Sources */,
+				8E24949C27CE3D8D009D03E8 /* CalendarFlow.swift in Sources */,
 				8E27F7BD27BCE9F800D3E998 /* UIViewController.swift in Sources */,
 				8E9A41F1279B188A003215E3 /* FindIDViewController.swift in Sources */,
 				8E8617012797C851005B1A88 /* UIColors.swift in Sources */,
@@ -742,6 +880,8 @@
 				8E12409127423800000F97EF /* NewsTableViewController.swift in Sources */,
 				8ED47D78272BB67200393397 /* PhotoCollectionViewCell.swift in Sources */,
 				8E7877D6273ED6F7007C43E0 /* MainViewController.swift in Sources */,
+				8E2494A527CE3DCD009D03E8 /* AllBoxFlow.swift in Sources */,
+				8E27F7C427BCEC9C00D3E998 /* MainFlow.swift in Sources */,
 				8E7877DB273EDB5E007C43E0 /* AddTaskViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
