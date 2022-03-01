@@ -14,7 +14,7 @@
         <scene sceneID="KNS-bN-hJv">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fnu-0m-odF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <viewController storyboardIdentifier="Main" id="tk0-kn-y6q" customClass="MainViewController" customModule="First_RxSwift" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainViewController" id="tk0-kn-y6q" customClass="MainViewController" customModule="First_RxSwift" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dc7-A1-7OP">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -179,7 +179,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SNv-Am-jKS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1475" y="808"/>
+            <point key="canvasLocation" x="-1475" y="806"/>
         </scene>
     </scenes>
     <resources>

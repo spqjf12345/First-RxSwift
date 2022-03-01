@@ -67,11 +67,11 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource, 
     }
     
     func setupSubView(){
-            let mainVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(identifier: "main") as MainViewController
-            let textVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(identifier: "text") as TextViewController
-            let linkVC = UIStoryboard.init(name: "Link", bundle: nil).instantiateViewController(identifier: "link") as LinkViewController
-            let notiVC = UIStoryboard.init(name: "Timeout", bundle: nil).instantiateViewController(identifier: "noti") as NotiViewController
-            let calendarVC = UIStoryboard.init(name: "Calendar", bundle: nil).instantiateViewController(identifier: "calendar") as CalendarViewController
+            let mainVC = UIStoryboard.init(name: "AllBox", bundle: nil).instantiateViewController(identifier: "AllBoxViewController") as AllBoxViewController
+            let textVC = UIStoryboard.init(name: "Phrase", bundle: nil).instantiateViewController(identifier: "TextViewController") as TextViewController
+            let linkVC = UIStoryboard.init(name: "Link", bundle: nil).instantiateViewController(identifier: "LinkViewController") as LinkViewController
+            let notiVC = UIStoryboard.init(name: "Timeout", bundle: nil).instantiateViewController(identifier: "GiftViewController") as GiftViewController
+            let calendarVC = UIStoryboard.init(name: "Calendar", bundle: nil).instantiateViewController(identifier: "CalendarViewController") as CalendarViewController
     
         ViewControllers.append(mainVC)
         ViewControllers.append(textVC)

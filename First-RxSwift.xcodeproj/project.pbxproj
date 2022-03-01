@@ -33,6 +33,18 @@
 		8E2494AA27CE5060009D03E8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8ED47D43272BAEDD00393397 /* Main.storyboard */; };
 		8E2494AC27CE510D009D03E8 /* AllMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E2494AB27CE510D009D03E8 /* AllMain.storyboard */; };
 		8E2494AE27CE7943009D03E8 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2494AD27CE7943009D03E8 /* PageViewController.swift */; };
+		8E2494B227CE7A9B009D03E8 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E2494B127CE7A9B009D03E8 /* Profile.storyboard */; };
+		8E2494B427CE7AA6009D03E8 /* Calendar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E2494B327CE7AA6009D03E8 /* Calendar.storyboard */; };
+		8E2494B627CE7AB1009D03E8 /* Timeout.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E2494B527CE7AB1009D03E8 /* Timeout.storyboard */; };
+		8E2494B827CE7ABA009D03E8 /* Link.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E2494B727CE7ABA009D03E8 /* Link.storyboard */; };
+		8E2494BA27CE7ABE009D03E8 /* Phrase.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E2494B927CE7ABE009D03E8 /* Phrase.storyboard */; };
+		8E2494BC27CE7AF8009D03E8 /* AllBox.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E2494BB27CE7AF8009D03E8 /* AllBox.storyboard */; };
+		8E2494C127CE7DFA009D03E8 /* TextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2494C027CE7DFA009D03E8 /* TextViewController.swift */; };
+		8E2494C727CE7E41009D03E8 /* LinkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2494C627CE7E41009D03E8 /* LinkViewController.swift */; };
+		8E2494CA27CE7E58009D03E8 /* GiftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2494C927CE7E58009D03E8 /* GiftViewController.swift */; };
+		8E2494CC27CE7E66009D03E8 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2494CB27CE7E66009D03E8 /* CalendarViewController.swift */; };
+		8E2494CE27CE7E8D009D03E8 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2494CD27CE7E8D009D03E8 /* ProfileViewController.swift */; };
+		8E2494D127CE8038009D03E8 /* AllBoxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2494D027CE8038009D03E8 /* AllBoxViewController.swift */; };
 		8E27F7BD27BCE9F800D3E998 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E27F7BC27BCE9F700D3E998 /* UIViewController.swift */; };
 		8E27F7BF27BCEC1700D3E998 /* MainBoxViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E27F7BE27BCEC1700D3E998 /* MainBoxViewModel.swift */; };
 		8E27F7C427BCEC9C00D3E998 /* MainFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E27F7C327BCEC9C00D3E998 /* MainFlow.swift */; };
@@ -123,6 +135,18 @@
 		8E2494A827CE3EA9009D03E8 /* ProfileFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFlow.swift; sourceTree = "<group>"; };
 		8E2494AB27CE510D009D03E8 /* AllMain.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AllMain.storyboard; sourceTree = "<group>"; };
 		8E2494AD27CE7943009D03E8 /* PageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
+		8E2494B127CE7A9B009D03E8 /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		8E2494B327CE7AA6009D03E8 /* Calendar.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Calendar.storyboard; sourceTree = "<group>"; };
+		8E2494B527CE7AB1009D03E8 /* Timeout.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Timeout.storyboard; sourceTree = "<group>"; };
+		8E2494B727CE7ABA009D03E8 /* Link.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Link.storyboard; sourceTree = "<group>"; };
+		8E2494B927CE7ABE009D03E8 /* Phrase.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Phrase.storyboard; sourceTree = "<group>"; };
+		8E2494BB27CE7AF8009D03E8 /* AllBox.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AllBox.storyboard; sourceTree = "<group>"; };
+		8E2494C027CE7DFA009D03E8 /* TextViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextViewController.swift; sourceTree = "<group>"; };
+		8E2494C627CE7E41009D03E8 /* LinkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkViewController.swift; sourceTree = "<group>"; };
+		8E2494C927CE7E58009D03E8 /* GiftViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftViewController.swift; sourceTree = "<group>"; };
+		8E2494CB27CE7E66009D03E8 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
+		8E2494CD27CE7E8D009D03E8 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		8E2494D027CE8038009D03E8 /* AllBoxViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllBoxViewController.swift; sourceTree = "<group>"; };
 		8E27F7BC27BCE9F700D3E998 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		8E27F7BE27BCEC1700D3E998 /* MainBoxViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainBoxViewModel.swift; sourceTree = "<group>"; };
 		8E27F7C327BCEC9C00D3E998 /* MainFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFlow.swift; sourceTree = "<group>"; };
@@ -320,7 +344,9 @@
 		8E24949127CE3CEE009D03E8 /* AllBox */ = {
 			isa = PBXGroup;
 			children = (
+				8E2494CF27CE7FD3009D03E8 /* Controller */,
 				8E24949A27CE3D7B009D03E8 /* Flow */,
+				8E2494BB27CE7AF8009D03E8 /* AllBox.storyboard */,
 			);
 			path = AllBox;
 			sourceTree = "<group>";
@@ -328,6 +354,8 @@
 		8E24949227CE3D1A009D03E8 /* Text */ = {
 			isa = PBXGroup;
 			children = (
+				8E2494BF27CE7DDE009D03E8 /* Controller */,
+				8E2494B927CE7ABE009D03E8 /* Phrase.storyboard */,
 				8E24949927CE3D76009D03E8 /* Flow */,
 			);
 			path = Text;
@@ -336,6 +364,8 @@
 		8E24949327CE3D21009D03E8 /* Link */ = {
 			isa = PBXGroup;
 			children = (
+				8E2494C527CE7E2D009D03E8 /* Controller */,
+				8E2494B727CE7ABA009D03E8 /* Link.storyboard */,
 				8E24949827CE3D71009D03E8 /* Flow */,
 			);
 			path = Link;
@@ -344,6 +374,8 @@
 		8E24949427CE3D27009D03E8 /* Gift */ = {
 			isa = PBXGroup;
 			children = (
+				8E2494C427CE7E26009D03E8 /* Controller */,
+				8E2494B527CE7AB1009D03E8 /* Timeout.storyboard */,
 				8E24949727CE3D6A009D03E8 /* Flow */,
 			);
 			path = Gift;
@@ -352,6 +384,8 @@
 		8E24949527CE3D30009D03E8 /* Calendar */ = {
 			isa = PBXGroup;
 			children = (
+				8E2494C327CE7E11009D03E8 /* Controller */,
+				8E2494B327CE7AA6009D03E8 /* Calendar.storyboard */,
 				8E24949627CE3D63009D03E8 /* Flow */,
 			);
 			path = Calendar;
@@ -400,6 +434,8 @@
 		8E2494A627CE3E8B009D03E8 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				8E2494C227CE7E03009D03E8 /* Controller */,
+				8E2494B127CE7A9B009D03E8 /* Profile.storyboard */,
 				8E2494A727CE3E92009D03E8 /* Flow */,
 			);
 			path = Profile;
@@ -411,6 +447,54 @@
 				8E2494A827CE3EA9009D03E8 /* ProfileFlow.swift */,
 			);
 			path = Flow;
+			sourceTree = "<group>";
+		};
+		8E2494BF27CE7DDE009D03E8 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				8E2494C027CE7DFA009D03E8 /* TextViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		8E2494C227CE7E03009D03E8 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				8E2494CD27CE7E8D009D03E8 /* ProfileViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		8E2494C327CE7E11009D03E8 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				8E2494CB27CE7E66009D03E8 /* CalendarViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		8E2494C427CE7E26009D03E8 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				8E2494C927CE7E58009D03E8 /* GiftViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		8E2494C527CE7E2D009D03E8 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				8E2494C627CE7E41009D03E8 /* LinkViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		8E2494CF27CE7FD3009D03E8 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				8E2494D027CE8038009D03E8 /* AllBoxViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		8E27F7C027BCEC7B00D3E998 /* Main */ = {
@@ -720,11 +804,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E2494B627CE7AB1009D03E8 /* Timeout.storyboard in Resources */,
 				8E2494AA27CE5060009D03E8 /* Main.storyboard in Resources */,
+				8E2494BC27CE7AF8009D03E8 /* AllBox.storyboard in Resources */,
+				8E2494B827CE7ABA009D03E8 /* Link.storyboard in Resources */,
 				8E2494AC27CE510D009D03E8 /* AllMain.storyboard in Resources */,
 				8E21C4F0279557B200C0AD86 /* Login.storyboard in Resources */,
 				8E24949027CE39BB009D03E8 /* MakeFolder.xib in Resources */,
+				8E2494B427CE7AA6009D03E8 /* Calendar.storyboard in Resources */,
+				8E2494BA27CE7ABE009D03E8 /* Phrase.storyboard in Resources */,
 				8ED47D4D272BAEDF00393397 /* LaunchScreen.storyboard in Resources */,
+				8E2494B227CE7A9B009D03E8 /* Profile.storyboard in Resources */,
 				8ED47D4A272BAEDF00393397 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -853,11 +943,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E2494C127CE7DFA009D03E8 /* TextViewController.swift in Sources */,
 				8E21C4F2279557F800C0AD86 /* LoginViewController.swift in Sources */,
 				8E12409327423A2B000F97EF /* Article.swift in Sources */,
 				8E21C4F427955B6300C0AD86 /* LoginViewModel.swift in Sources */,
 				8E2494A127CE3DB4009D03E8 /* LinkFlow.swift in Sources */,
 				8ED47D48272BAEDD00393397 /* First_RxSwift.xcdatamodeld in Sources */,
+				8E2494D127CE8038009D03E8 /* AllBoxViewController.swift in Sources */,
 				8E949E3B27A13EA900947EDA /* SignUpValidationError.swift in Sources */,
 				8E21C5022795B5B500C0AD86 /* Login+JoinAPI.swift in Sources */,
 				8E86170B2797DE5D005B1A88 /* AppService.swift in Sources */,
@@ -865,6 +957,7 @@
 				8E8616FD2797C4D9005B1A88 /* LoginFlow.swift in Sources */,
 				8E8616FA2796B775005B1A88 /* AllStep.swift in Sources */,
 				8E24948E27CE395A009D03E8 /* MainViewController.swift in Sources */,
+				8E2494CE27CE7E8D009D03E8 /* ProfileViewController.swift in Sources */,
 				8E2494A927CE3EA9009D03E8 /* ProfileFlow.swift in Sources */,
 				8E27F7BF27BCEC1700D3E998 /* MainBoxViewModel.swift in Sources */,
 				8ED47D42272BAEDD00393397 /* ViewController.swift in Sources */,
@@ -876,6 +969,7 @@
 				8EA90FF52747C14B00F12366 /* WeatherViewController.swift in Sources */,
 				8E8616F227968EEF005B1A88 /* SignUpViewReactor.swift in Sources */,
 				8ED47D7A272BBC4800393397 /* FilterService.swift in Sources */,
+				8E2494C727CE7E41009D03E8 /* LinkViewController.swift in Sources */,
 				8E21C4EE2795568600C0AD86 /* User.swift in Sources */,
 				8E7877DE273EDC54007C43E0 /* Task.swift in Sources */,
 				8E12409527423B1A000F97EF /* ArticleTableviewCell.swift in Sources */,
@@ -903,9 +997,11 @@
 				8E21C4F7279560FB00C0AD86 /* LoginUseCase.swift in Sources */,
 				8E12409127423800000F97EF /* NewsTableViewController.swift in Sources */,
 				8ED47D78272BB67200393397 /* PhotoCollectionViewCell.swift in Sources */,
+				8E2494CC27CE7E66009D03E8 /* CalendarViewController.swift in Sources */,
 				8E7877D6273ED6F7007C43E0 /* NotViewController.swift in Sources */,
 				8E2494A527CE3DCD009D03E8 /* AllBoxFlow.swift in Sources */,
 				8E27F7C427BCEC9C00D3E998 /* MainFlow.swift in Sources */,
+				8E2494CA27CE7E58009D03E8 /* GiftViewController.swift in Sources */,
 				8E7877DB273EDB5E007C43E0 /* AddTaskViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
