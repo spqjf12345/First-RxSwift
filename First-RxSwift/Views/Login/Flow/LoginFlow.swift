@@ -7,8 +7,10 @@
 
 import Foundation
 import RxFlow
+import CoreAudioTypes
 
 class LoginFlow: Flow {
+    var window: UIWindow!
     
     var root: Presentable {
         return self.rootViewController
@@ -19,7 +21,7 @@ class LoginFlow: Flow {
         return viewController
     }()
     
-    private let service: AppService
+    private let service: AppService!
     
     init(withService service: AppService){
         self.service = service
@@ -90,20 +92,31 @@ class LoginFlow: Flow {
     
     private func navigateToMain() -> FlowContributors {
         let vc = UIStoryboard(name: "AllMain", bundle: nil).instantiateViewController(withIdentifier: "Main") as! MainViewController
-        self.rootViewController.pushViewController(vc, animated: true)
         let allBoxFlow = AllBoxFlow(withService: self.service)
-        let textFlow = TextFlow(withService: self.service)
-        let linkFlow = LinkFlow(withService: self.service)
-        let giftFlow = GiftFlow(withService: self.service)
-        let calendarFlow = CalendarFlow(withService: self.service)
+//        self.rootViewController.pushViewController(vc, animated: true)
+        Flows.use(allBoxFlow, when: .created){ [unowned self] root in
+            DispatchQueue.main.async {
+                rootViewController.setNavigationBarHidden(true, animated: true)
+                self.rootViewController.pushViewController(vc, animated: true)
+            }
+        }
+        return .one(flowContributor: .contribute(withNextPresentable: allBoxFlow,
+                                                 withNextStepper: OneStepper(withSingleStep: AllStep.boxTap)))
+        
+        
+//        let allBoxFlow = AllBoxFlow(withService: self.service)
+//        let textFlow = TextFlow(withService: self.service)
+//        let linkFlow = LinkFlow(withService: self.service)
+//        let giftFlow = GiftFlow(withService: self.service)
+//        let calendarFlow = CalendarFlow(withService: self.service)
         //let settingFlow = SettingFlow(withService: self.service)
         
-        Flows.use(allBoxFlow, textFlow, linkFlow, giftFlow, calendarFlow, when: .ready) { all, text, link, gift, calendar in
-            self.rootViewController.setViewControllers([all, text, link, gift, calendar], animated: false)
-            return
-        }
-        
-        return .multiple(flowContributors: [.contribute(withNextPresentable: allBoxFlow, withNextStepper: OneStepper(withSingleStep: AllStep.boxTap)), .contribute(withNextPresentable: textFlow, withNextStepper: OneStepper(withSingleStep: AllStep.textTap)), .contribute(withNextPresentable: linkFlow, withNextStepper: OneStepper(withSingleStep: AllStep.linkTap)), .contribute(withNextPresentable: giftFlow, withNextStepper: OneStepper(withSingleStep: AllStep.presentTap)), .contribute(withNextPresentable: calendarFlow, withNextStepper: OneStepper(withSingleStep: AllStep.calendarTap))])
+//        Flows.use(allBoxFlow, textFlow, linkFlow, giftFlow, calendarFlow, when: .ready) { all, text, link, gift, calendar in
+//            self.rootViewController.setViewControllers([all, text, link, gift, calendar], animated: false)
+//            return
+//        }
+//
+//        return .multiple(flowContributors: [.contribute(withNextPresentable: allBoxFlow, withNextStepper: OneStepper(withSingleStep: AllStep.boxTap)), .contribute(withNextPresentable: textFlow, withNextStepper: OneStepper(withSingleStep: AllStep.textTap)), .contribute(withNextPresentable: linkFlow, withNextStepper: OneStepper(withSingleStep: AllStep.linkTap)), .contribute(withNextPresentable: giftFlow, withNextStepper: OneStepper(withSingleStep: AllStep.presentTap)), .contribute(withNextPresentable: calendarFlow, withNextStepper: OneStepper(withSingleStep: AllStep.calendarTap))])
     }
     
 }

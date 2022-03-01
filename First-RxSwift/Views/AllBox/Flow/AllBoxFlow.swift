@@ -23,6 +23,19 @@ class AllBoxFlow: Flow {
     }
     
     func navigate(to step: Step) -> FlowContributors {
-        return .none
+        guard let step = step as? AllStep else { return .none }
+        print("boxTap flow in step \(step)")
+        switch step {
+        case .boxTap:
+            return navigateToBoxTap()
+        default:
+            return .none
+        }
+    }
+    
+    func navigateToBoxTap() -> FlowContributors {
+        let vc = UIStoryboard(name: "AllMain", bundle: nil).instantiateViewController(withIdentifier: "Main") as! MainViewController
+        rootViewController.pushViewController(vc, animated: true)
+        return .one(flowContributor: .contribute(withNext: vc))
     }
 }

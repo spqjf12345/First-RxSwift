@@ -8,7 +8,7 @@
 import Foundation
 import RxFlow
 
-class SettingFlow: Flow {
+class ProfileFlow: Flow {
     
     var root: Presentable {
         return self.rootViewController
