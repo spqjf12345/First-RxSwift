@@ -136,12 +136,6 @@
                             <constraint firstItem="kks-b4-ANo" firstAttribute="leading" secondItem="XBM-XS-zRI" secondAttribute="leading" id="rMe-nz-6at"/>
                         </constraints>
                     </view>
-                    <connections>
-                        <outlet property="collectionView" destination="kks-b4-ANo" id="KZc-Yf-N1F"/>
-                        <outlet property="collectionViewLayout" destination="vXW-W9-gOY" id="UcJ-SI-ePz"/>
-                        <outlet property="floatingButton" destination="ylh-1t-IwD" id="bbh-J5-NyO"/>
-                        <outlet property="searchTextField" destination="JFX-jl-aXt" id="FQ4-ds-7iQ"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mga-tM-XLa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

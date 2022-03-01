@@ -91,7 +91,7 @@ class LoginFlow: Flow {
     }
     
     private func navigateToMain() -> FlowContributors {
-        let vc = UIStoryboard(name: "AllMain", bundle: nil).instantiateViewController(withIdentifier: "Main") as! MainViewController
+        let vc = UIStoryboard(name: "AllMain", bundle: nil).instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
         let allBoxFlow = AllBoxFlow(withService: self.service)
 //        self.rootViewController.pushViewController(vc, animated: true)
         Flows.use(allBoxFlow, when: .created){ [unowned self] root in

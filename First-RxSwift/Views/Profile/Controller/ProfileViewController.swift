@@ -9,6 +9,12 @@ import UIKit
 
 class ProfileViewController: UIViewController {
 
+    @IBOutlet weak var profileImage: UIImageView!
+    @IBOutlet weak var profileName: UILabel!
+    @IBOutlet weak var editButton: UIButton!
+    @IBOutlet weak var backButton: UIButton!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

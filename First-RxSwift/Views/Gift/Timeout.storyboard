@@ -78,7 +78,6 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="collectionView" destination="nSI-tO-emI" id="FGm-sn-lF6"/>
                         <outlet property="collectionViewLayout" destination="PTu-8I-Ifd" id="2Kv-e1-uEi"/>
                         <outlet property="floatingButton" destination="Rfo-HJ-9EO" id="wUg-aw-Fdj"/>
                         <outlet property="searchTextField" destination="tid-a9-bfw" id="fLC-9U-M2B"/>

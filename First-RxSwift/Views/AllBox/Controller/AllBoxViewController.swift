@@ -8,7 +8,7 @@
 import UIKit
 
 class AllBoxViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

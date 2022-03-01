@@ -68,12 +68,6 @@
                             <constraint firstItem="lrT-A9-DHl" firstAttribute="trailing" secondItem="9jS-9E-iqn" secondAttribute="trailing" id="rV8-5U-cYS"/>
                         </constraints>
                     </view>
-                    <connections>
-                        <outlet property="collectionViewLayout" destination="BRD-vl-0cF" id="80D-la-lT8"/>
-                        <outlet property="floatingButton" destination="N9n-LB-lVb" id="xx3-rT-j0s"/>
-                        <outlet property="folderCollectionView" destination="lrT-A9-DHl" id="rhG-Jh-52s"/>
-                        <outlet property="searchTextfield" destination="9CS-PS-hJq" id="pFG-qg-Hlm"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vTD-ie-6mS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

@@ -34,7 +34,7 @@ class AllBoxFlow: Flow {
     }
     
     func navigateToBoxTap() -> FlowContributors {
-        let vc = UIStoryboard(name: "AllMain", bundle: nil).instantiateViewController(withIdentifier: "Main") as! MainViewController
+        let vc = UIStoryboard(name: "AllMain", bundle: nil).instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
         rootViewController.pushViewController(vc, animated: true)
         return .one(flowContributor: .contribute(withNext: vc))
     }

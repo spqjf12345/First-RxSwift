@@ -76,12 +76,6 @@
                             <constraint firstItem="9h9-Q5-9OB" firstAttribute="trailing" secondItem="EZl-ab-5pJ" secondAttribute="trailing" id="yoz-vv-GTh"/>
                         </constraints>
                     </view>
-                    <connections>
-                        <outlet property="collectionView" destination="EZl-ab-5pJ" id="mbf-A5-QFI"/>
-                        <outlet property="collectionViewLayout" destination="J2Y-fY-wnb" id="Fhc-3N-M9n"/>
-                        <outlet property="floatingButton" destination="JVf-OG-RJe" id="Ifn-ID-vYS"/>
-                        <outlet property="searchTextField" destination="0D8-cy-pqM" id="tAG-wk-96V"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eke-cd-CtX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

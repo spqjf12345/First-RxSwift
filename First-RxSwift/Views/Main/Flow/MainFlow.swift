@@ -33,7 +33,7 @@ class MainFlow: Flow {
     }
     
     func navigateToAllBoxTap() -> FlowContributors{
-        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Main") as! MainViewController
+        let vc = UIStoryboard(name: "AllMain", bundle: nil).instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
         self.rootViewController.pushViewController(vc, animated: true)
         let allBoxFlow = AllBoxFlow(withService: self.service)
         let textFlow = TextFlow(withService: self.service)
