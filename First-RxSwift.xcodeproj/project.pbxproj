@@ -29,6 +29,7 @@
 		8E2494A127CE3DB4009D03E8 /* LinkFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2494A027CE3DB4009D03E8 /* LinkFlow.swift */; };
 		8E2494A327CE3DBE009D03E8 /* TextFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2494A227CE3DBE009D03E8 /* TextFlow.swift */; };
 		8E2494A527CE3DCD009D03E8 /* AllBoxFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2494A427CE3DCD009D03E8 /* AllBoxFlow.swift */; };
+		8E2494A927CE3EA9009D03E8 /* SettingFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2494A827CE3EA9009D03E8 /* SettingFlow.swift */; };
 		8E27F7BD27BCE9F800D3E998 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E27F7BC27BCE9F700D3E998 /* UIViewController.swift */; };
 		8E27F7BF27BCEC1700D3E998 /* MainBoxViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E27F7BE27BCEC1700D3E998 /* MainBoxViewModel.swift */; };
 		8E27F7C427BCEC9C00D3E998 /* MainFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E27F7C327BCEC9C00D3E998 /* MainFlow.swift */; };
@@ -118,6 +119,7 @@
 		8E2494A027CE3DB4009D03E8 /* LinkFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkFlow.swift; sourceTree = "<group>"; };
 		8E2494A227CE3DBE009D03E8 /* TextFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFlow.swift; sourceTree = "<group>"; };
 		8E2494A427CE3DCD009D03E8 /* AllBoxFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllBoxFlow.swift; sourceTree = "<group>"; };
+		8E2494A827CE3EA9009D03E8 /* SettingFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingFlow.swift; sourceTree = "<group>"; };
 		8E27F7BC27BCE9F700D3E998 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		8E27F7BE27BCEC1700D3E998 /* MainBoxViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainBoxViewModel.swift; sourceTree = "<group>"; };
 		8E27F7C327BCEC9C00D3E998 /* MainFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFlow.swift; sourceTree = "<group>"; };
@@ -393,6 +395,22 @@
 			path = Flow;
 			sourceTree = "<group>";
 		};
+		8E2494A627CE3E8B009D03E8 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				8E2494A727CE3E92009D03E8 /* Flow */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		8E2494A727CE3E92009D03E8 /* Flow */ = {
+			isa = PBXGroup;
+			children = (
+				8E2494A827CE3EA9009D03E8 /* SettingFlow.swift */,
+			);
+			path = Flow;
+			sourceTree = "<group>";
+		};
 		8E27F7C027BCEC7B00D3E998 /* Main */ = {
 			isa = PBXGroup;
 			children = (
@@ -557,9 +575,10 @@
 		8ED47D74272BAFF400393397 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				8E27F7C027BCEC7B00D3E998 /* Main */,
 				8E8616F82796B6B6005B1A88 /* Coordinator */,
+				8E27F7C027BCEC7B00D3E998 /* Main */,
 				8ED47D41272BAEDD00393397 /* ViewController.swift */,
+				8E2494A627CE3E8B009D03E8 /* Setting */,
 				8E21C4EC2795527E00C0AD86 /* Login */,
 				8E24949527CE3D30009D03E8 /* Calendar */,
 				8E24949427CE3D27009D03E8 /* Gift */,
@@ -843,6 +862,7 @@
 				8E8616FD2797C4D9005B1A88 /* LoginFlow.swift in Sources */,
 				8E8616FA2796B775005B1A88 /* AllStep.swift in Sources */,
 				8E24948E27CE395A009D03E8 /* MainViewController.swift in Sources */,
+				8E2494A927CE3EA9009D03E8 /* SettingFlow.swift in Sources */,
 				8E27F7BF27BCEC1700D3E998 /* MainBoxViewModel.swift in Sources */,
 				8ED47D42272BAEDD00393397 /* ViewController.swift in Sources */,
 				8E12409827423C1F000F97EF /* URLRequest+Extensions.swift in Sources */,

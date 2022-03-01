@@ -31,9 +31,14 @@ class MainFlow: Flow {
     }
     
     func navigateToBoxTap() -> FlowContributors {
-        let loginFlow = LoginFlow(withService: self.service)
+        let allBoxFlow = AllBoxFlow(withService: self.service)
+        let textFlow = TextFlow(withService: self.service)
+        let linkFlow = LinkFlow(withService: self.service)
+        let giftFlow = GiftFlow(withService: self.service)
+        let calendarFlow = CalendarFlow(withService: self.service)
+        let settingFlow = SettingFlow(withService: self.service)
         
-        Flows.use(loginFlow, when: .created) { [unowned self] (root1: UINavigationController) in
+        Flows.use(allBoxFlow, textFlow, linkFlow, giftFlow, calendarFlow, settingFlow, when: .created) { [unowned self] (root1: UINavigationController) in
             root1.title = "보관함"
             self.rootViewController.setViewControllers([root1], animated: false)
         }
