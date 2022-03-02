@@ -48,7 +48,7 @@ class MainViewController: UIViewController, Stepper {
         for (index, element) in btnLists.enumerated(){
             
             if index == currentIndex {
-                element.setTitleColor(#colorLiteral(red: 0.5568627451, green: 0.6392156863, blue: 0.8, alpha: 1), for: .normal)
+                element.setTitleColor(UIColor(named: "navy1")!, for: .normal)
             }
             else{
                 element.setTitleColor(#colorLiteral(red: 0.09519775957, green: 0.1197544411, blue: 0.2188102901, alpha: 1), for: .normal)
@@ -66,7 +66,6 @@ class MainViewController: UIViewController, Stepper {
         if segue.identifier == "pageViewController" {
             
             guard let vc = segue.destination as? PageViewController else {
-                print("return")
                 return}
             pageViewController = vc
             

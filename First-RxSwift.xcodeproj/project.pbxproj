@@ -49,6 +49,9 @@
 		8E27F7BF27BCEC1700D3E998 /* MainBoxViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E27F7BE27BCEC1700D3E998 /* MainBoxViewModel.swift */; };
 		8E27F7C427BCEC9C00D3E998 /* MainFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E27F7C327BCEC9C00D3E998 /* MainFlow.swift */; };
 		8E43010F27CF6A4C008EA2A4 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E43010E27CF6A4C008EA2A4 /* Colors.xcassets */; };
+		8E43011127CF6C72008EA2A4 /* AllBoxViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E43011027CF6C72008EA2A4 /* AllBoxViewModel.swift */; };
+		8E43011327CF6DE2008EA2A4 /* FolderCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E43011227CF6DE2008EA2A4 /* FolderCollectionViewCell.xib */; };
+		8E43011527CF6DF7008EA2A4 /* FolderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E43011427CF6DF7008EA2A4 /* FolderCollectionViewCell.swift */; };
 		8E7877D6273ED6F7007C43E0 /* NotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7877D5273ED6F7007C43E0 /* NotViewController.swift */; };
 		8E7877D9273ED912007C43E0 /* TaskListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7877D8273ED912007C43E0 /* TaskListViewController.swift */; };
 		8E7877DB273EDB5E007C43E0 /* AddTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7877DA273EDB5D007C43E0 /* AddTaskViewController.swift */; };
@@ -154,6 +157,9 @@
 		8E27F7BE27BCEC1700D3E998 /* MainBoxViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainBoxViewModel.swift; sourceTree = "<group>"; };
 		8E27F7C327BCEC9C00D3E998 /* MainFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFlow.swift; sourceTree = "<group>"; };
 		8E43010E27CF6A4C008EA2A4 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		8E43011027CF6C72008EA2A4 /* AllBoxViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllBoxViewModel.swift; sourceTree = "<group>"; };
+		8E43011227CF6DE2008EA2A4 /* FolderCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FolderCollectionViewCell.xib; sourceTree = "<group>"; };
+		8E43011427CF6DF7008EA2A4 /* FolderCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FolderCollectionViewCell.swift; sourceTree = "<group>"; };
 		8E7877D5273ED6F7007C43E0 /* NotViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotViewController.swift; sourceTree = "<group>"; };
 		8E7877D8273ED912007C43E0 /* TaskListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListViewController.swift; sourceTree = "<group>"; };
 		8E7877DA273EDB5D007C43E0 /* AddTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskViewController.swift; sourceTree = "<group>"; };
@@ -279,6 +285,7 @@
 				8E86170C2797E29E005B1A88 /* FindIDViewModel.swift */,
 				8E86170E2797E2DD005B1A88 /* FindPWViewModel.swift */,
 				8E27F7BE27BCEC1700D3E998 /* MainBoxViewModel.swift */,
+				8E43011027CF6C72008EA2A4 /* AllBoxViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -542,6 +549,15 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		8E43011627CF6DFD008EA2A4 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				8E43011227CF6DE2008EA2A4 /* FolderCollectionViewCell.xib */,
+				8E43011427CF6DF7008EA2A4 /* FolderCollectionViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		8E7877D7273ED8F0007C43E0 /* PhotoFilter */ = {
 			isa = PBXGroup;
 			children = (
@@ -679,6 +695,7 @@
 		8ED47D74272BAFF400393397 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				8E43011627CF6DFD008EA2A4 /* Cells */,
 				8E8616F82796B6B6005B1A88 /* Coordinator */,
 				8E27F7C027BCEC7B00D3E998 /* Main */,
 				8ED47D41272BAEDD00393397 /* ViewController.swift */,
@@ -823,6 +840,7 @@
 			files = (
 				8E2494B627CE7AB1009D03E8 /* Timeout.storyboard in Resources */,
 				8E2494AA27CE5060009D03E8 /* Main.storyboard in Resources */,
+				8E43011327CF6DE2008EA2A4 /* FolderCollectionViewCell.xib in Resources */,
 				8E43010F27CF6A4C008EA2A4 /* Colors.xcassets in Resources */,
 				8E2494BC27CE7AF8009D03E8 /* AllBox.storyboard in Resources */,
 				8E2494B827CE7ABA009D03E8 /* Link.storyboard in Resources */,
@@ -985,6 +1003,7 @@
 				8EA90FF72747C1C100F12366 /* WeatherResult.swift in Sources */,
 				8E8616F52796AA42005B1A88 /* SignUpViewModel.swift in Sources */,
 				8ED47D3E272BAEDD00393397 /* AppDelegate.swift in Sources */,
+				8E43011127CF6C72008EA2A4 /* AllBoxViewModel.swift in Sources */,
 				8EA90FF52747C14B00F12366 /* WeatherViewController.swift in Sources */,
 				8E8616F227968EEF005B1A88 /* SignUpViewReactor.swift in Sources */,
 				8ED47D7A272BBC4800393397 /* FilterService.swift in Sources */,
@@ -1020,6 +1039,7 @@
 				8E2494CC27CE7E66009D03E8 /* CalendarViewController.swift in Sources */,
 				8E7877D6273ED6F7007C43E0 /* NotViewController.swift in Sources */,
 				8E2494A527CE3DCD009D03E8 /* AllBoxFlow.swift in Sources */,
+				8E43011527CF6DF7008EA2A4 /* FolderCollectionViewCell.swift in Sources */,
 				8E27F7C427BCEC9C00D3E998 /* MainFlow.swift in Sources */,
 				8E2494CA27CE7E58009D03E8 /* GiftViewController.swift in Sources */,
 				8E7877DB273EDB5E007C43E0 /* AddTaskViewController.swift in Sources */,

@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (5.4.4)
+  - DropDown (2.3.13)
   - Moya/Core (15.0.0):
     - Alamofire (~> 5.0)
   - Moya/RxSwift (15.0.0):
@@ -20,6 +21,7 @@ PODS:
   - WeakMapTable (1.2.0)
 
 DEPENDENCIES:
+  - DropDown
   - Moya/RxSwift (~> 15.0)
   - ReactorKit
   - RxCocoa (= 6.2.0)
@@ -29,6 +31,7 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - Alamofire
+    - DropDown
     - Moya
     - ReactorKit
     - RxCocoa
@@ -39,6 +42,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: f3b09a368f1582ab751b3fff5460276e0d2cf5c9
+  DropDown: 8a2116376c1981888557f72ec2ffc9a5e0e456ec
   Moya: 138f0573e53411fb3dc17016add0b748dfbd78ee
   ReactorKit: e8b11d6b9c415405f381669b095c154a05b59eca
   RxCocoa: 4baf94bb35f2c0ab31bc0cb9f1900155f646ba42
@@ -47,6 +51,6 @@ SPEC CHECKSUMS:
   RxSwift: d356ab7bee873611322f134c5f9ef379fa183d8f
   WeakMapTable: 05c694ce8439a7a9ebabb56187287a63c57673d6
 
-PODFILE CHECKSUM: 0facfa4574aed27cadce4fea3d3ba0192d5fe1e0
+PODFILE CHECKSUM: 04b00ecfe83d90787d4ffd3df7b008ea3d1b1197
 
 COCOAPODS: 1.11.2
