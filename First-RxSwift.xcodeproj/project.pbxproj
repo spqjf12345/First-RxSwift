@@ -48,6 +48,7 @@
 		8E27F7BD27BCE9F800D3E998 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E27F7BC27BCE9F700D3E998 /* UIViewController.swift */; };
 		8E27F7BF27BCEC1700D3E998 /* MainBoxViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E27F7BE27BCEC1700D3E998 /* MainBoxViewModel.swift */; };
 		8E27F7C427BCEC9C00D3E998 /* MainFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E27F7C327BCEC9C00D3E998 /* MainFlow.swift */; };
+		8E43010F27CF6A4C008EA2A4 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E43010E27CF6A4C008EA2A4 /* Colors.xcassets */; };
 		8E7877D6273ED6F7007C43E0 /* NotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7877D5273ED6F7007C43E0 /* NotViewController.swift */; };
 		8E7877D9273ED912007C43E0 /* TaskListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7877D8273ED912007C43E0 /* TaskListViewController.swift */; };
 		8E7877DB273EDB5E007C43E0 /* AddTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7877DA273EDB5D007C43E0 /* AddTaskViewController.swift */; };
@@ -152,6 +153,7 @@
 		8E27F7BC27BCE9F700D3E998 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		8E27F7BE27BCEC1700D3E998 /* MainBoxViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainBoxViewModel.swift; sourceTree = "<group>"; };
 		8E27F7C327BCEC9C00D3E998 /* MainFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFlow.swift; sourceTree = "<group>"; };
+		8E43010E27CF6A4C008EA2A4 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		8E7877D5273ED6F7007C43E0 /* NotViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotViewController.swift; sourceTree = "<group>"; };
 		8E7877D8273ED912007C43E0 /* TaskListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListViewController.swift; sourceTree = "<group>"; };
 		8E7877DA273EDB5D007C43E0 /* AddTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskViewController.swift; sourceTree = "<group>"; };
@@ -531,6 +533,15 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		8E43010D27CF69DA008EA2A4 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8ED47D49272BAEDF00393397 /* Assets.xcassets */,
+				8E43010E27CF6A4C008EA2A4 /* Colors.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		8E7877D7273ED8F0007C43E0 /* PhotoFilter */ = {
 			isa = PBXGroup;
 			children = (
@@ -621,6 +632,7 @@
 		8ED47D3C272BAEDD00393397 /* First-RxSwift */ = {
 			isa = PBXGroup;
 			children = (
+				8E43010D27CF69DA008EA2A4 /* Resources */,
 				8E21C4FF2795B4DF00C0AD86 /* Network */,
 				8E21C4F8279561D000C0AD86 /* Repository */,
 				8E21C4F5279560D300C0AD86 /* UseCase */,
@@ -631,7 +643,6 @@
 				8ED47D72272BAFDF00393397 /* Services */,
 				8ED47D3D272BAEDD00393397 /* AppDelegate.swift */,
 				8ED47D3F272BAEDD00393397 /* SceneDelegate.swift */,
-				8ED47D49272BAEDF00393397 /* Assets.xcassets */,
 				8ED47D4E272BAEDF00393397 /* Info.plist */,
 				8ED47D46272BAEDD00393397 /* First_RxSwift.xcdatamodeld */,
 				8E12409927424183000F97EF /* RxSwift.playground */,
@@ -812,6 +823,7 @@
 			files = (
 				8E2494B627CE7AB1009D03E8 /* Timeout.storyboard in Resources */,
 				8E2494AA27CE5060009D03E8 /* Main.storyboard in Resources */,
+				8E43010F27CF6A4C008EA2A4 /* Colors.xcassets in Resources */,
 				8E2494BC27CE7AF8009D03E8 /* AllBox.storyboard in Resources */,
 				8E2494B827CE7ABA009D03E8 /* Link.storyboard in Resources */,
 				8E2494AC27CE510D009D03E8 /* AllMain.storyboard in Resources */,
