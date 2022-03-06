@@ -8,8 +8,11 @@
 import Foundation
 
 class AllBoxViewModel {
-    var folderName: String
-    var folderImage: String
-    var folderType: String
+    var folderName: String = ""
+    var folderImage: String = ""
+    var folderType: String = ""
+  
+    
+    
     
 }

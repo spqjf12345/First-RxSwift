@@ -10,6 +10,7 @@ import PhotosUI
 import DropDown
 import RxSwift
 import RxCocoa
+import RxDataSources
 
 class AllBoxViewController: UIViewController {
     
@@ -36,19 +37,21 @@ class AllBoxViewController: UIViewController {
         return textfield
     }()
     
+    let dataSource = RxTableViewSectionedReloadDataSource<SectionOfAnimal>(
+        configureCell: { datasource, tableview, indexPath, item in
+            let cell = tableview.dequeueReusableCell(withIdentifier: TableViewCell.identifier, for: indexPath) as! TableViewCell
+            cell.configure(animal: item)
+            return cell
+        })
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        collectionViewSetting(collectionView: folderCollectionView)
+        setUpCollectionviewBinding()
     }
     
-    func collectionViewSetting(collectionView: UICollectionView){
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        collectionView.register(FolderCollectionViewCell.nib(), forCellWithReuseIdentifier: FolderCollectionViewCell.identifier)
-        collectionView.allowsSelection = true
-        collectionView.isUserInteractionEnabled = true
+    func setUpCollectionviewBinding(){
+        
     }
     
-
-
+    
 }
