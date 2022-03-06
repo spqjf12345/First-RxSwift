@@ -92,6 +92,7 @@
 		8EEF332527D4953F00FD816A /* FolderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEF332427D4953F00FD816A /* FolderService.swift */; };
 		8EEF332727D4955600FD816A /* FolderAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEF332627D4955600FD816A /* FolderAPI.swift */; };
 		8EEF332927D4996400FD816A /* FolderRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEF332827D4996400FD816A /* FolderRepository.swift */; };
+		8EEF332B27D49A2000FD816A /* FolderUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEF332A27D49A2000FD816A /* FolderUseCase.swift */; };
 		E00698A0A040B291D9EFAC57 /* Pods_First_RxSwift_First_RxSwiftUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D65B8FC0921D093937AF5F0 /* Pods_First_RxSwift_First_RxSwiftUITests.framework */; };
 		E212B7D103E72CFAC8CE91B9 /* Pods_First_RxSwiftTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 352F36738ED28FF73D712510 /* Pods_First_RxSwiftTests.framework */; };
 /* End PBXBuildFile section */
@@ -211,6 +212,7 @@
 		8EEF332427D4953F00FD816A /* FolderService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderService.swift; sourceTree = "<group>"; };
 		8EEF332627D4955600FD816A /* FolderAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderAPI.swift; sourceTree = "<group>"; };
 		8EEF332827D4996400FD816A /* FolderRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderRepository.swift; sourceTree = "<group>"; };
+		8EEF332A27D49A2000FD816A /* FolderUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderUseCase.swift; sourceTree = "<group>"; };
 		A39627D2CEFE0F9B1068D70F /* Pods-First-RxSwift-First-RxSwiftUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-First-RxSwift-First-RxSwiftUITests.debug.xcconfig"; path = "Target Support Files/Pods-First-RxSwift-First-RxSwiftUITests/Pods-First-RxSwift-First-RxSwiftUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		BDC1B1C87658AB044811190A /* Pods-First-RxSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-First-RxSwift.debug.xcconfig"; path = "Target Support Files/Pods-First-RxSwift/Pods-First-RxSwift.debug.xcconfig"; sourceTree = "<group>"; };
 		EDF30771C8694EE129574540 /* Pods-First-RxSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-First-RxSwift.release.xcconfig"; path = "Target Support Files/Pods-First-RxSwift/Pods-First-RxSwift.release.xcconfig"; sourceTree = "<group>"; };
@@ -332,6 +334,7 @@
 			isa = PBXGroup;
 			children = (
 				8E21C4F6279560FB00C0AD86 /* LoginUseCase.swift */,
+				8EEF332A27D49A2000FD816A /* FolderUseCase.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -1041,6 +1044,7 @@
 				8E9A41F1279B188A003215E3 /* FindIDViewController.swift in Sources */,
 				8E8617012797C851005B1A88 /* UIColors.swift in Sources */,
 				8E7877D9273ED912007C43E0 /* TaskListViewController.swift in Sources */,
+				8EEF332B27D49A2000FD816A /* FolderUseCase.swift in Sources */,
 				8ED47D40272BAEDD00393397 /* SceneDelegate.swift in Sources */,
 				8E21C4FC2795628500C0AD86 /* UserDefaultKey.swift in Sources */,
 				8E9A41F3279B189B003215E3 /* FindPWViewController.swift in Sources */,
