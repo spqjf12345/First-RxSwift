@@ -11,10 +11,11 @@ import RxSwift
 
 class FolderService {
     let provider = MoyaProvider<FolderAPI>()
-    let userId: Int
-    init(userId: Int){
-        self.userId = UserDefaults.standard.integer(forKey: UserDefaultKey.userID)
+    var userId: Int {
+        return UserDefaults.standard.integer(forKey: UserDefaultKey.userID)
     }
+    
+
     
     func getFolders() -> Observable<[Folder]> {
         self.provider.rx.request(.getFolders(userId: userId))

@@ -23,9 +23,11 @@ class AllBoxViewController: UIViewController, Stepper {
     private var disposeBag = DisposeBag()
     private var alertController = UIAlertController()
     private var tblView = UITableView()
+    let sortingButton = UIButton()
     
-    
-    private var viewModel = AllBoxViewModel(selected: Folder.Empty)
+    private lazy var refreshControl = UIRefreshControl()
+
+    private var viewModel = AllBoxViewModel()
     
     let more_dropDown: DropDown = {
         let dropDown = DropDown()
@@ -70,6 +72,20 @@ class AllBoxViewController: UIViewController, Stepper {
 //            .bind(to: folderCollectionView.rx.items(cellIdentifier: FolderCollectionViewCell.identifier, cellType: FolderCollectionViewCell.self)) { row, element, cell in
 //                cell.configure(with: element)
 //            }.disposed(by: disposeBag)
+        
+        let input = AllBoxViewModel.Input (
+            viewWillAppearEvent: self.rx.methodInvoked(#selector(UIViewController.viewWillAppear)).map { _ in },
+        refreshEvent: self.refreshControl.rx.controlEvent(.valueChanged).asObservable(),
+            searchTextField: self.searchTextfield.rx.text.orEmpty.asObservable(),
+        floatingButtonTap: self.floatingButton.rx.tap.asObservable(),
+        folderCellTap: self.folderCollectionView.rx.itemSelected.map { $0.row },
+            folderMoreButtonTap :self.folderCollectionView.rx.itemSelected.map { $0.row },
+        chageFolderNameTap: self.folderCollectionView.rx.itemSelected.map { $0.row },
+        changeFolderImageTap: self.folderCollectionView.rx.itemSelected.map { $0.row },
+        deleteFolder: self.folderCollectionView.rx.itemSelected.map { $0.row },
+        sortingButtonTap: self.sortingButton.rx.tap.asObservable()
+        )
+
     }
     
     

@@ -16,7 +16,8 @@ class FolderUseCase: FolderUseCateType {
     
     private let folderRepository: FolderRepository
     
-    var folders = PublishSubject<[Folder]>()
+    var folders = BehaviorSubject<[Folder]>(value: [])
+    var filderedFolders = BehaviorSubject<[Folder]>(value: [])
     lazy var folderCount = folders.map { $0.count }
     
     var disposeBag = DisposeBag()
@@ -31,6 +32,28 @@ class FolderUseCase: FolderUseCateType {
                 self?.folders.onNext(folders)
             }).disposed(by: disposeBag)
     }
+    
+    func filteredFolder(base folder: [Folder], from text: String) {
+        self.filterText(folder, text)
+            .subscribe { [weak self] folder in
+                self?.folders.onNext(folder)
+            }
+            .disposed(by: self.disposeBag)
+    }
+    
+    func filterText(_ folder: [Folder], _ text: String) -> Observable<[Folder]> {
+        var filteredFolder: [Folder] = []
+        folder.forEach {
+            if $0.folderName.hasPrefix(text) {
+                filteredFolder.append($0)
+            }
+        }
+        return Observable.of(filteredFolder)
+    }
+        
+    
+
+    
     
     
 }
