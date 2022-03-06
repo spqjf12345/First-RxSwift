@@ -28,13 +28,29 @@ class AllBoxFlow: Flow {
         switch step {
         case .boxTap:
             return navigateToBoxTap()
+        case .textIn:
+            return navigateToTextIn()
+        case .linkIn:
+            return navigateToLinkIn()
         default:
             return .none
         }
     }
     
-    func navigateToBoxTap() -> FlowContributors {
+    private func navigateToBoxTap() -> FlowContributors {
         let vc = UIStoryboard(name: "AllMain", bundle: nil).instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
+        rootViewController.pushViewController(vc, animated: true)
+        return .one(flowContributor: .contribute(withNext: vc))
+    }
+    
+    private func navigateToTextIn() -> FlowContributors {
+        let vc = UIStoryboard(name: "Phrase", bundle: nil).instantiateViewController(withIdentifier: "TextInViewController") as! TextInViewController
+        rootViewController.pushViewController(vc, animated: true)
+        return .one(flowContributor: .contribute(withNext: vc))
+    }
+    
+    private func navigateToLinkIn() -> FlowContributors {
+        let vc = UIStoryboard(name: "Link", bundle: nil).instantiateViewController(withIdentifier: "LinkInViewController") as! LinkInViewController
         rootViewController.pushViewController(vc, animated: true)
         return .one(flowContributor: .contribute(withNext: vc))
     }

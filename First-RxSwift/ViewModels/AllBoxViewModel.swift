@@ -6,12 +6,24 @@
 //
 
 import Foundation
+import RxSwift
+import RxCocoa
+import PhotosUI
 
 class AllBoxViewModel {
-    var folderName: String = ""
-    var folderImage: String = ""
-    var folderType: String = ""
+    var folders = BehaviorSubject<[Folder]>(value: [])
+    var selectedFolders: Folder
+    var filteredFolders = BehaviorSubject<[Folder]>(value: [])
+    var disposeBag = DisposeBag()
+
+    init(selected: Folder){
+        self.selectedFolders = selected
+        getFolders()
+    }
   
+    func getFolders(){
+        //getfolder
+    }
     
     
     

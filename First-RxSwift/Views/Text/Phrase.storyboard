@@ -13,7 +13,7 @@
         <!--Write View Controller-->
         <scene sceneID="S6s-Uk-Dhe">
             <objects>
-                <viewController storyboardIdentifier="writeText" id="WQ0-rQ-Zsx" customClass="WriteViewController" customModule="First_RxSwift" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WriteViewController" id="WQ0-rQ-Zsx" customClass="WriteViewController" customModule="First_RxSwift" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="y1e-3p-6Hw">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -144,8 +144,9 @@
         <!--Text In View Controller-->
         <scene sceneID="eFE-NX-Rgw">
             <objects>
-                <viewController storyboardIdentifier="textIn" id="5FT-S3-NmP" customClass="TextInViewController" customModule="First_RxSwift" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TextInViewController" id="5FT-S3-NmP" customClass="TextInViewController" customModule="First_RxSwift" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" ambiguous="YES" id="gb9-sS-inb">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="보관함에서 검색하세요" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="HMo-TR-WnM">
@@ -171,7 +172,7 @@
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         </view>
                                         <view key="tableFooterView" contentMode="scaleToFill" id="7Jn-Xb-2zi" userLabel="footer">
-                                            <rect key="frame" x="0.0" y="258" width="174" height="305"/>
+                                            <rect key="frame" x="0.0" y="695" width="174" height="305"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="0jH-av-Z5D">

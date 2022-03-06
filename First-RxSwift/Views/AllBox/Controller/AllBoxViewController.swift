@@ -10,9 +10,11 @@ import PhotosUI
 import DropDown
 import RxSwift
 import RxCocoa
-import RxDataSources
+import RxFlow
 
-class AllBoxViewController: UIViewController {
+class AllBoxViewController: UIViewController, Stepper {
+    
+    var steps = PublishRelay<Step>()
     
     @IBOutlet weak var searchTextfield: UITextField!
     @IBOutlet weak var folderCollectionView: UICollectionView!
@@ -23,7 +25,7 @@ class AllBoxViewController: UIViewController {
     private var tblView = UITableView()
     
     
-    private var viewModel = AllBoxViewModel()
+    private var viewModel = AllBoxViewModel(selected: Folder.Empty)
     
     let more_dropDown: DropDown = {
         let dropDown = DropDown()
@@ -37,21 +39,46 @@ class AllBoxViewController: UIViewController {
         return textfield
     }()
     
-    let dataSource = RxTableViewSectionedReloadDataSource<SectionOfAnimal>(
-        configureCell: { datasource, tableview, indexPath, item in
-            let cell = tableview.dequeueReusableCell(withIdentifier: TableViewCell.identifier, for: indexPath) as! TableViewCell
-            cell.configure(animal: item)
-            return cell
-        })
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpCollectionviewBinding()
+        bindViewModel()
     }
     
     func setUpCollectionviewBinding(){
+        folderCollectionView.register(FolderCollectionViewCell.nib(), forCellWithReuseIdentifier: FolderCollectionViewCell.identifier)
+        folderCollectionView.allowsSelection = true
+        folderCollectionView.isUserInteractionEnabled = true
+//        folderCollectionView.rx.setDelegate(self)
+//            .disposed(by: disposeBag)
+        folderCollectionView.rx.modelSelected(Folder.self)
+            .subscribe(onNext: { data in
+                //folder selected 정보 전달
+                if data.type == "PHRASE" {
+                    self.steps.accept(AllStep.textIn)
+                }else if data.type == "LINK" {
+                    self.steps.accept(AllStep.linkIn)
+                }
+                
+            }).disposed(by: disposeBag)
         
     }
     
+    func bindViewModel(){
+        viewModel.folders
+            .filter { !$0.isEmpty }
+            .bind(to: folderCollectionView.rx.items(cellIdentifier: FolderCollectionViewCell.identifier, cellType: FolderCollectionViewCell.self)) { row, element, cell in
+                cell.configure(with: element)
+            }.disposed(by: disposeBag)
+    }
     
+    
+}
+
+extension AllBoxViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width = collectionView.bounds.width
+        let cellWidth = (width - 30) / 3
+        return CGSize(width: cellWidth, height: cellWidth/0.6)
+    }
 }

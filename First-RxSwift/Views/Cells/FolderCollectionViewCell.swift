@@ -73,8 +73,8 @@ class FolderCollectionViewCell: UICollectionViewCell {
     
     
     ///new
-    func configure(with viewModel: AllBoxViewModel) -> (Void) {
-        folderName.text = viewModel.folderName
+    func configure(with folder: Folder) {
+        folderName.text = folder.folderName
         
     }
 //    func configure(folder: GetByFolderResponse){

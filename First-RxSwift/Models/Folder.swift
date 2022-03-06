@@ -22,3 +22,7 @@ struct Folder: Codable {
         self.imageData = imageData
     }
 }
+
+extension Folder {
+    static var Empty = Folder(folderId: 0, folderName: "", userId: 0, imageData: Data(), type: "")
+}

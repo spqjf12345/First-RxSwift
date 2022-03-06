@@ -84,7 +84,7 @@
         <!--Link In View Controller-->
         <scene sceneID="sh6-mo-OJH">
             <objects>
-                <viewController storyboardIdentifier="linkFolderIn" id="N1d-LX-fxT" customClass="LinkInViewController" customModule="First_RxSwift" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LinkInViewController" id="N1d-LX-fxT" customClass="LinkInViewController" customModule="First_RxSwift" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="83s-5A-Nh4">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -272,7 +272,7 @@
         <!--Make Link View Controller-->
         <scene sceneID="TOv-9Y-uB7">
             <objects>
-                <viewController storyboardIdentifier="makeLinkCell" id="yDM-CX-5dq" customClass="MakeLinkViewController" customModule="First_RxSwift" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MakeLinkViewController" id="yDM-CX-5dq" customClass="MakeLinkViewController" customModule="First_RxSwift" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pXs-fN-JLg">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
