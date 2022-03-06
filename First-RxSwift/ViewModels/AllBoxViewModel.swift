@@ -14,7 +14,6 @@ class AllBoxViewModel {
     var disposeBag = DisposeBag()
 
     init(selected: Folder){
-        self.selectedFolders = selected
         getFolders()
     }
     

@@ -89,6 +89,9 @@
 		8ED47D78272BB67200393397 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED47D77272BB67200393397 /* PhotoCollectionViewCell.swift */; };
 		8ED47D7A272BBC4800393397 /* FilterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED47D79272BBC4800393397 /* FilterService.swift */; };
 		8EEF332327D487CB00FD816A /* Folder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEF332227D487CB00FD816A /* Folder.swift */; };
+		8EEF332527D4953F00FD816A /* FolderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEF332427D4953F00FD816A /* FolderService.swift */; };
+		8EEF332727D4955600FD816A /* FolderAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEF332627D4955600FD816A /* FolderAPI.swift */; };
+		8EEF332927D4996400FD816A /* FolderRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEF332827D4996400FD816A /* FolderRepository.swift */; };
 		E00698A0A040B291D9EFAC57 /* Pods_First_RxSwift_First_RxSwiftUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D65B8FC0921D093937AF5F0 /* Pods_First_RxSwift_First_RxSwiftUITests.framework */; };
 		E212B7D103E72CFAC8CE91B9 /* Pods_First_RxSwiftTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 352F36738ED28FF73D712510 /* Pods_First_RxSwiftTests.framework */; };
 /* End PBXBuildFile section */
@@ -205,6 +208,9 @@
 		8ED47D77272BB67200393397 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		8ED47D79272BBC4800393397 /* FilterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterService.swift; sourceTree = "<group>"; };
 		8EEF332227D487CB00FD816A /* Folder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Folder.swift; sourceTree = "<group>"; };
+		8EEF332427D4953F00FD816A /* FolderService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderService.swift; sourceTree = "<group>"; };
+		8EEF332627D4955600FD816A /* FolderAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderAPI.swift; sourceTree = "<group>"; };
+		8EEF332827D4996400FD816A /* FolderRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderRepository.swift; sourceTree = "<group>"; };
 		A39627D2CEFE0F9B1068D70F /* Pods-First-RxSwift-First-RxSwiftUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-First-RxSwift-First-RxSwiftUITests.debug.xcconfig"; path = "Target Support Files/Pods-First-RxSwift-First-RxSwiftUITests/Pods-First-RxSwift-First-RxSwiftUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		BDC1B1C87658AB044811190A /* Pods-First-RxSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-First-RxSwift.debug.xcconfig"; path = "Target Support Files/Pods-First-RxSwift/Pods-First-RxSwift.debug.xcconfig"; sourceTree = "<group>"; };
 		EDF30771C8694EE129574540 /* Pods-First-RxSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-First-RxSwift.release.xcconfig"; path = "Target Support Files/Pods-First-RxSwift/Pods-First-RxSwift.release.xcconfig"; sourceTree = "<group>"; };
@@ -334,6 +340,7 @@
 			isa = PBXGroup;
 			children = (
 				8E21C4F9279561E500C0AD86 /* UserRepository.swift */,
+				8EEF332827D4996400FD816A /* FolderRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -344,6 +351,7 @@
 				8E21C5002795B58D00C0AD86 /* API */,
 				8E21C5032795BC0E00C0AD86 /* LoginJoinService.swift */,
 				8E86170A2797DE5D005B1A88 /* AppService.swift */,
+				8EEF332427D4953F00FD816A /* FolderService.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -352,6 +360,7 @@
 			isa = PBXGroup;
 			children = (
 				8E21C5012795B5B500C0AD86 /* Login+JoinAPI.swift */,
+				8EEF332627D4955600FD816A /* FolderAPI.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -991,6 +1000,7 @@
 				8ED47D48272BAEDD00393397 /* First_RxSwift.xcdatamodeld in Sources */,
 				8E2494D127CE8038009D03E8 /* AllBoxViewController.swift in Sources */,
 				8E949E3B27A13EA900947EDA /* SignUpValidationError.swift in Sources */,
+				8EEF332927D4996400FD816A /* FolderRepository.swift in Sources */,
 				8E21C5022795B5B500C0AD86 /* Login+JoinAPI.swift in Sources */,
 				8E86170B2797DE5D005B1A88 /* AppService.swift in Sources */,
 				8E86170D2797E29E005B1A88 /* FindIDViewModel.swift in Sources */,
@@ -1023,6 +1033,7 @@
 				8E2494A327CE3DBE009D03E8 /* TextFlow.swift in Sources */,
 				8E8AF70A27CE84BD00578816 /* AddGiftViewController.swift in Sources */,
 				8E2494AE27CE7943009D03E8 /* PageViewController.swift in Sources */,
+				8EEF332727D4955600FD816A /* FolderAPI.swift in Sources */,
 				8E8617032797C98A005B1A88 /* AppStepper.swift in Sources */,
 				8EA90FF92747C59600F12366 /* URL.swift in Sources */,
 				8E24949C27CE3D8D009D03E8 /* CalendarFlow.swift in Sources */,
@@ -1037,6 +1048,7 @@
 				8E21C4FE2795B48600C0AD86 /* Config.swift in Sources */,
 				8EBFF4F22748C45700629B26 /* SearchCityViewController.swift in Sources */,
 				8E21C4F7279560FB00C0AD86 /* LoginUseCase.swift in Sources */,
+				8EEF332527D4953F00FD816A /* FolderService.swift in Sources */,
 				8E12409127423800000F97EF /* NewsTableViewController.swift in Sources */,
 				8ED47D78272BB67200393397 /* PhotoCollectionViewCell.swift in Sources */,
 				8E2494CC27CE7E66009D03E8 /* CalendarViewController.swift in Sources */,

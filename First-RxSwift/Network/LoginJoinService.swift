@@ -11,6 +11,7 @@ import RxSwift
 
 protocol HasLoginJoinService {
     var loginJoinService: LoginJoinService { get }
+    var folderService: FolderService { get }
 }
 
 class LoginJoinService {

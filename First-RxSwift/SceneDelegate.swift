@@ -15,8 +15,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var coordinator = FlowCoordinator()
     var disposeBag = DisposeBag()
     let loginJoinService = LoginJoinService()
+    let folderService = FolderService()
     lazy var appServices = {
-        return AppService(loginJoinService: loginJoinService)
+        return AppService(folderService: folderService, loginJoinService: loginJoinService)
     }()
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {

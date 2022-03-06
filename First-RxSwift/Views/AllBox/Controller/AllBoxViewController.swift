@@ -65,11 +65,11 @@ class AllBoxViewController: UIViewController, Stepper {
     }
     
     func bindViewModel(){
-        viewModel.folders
-            .filter { !$0.isEmpty }
-            .bind(to: folderCollectionView.rx.items(cellIdentifier: FolderCollectionViewCell.identifier, cellType: FolderCollectionViewCell.self)) { row, element, cell in
-                cell.configure(with: element)
-            }.disposed(by: disposeBag)
+//        viewModel.folders
+//            .filter { !$0.isEmpty }
+//            .bind(to: folderCollectionView.rx.items(cellIdentifier: FolderCollectionViewCell.identifier, cellType: FolderCollectionViewCell.self)) { row, element, cell in
+//                cell.configure(with: element)
+//            }.disposed(by: disposeBag)
     }
     
     
