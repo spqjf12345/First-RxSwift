@@ -27,7 +27,7 @@ class AllBoxViewModel {
         let refreshEvent: Observable<Void>
         let searchTextField: Observable<String>
         let floatingButtonTap: Observable<Void>
-        let folderCellTap: Observable<Int> // folderId
+        let folderCellTap: Observable<IndexPath> // folderId
         let folderMoreButtonTap:Observable<Int>
         let chageFolderNameTap: Observable<Void>
         let changeFolderImageTap: Observable<Void>
@@ -74,7 +74,10 @@ class AllBoxViewModel {
                 self.folderUseCase.filteredFolder(base: self.folders ?? [], from: text)
             }).disposed(by: disposeBag)
             
-        
+        input.folderCellTap
+            .subscribe(onNext: { [weak self] indexPath in
+                guard let folder = self?.folders
+            })
         
         return output
        
@@ -82,4 +85,10 @@ class AllBoxViewModel {
     
     
     
+}
+
+private extension AllBoxViewModel {
+    func folder(at index: Int) -> Folder {
+        self.folderUseCase.viewFolder()
+    }
 }

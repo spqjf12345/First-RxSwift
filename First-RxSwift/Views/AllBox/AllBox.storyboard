@@ -78,6 +78,40 @@
             </objects>
             <point key="canvasLocation" x="1042" y="-643"/>
         </scene>
+        <!--Make Folder View Controller-->
+        <scene sceneID="CLv-no-8tV">
+            <objects>
+                <viewController storyboardIdentifier="MakeFolderViewController" id="sfW-JE-LCh" customClass="MakeFolderViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="tPO-r6-e5q">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UHn-IR-Ejw" customClass="MakeFolder" customModule="PrivateRoom" customModuleProvider="target">
+                                <rect key="frame" x="60" y="202" width="294" height="492"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="UHn-IR-Ejw" secondAttribute="height" multiplier="255:427" id="2ne-sv-Yb0"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="v9p-jq-SCv"/>
+                        <color key="backgroundColor" red="0.92792880899999997" green="0.92792880899999997" blue="0.92792880899999997" alpha="0.81169088" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="UHn-IR-Ejw" firstAttribute="top" relation="greaterThanOrEqual" secondItem="v9p-jq-SCv" secondAttribute="top" constant="100" id="0Qm-O8-mIu"/>
+                            <constraint firstItem="UHn-IR-Ejw" firstAttribute="centerY" secondItem="tPO-r6-e5q" secondAttribute="centerY" id="d95-t4-OLk"/>
+                            <constraint firstItem="UHn-IR-Ejw" firstAttribute="leading" secondItem="v9p-jq-SCv" secondAttribute="leading" constant="60" id="mvd-xW-Ts0"/>
+                            <constraint firstItem="v9p-jq-SCv" firstAttribute="trailing" secondItem="UHn-IR-Ejw" secondAttribute="trailing" constant="60" id="tZH-aO-2c1"/>
+                            <constraint firstItem="UHn-IR-Ejw" firstAttribute="centerX" secondItem="tPO-r6-e5q" secondAttribute="centerX" id="tZU-a8-wAt"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="folderView" destination="UHn-IR-Ejw" id="0Kw-gj-BQZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uAG-eL-PBy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1786" y="-644"/>
+        </scene>
     </scenes>
     <resources>
         <image name="plus.circle.fill" catalog="system" width="128" height="121"/>

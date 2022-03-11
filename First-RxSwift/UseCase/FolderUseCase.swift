@@ -10,6 +10,7 @@ import RxSwift
 
 protocol FolderUseCateType {
     func getFolders()
+    func viewFolder()
 }
 
 class FolderUseCase: FolderUseCateType {
@@ -31,6 +32,10 @@ class FolderUseCase: FolderUseCateType {
             .subscribe(onNext: { [weak self] folders in
                 self?.folders.onNext(folders)
             }).disposed(by: disposeBag)
+    }
+    
+    func viewFolder(){
+        self.folderRepository.viewFolder()
     }
     
     func filteredFolder(base folder: [Folder], from text: String) {

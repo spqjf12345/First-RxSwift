@@ -93,6 +93,10 @@
 		8EEF332727D4955600FD816A /* FolderAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEF332627D4955600FD816A /* FolderAPI.swift */; };
 		8EEF332927D4996400FD816A /* FolderRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEF332827D4996400FD816A /* FolderRepository.swift */; };
 		8EEF332B27D49A2000FD816A /* FolderUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEF332A27D49A2000FD816A /* FolderUseCase.swift */; };
+		8EEF335827DB718D00FD816A /* TextInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEF335727DB718D00FD816A /* TextInViewController.swift */; };
+		8EEF335A27DB719B00FD816A /* LinkInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEF335927DB719B00FD816A /* LinkInViewController.swift */; };
+		8EEF335C27DB730B00FD816A /* MakeFolderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEF335B27DB730B00FD816A /* MakeFolderViewController.swift */; };
+		8EEF335E27DB737700FD816A /* MakeFolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEF335D27DB737700FD816A /* MakeFolder.swift */; };
 		E00698A0A040B291D9EFAC57 /* Pods_First_RxSwift_First_RxSwiftUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D65B8FC0921D093937AF5F0 /* Pods_First_RxSwift_First_RxSwiftUITests.framework */; };
 		E212B7D103E72CFAC8CE91B9 /* Pods_First_RxSwiftTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 352F36738ED28FF73D712510 /* Pods_First_RxSwiftTests.framework */; };
 /* End PBXBuildFile section */
@@ -213,6 +217,10 @@
 		8EEF332627D4955600FD816A /* FolderAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderAPI.swift; sourceTree = "<group>"; };
 		8EEF332827D4996400FD816A /* FolderRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderRepository.swift; sourceTree = "<group>"; };
 		8EEF332A27D49A2000FD816A /* FolderUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderUseCase.swift; sourceTree = "<group>"; };
+		8EEF335727DB718D00FD816A /* TextInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInViewController.swift; sourceTree = "<group>"; };
+		8EEF335927DB719B00FD816A /* LinkInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkInViewController.swift; sourceTree = "<group>"; };
+		8EEF335B27DB730B00FD816A /* MakeFolderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeFolderViewController.swift; sourceTree = "<group>"; };
+		8EEF335D27DB737700FD816A /* MakeFolder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MakeFolder.swift; sourceTree = "<group>"; };
 		A39627D2CEFE0F9B1068D70F /* Pods-First-RxSwift-First-RxSwiftUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-First-RxSwift-First-RxSwiftUITests.debug.xcconfig"; path = "Target Support Files/Pods-First-RxSwift-First-RxSwiftUITests/Pods-First-RxSwift-First-RxSwiftUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		BDC1B1C87658AB044811190A /* Pods-First-RxSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-First-RxSwift.debug.xcconfig"; path = "Target Support Files/Pods-First-RxSwift/Pods-First-RxSwift.debug.xcconfig"; sourceTree = "<group>"; };
 		EDF30771C8694EE129574540 /* Pods-First-RxSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-First-RxSwift.release.xcconfig"; path = "Target Support Files/Pods-First-RxSwift/Pods-First-RxSwift.release.xcconfig"; sourceTree = "<group>"; };
@@ -480,6 +488,7 @@
 			isa = PBXGroup;
 			children = (
 				8E2494C027CE7DFA009D03E8 /* TextViewController.swift */,
+				8EEF335727DB718D00FD816A /* TextInViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -514,6 +523,7 @@
 			isa = PBXGroup;
 			children = (
 				8E2494C627CE7E41009D03E8 /* LinkViewController.swift */,
+				8EEF335927DB719B00FD816A /* LinkInViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -522,6 +532,7 @@
 			isa = PBXGroup;
 			children = (
 				8E2494D027CE8038009D03E8 /* AllBoxViewController.swift */,
+				8EEF335B27DB730B00FD816A /* MakeFolderViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -529,6 +540,7 @@
 		8E27F7C027BCEC7B00D3E998 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				8EEF335D27DB737700FD816A /* MakeFolder.swift */,
 				8E24948F27CE39BB009D03E8 /* MakeFolder.xib */,
 				8E27F7C227BCEC8B00D3E998 /* Controller */,
 				8E27F7C127BCEC8300D3E998 /* Flow */,
@@ -1013,11 +1025,15 @@
 				8E2494CE27CE7E8D009D03E8 /* ProfileViewController.swift in Sources */,
 				8E2494A927CE3EA9009D03E8 /* ProfileFlow.swift in Sources */,
 				8E27F7BF27BCEC1700D3E998 /* MainBoxViewModel.swift in Sources */,
+				8EEF335E27DB737700FD816A /* MakeFolder.swift in Sources */,
+				8EEF335A27DB719B00FD816A /* LinkInViewController.swift in Sources */,
 				8ED47D42272BAEDD00393397 /* ViewController.swift in Sources */,
 				8E12409827423C1F000F97EF /* URLRequest+Extensions.swift in Sources */,
 				8E8616FF2797C5AE005B1A88 /* AppFlow.swift in Sources */,
+				8EEF335827DB718D00FD816A /* TextInViewController.swift in Sources */,
 				8EA90FF72747C1C100F12366 /* WeatherResult.swift in Sources */,
 				8E8616F52796AA42005B1A88 /* SignUpViewModel.swift in Sources */,
+				8EEF335C27DB730B00FD816A /* MakeFolderViewController.swift in Sources */,
 				8ED47D3E272BAEDD00393397 /* AppDelegate.swift in Sources */,
 				8E43011127CF6C72008EA2A4 /* AllBoxViewModel.swift in Sources */,
 				8EA90FF52747C14B00F12366 /* WeatherViewController.swift in Sources */,

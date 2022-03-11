@@ -32,6 +32,8 @@ class AllBoxFlow: Flow {
             return navigateToTextIn()
         case .linkIn:
             return navigateToLinkIn()
+        case .makeFolder:
+            return navigateToMakeFolder()
         default:
             return .none
         }
@@ -51,6 +53,12 @@ class AllBoxFlow: Flow {
     
     private func navigateToLinkIn() -> FlowContributors {
         let vc = UIStoryboard(name: "Link", bundle: nil).instantiateViewController(withIdentifier: "LinkInViewController") as! LinkInViewController
+        rootViewController.pushViewController(vc, animated: true)
+        return .one(flowContributor: .contribute(withNext: vc))
+    }
+    
+    private func navigateToMakeFolder() -> FlowContributors {
+        let vc = UIStoryboard(name: "AllBox", bundle: nil).instantiateViewController(withIdentifier: "MakeFolderViewController") as! MakeFolderViewController
         rootViewController.pushViewController(vc, animated: true)
         return .one(flowContributor: .contribute(withNext: vc))
     }

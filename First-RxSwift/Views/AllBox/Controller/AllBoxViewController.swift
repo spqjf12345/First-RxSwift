@@ -27,7 +27,7 @@ class AllBoxViewController: UIViewController, Stepper {
     
     private lazy var refreshControl = UIRefreshControl()
 
-    private var viewModel = AllBoxViewModel()
+    private var viewModel = AllBoxViewModel(folderUseCase: FolderUseCase(repository: FolderRepository(folderService: FolderService())))
     
     let more_dropDown: DropDown = {
         let dropDown = DropDown()
@@ -78,13 +78,21 @@ class AllBoxViewController: UIViewController, Stepper {
         refreshEvent: self.refreshControl.rx.controlEvent(.valueChanged).asObservable(),
             searchTextField: self.searchTextfield.rx.text.orEmpty.asObservable(),
         floatingButtonTap: self.floatingButton.rx.tap.asObservable(),
-        folderCellTap: self.folderCollectionView.rx.itemSelected.map { $0.row },
+            folderCellTap: self.folderCollectionView.rx.itemSelected.map { $0 },
             folderMoreButtonTap :self.folderCollectionView.rx.itemSelected.map { $0.row },
         chageFolderNameTap: self.folderCollectionView.rx.itemSelected.map { $0.row },
         changeFolderImageTap: self.folderCollectionView.rx.itemSelected.map { $0.row },
         deleteFolder: self.folderCollectionView.rx.itemSelected.map { $0.row },
         sortingButtonTap: self.sortingButton.rx.tap.asObservable()
         )
+        
+        input.floatingButtonTap
+            .subscribe(onNext: {
+                self.steps.accept(AllStep.makeFolder)
+            }).disposed(by: disposeBag)
+        
+            
+        
 
     }
     
