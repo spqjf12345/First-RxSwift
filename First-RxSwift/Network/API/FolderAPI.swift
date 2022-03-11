@@ -10,6 +10,7 @@ import Moya
 
 enum FolderAPI {
     case getFolders(userId: Int)
+    case viewFolder(userId:Int, folderId: Int)
     
 }
 
@@ -22,6 +23,8 @@ extension FolderAPI: TargetType {
         switch self {
         case .getFolders(let userId):
             return "/users/\(userId)/folders"
+        case .viewFolder(let userId,let folderId):
+            return "/users/\(userId)/folders/\(folderId)"
         }
     }
     
@@ -29,12 +32,16 @@ extension FolderAPI: TargetType {
         switch self {
         case .getFolders:
             return .get
+        case .viewFolder:
+            return .get
         }
     }
     
     var task: Task {
         switch self {
         case .getFolders:
+            return .requestPlain
+        case .viewFolder:
             return .requestPlain
         }
     }

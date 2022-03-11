@@ -28,10 +28,10 @@ class AllBoxFlow: Flow {
         switch step {
         case .boxTap:
             return navigateToBoxTap()
-        case .textIn:
-            return navigateToTextIn()
-        case .linkIn:
-            return navigateToLinkIn()
+        case .textIn(let folderId):
+            return navigateToTextIn(with: folderId)
+        case .linkIn(let folderId):
+            return navigateToLinkIn(with: folderId)
         case .makeFolder:
             return navigateToMakeFolder()
         default:
@@ -45,14 +45,15 @@ class AllBoxFlow: Flow {
         return .one(flowContributor: .contribute(withNext: vc))
     }
     
-    private func navigateToTextIn() -> FlowContributors {
+    private func navigateToTextIn (with folderId: Int)  -> FlowContributors {
         let vc = UIStoryboard(name: "Phrase", bundle: nil).instantiateViewController(withIdentifier: "TextInViewController") as! TextInViewController
         rootViewController.pushViewController(vc, animated: true)
         return .one(flowContributor: .contribute(withNext: vc))
     }
     
-    private func navigateToLinkIn() -> FlowContributors {
+    private func navigateToLinkIn  (with folderId: Int) -> FlowContributors {
         let vc = UIStoryboard(name: "Link", bundle: nil).instantiateViewController(withIdentifier: "LinkInViewController") as! LinkInViewController
+        
         rootViewController.pushViewController(vc, animated: true)
         return .one(flowContributor: .contribute(withNext: vc))
     }

@@ -97,6 +97,7 @@
 		8EEF335A27DB719B00FD816A /* LinkInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEF335927DB719B00FD816A /* LinkInViewController.swift */; };
 		8EEF335C27DB730B00FD816A /* MakeFolderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEF335B27DB730B00FD816A /* MakeFolderViewController.swift */; };
 		8EEF335E27DB737700FD816A /* MakeFolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEF335D27DB737700FD816A /* MakeFolder.swift */; };
+		8EEF336027DB7F4900FD816A /* ViewModelBased.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEF335F27DB7F4900FD816A /* ViewModelBased.swift */; };
 		E00698A0A040B291D9EFAC57 /* Pods_First_RxSwift_First_RxSwiftUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D65B8FC0921D093937AF5F0 /* Pods_First_RxSwift_First_RxSwiftUITests.framework */; };
 		E212B7D103E72CFAC8CE91B9 /* Pods_First_RxSwiftTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 352F36738ED28FF73D712510 /* Pods_First_RxSwiftTests.framework */; };
 /* End PBXBuildFile section */
@@ -221,6 +222,7 @@
 		8EEF335927DB719B00FD816A /* LinkInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkInViewController.swift; sourceTree = "<group>"; };
 		8EEF335B27DB730B00FD816A /* MakeFolderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeFolderViewController.swift; sourceTree = "<group>"; };
 		8EEF335D27DB737700FD816A /* MakeFolder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MakeFolder.swift; sourceTree = "<group>"; };
+		8EEF335F27DB7F4900FD816A /* ViewModelBased.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModelBased.swift; sourceTree = "<group>"; };
 		A39627D2CEFE0F9B1068D70F /* Pods-First-RxSwift-First-RxSwiftUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-First-RxSwift-First-RxSwiftUITests.debug.xcconfig"; path = "Target Support Files/Pods-First-RxSwift-First-RxSwiftUITests/Pods-First-RxSwift-First-RxSwiftUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		BDC1B1C87658AB044811190A /* Pods-First-RxSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-First-RxSwift.debug.xcconfig"; path = "Target Support Files/Pods-First-RxSwift/Pods-First-RxSwift.debug.xcconfig"; sourceTree = "<group>"; };
 		EDF30771C8694EE129574540 /* Pods-First-RxSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-First-RxSwift.release.xcconfig"; path = "Target Support Files/Pods-First-RxSwift/Pods-First-RxSwift.release.xcconfig"; sourceTree = "<group>"; };
@@ -311,6 +313,7 @@
 		8E21C4EA2795517100C0AD86 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				8EEF335F27DB7F4900FD816A /* ViewModelBased.swift */,
 				8E949E3927A13E9500947EDA /* Error */,
 				8E12409627423C04000F97EF /* Extensions */,
 				8E21C4FB2795628500C0AD86 /* UserDefaultKey.swift */,
@@ -1054,6 +1057,7 @@
 				8E2494AE27CE7943009D03E8 /* PageViewController.swift in Sources */,
 				8EEF332727D4955600FD816A /* FolderAPI.swift in Sources */,
 				8E8617032797C98A005B1A88 /* AppStepper.swift in Sources */,
+				8EEF336027DB7F4900FD816A /* ViewModelBased.swift in Sources */,
 				8EA90FF92747C59600F12366 /* URL.swift in Sources */,
 				8E24949C27CE3D8D009D03E8 /* CalendarFlow.swift in Sources */,
 				8E27F7BD27BCE9F800D3E998 /* UIViewController.swift in Sources */,

@@ -10,11 +10,8 @@ import PhotosUI
 import DropDown
 import RxSwift
 import RxCocoa
-import RxFlow
 
-class AllBoxViewController: UIViewController, Stepper {
-    
-    var steps = PublishRelay<Step>()
+class AllBoxViewController: UIViewController {
     
     @IBOutlet weak var searchTextfield: UITextField!
     @IBOutlet weak var folderCollectionView: UICollectionView!
@@ -85,11 +82,6 @@ class AllBoxViewController: UIViewController, Stepper {
         deleteFolder: self.folderCollectionView.rx.itemSelected.map { $0.row },
         sortingButtonTap: self.sortingButton.rx.tap.asObservable()
         )
-        
-        input.floatingButtonTap
-            .subscribe(onNext: {
-                self.steps.accept(AllStep.makeFolder)
-            }).disposed(by: disposeBag)
         
             
         

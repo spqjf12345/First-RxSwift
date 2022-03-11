@@ -34,8 +34,8 @@ class FolderUseCase: FolderUseCateType {
             }).disposed(by: disposeBag)
     }
     
-    func viewFolder(){
-        self.folderRepository.viewFolder()
+    func viewFolder(folderId: Int) -> Observable<ViewFolderResponse> {
+        return self.folderRepository.viewFolder(folderId: folderId)
     }
     
     func filteredFolder(base folder: [Folder], from text: String) {

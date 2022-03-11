@@ -20,11 +20,11 @@ enum AllStep: Step {
     case boxTap
     
     case textTap
-    case textIn
+    case textIn (folderId: Int)
     case textAdd
     
     case linkTap
-    case linkIn
+    case linkIn (folderId: Int)
     case linkAdd
     
     case presentTap

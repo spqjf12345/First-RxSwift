@@ -24,4 +24,12 @@ class FolderService {
             .asObservable()
     }
     
+    func viewFolder(folderId: Int) -> Observable<ViewFolderResponse> {
+        self.provider.rx.request(.viewFolder(userId: userId, folderId: folderId))
+            .filterSuccessfulStatusCodes()
+            .map(ViewFolderResponse)
+            .asObservable()
+                                
+    }
+    
 }

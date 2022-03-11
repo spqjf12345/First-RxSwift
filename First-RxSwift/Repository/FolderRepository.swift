@@ -26,8 +26,8 @@ class FolderRepository: FolderRepositoryType {
         return folderService.getFolders()
     }
     
-    func viewFolder() -> Observable<ViewFolderResponse> {
-        
+    func viewFolder(folderId: Int) -> Observable<ViewFolderResponse> {
+        return folderService.viewFolder(folderId: folderId)
     }
     
 }
