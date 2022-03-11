@@ -26,3 +26,31 @@ struct Folder: Codable {
 extension Folder {
     static var Empty = Folder(folderId: 0, folderName: "", userId: 0, imageData: Data(), type: "")
 }
+
+struct ViewFolderResponse: Codable {
+    var phraseFolderList: [PhraseFolder]
+    var lineFolderList: [LintFolder]
+}
+
+struct PhraseFolder: Codable {
+    var phraseId: Int
+
+    var text: String
+    
+    var bookmark: Bool
+    
+    var textDate: String
+}
+
+struct LintFolder: Codable {
+    var linkId: Int
+
+    var title: String
+    
+    var link: String
+    
+    var bookmark: Bool
+}
+
+
+
