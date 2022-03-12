@@ -98,6 +98,8 @@
 		8EEF335C27DB730B00FD816A /* MakeFolderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEF335B27DB730B00FD816A /* MakeFolderViewController.swift */; };
 		8EEF335E27DB737700FD816A /* MakeFolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEF335D27DB737700FD816A /* MakeFolder.swift */; };
 		8EEF336027DB7F4900FD816A /* ViewModelBased.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEF335F27DB7F4900FD816A /* ViewModelBased.swift */; };
+		8EEF336227DB810700FD816A /* TextInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEF336127DB810700FD816A /* TextInViewModel.swift */; };
+		8EEF336627DB825000FD816A /* TextService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEF336527DB825000FD816A /* TextService.swift */; };
 		E00698A0A040B291D9EFAC57 /* Pods_First_RxSwift_First_RxSwiftUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D65B8FC0921D093937AF5F0 /* Pods_First_RxSwift_First_RxSwiftUITests.framework */; };
 		E212B7D103E72CFAC8CE91B9 /* Pods_First_RxSwiftTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 352F36738ED28FF73D712510 /* Pods_First_RxSwiftTests.framework */; };
 /* End PBXBuildFile section */
@@ -223,6 +225,8 @@
 		8EEF335B27DB730B00FD816A /* MakeFolderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeFolderViewController.swift; sourceTree = "<group>"; };
 		8EEF335D27DB737700FD816A /* MakeFolder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MakeFolder.swift; sourceTree = "<group>"; };
 		8EEF335F27DB7F4900FD816A /* ViewModelBased.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModelBased.swift; sourceTree = "<group>"; };
+		8EEF336127DB810700FD816A /* TextInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInViewModel.swift; sourceTree = "<group>"; };
+		8EEF336527DB825000FD816A /* TextService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextService.swift; sourceTree = "<group>"; };
 		A39627D2CEFE0F9B1068D70F /* Pods-First-RxSwift-First-RxSwiftUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-First-RxSwift-First-RxSwiftUITests.debug.xcconfig"; path = "Target Support Files/Pods-First-RxSwift-First-RxSwiftUITests/Pods-First-RxSwift-First-RxSwiftUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		BDC1B1C87658AB044811190A /* Pods-First-RxSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-First-RxSwift.debug.xcconfig"; path = "Target Support Files/Pods-First-RxSwift/Pods-First-RxSwift.debug.xcconfig"; sourceTree = "<group>"; };
 		EDF30771C8694EE129574540 /* Pods-First-RxSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-First-RxSwift.release.xcconfig"; path = "Target Support Files/Pods-First-RxSwift/Pods-First-RxSwift.release.xcconfig"; sourceTree = "<group>"; };
@@ -366,6 +370,7 @@
 				8E21C5032795BC0E00C0AD86 /* LoginJoinService.swift */,
 				8E86170A2797DE5D005B1A88 /* AppService.swift */,
 				8EEF332427D4953F00FD816A /* FolderService.swift */,
+				8EEF336527DB825000FD816A /* TextService.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -392,6 +397,7 @@
 		8E24949227CE3D1A009D03E8 /* Text */ = {
 			isa = PBXGroup;
 			children = (
+				8EEF336327DB810B00FD816A /* ViewModel */,
 				8E2494BF27CE7DDE009D03E8 /* Controller */,
 				8E2494B927CE7ABE009D03E8 /* Phrase.storyboard */,
 				8E24949927CE3D76009D03E8 /* Flow */,
@@ -747,6 +753,14 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		8EEF336327DB810B00FD816A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				8EEF336127DB810700FD816A /* TextInViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		BAEBE31791E93B7E16DF98A1 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -1031,6 +1045,7 @@
 				8EEF335E27DB737700FD816A /* MakeFolder.swift in Sources */,
 				8EEF335A27DB719B00FD816A /* LinkInViewController.swift in Sources */,
 				8ED47D42272BAEDD00393397 /* ViewController.swift in Sources */,
+				8EEF336627DB825000FD816A /* TextService.swift in Sources */,
 				8E12409827423C1F000F97EF /* URLRequest+Extensions.swift in Sources */,
 				8E8616FF2797C5AE005B1A88 /* AppFlow.swift in Sources */,
 				8EEF335827DB718D00FD816A /* TextInViewController.swift in Sources */,
@@ -1083,6 +1098,7 @@
 				8E27F7C427BCEC9C00D3E998 /* MainFlow.swift in Sources */,
 				8E2494CA27CE7E58009D03E8 /* GiftViewController.swift in Sources */,
 				8E7877DB273EDB5E007C43E0 /* AddTaskViewController.swift in Sources */,
+				8EEF336227DB810700FD816A /* TextInViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

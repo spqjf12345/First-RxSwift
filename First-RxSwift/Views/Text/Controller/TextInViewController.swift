@@ -6,12 +6,13 @@
 //
 
 import UIKit
-import RxFlow
 import RxSwift
 import RxCocoa
+import Reusable
 
-class TextInViewController: UIViewController, Stepper {
-    var steps = PublishRelay<Step>()
+class TextInViewController: UIViewController, StoryboardBased, ViewModelBased  {
+    var viewModel: TextInViewModel!
+    
     
 
     override func viewDidLoad() {

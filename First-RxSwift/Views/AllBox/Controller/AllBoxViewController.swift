@@ -50,16 +50,16 @@ class AllBoxViewController: UIViewController {
         folderCollectionView.isUserInteractionEnabled = true
 //        folderCollectionView.rx.setDelegate(self)
 //            .disposed(by: disposeBag)
-        folderCollectionView.rx.modelSelected(Folder.self)
-            .subscribe(onNext: { data in
-                //folder selected 정보 전달
-                if data.type == "PHRASE" {
-                    self.steps.accept(AllStep.textIn)
-                }else if data.type == "LINK" {
-                    self.steps.accept(AllStep.linkIn)
-                }
-                
-            }).disposed(by: disposeBag)
+//        folderCollectionView.rx.modelSelected(Folder.self)
+//            .subscribe(onNext: { data in
+//                //folder selected 정보 전달
+//                if data.type == "PHRASE" {
+//                    self.steps.accept(AllStep.textIn(folderId: folderId))
+//                }else if data.type == "LINK" {
+//                    self.steps.accept(AllStep.linkIn(folderId: folderId))
+//                }
+//                
+//            }).disposed(by: disposeBag)
         
     }
     

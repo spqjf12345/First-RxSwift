@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Reusable
 
 protocol ViewModel {
 }

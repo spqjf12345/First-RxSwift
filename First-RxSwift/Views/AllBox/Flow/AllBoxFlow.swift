@@ -46,9 +46,12 @@ class AllBoxFlow: Flow {
     }
     
     private func navigateToTextIn (with folderId: Int)  -> FlowContributors {
-        let vc = UIStoryboard(name: "Phrase", bundle: nil).instantiateViewController(withIdentifier: "TextInViewController") as! TextInViewController
+        let vm = TextInViewModel(folderId: folderId)
+        let vc = TextInViewController.instantiate(withViewModel: vm)
+        
+//        let vc = UIStoryboard(name: "Phrase", bundle: nil).instantiateViewController(withIdentifier: "TextInViewController") as! TextInViewController
         rootViewController.pushViewController(vc, animated: true)
-        return .one(flowContributor: .contribute(withNext: vc))
+        return .one(flowContributor: .contribute(withNextPresentable: vc, withNextStepper: vm))
     }
     
     private func navigateToLinkIn  (with folderId: Int) -> FlowContributors {

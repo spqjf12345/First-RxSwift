@@ -8,6 +8,7 @@
 import Foundation
 
 struct AppService: HasLoginJoinService {
+    let textService: TextService
     let folderService: FolderService
     let loginJoinService: LoginJoinService
 }

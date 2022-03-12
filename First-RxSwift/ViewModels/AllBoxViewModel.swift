@@ -85,8 +85,8 @@ class AllBoxViewModel: Stepper {
         input.folderCellTap
             .subscribe(onNext: { [weak self] indexPath in
                 guard let self = self else { return }
-                var folderId = self.folders[indexPath.row].folderId
-                var folderType = self.folders[indexPath.row].type
+                let folderId = self.folders[indexPath.row].folderId
+                let folderType = self.folders[indexPath.row].type
                 
                 if folderType == "PHRASE" {
                     self.steps.accept(AllStep.textIn(folderId: folderId))
