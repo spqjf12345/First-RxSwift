@@ -40,9 +40,13 @@ class AllBoxFlow: Flow {
     }
     
     private func navigateToBoxTap() -> FlowContributors {
-        let vc = UIStoryboard(name: "AllMain", bundle: nil).instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
-        rootViewController.pushViewController(vc, animated: true)
-        return .one(flowContributor: .contribute(withNext: vc))
+        let vm = AllBoxViewModel(folderUseCase: FolderUseCase(repository: FolderRepository(folderService: FolderService())))
+        let vc = UIStoryboard(name: "AllBox", bundle: nil).instantiateViewController(withIdentifier: "AllBoxViewController") as! AllBoxViewController
+        
+        //rootViewController.pushViewController(vc, animated: true)
+        //return .one(flowContributor: .contribute(withNext: vc))
+        
+        return .one(flowContributor: .contribute(withNextPresentable: vc, withNextStepper: vm))
     }
     
     private func navigateToTextIn (with folderId: Int)  -> FlowContributors {
@@ -50,7 +54,7 @@ class AllBoxFlow: Flow {
         let vc = TextInViewController.instantiate(withViewModel: vm)
         
 //        let vc = UIStoryboard(name: "Phrase", bundle: nil).instantiateViewController(withIdentifier: "TextInViewController") as! TextInViewController
-        rootViewController.pushViewController(vc, animated: true)
+//        rootViewController.pushViewController(vc, animated: true)
         return .one(flowContributor: .contribute(withNextPresentable: vc, withNextStepper: vm))
     }
     
@@ -63,6 +67,7 @@ class AllBoxFlow: Flow {
     
     private func navigateToMakeFolder() -> FlowContributors {
         let vc = UIStoryboard(name: "AllBox", bundle: nil).instantiateViewController(withIdentifier: "MakeFolderViewController") as! MakeFolderViewController
+        print("MakeFolderViewController")
         rootViewController.pushViewController(vc, animated: true)
         return .one(flowContributor: .contribute(withNext: vc))
     }

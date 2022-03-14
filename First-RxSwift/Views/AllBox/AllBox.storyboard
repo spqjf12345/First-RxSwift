@@ -81,12 +81,12 @@
         <!--Make Folder View Controller-->
         <scene sceneID="CLv-no-8tV">
             <objects>
-                <viewController storyboardIdentifier="MakeFolderViewController" id="sfW-JE-LCh" customClass="MakeFolderViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MakeFolderViewController" id="sfW-JE-LCh" customClass="MakeFolderViewController" customModule="First_RxSwift" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tPO-r6-e5q">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UHn-IR-Ejw" customClass="MakeFolder" customModule="PrivateRoom" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UHn-IR-Ejw" customClass="MakeFolder" customModule="First_RxSwift" customModuleProvider="target">
                                 <rect key="frame" x="60" y="202" width="294" height="492"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>

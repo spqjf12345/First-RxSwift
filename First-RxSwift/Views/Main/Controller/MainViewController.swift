@@ -6,12 +6,28 @@
 //
 
 import UIKit
+import Reusable
 import RxSwift
 import RxCocoa
-import RxFlow
 
-class MainViewController: UIViewController, Stepper {
-    var steps = PublishRelay<Step>()
+class MainViewController: UIViewController {
+    
+    var nestedViewControllers = [UIViewController]()
+    
+    private let disposeBag = DisposeBag()
+    
+ 
+    @IBOutlet weak var tapStackView: UIStackView!
+    
+    private lazy var pageViewController: UIPageViewController = {
+        let page = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: [:])
+        page.view.translatesAutoresizingMaskIntoConstraints = false
+        page.delegate = self
+        page.dataSource = self
+        return page
+    }()
+    
+    
     @IBOutlet weak var allVC: UIButton!
     @IBOutlet weak var textVC: UIButton!
     @IBOutlet weak var linkVC: UIButton!
@@ -30,8 +46,50 @@ class MainViewController: UIViewController, Stepper {
     override func viewDidLoad() {
         super.viewDidLoad()
         setBtnList()
-//            self.navigationController?.setNavigationBarHidden(true, animated: true)
+        layout()
+        guard let firstVC = nestedViewControllers.first else { return }
+        pageViewController.setViewControllers([firstVC], direction: .forward, animated: false, completion: nil)
+        
+        print("mainViewController \(nestedViewControllers)")
+        
     }
+    
+    private func layout() {
+        addChild(pageViewController)
+        view.addSubview(pageViewController.view)
+
+        NSLayoutConstraint.activate([pageViewController.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+                                     pageViewController.view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+                                     pageViewController.view.topAnchor.constraint(equalTo: tapStackView.bottomAnchor, constant: 16),
+                                     pageViewController.view.bottomAnchor.constraint(equalTo: view.bottomAnchor)])
+        pageViewController.didMove(toParent: self)
+    }
+    
+    private func bind() {
+        let tags = btnLists
+            .map { ($0.rx.tap, $0.tag) }
+            .map { obs, tag in obs.map { tag } }
+        let values = Observable.merge(tags)
+        values.subscribe(onNext: { [weak self] selectedIndex in
+            self?.selectSegmentWith(selectedIndex: selectedIndex)
+        }).disposed(by: disposeBag)
+    }
+    
+    private func selectSegmentWith(selectedIndex: Int) {
+        guard let currentViewController = pageViewController.viewControllers?.first,
+            let index = nestedViewControllers.firstIndex(of: currentViewController),
+            index != selectedIndex,
+            nestedViewControllers.count > selectedIndex else {
+                return
+        }
+
+        let selectedViewController = nestedViewControllers[selectedIndex]
+        pageViewController.setViewControllers([selectedViewController], direction: .forward, animated: false, completion: nil)
+    }
+    
+    
+    
+    
     
     func setBtnList(){
         allVC.tintColor = .orange
@@ -44,67 +102,92 @@ class MainViewController: UIViewController, Stepper {
     }
     
     func changeBtnColor(){
-        
+
         for (index, element) in btnLists.enumerated(){
-            
+
             if index == currentIndex {
                 element.setTitleColor(UIColor(named: "navy1")!, for: .normal)
             }
             else{
                 element.setTitleColor(#colorLiteral(red: 0.09519775957, green: 0.1197544411, blue: 0.2188102901, alpha: 1), for: .normal)
             }
-            
+
         }
-        
+
     }
     
     
-    var pageViewController : PageViewController!
+//    var pageViewController : PageViewController!
+//
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//
+//        if segue.identifier == "pageViewController" {
+//
+//            guard let vc = segue.destination as? PageViewController else {
+//                return}
+//            pageViewController = vc
+//
+//            pageViewController.completeHandler = { (result) in
+//                self.currentIndex = result
+//            }
+//
+//        }
+//
+//    }
+//
+//
+//    @IBAction func allVC(_ sender: Any) {
+//        pageViewController.setViewcontrollersFromIndex(index: 0)
+//    }
+//
+//    @IBAction func textVC(_ sender: Any) {
+//        pageViewController.setViewcontrollersFromIndex(index: 1)
+//    }
+//
+//    @IBAction func linkVC(_ sender: Any) {
+//        pageViewController.setViewcontrollersFromIndex(index: 2)
+//    }
+//
+//    @IBAction func giftVC(_ sender: Any) {
+//        pageViewController.setViewcontrollersFromIndex(index: 3)
+//    }
+//
+//    @IBAction func calendarVC(_ sender: Any) {
+//        pageViewController.setViewcontrollersFromIndex(index: 4)
+//    }
+//
+//    @IBAction func profileVC(_ sender: Any) {
+//        let profileVC = UIStoryboard(name: "Profile", bundle: nil).instantiateViewController(identifier: "ProfileViewController") as? ProfileViewController
+//        self.navigationController?.setNavigationBarHidden(false, animated: true)
+//        self.navigationController?.pushViewController(profileVC!, animated: true)
+//
+//    }
+//
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-       
-        if segue.identifier == "pageViewController" {
-            
-            guard let vc = segue.destination as? PageViewController else {
-                return}
-            pageViewController = vc
-            
-            pageViewController.completeHandler = { (result) in
-                self.currentIndex = result
-            }
-            
+
+}
+
+extension MainViewController: UIPageViewControllerDataSource {
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
+        guard let index = nestedViewControllers.firstIndex(of: viewController), index > 0 else { return nil }
+        return nestedViewControllers[index - 1]
+    }
+
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
+        guard let index = nestedViewControllers.firstIndex(of: viewController), index < nestedViewControllers.count - 1 else { return nil }
+        return nestedViewControllers[index + 1]
+    }
+}
+
+extension MainViewController: UIPageViewControllerDelegate {
+    func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
+        guard completed,
+            let currentViewController = pageViewController.viewControllers?.first,
+            let index = nestedViewControllers.firstIndex(of: currentViewController) else {
+            return
         }
+        self.currentIndex = index
         
+        //tabSegmentedControl.selectedSegmentIndex = index
     }
-    
-
-    @IBAction func allVC(_ sender: Any) {
-        pageViewController.setViewcontrollersFromIndex(index: 0)
-    }
-
-    @IBAction func textVC(_ sender: Any) {
-        pageViewController.setViewcontrollersFromIndex(index: 1)
-    }
-
-    @IBAction func linkVC(_ sender: Any) {
-        pageViewController.setViewcontrollersFromIndex(index: 2)
-    }
-
-    @IBAction func giftVC(_ sender: Any) {
-        pageViewController.setViewcontrollersFromIndex(index: 3)
-    }
-
-    @IBAction func calendarVC(_ sender: Any) {
-        pageViewController.setViewcontrollersFromIndex(index: 4)
-    }
-
-    @IBAction func profileVC(_ sender: Any) {
-        let profileVC = UIStoryboard(name: "Profile", bundle: nil).instantiateViewController(identifier: "ProfileViewController") as? ProfileViewController
-        self.navigationController?.setNavigationBarHidden(false, animated: true)
-        self.navigationController?.pushViewController(profileVC!, animated: true)
-       
-    }
-    
-    
-
 }

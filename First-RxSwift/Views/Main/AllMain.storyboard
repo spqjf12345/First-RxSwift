@@ -87,21 +87,11 @@
                                     <constraint firstAttribute="height" constant="70" id="eZ1-rf-r2x"/>
                                 </constraints>
                             </stackView>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bGe-J2-ACy">
-                                <rect key="frame" x="0.0" y="114" width="414" height="748"/>
-                                <connections>
-                                    <segue destination="KAM-w2-0Pd" kind="embed" identifier="pageViewController" id="rGa-fK-mxo"/>
-                                </connections>
-                            </containerView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="OVb-Q6-ff6"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="OVb-Q6-ff6" firstAttribute="bottom" secondItem="bGe-J2-ACy" secondAttribute="bottom" id="J4z-oq-iQ8"/>
-                            <constraint firstItem="bGe-J2-ACy" firstAttribute="leading" secondItem="OVb-Q6-ff6" secondAttribute="leading" id="Olm-6t-l4y"/>
-                            <constraint firstItem="bGe-J2-ACy" firstAttribute="trailing" secondItem="OVb-Q6-ff6" secondAttribute="trailing" id="QyP-5p-Sdk"/>
                             <constraint firstItem="0pu-jg-gGg" firstAttribute="leading" secondItem="OVb-Q6-ff6" secondAttribute="leading" constant="20" id="aHF-Md-LNw"/>
-                            <constraint firstItem="bGe-J2-ACy" firstAttribute="top" secondItem="0pu-jg-gGg" secondAttribute="bottom" id="jbX-7a-0rL"/>
                             <constraint firstItem="0pu-jg-gGg" firstAttribute="top" secondItem="OVb-Q6-ff6" secondAttribute="top" id="l72-PW-GxP"/>
                             <constraint firstItem="OVb-Q6-ff6" firstAttribute="trailing" secondItem="0pu-jg-gGg" secondAttribute="trailing" constant="20" id="zYe-jX-Of3"/>
                         </constraints>
@@ -113,6 +103,7 @@
                         <outlet property="giftVC" destination="J7u-7r-Sf1" id="VNa-Zm-FAX"/>
                         <outlet property="linkVC" destination="Z3N-na-XG3" id="pbO-Gw-MhY"/>
                         <outlet property="profileVC" destination="U7c-e2-djP" id="MmX-fC-CEa"/>
+                        <outlet property="tapStackView" destination="0pu-jg-gGg" id="Hyu-xr-E0u"/>
                         <outlet property="textVC" destination="Q8P-Id-fma" id="HdM-yN-Iba"/>
                     </connections>
                 </viewController>

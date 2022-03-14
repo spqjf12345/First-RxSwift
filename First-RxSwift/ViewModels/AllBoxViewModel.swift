@@ -23,6 +23,7 @@ class AllBoxViewModel: Stepper {
     
     init(folderUseCase: FolderUseCase){
         self.folderUseCase = folderUseCase
+        print("initialize")
     }
     
     struct Input {
@@ -100,7 +101,7 @@ class AllBoxViewModel: Stepper {
 //
 //
 //                    }).disposed(by: disposeBag)
-            })
+            }).disposed(by: disposeBag)
         
         return output
        

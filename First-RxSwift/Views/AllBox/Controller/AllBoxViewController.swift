@@ -42,6 +42,7 @@ class AllBoxViewController: UIViewController {
         super.viewDidLoad()
         setUpCollectionviewBinding()
         bindViewModel()
+        print("AllBoxViewController")
     }
     
     func setUpCollectionviewBinding(){
@@ -82,6 +83,9 @@ class AllBoxViewController: UIViewController {
         deleteFolder: self.folderCollectionView.rx.itemSelected.map { $0.row },
         sortingButtonTap: self.sortingButton.rx.tap.asObservable()
         )
+        
+        let output = self.viewModel.transform(from: input, disposeBag: self.disposeBag)
+        
         
             
         

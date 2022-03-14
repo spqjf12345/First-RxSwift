@@ -108,7 +108,6 @@ private extension LoginViewController {
             .drive(onNext: { [weak self] goTo in
                 if goTo {
                     guard let self = self else {return }
-                    print("hhhh")
                     self.steps.accept(AllStep.boxTap)
                 }
             }).disposed(by: disposeBag)

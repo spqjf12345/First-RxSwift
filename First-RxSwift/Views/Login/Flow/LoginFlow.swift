@@ -92,8 +92,7 @@ class LoginFlow: Flow {
     
     private func navigateToMain() -> FlowContributors {
         let vc = UIStoryboard(name: "AllMain", bundle: nil).instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
-        let allBoxFlow = AllBoxFlow(withService: self.service)
-//        self.rootViewController.pushViewController(vc, animated: true)
+        let allBoxFlow = MainFlow(withService: self.service)
         Flows.use(allBoxFlow, when: .created){ [unowned self] root in
             DispatchQueue.main.async {
                 rootViewController.setNavigationBarHidden(true, animated: true)
