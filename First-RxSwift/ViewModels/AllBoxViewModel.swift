@@ -17,9 +17,9 @@ class AllBoxViewModel: Stepper {
     private let folderUseCase: FolderUseCase
     
     let disposeBag = DisposeBag()
-    var folders:[Folder]
+    var folders:[Folder] = []
     var filteredFolders:[Folder]?
-    var selectedFolder: ViewFolderResponse?
+    var selectedFolder: ViewFolderResponse!
     
     init(folderUseCase: FolderUseCase){
         self.folderUseCase = folderUseCase

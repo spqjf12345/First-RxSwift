@@ -10,10 +10,11 @@ import RxSwift
 
 protocol FolderUseCateType {
     func getFolders()
-    func viewFolder()
+    func viewFolder(folderId: Int) -> Observable<ViewFolderResponse>
 }
 
 class FolderUseCase: FolderUseCateType {
+    
     
     private let folderRepository: FolderRepository
     
