@@ -6,13 +6,10 @@
 //
 
 import UIKit
-import RxFlow
 import RxSwift
 import RxCocoa
 
-class MakeFolderViewController: UIViewController, Stepper {
-    var steps = PublishRelay<Step>()
-    
+class MakeFolderViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

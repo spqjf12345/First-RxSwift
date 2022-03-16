@@ -6,15 +6,10 @@
 //
 
 import Foundation
-import RxFlow
 import RxCocoa
 
-class TextInViewModel: Stepper, ServicesViewModel {
+class TextInViewModel{
     var services: TextService!
-    
-    typealias Services = TextService
-    
-    var steps = PublishRelay<Step>()
     
     public let folderId: Int
 

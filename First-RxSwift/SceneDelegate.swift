@@ -6,20 +6,12 @@
 //
 
 import UIKit
-import RxFlow
 import RxSwift
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-    var coordinator = FlowCoordinator()
-    var disposeBag = DisposeBag()
-    let loginJoinService = LoginJoinService()
-    let folderService = FolderService()
-    let testService = TextService()
-    lazy var appServices = {
-        return AppService(textService: testService, folderService: folderService, loginJoinService: loginJoinService)
-    }()
+
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
@@ -27,8 +19,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let window = UIWindow(windowScene: windowScene)
         
         self.window = window
-        let appFlow = AppFlow(service: appServices, window: window)
-        self.coordinator.coordinate(flow: appFlow, with: AppStepper())
         
         window.makeKeyAndVisible()
         

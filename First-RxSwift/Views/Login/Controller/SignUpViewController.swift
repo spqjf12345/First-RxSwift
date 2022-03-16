@@ -9,10 +9,8 @@ import Foundation
 import UIKit
 import RxCocoa
 import RxSwift
-import RxFlow
 
-class SignUpViewController: UIViewController, Stepper {
-    var steps = PublishRelay<Step>()
+class SignUpViewController: UIViewController {
     
     @IBOutlet weak var IDTextField: UITextField!
     @IBOutlet weak var IDCheckButton: UIButton!
@@ -66,7 +64,7 @@ private extension SignUpViewController {
         )
         
         input.backButton.subscribe(onNext : {
-            self.steps.accept(AllStep.back)
+            //self.steps.accept(AllStep.back)
         }).disposed(by: disposeBag)
     
         
@@ -103,7 +101,7 @@ private extension SignUpViewController {
             .drive(onNext: { [weak self] isValid in
                 guard let self = self else { return }
                 if(isValid == true){
-                    self.steps.accept(AllStep.login)
+                    //self.steps.accept(AllStep.login)
                 }
             })
             .disposed(by: self.disposeBag)

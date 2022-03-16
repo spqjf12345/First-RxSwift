@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import Reusable
 import RxSwift
 import RxCocoa
 
@@ -76,6 +75,7 @@ class MainViewController: UIViewController {
     }
     
     private func selectSegmentWith(selectedIndex: Int) {
+        print("here")
         guard let currentViewController = pageViewController.viewControllers?.first,
             let index = nestedViewControllers.firstIndex(of: currentViewController),
             index != selectedIndex,

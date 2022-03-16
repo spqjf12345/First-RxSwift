@@ -6,12 +6,11 @@
 //
 
 import Foundation
-import RxFlow
 import RxSwift
 import RxCocoa
 
-class FindIDViewModel: Stepper {
-    var steps = PublishRelay<Step>()
+class FindIDViewModel {
+
     private let loginUseCase: LoginUseCase
     
     init(loginUseCase: LoginUseCase) {

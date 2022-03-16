@@ -8,11 +8,8 @@
 import UIKit
 import RxSwift
 import RxCocoa
-import RxFlow
 
-class LoginViewController: UIViewController, Stepper {
-    var steps = PublishRelay<Step>()
-    
+class LoginViewController: UIViewController {
 
     @IBOutlet weak var idTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -53,8 +50,6 @@ class LoginViewController: UIViewController, Stepper {
          self.view.endEditing(true)
 
         }
-    
-
 }
 
 private extension LoginViewController {
@@ -70,15 +65,15 @@ private extension LoginViewController {
         )
         
         input.signInButton.subscribe(onNext: {
-            self.steps.accept(AllStep.signUp)
+            //self.steps.accept(AllStep.signUp)
         }).disposed(by: disposeBag)
         
         input.findIDButton.subscribe(onNext: {
-            self.steps.accept(AllStep.findID)
+            //self.steps.accept(AllStep.findID)
         }).disposed(by: disposeBag)
         
         input.findPWButton.subscribe(onNext: {
-            self.steps.accept(AllStep.findPassword)
+            //self.steps.accept(AllStep.findPassword)
         }).disposed(by: disposeBag)
         
         let output = self.viewModel.transform(from: input, disposeBag: self.disposeBag)
@@ -108,7 +103,7 @@ private extension LoginViewController {
             .drive(onNext: { [weak self] goTo in
                 if goTo {
                     guard let self = self else {return }
-                    self.steps.accept(AllStep.boxTap)
+                    //self.steps.accept(AllStep.boxTap)
                 }
             }).disposed(by: disposeBag)
             

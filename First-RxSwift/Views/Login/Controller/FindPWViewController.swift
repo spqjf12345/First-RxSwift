@@ -6,12 +6,10 @@
 //
 
 import UIKit
-import RxFlow
 import RxSwift
 import RxCocoa
 
-class FindPWViewController: UIViewController, Stepper {
-    var steps = PublishRelay<Step>()
+class FindPWViewController: UIViewController {
     
     @IBOutlet weak var IDTextField: UITextField!
     @IBOutlet weak var idCheckButton: UIButton!
@@ -61,11 +59,11 @@ private extension FindPWViewController {
         )
         
         input.backButton.subscribe(onNext : {
-            self.steps.accept(AllStep.back)
+//            self.steps.accept(AllStep.back)
         }).disposed(by: disposeBag)
         
         input.goToLoginButton.subscribe(onNext: {
-            self.steps.accept(AllStep.popToLogin)
+//            self.steps.accept(AllStep.popToLogin)
         }).disposed(by: disposeBag)
         
         let output = self.viewModel.transform(from: input, disposeBag: self.disposeBag)

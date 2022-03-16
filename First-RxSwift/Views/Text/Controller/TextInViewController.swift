@@ -8,9 +8,8 @@
 import UIKit
 import RxSwift
 import RxCocoa
-import Reusable
 
-class TextInViewController: UIViewController, StoryboardBased, ViewModelBased  {
+class TextInViewController: UIViewController{
     var viewModel: TextInViewModel!
     
     

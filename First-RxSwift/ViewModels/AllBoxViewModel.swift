@@ -9,10 +9,8 @@ import Foundation
 import RxSwift
 import RxCocoa
 import PhotosUI
-import RxFlow
 
-class AllBoxViewModel: Stepper {
-    var steps = PublishRelay<Step>()
+class AllBoxViewModel {
     
     private let folderUseCase: FolderUseCase
     
@@ -23,7 +21,6 @@ class AllBoxViewModel: Stepper {
     
     init(folderUseCase: FolderUseCase){
         self.folderUseCase = folderUseCase
-        print("initialize")
     }
     
     struct Input {
@@ -80,7 +77,7 @@ class AllBoxViewModel: Stepper {
          
         input.floatingButtonTap
             .subscribe(onNext: {
-                self.steps.accept(AllStep.makeFolder)
+//                self.steps.accept(AllStep.makeFolder)
             }).disposed(by: disposeBag)
         
         input.folderCellTap
@@ -90,9 +87,9 @@ class AllBoxViewModel: Stepper {
                 let folderType = self.folders[indexPath.row].type
                 
                 if folderType == "PHRASE" {
-                    self.steps.accept(AllStep.textIn(folderId: folderId))
+                    //self.steps.accept(AllStep.textIn(folderId: folderId))
                 }else if folderType == "LINK" {
-                    self.steps.accept(AllStep.linkIn(folderId: folderId))
+                    //self.steps.accept(AllStep.linkIn(folderId: folderId))
                 }
                 
 //                self.folderUseCase.viewFolder(folderId: folderId)

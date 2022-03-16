@@ -27,9 +27,6 @@
                                         <state key="normal" title="보관함">
                                             <color key="titleColor" red="0.099970199169999996" green="0.11900150029999999" blue="0.21177518370000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </state>
-                                        <connections>
-                                            <action selector="allVC:" destination="tk0-kn-y6q" eventType="touchUpInside" id="l4p-5O-zqM"/>
-                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q8P-Id-fma">
                                         <rect key="frame" x="65.5" y="0.0" width="46" height="70"/>
@@ -37,9 +34,6 @@
                                         <state key="normal" title="텍스트">
                                             <color key="titleColor" red="0.099970199169999996" green="0.11900150029999999" blue="0.21177518370000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </state>
-                                        <connections>
-                                            <action selector="textVC:" destination="tk0-kn-y6q" eventType="touchUpInside" id="CFF-Ke-k9O"/>
-                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z3N-na-XG3">
                                         <rect key="frame" x="131.5" y="0.0" width="45.5" height="70"/>
@@ -47,9 +41,6 @@
                                         <state key="normal" title="링크">
                                             <color key="titleColor" red="0.099970199169999996" green="0.11900150029999999" blue="0.21177518370000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </state>
-                                        <connections>
-                                            <action selector="linkVC:" destination="tk0-kn-y6q" eventType="touchUpInside" id="e23-au-pSc"/>
-                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J7u-7r-Sf1">
                                         <rect key="frame" x="197" y="0.0" width="45.5" height="70"/>
@@ -57,9 +48,6 @@
                                         <state key="normal" title="선물">
                                             <color key="titleColor" red="0.099970199169999996" green="0.11900150029999999" blue="0.21177518370000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </state>
-                                        <connections>
-                                            <action selector="giftVC:" destination="tk0-kn-y6q" eventType="touchUpInside" id="b9e-KV-iUn"/>
-                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LrN-ge-gr0">
                                         <rect key="frame" x="262.5" y="0.0" width="46" height="70"/>
@@ -67,9 +55,6 @@
                                         <state key="normal" title="캘린더">
                                             <color key="titleColor" red="0.099970199169999996" green="0.11900150029999999" blue="0.21177518370000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </state>
-                                        <connections>
-                                            <action selector="calendarVC:" destination="tk0-kn-y6q" eventType="touchUpInside" id="W3X-gq-SWE"/>
-                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U7c-e2-djP">
                                         <rect key="frame" x="328.5" y="1.5" width="45.5" height="67"/>
@@ -78,9 +63,6 @@
                                             <color key="titleColor" red="0.1647058824" green="0.20000000000000001" blue="0.3411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <imageReference key="backgroundImage" image="person.fill" catalog="system" renderingMode="original"/>
                                         </state>
-                                        <connections>
-                                            <action selector="profileVC:" destination="tk0-kn-y6q" eventType="touchUpInside" id="maR-7p-JR9"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>

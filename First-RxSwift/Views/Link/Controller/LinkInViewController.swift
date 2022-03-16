@@ -6,13 +6,10 @@
 //
 
 import UIKit
-import RxFlow
 import RxSwift
 import RxCocoa
 
-class LinkInViewController: UIViewController, Stepper {
-    var steps = PublishRelay<Step>()
-    
+class LinkInViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
