@@ -15,9 +15,10 @@ class AllBoxViewModel {
     private let folderUseCase: FolderUseCase!
     
     let disposeBag = DisposeBag()
-    var folders = BehaviorSubject<[Folder]>(value: [Folder.Empty])
-    var filteredFolders = BehaviorSubject<[Folder]>(value: [Folder.Empty])
+    var folders = BehaviorSubject<[SectionOfFolder]>(value: [SectionOfFolder.EMPTY])
+    var filteredFolders = BehaviorSubject<[SectionOfFolder]>(value: [SectionOfFolder.EMPTY])
     var selectedFolder: ViewFolderResponse!
+    var folderCount : Int = 0
     
     init(folderUseCase: FolderUseCase){
         self.folderUseCase = folderUseCase
@@ -37,7 +38,6 @@ class AllBoxViewModel {
     }
   
     struct Output {
-        var folderCount = PublishRelay<String>() //개의 폴더
         var sortingText = BehaviorRelay<String>(value: "이름 순") //이름순, 생성순, 최신순
     }
     
@@ -53,6 +53,7 @@ class AllBoxViewModel {
                     .subscribe(onNext: { folder in
                         print("get folder \(folder)")
                         self.folders.onNext(folder)
+                        self.folderCount = folder[0].items.count
                     }).disposed(by: disposeBag)
             }).disposed(by: disposeBag)
 
@@ -82,14 +83,17 @@ class AllBoxViewModel {
             .subscribe(onNext: { [weak self] indexPath in
                 guard let self = self else { return }
                 self.folders.subscribe(onNext: { folder in
-                    let folderId = folder[indexPath.row].folderId
-                    let folderType = folder[indexPath.row].type
-                    
-                    if folderType == "PHRASE" {
-                        //self.steps.accept(AllStep.textIn(folderId: folderId))
-                    }else if folderType == "LINK" {
-                        //self.steps.accept(AllStep.linkIn(folderId: folderId))
+                    for f in folder {
+                        let folderId = f.items[indexPath.row].folderId
+                        let folderType = f.items[indexPath.row].type
+                        
+                        if folderType == "PHRASE" {
+                            //self.steps.accept(AllStep.textIn(folderId: folderId))
+                        }else if folderType == "LINK" {
+                            //self.steps.accept(AllStep.linkIn(folderId: folderId))
+                        }
                     }
+                   
                     
     //                self.folderUseCase.viewFolder(folderId: folderId)
     //                    .subscribe(onNext: { selected in

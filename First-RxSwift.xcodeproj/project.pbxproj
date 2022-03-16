@@ -78,6 +78,7 @@
 		8ED47D78272BB67200393397 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED47D77272BB67200393397 /* PhotoCollectionViewCell.swift */; };
 		8ED47D7A272BBC4800393397 /* FilterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED47D79272BBC4800393397 /* FilterService.swift */; };
 		8EE14A0327E1CBA70020E75A /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE14A0227E1CBA70020E75A /* HeaderView.swift */; };
+		8EE14A0527E1EAFF0020E75A /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EE14A0427E1EAFE0020E75A /* HeaderView.xib */; };
 		8EEF332327D487CB00FD816A /* Folder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEF332227D487CB00FD816A /* Folder.swift */; };
 		8EEF332527D4953F00FD816A /* FolderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEF332427D4953F00FD816A /* FolderService.swift */; };
 		8EEF332727D4955600FD816A /* FolderAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEF332627D4955600FD816A /* FolderAPI.swift */; };
@@ -194,6 +195,7 @@
 		8ED47D77272BB67200393397 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		8ED47D79272BBC4800393397 /* FilterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterService.swift; sourceTree = "<group>"; };
 		8EE14A0227E1CBA70020E75A /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		8EE14A0427E1EAFE0020E75A /* HeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
 		8EEF332227D487CB00FD816A /* Folder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Folder.swift; sourceTree = "<group>"; };
 		8EEF332427D4953F00FD816A /* FolderService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderService.swift; sourceTree = "<group>"; };
 		8EEF332627D4955600FD816A /* FolderAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderAPI.swift; sourceTree = "<group>"; };
@@ -652,6 +654,7 @@
 			children = (
 				8E43011627CF6DFD008EA2A4 /* Cells */,
 				8EE14A0227E1CBA70020E75A /* HeaderView.swift */,
+				8EE14A0427E1EAFE0020E75A /* HeaderView.xib */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -791,6 +794,7 @@
 				8E43010F27CF6A4C008EA2A4 /* Colors.xcassets in Resources */,
 				8E2494BC27CE7AF8009D03E8 /* AllBox.storyboard in Resources */,
 				8E2494B827CE7ABA009D03E8 /* Link.storyboard in Resources */,
+				8EE14A0527E1EAFF0020E75A /* HeaderView.xib in Resources */,
 				8E2494AC27CE510D009D03E8 /* AllMain.storyboard in Resources */,
 				8E21C4F0279557B200C0AD86 /* Login.storyboard in Resources */,
 				8E24949027CE39BB009D03E8 /* MakeFolder.xib in Resources */,

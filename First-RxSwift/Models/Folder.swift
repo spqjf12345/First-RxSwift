@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import RxDataSources
 
 struct Folder: Codable {
     var folderId: Int
@@ -24,7 +25,22 @@ struct Folder: Codable {
 }
 
 extension Folder {
-    static var Empty = Folder(folderId: 0, folderName: "", userId: 0, imageData: Data(), type: "")
+    static var EMPTY = Folder(folderId: 0, folderName: "", userId: 0, imageData: Data(), type: "")
+}
+
+struct SectionOfFolder {
+    var items: [Folder]
+}
+
+extension SectionOfFolder {
+    static var EMPTY = SectionOfFolder(items: [Folder.EMPTY])
+}
+
+extension SectionOfFolder: SectionModelType {
+    init(original: SectionOfFolder, items: [Folder]){
+        self = original
+        self.items = items
+    }
 }
 
 struct ViewFolderResponse: Codable {

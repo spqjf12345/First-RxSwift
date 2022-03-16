@@ -28,6 +28,13 @@ class AllBoxViewController: UIViewController {
 
     private var viewModel = AllBoxViewModel(folderUseCase: FolderUseCase(repository: FolderRepository(folderService: FolderService())))
     
+    let dataSource = RxCollectionViewSectionedReloadDataSource<SectionOfFolder>(
+        configureCell: { datasource, collectionview, indexPath, item in
+            let cell = collectionview.dequeueReusableCell(withReuseIdentifier: FolderCollectionViewCell.identifier, for: indexPath) as! FolderCollectionViewCell
+            cell.configure(with: item)
+            return cell
+        })
+    
     let more_dropDown: DropDown = {
         let dropDown = DropDown()
         dropDown.width = 100
@@ -43,40 +50,39 @@ class AllBoxViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpCollectionviewBinding()
+        setUpUI()
         bindViewModel()
-        print("AllBoxViewController")
     }
     
     func setUpCollectionviewBinding(){
         folderCollectionView.contentInset = UIEdgeInsets(top: 0, left: 15, bottom: 50, right: 15)
         folderCollectionView.register(FolderCollectionViewCell.nib(), forCellWithReuseIdentifier: FolderCollectionViewCell.identifier)
+        folderCollectionView.register(UINib(nibName: HeaderView.reuseIdentifier, bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: HeaderView.reuseIdentifier)
+        
         folderCollectionView.allowsSelection = true
         folderCollectionView.isUserInteractionEnabled = true
         
         folderCollectionView.rx.setDelegate(self)
             .disposed(by: disposeBag)
-        folderCollectionView.rx.setDataSource(self)
-            .disposed(by: disposeBag)
         
-//        folderCollectionView.rx.modelSelected(Folder.self)
-//            .subscribe(onNext: { data in
-//                //folder selected 정보 전달
-//                if data.type == "PHRASE" {
-//                    self.steps.accept(AllStep.textIn(folderId: folderId))
-//                }else if data.type == "LINK" {
-//                    self.steps.accept(AllStep.linkIn(folderId: folderId))
-//                }
-//                
-//            }).disposed(by: disposeBag)
-        
+        dataSource.configureSupplementaryView = {(dataSource, collectionView, kind, indexPath) -> UICollectionReusableView in
+            guard let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: HeaderView.reuseIdentifier, for: indexPath) as? HeaderView else { fatalError() }
+            self.headerView = headerView
+            return headerView
+        }
+
     }
     
+    func setUpUI(){
+        headerView.updateFolderCount(count: viewModel.folderCount)
+    }
+    
+    
     func bindViewModel(){
-//        viewModel.folders
-//            .filter { !$0.isEmpty }
-//            .bind(to: folderCollectionView.rx.items(cellIdentifier: FolderCollectionViewCell.identifier, cellType: FolderCollectionViewCell.self)) { row, element, cell in
-//                cell.configure(with: element)
-//            }.disposed(by: disposeBag)
+
+        viewModel.folders
+          .bind(to: folderCollectionView.rx.items(dataSource: dataSource))
+          .disposed(by: disposeBag)
         
         let input = AllBoxViewModel.Input (
             viewWillAppearEvent: self.rx.methodInvoked(#selector(UIViewController.viewWillAppear)).map { _ in },
@@ -93,12 +99,6 @@ class AllBoxViewController: UIViewController {
         
         let output = self.viewModel.transform(from: input, disposeBag: self.disposeBag)
         
-        viewModel.folders
-            .filter{ !$0.isEmpty }
-            .bind(to: folderCollectionView.rx.items(cellIdentifier: FolderCollectionViewCell.identifier, cellType: FolderCollectionViewCell.self)) { row, element, cell in
-                cell.configure(with: element)
-            }.disposed(by: disposeBag)
-            
         
 
     }
@@ -106,18 +106,6 @@ class AllBoxViewController: UIViewController {
     
 }
 
-extension AllBoxViewController: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        switch kind {
-        case UICollectionView.elementKindSectionHeader:
-            guard let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: HeaderView.reuseIdentifier, for: indexPath) as? HeaderView else { fatalError() }
-            self.headerView = headerView
-            
-        default:
-            fatalError()
-        }
-    }
-}
 
 extension AllBoxViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

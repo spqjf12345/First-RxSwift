@@ -6,14 +6,19 @@
 //
 
 import UIKit
+import SnapKit
+import RxSwift
+import RxCocoa
 
 class HeaderView: UICollectionReusableView {
     static let reuseIdentifier: String = "HeaderView"
     var sortingText = "이름순"
+    var disposeBag = DisposeBag()
     
     lazy var folderCountLabel: UILabel = {
         let label = UILabel()
         label.textColor = UIColor.darkGray
+        label.text = "text"
         return label
     }()
     
@@ -29,10 +34,27 @@ class HeaderView: UICollectionReusableView {
     override func layoutSubviews() {
         super.layoutSubviews()
         self.addSubview(folderCountLabel)
-        folderCountLabel.translatesAutoresizingMaskIntoConstraints = false
-        folderCountLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 10).isActive = true
+        self.addSubview(sortingButton)
+        self.backgroundColor = .blue
+        folderCountLabel.snp.makeConstraints { make in
+            make.centerY.equalToSuperview()
+            make.leading.equalToSuperview().offset(24)
+        }
         
+        sortingButton.snp.makeConstraints { make in
+            make.centerY.equalToSuperview()
+            make.trailing.equalToSuperview().offset(-24)
+        }
         
+        sortingButton.rx.tap
+            .subscribe(onNext: {
+                
+            }).disposed(by: disposeBag)
+        
+    }
+    
+    func updateFolderCount(count: Int){
+        folderCountLabel.text = "\(count)개의 폴더"
     }
    
     
