@@ -46,12 +46,28 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         setBtnList()
         layout()
+        setupSubView()
         guard let firstVC = nestedViewControllers.first else { return }
         pageViewController.setViewControllers([firstVC], direction: .forward, animated: false, completion: nil)
         
         print("mainViewController \(nestedViewControllers)")
         
     }
+    
+    func setupSubView(){
+            let mainVC = UIStoryboard.init(name: "AllBox", bundle: nil).instantiateViewController(identifier: "AllBoxViewController") as AllBoxViewController
+            let textVC = UIStoryboard.init(name: "Phrase", bundle: nil).instantiateViewController(identifier: "TextViewController") as TextViewController
+            let linkVC = UIStoryboard.init(name: "Link", bundle: nil).instantiateViewController(identifier: "LinkViewController") as LinkViewController
+            let notiVC = UIStoryboard.init(name: "Timeout", bundle: nil).instantiateViewController(identifier: "GiftViewController") as GiftViewController
+            let calendarVC = UIStoryboard.init(name: "Calendar", bundle: nil).instantiateViewController(identifier: "CalendarViewController") as CalendarViewController
+    
+        nestedViewControllers.append(mainVC)
+        nestedViewControllers.append(textVC)
+        nestedViewControllers.append(linkVC)
+        nestedViewControllers.append(notiVC)
+        nestedViewControllers.append(calendarVC)
+    }
+    
     
     private func layout() {
         addChild(pageViewController)

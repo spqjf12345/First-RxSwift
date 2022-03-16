@@ -9,7 +9,7 @@ import Foundation
 import RxSwift
 
 protocol FolderUseCateType {
-    func getFolders()
+    func getFolders() -> Observable<[Folder]>
     func viewFolder(folderId: Int) -> Observable<ViewFolderResponse>
 }
 
@@ -18,44 +18,32 @@ class FolderUseCase: FolderUseCateType {
     
     private let folderRepository: FolderRepository
     
-    var folders = BehaviorSubject<[Folder]>(value: [])
-    var filderedFolders = BehaviorSubject<[Folder]>(value: [])
-    lazy var folderCount = folders.map { $0.count }
-    
     var disposeBag = DisposeBag()
     
     init(repository: FolderRepository) {
         self.folderRepository = repository
     }
     
-    func getFolders() {
-        self.folderRepository.getFolders()
-            .subscribe(onNext: { [weak self] folders in
-                self?.folders.onNext(folders)
-            }).disposed(by: disposeBag)
+    func getFolders() -> Observable<[Folder]> {
+        return self.folderRepository.getFolders()
     }
     
     func viewFolder(folderId: Int) -> Observable<ViewFolderResponse> {
         return self.folderRepository.viewFolder(folderId: folderId)
     }
     
-    func filteredFolder(base folder: [Folder], from text: String) {
-        self.filterText(folder, text)
-            .subscribe { [weak self] folder in
-                self?.folders.onNext(folder)
-            }
-            .disposed(by: self.disposeBag)
-    }
-    
-    func filterText(_ folder: [Folder], _ text: String) -> Observable<[Folder]> {
+    func filteredFolder(base folder: BehaviorSubject<[Folder]>, from text: String) -> Observable<[Folder]> {
         var filteredFolder: [Folder] = []
-        folder.forEach {
-            if $0.folderName.hasPrefix(text) {
-                filteredFolder.append($0)
+        folder.subscribe(onNext: { folder in
+            folder.forEach {
+                if $0.folderName.hasPrefix(text) {
+                    filteredFolder.append($0)
+                }
             }
-        }
+        }).disposed(by: disposeBag)
         return Observable.of(filteredFolder)
     }
+    
         
     
 

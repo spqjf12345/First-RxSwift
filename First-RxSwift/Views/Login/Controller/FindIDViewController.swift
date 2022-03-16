@@ -51,15 +51,15 @@ private extension FindIDViewController {
         )
     
         input.backButton.subscribe(onNext : {
-            //self.steps.accept(AllStep.back)
+            self.navigationController?.popViewController(animated: true)
         }).disposed(by: disposeBag)
     
         input.findPWButton.subscribe(onNext: {
-           //self.steps.accept(AllStep.findPassword)
+            self.navigateToFindPW()
         }).disposed(by: disposeBag)
         
         input.goToLoginButton.subscribe(onNext: {
-//            self.steps.accept(AllStep.popToLogin)
+            self.navigationController?.popToRootViewController(animated: true)
         }).disposed(by: disposeBag)
         
         let output = self.viewModel.transform(from: input, disposeBag: self.disposeBag)
@@ -86,5 +86,12 @@ private extension FindIDViewController {
         let confirm = UIAlertAction(title: "확인", style: .default)
         alert.addAction(confirm)
         present(alert, animated: false, completion: nil)
+    }
+}
+
+extension FindIDViewController {
+    private func navigateToFindPW() {
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "FindPWViewController") as! FindPWViewController
+         self.navigationController?.pushViewController(vc, animated: true)
     }
 }

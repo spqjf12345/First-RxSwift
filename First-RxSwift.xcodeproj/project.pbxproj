@@ -77,6 +77,7 @@
 		8ED47D71272BAF4C00393397 /* PhotosCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED47D70272BAF4C00393397 /* PhotosCollectionViewController.swift */; };
 		8ED47D78272BB67200393397 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED47D77272BB67200393397 /* PhotoCollectionViewCell.swift */; };
 		8ED47D7A272BBC4800393397 /* FilterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED47D79272BBC4800393397 /* FilterService.swift */; };
+		8EE14A0327E1CBA70020E75A /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE14A0227E1CBA70020E75A /* HeaderView.swift */; };
 		8EEF332327D487CB00FD816A /* Folder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEF332227D487CB00FD816A /* Folder.swift */; };
 		8EEF332527D4953F00FD816A /* FolderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEF332427D4953F00FD816A /* FolderService.swift */; };
 		8EEF332727D4955600FD816A /* FolderAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEF332627D4955600FD816A /* FolderAPI.swift */; };
@@ -192,6 +193,7 @@
 		8ED47D70272BAF4C00393397 /* PhotosCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosCollectionViewController.swift; sourceTree = "<group>"; };
 		8ED47D77272BB67200393397 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		8ED47D79272BBC4800393397 /* FilterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterService.swift; sourceTree = "<group>"; };
+		8EE14A0227E1CBA70020E75A /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		8EEF332227D487CB00FD816A /* Folder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Folder.swift; sourceTree = "<group>"; };
 		8EEF332427D4953F00FD816A /* FolderService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderService.swift; sourceTree = "<group>"; };
 		8EEF332627D4955600FD816A /* FolderAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderAPI.swift; sourceTree = "<group>"; };
@@ -624,7 +626,7 @@
 		8ED47D74272BAFF400393397 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				8E43011627CF6DFD008EA2A4 /* Cells */,
+				8EE14A0127E1CB980020E75A /* Common */,
 				8E27F7C027BCEC7B00D3E998 /* Main */,
 				8ED47D41272BAEDD00393397 /* ViewController.swift */,
 				8E2494A627CE3E8B009D03E8 /* Profile */,
@@ -643,6 +645,15 @@
 				8ED47D43272BAEDD00393397 /* Main.storyboard */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		8EE14A0127E1CB980020E75A /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				8E43011627CF6DFD008EA2A4 /* Cells */,
+				8EE14A0227E1CBA70020E75A /* HeaderView.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 		8EEF336327DB810B00FD816A /* ViewModel */ = {
@@ -940,6 +951,7 @@
 				8E8616F52796AA42005B1A88 /* SignUpViewModel.swift in Sources */,
 				8EEF335C27DB730B00FD816A /* MakeFolderViewController.swift in Sources */,
 				8ED47D3E272BAEDD00393397 /* AppDelegate.swift in Sources */,
+				8EE14A0327E1CBA70020E75A /* HeaderView.swift in Sources */,
 				8E43011127CF6C72008EA2A4 /* AllBoxViewModel.swift in Sources */,
 				8EA90FF52747C14B00F12366 /* WeatherViewController.swift in Sources */,
 				8E8616F227968EEF005B1A88 /* SignUpViewReactor.swift in Sources */,

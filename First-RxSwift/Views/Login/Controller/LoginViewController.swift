@@ -65,15 +65,15 @@ private extension LoginViewController {
         )
         
         input.signInButton.subscribe(onNext: {
-            //self.steps.accept(AllStep.signUp)
+            self.navigateToSignUp()
         }).disposed(by: disposeBag)
         
         input.findIDButton.subscribe(onNext: {
-            //self.steps.accept(AllStep.findID)
+            self.navigateToFindID()
         }).disposed(by: disposeBag)
         
         input.findPWButton.subscribe(onNext: {
-            //self.steps.accept(AllStep.findPassword)
+            self.navigateToFindPW()
         }).disposed(by: disposeBag)
         
         let output = self.viewModel.transform(from: input, disposeBag: self.disposeBag)
@@ -103,7 +103,7 @@ private extension LoginViewController {
             .drive(onNext: { [weak self] goTo in
                 if goTo {
                     guard let self = self else {return }
-                    //self.steps.accept(AllStep.boxTap)
+                    self.navigateToMain()
                 }
             }).disposed(by: disposeBag)
             
@@ -120,4 +120,27 @@ private extension LoginViewController {
     }
     
 
+}
+
+extension LoginViewController {
+    private func navigateToSignUp() {
+       let vc = self.storyboard?.instantiateViewController(withIdentifier: "SignUpViewController") as! SignUpViewController
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    private func navigateToFindID() {
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "FindIDViewController") as! FindIDViewController
+         self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    private func navigateToFindPW() {
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "FindPWViewController") as! FindPWViewController
+         self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    private func navigateToMain() {
+        let mainVC = UIStoryboard(name: "AllMain", bundle: nil).instantiateViewController(withIdentifier: "MainViewController")
+        UIApplication.shared.windows.first?.rootViewController = mainVC
+        UIApplication.shared.windows.first?.makeKeyAndVisible()
+    }
 }

@@ -59,11 +59,11 @@ private extension FindPWViewController {
         )
         
         input.backButton.subscribe(onNext : {
-//            self.steps.accept(AllStep.back)
+            self.navigationController?.popViewController(animated: true)
         }).disposed(by: disposeBag)
         
         input.goToLoginButton.subscribe(onNext: {
-//            self.steps.accept(AllStep.popToLogin)
+            self.navigationController?.popToRootViewController(animated: true)
         }).disposed(by: disposeBag)
         
         let output = self.viewModel.transform(from: input, disposeBag: self.disposeBag)

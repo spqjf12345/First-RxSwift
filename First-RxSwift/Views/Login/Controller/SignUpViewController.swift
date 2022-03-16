@@ -64,7 +64,7 @@ private extension SignUpViewController {
         )
         
         input.backButton.subscribe(onNext : {
-            //self.steps.accept(AllStep.back)
+            self.navigationController?.popViewController(animated: true)
         }).disposed(by: disposeBag)
     
         
@@ -101,7 +101,7 @@ private extension SignUpViewController {
             .drive(onNext: { [weak self] isValid in
                 guard let self = self else { return }
                 if(isValid == true){
-                    //self.steps.accept(AllStep.login)
+                    self.navigationController?.popToRootViewController(animated: true)
                 }
             })
             .disposed(by: self.disposeBag)

@@ -12,11 +12,11 @@ import PhotosUI
 
 class AllBoxViewModel {
     
-    private let folderUseCase: FolderUseCase
+    private let folderUseCase: FolderUseCase!
     
     let disposeBag = DisposeBag()
-    var folders:[Folder] = []
-    var filteredFolders:[Folder]?
+    var folders = BehaviorSubject<[Folder]>(value: [Folder.Empty])
+    var filteredFolders = BehaviorSubject<[Folder]>(value: [Folder.Empty])
     var selectedFolder: ViewFolderResponse!
     
     init(folderUseCase: FolderUseCase){
@@ -50,19 +50,13 @@ class AllBoxViewModel {
             .subscribe(onNext: { [weak self] in
                 guard let self = self else { return }
                 self.folderUseCase.getFolders()
+                    .subscribe(onNext: { folder in
+                        print("get folder \(folder)")
+                        self.folders.onNext(folder)
+                    }).disposed(by: disposeBag)
             }).disposed(by: disposeBag)
-        
-        //binding with folderUsecase
-        self.folderUseCase.folders
-            .subscribe(onNext: { folders in
-                self.folders = folders
-            }).disposed(by: disposeBag)
-        
-        
-        self.folderUseCase.folderCount
-            .map { "\($0)개의 폴더"}
-            .bind(to: output.folderCount)
-            .disposed(by: disposeBag)
+
+
         
         
         
@@ -71,7 +65,11 @@ class AllBoxViewModel {
             .distinctUntilChanged()
             .subscribe(onNext: { [weak self] text in
                 guard let self = self else { return }
-                self.folderUseCase.filteredFolder(base: self.folders ?? [], from: text)
+                self.folderUseCase.filteredFolder(base: self.folders, from: text)
+                    .subscribe(onNext: { [weak self] filter in
+                        guard let self = self else { return }
+                        self.filteredFolders.onNext(filter)
+                    }).disposed(by: disposeBag)
             }).disposed(by: disposeBag)
             
          
@@ -83,22 +81,25 @@ class AllBoxViewModel {
         input.folderCellTap
             .subscribe(onNext: { [weak self] indexPath in
                 guard let self = self else { return }
-                let folderId = self.folders[indexPath.row].folderId
-                let folderType = self.folders[indexPath.row].type
-                
-                if folderType == "PHRASE" {
-                    //self.steps.accept(AllStep.textIn(folderId: folderId))
-                }else if folderType == "LINK" {
-                    //self.steps.accept(AllStep.linkIn(folderId: folderId))
-                }
-                
-//                self.folderUseCase.viewFolder(folderId: folderId)
-//                    .subscribe(onNext: { selected in
-//                        self.selectedFolder = selected
-//
-//
-//                    }).disposed(by: disposeBag)
+                self.folders.subscribe(onNext: { folder in
+                    let folderId = folder[indexPath.row].folderId
+                    let folderType = folder[indexPath.row].type
+                    
+                    if folderType == "PHRASE" {
+                        //self.steps.accept(AllStep.textIn(folderId: folderId))
+                    }else if folderType == "LINK" {
+                        //self.steps.accept(AllStep.linkIn(folderId: folderId))
+                    }
+                    
+    //                self.folderUseCase.viewFolder(folderId: folderId)
+    //                    .subscribe(onNext: { selected in
+    //                        self.selectedFolder = selected
+    //
+    //
+    //                    }).disposed(by: disposeBag)
+                }).disposed(by: disposeBag)
             }).disposed(by: disposeBag)
+               
         
         return output
        

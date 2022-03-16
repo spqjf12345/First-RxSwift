@@ -10,12 +10,14 @@ import PhotosUI
 import DropDown
 import RxSwift
 import RxCocoa
+import RxDataSources
 
 class AllBoxViewController: UIViewController {
     
     @IBOutlet weak var searchTextfield: UITextField!
     @IBOutlet weak var folderCollectionView: UICollectionView!
     @IBOutlet weak var floatingButton: UIButton!
+    var headerView = HeaderView()
     
     private var disposeBag = DisposeBag()
     private var alertController = UIAlertController()
@@ -46,11 +48,16 @@ class AllBoxViewController: UIViewController {
     }
     
     func setUpCollectionviewBinding(){
+        folderCollectionView.contentInset = UIEdgeInsets(top: 0, left: 15, bottom: 50, right: 15)
         folderCollectionView.register(FolderCollectionViewCell.nib(), forCellWithReuseIdentifier: FolderCollectionViewCell.identifier)
         folderCollectionView.allowsSelection = true
         folderCollectionView.isUserInteractionEnabled = true
-//        folderCollectionView.rx.setDelegate(self)
-//            .disposed(by: disposeBag)
+        
+        folderCollectionView.rx.setDelegate(self)
+            .disposed(by: disposeBag)
+        folderCollectionView.rx.setDataSource(self)
+            .disposed(by: disposeBag)
+        
 //        folderCollectionView.rx.modelSelected(Folder.self)
 //            .subscribe(onNext: { data in
 //                //folder selected 정보 전달
@@ -86,7 +93,11 @@ class AllBoxViewController: UIViewController {
         
         let output = self.viewModel.transform(from: input, disposeBag: self.disposeBag)
         
-        
+        viewModel.folders
+            .filter{ !$0.isEmpty }
+            .bind(to: folderCollectionView.rx.items(cellIdentifier: FolderCollectionViewCell.identifier, cellType: FolderCollectionViewCell.self)) { row, element, cell in
+                cell.configure(with: element)
+            }.disposed(by: disposeBag)
             
         
 
@@ -95,10 +106,34 @@ class AllBoxViewController: UIViewController {
     
 }
 
+extension AllBoxViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        switch kind {
+        case UICollectionView.elementKindSectionHeader:
+            guard let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: HeaderView.reuseIdentifier, for: indexPath) as? HeaderView else { fatalError() }
+            self.headerView = headerView
+            
+        default:
+            fatalError()
+        }
+    }
+}
+
 extension AllBoxViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = collectionView.bounds.width
-        let cellWidth = (width - 30) / 3
-        return CGSize(width: cellWidth, height: cellWidth/0.6)
+//        let width = collectionView.bounds.width
+//        let cellWidth = (width - 30) / 2
+//        return CGSize(width: cellWidth, height: cellWidth / 2)
+        let width: CGFloat = (view.frame.width - 47) / 2
+        let height: CGFloat = 200
+        return CGSize(width: width, height: height)
+    }
+}
+
+extension AllBoxViewController {
+    private func navigateToMakeFolder() {
+        let vc = self.storyboard?.instantiateViewController(identifier: "MakeFolderViewController") as! MakeFolderViewController
+       // vc.type_dropDown.dataSource = ["텍스트", "링크"]
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
