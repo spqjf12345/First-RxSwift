@@ -45,11 +45,7 @@ class HeaderView: UICollectionReusableView {
             make.centerY.equalToSuperview()
             make.trailing.equalToSuperview().offset(-24)
         }
-        
-        sortingButton.rx.tap
-            .subscribe(onNext: {
-                
-            }).disposed(by: disposeBag)
+
         
     }
     

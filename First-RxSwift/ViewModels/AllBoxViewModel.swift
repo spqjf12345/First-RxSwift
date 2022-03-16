@@ -109,6 +109,40 @@ class AllBoxViewModel {
        
     }
     
+    func sortBy(_ index: Int){
+//        switch index {
+//        case 0:
+//            let observable = folders.map { folder in
+//                return folder[0].items.sorted {  $0.folderName.localizedStandardCompare($1.folderName) == .orderedAscending }
+//            }
+//            
+//            observable.subscribe(onNext: { [weak self] folder in
+//                guard let self = self else { return }
+//                self.folders.onNext([SectionOfFolder(items: folder)])
+//            }).disposed(by: disposeBag)
+//            break
+//        case 1:
+//            folders.map { folder in
+//                return folder[0].items.sorted { $0.folderId < $1.folderId }
+//            }.subscribe(onNext: { [weak self] folder in
+//                guard let self = self else { return }
+//                self.folders.onNext([SectionOfFolder(items: folder)])
+//            }).disposed(by: disposeBag)
+//            break
+//        case 2:
+//            folders.map { folder in
+//                return folder[0].items.sorted { $0.folderId > $1.folderId }
+//            }.subscribe(onNext: { [weak self] folder in
+//                guard let self = self else { return }
+//                self.folders.onNext([SectionOfFolder(items: folder)])
+//            }).disposed(by: disposeBag)
+//            break
+//        default:
+//            break
+//        }
+
+    }
+    
     
     
 }

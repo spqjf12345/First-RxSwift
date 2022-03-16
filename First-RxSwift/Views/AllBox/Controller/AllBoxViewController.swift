@@ -17,7 +17,7 @@ class AllBoxViewController: UIViewController {
     @IBOutlet weak var searchTextfield: UITextField!
     @IBOutlet weak var folderCollectionView: UICollectionView!
     @IBOutlet weak var floatingButton: UIButton!
-    var headerView = HeaderView()
+    var headerView: HeaderView?
     
     private var disposeBag = DisposeBag()
     private var alertController = UIAlertController()
@@ -51,8 +51,10 @@ class AllBoxViewController: UIViewController {
         super.viewDidLoad()
         setUpCollectionviewBinding()
         setUpUI()
+        addObserver()
         bindViewModel()
     }
+
     
     func setUpCollectionviewBinding(){
         folderCollectionView.contentInset = UIEdgeInsets(top: 0, left: 15, bottom: 50, right: 15)
@@ -67,6 +69,11 @@ class AllBoxViewController: UIViewController {
         
         dataSource.configureSupplementaryView = {(dataSource, collectionView, kind, indexPath) -> UICollectionReusableView in
             guard let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: HeaderView.reuseIdentifier, for: indexPath) as? HeaderView else { fatalError() }
+            headerView.sortingButton.rx.tap
+                .subscribe(onNext: { [weak self] _ in
+                    guard let self = self else { return }
+                    self.showSortingTap()
+                }).disposed(by: self.disposeBag)
             self.headerView = headerView
             return headerView
         }
@@ -74,7 +81,16 @@ class AllBoxViewController: UIViewController {
     }
     
     func setUpUI(){
-        headerView.updateFolderCount(count: viewModel.folderCount)
+        headerView?.updateFolderCount(count: viewModel.folderCount)
+    }
+    
+    func addObserver(){
+        NotificationCenter.default.addObserver(self, selector: #selector(sortingTap(_:)), name: Notification.Name(rawValue: "SortingTap"), object: nil)
+    }
+    
+    @objc func sortingTap(_ notification: Notification){
+        guard let index = notification.object as? IndexPath else { return }
+        viewModel.sortBy(index.row)
     }
     
     
@@ -98,9 +114,16 @@ class AllBoxViewController: UIViewController {
         )
         
         let output = self.viewModel.transform(from: input, disposeBag: self.disposeBag)
-        
-        
 
+
+    }
+    
+    func showSortingTap(){
+        let sortingView = UIStoryboard(name: "AllMain", bundle: nil).instantiateViewController(withIdentifier: "SortingView") as! SortingView
+        sortingView.modalPresentationStyle = .overCurrentContext
+        sortingView.modalTransitionStyle = .coverVertical
+        print("hhee")
+        present(sortingView, animated: true)
     }
     
     
