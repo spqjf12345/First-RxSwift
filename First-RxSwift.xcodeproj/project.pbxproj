@@ -40,7 +40,6 @@
 		8E2494CE27CE7E8D009D03E8 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2494CD27CE7E8D009D03E8 /* ProfileViewController.swift */; };
 		8E2494D127CE8038009D03E8 /* AllBoxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2494D027CE8038009D03E8 /* AllBoxViewController.swift */; };
 		8E27F7BD27BCE9F800D3E998 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E27F7BC27BCE9F700D3E998 /* UIViewController.swift */; };
-		8E27F7BF27BCEC1700D3E998 /* MainBoxViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E27F7BE27BCEC1700D3E998 /* MainBoxViewModel.swift */; };
 		8E43010F27CF6A4C008EA2A4 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E43010E27CF6A4C008EA2A4 /* Colors.xcassets */; };
 		8E43011127CF6C72008EA2A4 /* AllBoxViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E43011027CF6C72008EA2A4 /* AllBoxViewModel.swift */; };
 		8E43011327CF6DE2008EA2A4 /* FolderCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E43011227CF6DE2008EA2A4 /* FolderCollectionViewCell.xib */; };
@@ -80,6 +79,7 @@
 		8EE14A0327E1CBA70020E75A /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE14A0227E1CBA70020E75A /* HeaderView.swift */; };
 		8EE14A0527E1EAFF0020E75A /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EE14A0427E1EAFE0020E75A /* HeaderView.xib */; };
 		8EE14A0727E1F0580020E75A /* SortingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE14A0627E1F0580020E75A /* SortingView.swift */; };
+		8EE14A0A27E23D380020E75A /* MakeFolderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE14A0927E23D380020E75A /* MakeFolderViewModel.swift */; };
 		8EEF332327D487CB00FD816A /* Folder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEF332227D487CB00FD816A /* Folder.swift */; };
 		8EEF332527D4953F00FD816A /* FolderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEF332427D4953F00FD816A /* FolderService.swift */; };
 		8EEF332727D4955600FD816A /* FolderAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEF332627D4955600FD816A /* FolderAPI.swift */; };
@@ -151,7 +151,6 @@
 		8E2494CD27CE7E8D009D03E8 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		8E2494D027CE8038009D03E8 /* AllBoxViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllBoxViewController.swift; sourceTree = "<group>"; };
 		8E27F7BC27BCE9F700D3E998 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
-		8E27F7BE27BCEC1700D3E998 /* MainBoxViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainBoxViewModel.swift; sourceTree = "<group>"; };
 		8E43010E27CF6A4C008EA2A4 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		8E43011027CF6C72008EA2A4 /* AllBoxViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllBoxViewModel.swift; sourceTree = "<group>"; };
 		8E43011227CF6DE2008EA2A4 /* FolderCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FolderCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -198,6 +197,7 @@
 		8EE14A0227E1CBA70020E75A /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		8EE14A0427E1EAFE0020E75A /* HeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
 		8EE14A0627E1F0580020E75A /* SortingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortingView.swift; sourceTree = "<group>"; };
+		8EE14A0927E23D380020E75A /* MakeFolderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeFolderViewModel.swift; sourceTree = "<group>"; };
 		8EEF332227D487CB00FD816A /* Folder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Folder.swift; sourceTree = "<group>"; };
 		8EEF332427D4953F00FD816A /* FolderService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderService.swift; sourceTree = "<group>"; };
 		8EEF332627D4955600FD816A /* FolderAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderAPI.swift; sourceTree = "<group>"; };
@@ -282,20 +282,6 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		8E21C4E92795513A00C0AD86 /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-				8E8616F127968EEF005B1A88 /* SignUpViewReactor.swift */,
-				8E21C4F327955B6300C0AD86 /* LoginViewModel.swift */,
-				8E8616F42796AA42005B1A88 /* SignUpViewModel.swift */,
-				8E86170C2797E29E005B1A88 /* FindIDViewModel.swift */,
-				8E86170E2797E2DD005B1A88 /* FindPWViewModel.swift */,
-				8E27F7BE27BCEC1700D3E998 /* MainBoxViewModel.swift */,
-				8E43011027CF6C72008EA2A4 /* AllBoxViewModel.swift */,
-			);
-			path = ViewModels;
-			sourceTree = "<group>";
-		};
 		8E21C4EA2795517100C0AD86 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -319,6 +305,7 @@
 		8E21C4EC2795527E00C0AD86 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				8EE14A0B27E23E600020E75A /* ViewModel */,
 				8E8616F32796AA10005B1A88 /* Controller */,
 				8E21C4EF279557B200C0AD86 /* Login.storyboard */,
 			);
@@ -367,6 +354,7 @@
 		8E24949127CE3CEE009D03E8 /* AllBox */ = {
 			isa = PBXGroup;
 			children = (
+				8EE14A0827E23D230020E75A /* ViewModel */,
 				8E2494CF27CE7FD3009D03E8 /* Controller */,
 				8E2494BB27CE7AF8009D03E8 /* AllBox.storyboard */,
 			);
@@ -588,7 +576,6 @@
 				8E21C4F8279561D000C0AD86 /* Repository */,
 				8E21C4F5279560D300C0AD86 /* UseCase */,
 				8E21C4EA2795517100C0AD86 /* Utils */,
-				8E21C4E92795513A00C0AD86 /* ViewModels */,
 				8E7877DC273EDC37007C43E0 /* Models */,
 				8ED47D74272BAFF400393397 /* Views */,
 				8ED47D72272BAFDF00393397 /* Services */,
@@ -660,6 +647,27 @@
 				8EE14A0627E1F0580020E75A /* SortingView.swift */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		8EE14A0827E23D230020E75A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				8E43011027CF6C72008EA2A4 /* AllBoxViewModel.swift */,
+				8EE14A0927E23D380020E75A /* MakeFolderViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		8EE14A0B27E23E600020E75A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				8E8616F127968EEF005B1A88 /* SignUpViewReactor.swift */,
+				8E21C4F327955B6300C0AD86 /* LoginViewModel.swift */,
+				8E8616F42796AA42005B1A88 /* SignUpViewModel.swift */,
+				8E86170C2797E29E005B1A88 /* FindIDViewModel.swift */,
+				8E86170E2797E2DD005B1A88 /* FindPWViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		8EEF336327DB810B00FD816A /* ViewModel */ = {
@@ -947,7 +955,6 @@
 				8E86170D2797E29E005B1A88 /* FindIDViewModel.swift in Sources */,
 				8E24948E27CE395A009D03E8 /* MainViewController.swift in Sources */,
 				8E2494CE27CE7E8D009D03E8 /* ProfileViewController.swift in Sources */,
-				8E27F7BF27BCEC1700D3E998 /* MainBoxViewModel.swift in Sources */,
 				8EEF335E27DB737700FD816A /* MakeFolder.swift in Sources */,
 				8EEF335A27DB719B00FD816A /* LinkInViewController.swift in Sources */,
 				8ED47D42272BAEDD00393397 /* ViewController.swift in Sources */,
@@ -998,6 +1005,7 @@
 				8E43011527CF6DF7008EA2A4 /* FolderCollectionViewCell.swift in Sources */,
 				8E2494CA27CE7E58009D03E8 /* GiftViewController.swift in Sources */,
 				8E7877DB273EDB5E007C43E0 /* AddTaskViewController.swift in Sources */,
+				8EE14A0A27E23D380020E75A /* MakeFolderViewModel.swift in Sources */,
 				8EEF336227DB810700FD816A /* TextInViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

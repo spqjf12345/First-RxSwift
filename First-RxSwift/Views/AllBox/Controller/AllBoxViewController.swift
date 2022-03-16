@@ -69,6 +69,8 @@ class AllBoxViewController: UIViewController {
         
         dataSource.configureSupplementaryView = {(dataSource, collectionView, kind, indexPath) -> UICollectionReusableView in
             guard let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: HeaderView.reuseIdentifier, for: indexPath) as? HeaderView else { fatalError() }
+            
+            headerView.updateFolderCount(count: self.viewModel.folderCount)
             headerView.sortingButton.rx.tap
                 .subscribe(onNext: { [weak self] _ in
                     guard let self = self else { return }
@@ -113,6 +115,11 @@ class AllBoxViewController: UIViewController {
         sortingButtonTap: self.sortingButton.rx.tap.asObservable()
         )
         
+        input.floatingButtonTap
+            .subscribe(onNext: {
+                self.navigateToMakeFolder()
+            })
+        
         let output = self.viewModel.transform(from: input, disposeBag: self.disposeBag)
 
 
@@ -144,7 +151,7 @@ extension AllBoxViewController: UICollectionViewDelegateFlowLayout {
 extension AllBoxViewController {
     private func navigateToMakeFolder() {
         let vc = self.storyboard?.instantiateViewController(identifier: "MakeFolderViewController") as! MakeFolderViewController
-       // vc.type_dropDown.dataSource = ["텍스트", "링크"]
+        vc.type_dropDown.dataSource = ["텍스트", "링크"]
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }
