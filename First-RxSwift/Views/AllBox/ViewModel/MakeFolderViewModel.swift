@@ -27,7 +27,9 @@ class MakeFolderViewModel {
     }
     
     struct Output {
-        
-        
+        let errorMessage = PublishRelay<String>()
+        let disMiss = PublishRelay<Void>()
     }
+    
+    
 }

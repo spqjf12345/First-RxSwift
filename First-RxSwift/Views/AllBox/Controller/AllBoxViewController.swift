@@ -28,19 +28,17 @@ class AllBoxViewController: UIViewController {
 
     private var viewModel = AllBoxViewModel(folderUseCase: FolderUseCase(repository: FolderRepository(folderService: FolderService())))
     
-    let dataSource = RxCollectionViewSectionedReloadDataSource<SectionOfFolder>(
-        configureCell: { datasource, collectionview, indexPath, item in
-            let cell = collectionview.dequeueReusableCell(withReuseIdentifier: FolderCollectionViewCell.identifier, for: indexPath) as! FolderCollectionViewCell
-            cell.configure(with: item)
-            return cell
-        })
-    
-    let more_dropDown: DropDown = {
-        let dropDown = DropDown()
+    var more_dropDown: DropDown = {
+        var dropDown = DropDown()
         dropDown.width = 100
+        dropDown.backgroundColor = .white
         dropDown.dataSource = ["이름 변경", "이미지 변경", "폴더 삭제"]
         return dropDown
     }()
+    
+    
+    
+    var dataSource: RxCollectionViewSectionedReloadDataSource<SectionOfFolder>!
     
     private var folderNameTextField: UITextField = {
         var textfield = UITextField()
@@ -60,12 +58,43 @@ class AllBoxViewController: UIViewController {
         folderCollectionView.contentInset = UIEdgeInsets(top: 0, left: 15, bottom: 50, right: 15)
         folderCollectionView.register(FolderCollectionViewCell.nib(), forCellWithReuseIdentifier: FolderCollectionViewCell.identifier)
         folderCollectionView.register(UINib(nibName: HeaderView.reuseIdentifier, bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: HeaderView.reuseIdentifier)
-        
+        folderCollectionView.refreshControl = self.refreshControl
         folderCollectionView.allowsSelection = true
         folderCollectionView.isUserInteractionEnabled = true
         
         folderCollectionView.rx.setDelegate(self)
             .disposed(by: disposeBag)
+        
+        dataSource = RxCollectionViewSectionedReloadDataSource<SectionOfFolder>(
+            configureCell: { datasource, collectionview, indexPath, item in
+                let cell = collectionview.dequeueReusableCell(withReuseIdentifier: FolderCollectionViewCell.identifier, for: indexPath) as! FolderCollectionViewCell
+                cell.moreButton.rx.tap
+                    .asDriver()
+                    .drive(onNext: { [weak self] _ in
+                        guard let self = self else { return }
+                        self.more_dropDown.anchorView = cell.moreButton
+                        self.more_dropDown.show()
+                        self.more_dropDown.selectionAction = { [unowned self] (index: Int, item: String) in
+                            let folderId = self.viewModel.findFolderId(indexPath.row)
+                            print("selected \(folderId)")
+                            if index == 0 { // 이름 변경
+                                self.editFolderName(folderId: folderId, completionHandler: {(response) in
+                                    cell.folderName.text = response
+                                    self.showAlert(title: "이름 변경 완료", message: "폴더 이름이 수정되었습니다", style: .alert, actions: [])
+                                })
+                            }else if index == 1 {
+                                
+                            }
+                        }
+                        self.more_dropDown.clearSelection()
+                    }).disposed(by: cell.disposeBag)
+                cell.configure(with: item)
+                return cell
+            })
+        
+        
+        
+        
         
         dataSource.configureSupplementaryView = {(dataSource, collectionView, kind, indexPath) -> UICollectionReusableView in
             guard let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: HeaderView.reuseIdentifier, for: indexPath) as? HeaderView else { fatalError() }
@@ -79,6 +108,7 @@ class AllBoxViewController: UIViewController {
             self.headerView = headerView
             return headerView
         }
+
 
     }
     
@@ -117,8 +147,9 @@ class AllBoxViewController: UIViewController {
         
         input.floatingButtonTap
             .subscribe(onNext: {
+                print("navigateTo")
                 self.navigateToMakeFolder()
-            })
+            }).disposed(by: disposeBag)
         
         let output = self.viewModel.transform(from: input, disposeBag: self.disposeBag)
 
@@ -136,6 +167,50 @@ class AllBoxViewController: UIViewController {
     
 }
 
+extension AllBoxViewController {
+    func editFolderName(folderId: Int, completionHandler: @escaping ((String) -> Void)){
+        let alertVC = UIAlertController(title: "폴더 이름 수정", message: nil, preferredStyle: .alert)
+       
+        alertVC.addTextField(configurationHandler: { (textField) -> Void in
+            self.folderNameTextField = textField
+            self.folderNameTextField.placeholder = "새로 수정할 아이디를 입력해주세요"
+        })
+        let label = UILabel(frame:CGRect(x: 0, y: 40, width: 270, height:18))
+        
+        let editAction = UIAlertAction(title: "수정", style: .default, handler: { [self] (action) -> Void in
+            guard let userInput = self.folderNameTextField.text else {
+                return
+            }
+            label.isHidden = true
+            label.textColor = .red
+            label.font = label.font.withSize(12)
+            label.textAlignment = .center
+            label.text = ""
+            alertVC.view.addSubview(label)
+            
+            if userInput == ""{
+                label.text = "이름을 입력해주세요"
+                label.isHidden = false
+                self.present(alertVC, animated: true, completion: nil)
+
+            }else {
+//                FolderService.shared.changeFolderName(folderId: folderId, changeName: userInput, errorHandler: { (error) in})
+                completionHandler(userInput)
+            }
+            
+            
+           
+        })
+        
+        let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+        alertVC.addAction(editAction)
+        alertVC.addAction(cancelAction)
+        self.present(alertVC, animated: true, completion: nil)
+        
+        
+    }
+}
+
 
 extension AllBoxViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -150,8 +225,10 @@ extension AllBoxViewController: UICollectionViewDelegateFlowLayout {
 
 extension AllBoxViewController {
     private func navigateToMakeFolder() {
-        let vc = self.storyboard?.instantiateViewController(identifier: "MakeFolderViewController") as! MakeFolderViewController
-        vc.type_dropDown.dataSource = ["텍스트", "링크"]
-        self.navigationController?.pushViewController(vc, animated: true)
+        let vc = UIStoryboard(name: "AllMain", bundle: nil).instantiateViewController(identifier: "MakeFolderViewController") as! MakeFolderViewController
+        MakeFolderViewController.type_dropDown.dataSource = ["텍스트", "링크"]
+        self.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: true, completion: nil)
+        //self.navigationController?.pushViewController(vc, animated: true)
     }
 }

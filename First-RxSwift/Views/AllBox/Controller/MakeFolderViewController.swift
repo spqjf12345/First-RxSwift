@@ -36,49 +36,49 @@ class MakeFolderViewController: UIViewController, MakeFolderdelegate {
     
     func done() {
         
-        do {
-            try checkingNameValidating()
-            try validate()
-            //to do server mk folder post
-            let userId = UserDefaults.standard.integer(forKey: UserDefaultKey.userID)
-            //create folder
-            var type: String = ""
-            
-            if(folderView.folderTypeButton.currentTitle! == "텍스트"){
-                type = "PHRASE"
-            }else if(folderView.folderTypeButton.currentTitle! == "링크"){
-                type = "LINK"
-            }
-            
-            let folderInfo = CreateFolderRequest(folderName: folderView.folderNameTextField.text!, userId: userId, type: type, parentFolderId: parentFolderId, imageFile: (folderView.folderImage.image?.jpeg(.lowest))!)
-            print("parentFolderID : \(folderInfo)")
-            
-
-            FolderService.shared.createFolder(folder: folderInfo, completion: { (response) in
-                if(response == true){
-                    self.alertViewController(title: "폴더 생성 완료", message: "폴더가 생성되었습니다.", completion: { response in
-                        if(response == "OK"){
-                            self.navigationController?.popViewController(animated: true)
-                        }
-                    } )
-                }
-            }, errorHandler: { (error) in})
-    
-            
-        } catch {
-            var errorMessage: String = ""
-            switch error as! MakeFolderError {
-            case .folderNameCount:
-                errorMessage = "10글자 이내로 폴더 이름을 입력해주세요"
-            case .folderImage:
-                errorMessage = "이미지를 선택해주세요"
-            case .folderName:
-                errorMessage = "폴더 이름을 입력해주세요"
-            case .folderType:
-                errorMessage = "폴더 타입을 선택해주세요"
-            }
-            self.showAlert(title:  "생성 실패", message: errorMessage, style: .alert)
-        }
+//        do {
+//            try checkingNameValidating()
+//            try validate()
+//            //to do server mk folder post
+//            let userId = UserDefaults.standard.integer(forKey: UserDefaultKey.userID)
+//            //create folder
+//            var type: String = ""
+//
+//            if(folderView.folderTypeButton.currentTitle! == "텍스트"){
+//                type = "PHRASE"
+//            }else if(folderView.folderTypeButton.currentTitle! == "링크"){
+//                type = "LINK"
+//            }
+//
+//            let folderInfo = CreateFolderRequest(folderName: folderView.folderNameTextField.text!, userId: userId, type: type, parentFolderId: parentFolderId, imageFile: (folderView.folderImage.image?.jpeg(.lowest))!)
+//            print("parentFolderID : \(folderInfo)")
+//
+//
+//            FolderService.shared.createFolder(folder: folderInfo, completion: { (response) in
+//                if(response == true){
+//                    self.alertViewController(title: "폴더 생성 완료", message: "폴더가 생성되었습니다.", completion: { response in
+//                        if(response == "OK"){
+//                            self.navigationController?.popViewController(animated: true)
+//                        }
+//                    } )
+//                }
+//            }, errorHandler: { (error) in})
+//
+//
+//        } catch {
+//            var errorMessage: String = ""
+//            switch error as! MakeFolderError {
+//            case .folderNameCount:
+//                errorMessage = "10글자 이내로 폴더 이름을 입력해주세요"
+//            case .folderImage:
+//                errorMessage = "이미지를 선택해주세요"
+//            case .folderName:
+//                errorMessage = "폴더 이름을 입력해주세요"
+//            case .folderType:
+//                errorMessage = "폴더 타입을 선택해주세요"
+//            }
+//            self.showAlert(title:  "생성 실패", message: errorMessage, style: .alert)
+//        }
         
        
     }
@@ -128,6 +128,7 @@ class MakeFolderViewController: UIViewController, MakeFolderdelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         folderView.delegate = self
+        bindViewModel()
         type_dropDownSetting()
         
         MakeFolderViewController.type_dropDown.selectionAction = { [unowned self] (index: Int, item: String) in
@@ -139,6 +140,10 @@ class MakeFolderViewController: UIViewController, MakeFolderdelegate {
             folderView.folderTypeButton.setTitleColor(.white, for: .normal)
             MakeFolderViewController.type_dropDown.clearSelection()
         }
+    }
+    
+    func bindViewModel(){
+        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

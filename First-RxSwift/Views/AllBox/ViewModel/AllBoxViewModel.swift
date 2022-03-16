@@ -15,8 +15,8 @@ class AllBoxViewModel {
     private let folderUseCase: FolderUseCase!
     
     let disposeBag = DisposeBag()
-    var folders = BehaviorSubject<[SectionOfFolder]>(value: [SectionOfFolder.EMPTY])
-    var filteredFolders = BehaviorSubject<[SectionOfFolder]>(value: [SectionOfFolder.EMPTY])
+    var folders = PublishSubject<[SectionOfFolder]>()
+    var filteredFolders = PublishSubject<[SectionOfFolder]>()
     var selectedFolder: ViewFolderResponse!
     var folderCount : Int = 0
     
@@ -56,10 +56,6 @@ class AllBoxViewModel {
                         self.folderCount = folder[0].items.count
                     }).disposed(by: disposeBag)
             }).disposed(by: disposeBag)
-
-
-        
-        
         
         input.searchTextField
             .debounce(.microseconds(5), scheduler: MainScheduler.instance)
@@ -73,11 +69,6 @@ class AllBoxViewModel {
                     }).disposed(by: disposeBag)
             }).disposed(by: disposeBag)
             
-         
-        input.floatingButtonTap
-            .subscribe(onNext: {
-//                self.steps.accept(AllStep.makeFolder)
-            }).disposed(by: disposeBag)
         
         input.folderCellTap
             .subscribe(onNext: { [weak self] indexPath in
@@ -141,6 +132,15 @@ class AllBoxViewModel {
 //            break
 //        }
 
+    }
+    
+    func findFolderId(_ index: Int) -> Int {
+        var folderId: Int = 0
+        self.folders.subscribe(onNext: { folder in
+            print("findFolderId \(folder)")
+            folderId = folder[0].items[index].folderId
+        }).disposed(by: disposeBag)
+        return folderId
     }
     
     

@@ -6,10 +6,10 @@
 //
 
 import UIKit
+import RxSwift
 //import SDWebImage
 
 protocol FolderCollectionViewCellDelegate: AnyObject {
-    
     func didTapMoreButton(cell: FolderCollectionViewCell)
 }
 
@@ -23,13 +23,20 @@ class FolderCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var folderName: UILabel!
     @IBOutlet weak var moreButton: UIButton!
     
+    var cellDelegate: FolderCollectionViewCellDelegate?
+    var delegate: UIViewController?
+    
     @IBAction func folderEditButton(_ sender: Any) {
         cellDelegate?.didTapMoreButton(cell: self)
     }
     
     var indexPath: IndexPath = []
+    var disposeBag = DisposeBag()
     
-    var cellDelegate: FolderCollectionViewCellDelegate?
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        disposeBag = DisposeBag()
+    }
     
     override func awakeFromNib() {
         

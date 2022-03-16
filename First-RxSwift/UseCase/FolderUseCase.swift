@@ -39,7 +39,7 @@ class FolderUseCase: FolderUseCateType {
         return self.folderRepository.viewFolder(folderId: folderId)
     }
     
-    func filteredFolder(base folder: BehaviorSubject<[SectionOfFolder]>, from text: String) -> Observable<[SectionOfFolder]> {
+    func filteredFolder(base folder: PublishSubject<[SectionOfFolder]>, from text: String) -> Observable<[SectionOfFolder]> {
         var filteredFolder = SectionOfFolder.EMPTY
         folder.subscribe(onNext: { folder in
             for f in folder {

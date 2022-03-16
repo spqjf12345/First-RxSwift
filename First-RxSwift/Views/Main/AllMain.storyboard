@@ -120,10 +120,10 @@
             </objects>
             <point key="canvasLocation" x="-1474" y="71"/>
         </scene>
-        <!--Make Folder Alert View-->
+        <!--Make Folder View Controller-->
         <scene sceneID="d9Y-CU-g6W">
             <objects>
-                <viewController storyboardIdentifier="makeFolderAlertView" id="sDv-qu-IDY" customClass="makeFolderAlertView" customModule="First_RxSwift" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MakeFolderViewController" id="sDv-qu-IDY" customClass="MakeFolderViewController" customModule="First_RxSwift" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xAg-JA-Xzg">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
