@@ -9,12 +9,14 @@ import Foundation
 import RxSwift
 
 protocol FolderUseCateType {
-    func getFolders() -> Observable<[SectionOfFolder]>
+    func getFolders()
     func viewFolder(folderId: Int) -> Observable<ViewFolderResponse>
 }
 
 class FolderUseCase: FolderUseCateType {
     
+    var folders = PublishSubject<[SectionOfFolder]>()
+    var filteredFolders = PublishSubject<[SectionOfFolder]>()
     
     private let folderRepository: FolderRepository
     
@@ -24,14 +26,12 @@ class FolderUseCase: FolderUseCateType {
         self.folderRepository = repository
     }
     
-    func getFolders() -> Observable<[SectionOfFolder]> {
-        let observable = Observable<[SectionOfFolder]>.create { observer in
-            self.folderRepository.getFolders()
-                .subscribe(onNext: { folder in
-                    observer.onNext([SectionOfFolder(items: folder)])
-                })
-        }
-        return observable
+    func getFolders() {
+        self.folderRepository.getFolders()
+            .subscribe(onNext: { [weak self] folder in
+                guard let self = self else { return }
+                self.folders.onNext([SectionOfFolder(items: folder)])
+            }).disposed(by: self.disposeBag)
         
     }
     
@@ -39,9 +39,10 @@ class FolderUseCase: FolderUseCateType {
         return self.folderRepository.viewFolder(folderId: folderId)
     }
     
-    func filteredFolder(base folder: PublishSubject<[SectionOfFolder]>, from text: String) -> Observable<[SectionOfFolder]> {
+    func filteredFolder(base folder: [SectionOfFolder], from text: String) -> Observable<[SectionOfFolder]> {
         var filteredFolder = SectionOfFolder.EMPTY
-        folder.subscribe(onNext: { folder in
+        folders.subscribe(onNext: { folder in
+            
             for f in folder {
                 f.items.forEach {
                     if $0.folderName.hasPrefix(text) {

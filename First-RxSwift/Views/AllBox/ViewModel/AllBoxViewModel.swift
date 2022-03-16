@@ -12,11 +12,11 @@ import PhotosUI
 
 class AllBoxViewModel {
     
-    private let folderUseCase: FolderUseCase!
+    let folderUseCase: FolderUseCase!
     
     let disposeBag = DisposeBag()
-    var folders = PublishSubject<[SectionOfFolder]>()
-    var filteredFolders = PublishSubject<[SectionOfFolder]>()
+    var folders = [SectionOfFolder]()
+    var filteredFolders = [SectionOfFolder]()
     var selectedFolder: ViewFolderResponse!
     var folderCount : Int = 0
     
@@ -31,14 +31,12 @@ class AllBoxViewModel {
         let floatingButtonTap: Observable<Void>
         let folderCellTap: Observable<IndexPath> // folderId
         let folderMoreButtonTap:Observable<Int>
-        let chageFolderNameTap: Observable<Void>
-        let changeFolderImageTap: Observable<Void>
-        let deleteFolder: Observable<Void>
         let sortingButtonTap: Observable<Void>
     }
   
     struct Output {
         var sortingText = BehaviorRelay<String>(value: "이름 순") //이름순, 생성순, 최신순
+        let reloadData = PublishRelay<Bool>()
     }
     
     func transform(from input: Input, disposeBag: DisposeBag) -> Output {
@@ -50,11 +48,6 @@ class AllBoxViewModel {
             .subscribe(onNext: { [weak self] in
                 guard let self = self else { return }
                 self.folderUseCase.getFolders()
-                    .subscribe(onNext: { folder in
-                        print("get folder \(folder)")
-                        self.folders.onNext(folder)
-                        self.folderCount = folder[0].items.count
-                    }).disposed(by: disposeBag)
             }).disposed(by: disposeBag)
         
         input.searchTextField
@@ -65,7 +58,7 @@ class AllBoxViewModel {
                 self.folderUseCase.filteredFolder(base: self.folders, from: text)
                     .subscribe(onNext: { [weak self] filter in
                         guard let self = self else { return }
-                        self.filteredFolders.onNext(filter)
+                        self.filteredFolders = filter
                     }).disposed(by: disposeBag)
             }).disposed(by: disposeBag)
             
@@ -73,17 +66,13 @@ class AllBoxViewModel {
         input.folderCellTap
             .subscribe(onNext: { [weak self] indexPath in
                 guard let self = self else { return }
-                self.folders.subscribe(onNext: { folder in
-                    for f in folder {
-                        let folderId = f.items[indexPath.row].folderId
-                        let folderType = f.items[indexPath.row].type
-                        
-                        if folderType == "PHRASE" {
-                            //self.steps.accept(AllStep.textIn(folderId: folderId))
-                        }else if folderType == "LINK" {
-                            //self.steps.accept(AllStep.linkIn(folderId: folderId))
-                        }
-                    }
+                let folderId = self.folders[0].items[indexPath.row].folderId
+                let folderType = self.folders[0].items[indexPath.row].type
+                if folderType == "PHRASE" {
+                    //self.steps.accept(AllStep.textIn(folderId: folderId))
+                }else if folderType == "LINK" {
+                    //self.steps.accept(AllStep.linkIn(folderId: folderId))
+                }
                    
                     
     //                self.folderUseCase.viewFolder(folderId: folderId)
@@ -92,9 +81,15 @@ class AllBoxViewModel {
     //
     //
     //                    }).disposed(by: disposeBag)
-                }).disposed(by: disposeBag)
             }).disposed(by: disposeBag)
                
+        ///binding usecase
+        folderUseCase.folders.subscribe(onNext: { [weak self] folder in
+            guard let self = self else { return }
+            self.folders = folder
+            print("allFolders \(self.folders)")
+            self.folderCount = folder[0].items.count
+        }).disposed(by: disposeBag)
         
         return output
        
@@ -135,12 +130,7 @@ class AllBoxViewModel {
     }
     
     func findFolderId(_ index: Int) -> Int {
-        var folderId: Int = 0
-        self.folders.subscribe(onNext: { folder in
-            print("findFolderId \(folder)")
-            folderId = folder[0].items[index].folderId
-        }).disposed(by: disposeBag)
-        return folderId
+        return self.folders[0].items[index].folderId
     }
     
     

@@ -61,9 +61,8 @@ class AllBoxViewController: UIViewController {
         folderCollectionView.refreshControl = self.refreshControl
         folderCollectionView.allowsSelection = true
         folderCollectionView.isUserInteractionEnabled = true
-        
-        folderCollectionView.rx.setDelegate(self)
-            .disposed(by: disposeBag)
+//        folderCollectionView.rx.setDataSource(self).disposed(by: disposeBag)
+//        folderCollectionView.rx.setDelegate(self).disposed(by: disposeBag)
         
         dataSource = RxCollectionViewSectionedReloadDataSource<SectionOfFolder>(
             configureCell: { datasource, collectionview, indexPath, item in
@@ -127,10 +126,10 @@ class AllBoxViewController: UIViewController {
     
     
     func bindViewModel(){
-
-        viewModel.folders
-          .bind(to: folderCollectionView.rx.items(dataSource: dataSource))
-          .disposed(by: disposeBag)
+        //let observable = Observable.of(viewModel.folders)
+        viewModel.folderUseCase.folders
+            .bind(to: folderCollectionView.rx.items(dataSource: dataSource))
+            .disposed(by: disposeBag)
         
         let input = AllBoxViewModel.Input (
             viewWillAppearEvent: self.rx.methodInvoked(#selector(UIViewController.viewWillAppear)).map { _ in },
@@ -139,20 +138,21 @@ class AllBoxViewController: UIViewController {
         floatingButtonTap: self.floatingButton.rx.tap.asObservable(),
             folderCellTap: self.folderCollectionView.rx.itemSelected.map { $0 },
             folderMoreButtonTap :self.folderCollectionView.rx.itemSelected.map { $0.row },
-        chageFolderNameTap: self.folderCollectionView.rx.itemSelected.map { $0.row },
-        changeFolderImageTap: self.folderCollectionView.rx.itemSelected.map { $0.row },
-        deleteFolder: self.folderCollectionView.rx.itemSelected.map { $0.row },
         sortingButtonTap: self.sortingButton.rx.tap.asObservable()
         )
         
         input.floatingButtonTap
             .subscribe(onNext: {
-                print("navigateTo")
                 self.navigateToMakeFolder()
             }).disposed(by: disposeBag)
         
         let output = self.viewModel.transform(from: input, disposeBag: self.disposeBag)
 
+        output.reloadData
+            .map { !$0 }
+            .asDriver(onErrorJustReturn: false)
+            .drive(self.refreshControl.rx.isRefreshing)
+            .disposed(by: self.disposeBag)
 
     }
     
@@ -162,6 +162,21 @@ class AllBoxViewController: UIViewController {
         sortingView.modalTransitionStyle = .coverVertical
         print("hhee")
         present(sortingView, animated: true)
+    }
+    
+    
+}
+
+extension AllBoxViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return viewModel.folderCount
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FolderCollectionViewCell.identifier, for: indexPath) as? FolderCollectionViewCell else { return UICollectionViewCell() }
+        print("datasource \(viewModel.folders[0].items[indexPath.row])")
+        cell.configure(with: viewModel.folders[0].items[indexPath.row])
+        return cell
     }
     
     
