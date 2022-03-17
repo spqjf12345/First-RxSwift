@@ -39,6 +39,14 @@ class FolderUseCase: FolderUseCateType {
         return self.folderRepository.viewFolder(folderId: folderId)
     }
     
+    func changeName(folderId: Int, changeName: String) {
+        self.folderRepository.changeName(folderId: folderId, changeName: changeName)
+    }
+    
+    func changeImage(folderId: Int, imageData: Data) {
+        self.folderRepository.changeImage(folderId: folderId, imageData: imageData)
+    }
+    
     func filteredFolder(base folder: [SectionOfFolder], from text: String) -> Observable<[SectionOfFolder]> {
         var filteredFolder = SectionOfFolder.EMPTY
         folders.subscribe(onNext: { folder in

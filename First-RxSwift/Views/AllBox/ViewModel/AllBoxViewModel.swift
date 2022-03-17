@@ -113,8 +113,12 @@ class AllBoxViewModel {
         return self.folders[0].items[index].folderId
     }
     
-    func changeFolderName(folderId: folderId, changeName: userInput) {
-        folderUseCase.
+    func changeFolderName(folderId: Int, changeName: String) {
+        self.folderUseCase.changeName(folderId: folderId, changeName: changeName)
+    }
+    
+    func changeFolderImage(folderId: Int, imageData: Data) {
+        self.folderUseCase.changeImage(folderId: folderId, imageData: imageData)
     }
     
     

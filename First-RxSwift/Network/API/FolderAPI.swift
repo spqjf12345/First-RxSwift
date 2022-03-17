@@ -12,6 +12,8 @@ enum FolderAPI {
     case getFolders(userId: Int)
     case viewFolder(userId:Int, folderId: Int)
     case changeFolderName(userId:Int, folderId: Int, changeName: String)
+    case changeFolderImage(userId:Int, folderId: Int, imageData: Data)
+    case deleteFolder(userId:Int, folderId: Int)
     
 }
 
@@ -26,8 +28,9 @@ extension FolderAPI: TargetType {
             return "/users/\(userId)/folders"
         case .viewFolder(let userId, let folderId):
             return "/users/\(userId)/folders/\(folderId)"
-        case .changeFolderName(let userId, let folderId, _):
+        case .changeFolderName(let userId, let folderId, _), .changeFolderImage(let userId, let folderId, _), .deleteFolder(let userId, let folderId):
             return "/users/\(userId)/folders/\(folderId)"
+
         }
     }
     
@@ -37,8 +40,10 @@ extension FolderAPI: TargetType {
             return .get
         case .viewFolder:
             return .get
-        case .changeFolderName:
+        case .changeFolderName, .changeFolderImage:
             return .patch
+        case .deleteFolder:
+            return .delete
         }
     }
     
@@ -46,15 +51,23 @@ extension FolderAPI: TargetType {
         switch self {
         case .getFolders:
             return .requestPlain
-        case .viewFolder:
+        case .viewFolder, .deleteFolder:
             return .requestPlain
         case .changeFolderName(_, _, let changeName):
-            var formData = [MultipartFormData]()
+            var multipartFormData = [MultipartFormData]()
             let parameters = ["folderName": changeName]
             for (key, value) in parameters {
-                formData.append(MultipartFormData(provider: .data("\(value)".data(using: .utf8)!), name: key))
+                multipartFormData.append(MultipartFormData(provider: .data("\(value)".data(using: .utf8)!), name: key))
             }
-            return .uploadMultipart(formData)
+            return .uploadMultipart(multipartFormData)
+            
+        case .changeFolderImage(_, _, let changeImage):
+            var multipartFormData = [MultipartFormData]()
+            var fileName = "\(changeImage).jpg"
+            fileName = fileName.replacingOccurrences(of: " ", with: "_")
+            print(fileName)
+            multipartFormData.append(MultipartFormData(provider: .data(changeImage), name: "imageFile", fileName: fileName, mimeType: "image/jpg"))
+            return .uploadMultipart(multipartFormData)
         }
     }
     

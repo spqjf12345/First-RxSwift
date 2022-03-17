@@ -32,4 +32,18 @@ class FolderService {
                                 
     }
     
+    func changeName(folderId: Int, changeName: String) -> Observable<String> {
+        self.provider.rx.request(.changeFolderName(userId: userId, folderId: folderId, changeName: changeName))
+            .filterSuccessfulStatusCodes()
+            .map(String.self)
+            .asObservable()
+    }
+    
+    func changeImage(folderId: Int, imageData: Data) -> Observable<String> {
+        self.provider.rx.request(.changeFolderImage(userId: userId, folderId: folderId, imageData: imageData))
+            .filterSuccessfulStatusCodes()
+            .map(String.self)
+            .asObservable()
+    }
+    
 }

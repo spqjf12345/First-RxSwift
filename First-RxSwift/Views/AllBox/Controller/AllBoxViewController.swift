@@ -20,8 +20,8 @@ class AllBoxViewController: UIViewController {
     var headerView: HeaderView?
     
     private var disposeBag = DisposeBag()
-    private var alertController = UIAlertController()
-    private var tblView = UITableView()
+    var selectedCellIndexPath = IndexPath()
+   
     let sortingButton = UIButton()
     
     private lazy var refreshControl = UIRefreshControl()
@@ -72,6 +72,7 @@ class AllBoxViewController: UIViewController {
                     .drive(onNext: { [weak self] _ in
                         guard let self = self else { return }
                         self.more_dropDown.anchorView = cell.moreButton
+                        self.selectedCellIndexPath = cell.indexPath
                         self.more_dropDown.show()
                         self.more_dropDown.selectionAction = { [unowned self] (index: Int, item: String) in
                             let folderId = self.viewModel.findFolderId(indexPath.row)
@@ -82,7 +83,7 @@ class AllBoxViewController: UIViewController {
                                     self.showAlert(title: "이름 변경 완료", message: "폴더 이름이 수정되었습니다", style: .alert, actions: [])
                                 })
                             }else if index == 1 {
-                                
+                                self.presentPicker()
                             }
                         }
                         self.more_dropDown.clearSelection()
@@ -128,6 +129,14 @@ class AllBoxViewController: UIViewController {
         
         viewModel.sortBy(index.row)
         folderCollectionView.reloadData()
+    }
+    
+    func presentPicker(){
+        var configuration = PHPickerConfiguration()
+        configuration.filter = .any(of: [.images])
+        let picker = PHPickerViewController(configuration: configuration)
+        picker.delegate = self
+        self.present(picker, animated: true, completion: nil)
     }
     
     
@@ -219,9 +228,6 @@ extension AllBoxViewController {
                 viewModel.changeFolderName(folderId: folderId, changeName: userInput)
                 completionHandler(userInput)
             }
-            
-            
-           
         })
         
         let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: nil)
@@ -230,6 +236,25 @@ extension AllBoxViewController {
         self.present(alertVC, animated: true, completion: nil)
         
         
+    }
+}
+
+extension AllBoxViewController: PHPickerViewControllerDelegate {
+    func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+        picker.dismiss(animated: true, completion: nil)
+        let itemProvider = results.first?.itemProvider
+        if let itemProvider = itemProvider, itemProvider.canLoadObject(ofClass: UIImage.self) {
+            itemProvider.loadObject(ofClass: UIImage.self) { [self] (image, error) in
+                if let image = image as? UIImage {
+                    let folderId = self.viewModel.findFolderId(selectedCellIndexPath.row)
+                    self.viewModel.changeFolderImage(folderId: folderId, imageData: image.pngData()!)
+                    self.showAlert(title: "이미지 변경", message: "이미지가 변경되었습니다", style: .alert, actions: [])
+                } else { // TODO: Handle empty results or item providernot being able load UIImage
+            print("can't load image")
+                }
+                }
+        }
+
     }
 }
 

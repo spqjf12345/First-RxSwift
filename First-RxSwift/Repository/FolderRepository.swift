@@ -11,6 +11,8 @@ import RxSwift
 
 protocol FolderRepositoryType {
     func getFolders() -> Observable<[Folder]>
+    func viewFolder(folderId: Int) -> Observable<ViewFolderResponse>
+    func changeName(folderId: Int, changeName: String)
 }
 
 class FolderRepository: FolderRepositoryType {
@@ -28,6 +30,18 @@ class FolderRepository: FolderRepositoryType {
     
     func viewFolder(folderId: Int) -> Observable<ViewFolderResponse> {
         return folderService.viewFolder(folderId: folderId)
+    }
+    
+    func changeName(folderId: Int, changeName: String) {
+        folderService.changeName(folderId: folderId, changeName: changeName).subscribe(onNext: { str in
+            print(str)
+        }).disposed(by: disposeBag)
+    }
+    
+    func changeImage(folderId: Int, imageData: Data) {
+        folderService.changeImage(folderId: folderId, imageData: imageData).subscribe(onNext: { str in
+            print(str)
+        }).disposed(by: disposeBag)
     }
     
 }
