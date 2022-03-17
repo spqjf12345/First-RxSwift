@@ -102,6 +102,7 @@ private extension LoginViewController {
             .asDriver(onErrorJustReturn: false)
             .drive(onNext: { [weak self] goTo in
                 if goTo {
+                    print("navigate to main")
                     guard let self = self else {return }
                     self.navigateToMain()
                 }

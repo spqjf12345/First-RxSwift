@@ -121,7 +121,13 @@ class AllBoxViewController: UIViewController {
     
     @objc func sortingTap(_ notification: Notification){
         guard let index = notification.object as? IndexPath else { return }
+        SortingView.sortList.subscribe(onNext: { str in
+            let text = str[index.row]
+            self.headerView?.sortingButton.setTitle(text, for: .normal)
+        }).disposed(by: disposeBag)
+        
         viewModel.sortBy(index.row)
+        folderCollectionView.reloadData()
     }
     
     
@@ -140,6 +146,7 @@ class AllBoxViewController: UIViewController {
             folderMoreButtonTap :self.folderCollectionView.rx.itemSelected.map { $0.row },
         sortingButtonTap: self.sortingButton.rx.tap.asObservable()
         )
+        
         
         input.floatingButtonTap
             .subscribe(onNext: {
@@ -209,7 +216,7 @@ extension AllBoxViewController {
                 self.present(alertVC, animated: true, completion: nil)
 
             }else {
-//                FolderService.shared.changeFolderName(folderId: folderId, changeName: userInput, errorHandler: { (error) in})
+                viewModel.changeFolderName(folderId: folderId, changeName: userInput)
                 completionHandler(userInput)
             }
             

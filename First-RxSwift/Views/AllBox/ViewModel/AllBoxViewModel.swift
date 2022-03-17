@@ -96,41 +96,25 @@ class AllBoxViewModel {
     }
     
     func sortBy(_ index: Int){
-//        switch index {
-//        case 0:
-//            let observable = folders.map { folder in
-//                return folder[0].items.sorted {  $0.folderName.localizedStandardCompare($1.folderName) == .orderedAscending }
-//            }
-//            
-//            observable.subscribe(onNext: { [weak self] folder in
-//                guard let self = self else { return }
-//                self.folders.onNext([SectionOfFolder(items: folder)])
-//            }).disposed(by: disposeBag)
-//            break
-//        case 1:
-//            folders.map { folder in
-//                return folder[0].items.sorted { $0.folderId < $1.folderId }
-//            }.subscribe(onNext: { [weak self] folder in
-//                guard let self = self else { return }
-//                self.folders.onNext([SectionOfFolder(items: folder)])
-//            }).disposed(by: disposeBag)
-//            break
-//        case 2:
-//            folders.map { folder in
-//                return folder[0].items.sorted { $0.folderId > $1.folderId }
-//            }.subscribe(onNext: { [weak self] folder in
-//                guard let self = self else { return }
-//                self.folders.onNext([SectionOfFolder(items: folder)])
-//            }).disposed(by: disposeBag)
-//            break
-//        default:
-//            break
-//        }
-
+        switch index {
+        case 0:
+            folders[0].items = self.folders[0].items.sorted { $0.folderName.localizedStandardCompare($1.folderName) == .orderedAscending }
+        case 1:
+            folders[0].items = self.folders[0].items.sorted {  $0.folderId < $1.folderId }
+        case 2:
+            folders[0].items = self.folders[0].items.sorted { $0.folderId > $1.folderId }
+        default:
+            break
+        }
+        print("changed \(folders[0].items)")
     }
     
     func findFolderId(_ index: Int) -> Int {
         return self.folders[0].items[index].folderId
+    }
+    
+    func changeFolderName(folderId: folderId, changeName: userInput) {
+        folderUseCase.
     }
     
     

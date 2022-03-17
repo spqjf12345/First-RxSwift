@@ -16,7 +16,7 @@ class SortingView: UIViewController {
     
     let disposeBag = DisposeBag()
     
-    var sortList = Observable.of(["이름 순", "생성 순", "최신 순"])
+    static var sortList = Observable.of(["이름 순", "생성 순", "최신 순"])
     
     var handlers: [((Any?) -> Void)?] = []
     
@@ -61,7 +61,7 @@ class SortingView: UIViewController {
     }
     
     func bindViewModel(){
-        sortList
+        SortingView.sortList
         .bind(to: tableView.rx.items(cellIdentifier: "cell", cellType: UITableViewCell.self)) { index, item, cell in
             var content = cell.defaultContentConfiguration()
             content.text = item

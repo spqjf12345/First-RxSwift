@@ -18,7 +18,6 @@ class HeaderView: UICollectionReusableView {
     lazy var folderCountLabel: UILabel = {
         let label = UILabel()
         label.textColor = UIColor.darkGray
-        label.text = "text"
         return label
     }()
     
@@ -35,7 +34,6 @@ class HeaderView: UICollectionReusableView {
         super.layoutSubviews()
         self.addSubview(folderCountLabel)
         self.addSubview(sortingButton)
-        self.backgroundColor = .blue
         folderCountLabel.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
             make.leading.equalToSuperview().offset(24)
