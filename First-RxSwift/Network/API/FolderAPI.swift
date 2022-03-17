@@ -14,6 +14,7 @@ enum FolderAPI {
     case changeFolderName(userId:Int, folderId: Int, changeName: String)
     case changeFolderImage(userId:Int, folderId: Int, imageData: Data)
     case deleteFolder(userId:Int, folderId: Int)
+    case createFolder(userId: Int, folderRequest: CreateFolderRequest)
     
 }
 
@@ -24,18 +25,20 @@ extension FolderAPI: TargetType {
     
     var path: String {
         switch self {
-        case .getFolders(let userId):
+        case .getFolders(let userId), .createFolder(let userId, _):
             return "/users/\(userId)/folders"
         case .viewFolder(let userId, let folderId):
             return "/users/\(userId)/folders/\(folderId)"
         case .changeFolderName(let userId, let folderId, _), .changeFolderImage(let userId, let folderId, _), .deleteFolder(let userId, let folderId):
             return "/users/\(userId)/folders/\(folderId)"
-
+        
         }
     }
     
     var method: Moya.Method {
         switch self {
+        case .createFolder:
+            return .post
         case .getFolders:
             return .get
         case .viewFolder:
@@ -67,6 +70,26 @@ extension FolderAPI: TargetType {
             fileName = fileName.replacingOccurrences(of: " ", with: "_")
             print(fileName)
             multipartFormData.append(MultipartFormData(provider: .data(changeImage), name: "imageFile", fileName: fileName, mimeType: "image/jpg"))
+            return .uploadMultipart(multipartFormData)
+            
+        case .createFolder(_, let folder):
+            var multipartFormData = [MultipartFormData]()
+            let parameter: [String: Any]
+            if(folder.parentFolderId == 0){
+                parameter = CreateFolderRequestNull(folderName: folder.folderName, userId: folder.userId, type: folder.type).dictionary
+            }else {
+                parameter = CreateFolderRequestParameter(parentFolderId: folder.parentFolderId, folderName: folder.folderName, userId: folder.userId, type: folder.type).dictionary
+            }
+            
+            var fileName = "\(folder.imageFile).jpg"
+            fileName = fileName.replacingOccurrences(of: " ", with: "_")
+            print(fileName)
+            multipartFormData.append(MultipartFormData(provider: .data(folder.imageFile), name: "imageFile", fileName: fileName, mimeType: "image/jpg"))
+        
+            for (key, value) in parameter {
+                multipartFormData.append(MultipartFormData(provider: .data("\(value)".data(using: .utf8)!), name: key))
+            }
+            
             return .uploadMultipart(multipartFormData)
         }
     }

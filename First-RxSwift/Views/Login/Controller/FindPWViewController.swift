@@ -93,10 +93,7 @@ private extension FindPWViewController {
     }
     
     private func showAlert(message: String){
-        let alert = UIAlertController(title: "알림", message: message, preferredStyle: .alert)
-        let confirm = UIAlertAction(title: "확인", style: .default)
-        alert.addAction(confirm)
-        present(alert, animated: false, completion: nil)
+        self.alertViewController(title: "알림", message: message, completion: { str in })
     }
 }
 

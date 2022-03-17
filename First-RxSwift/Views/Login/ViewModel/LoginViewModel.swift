@@ -42,7 +42,6 @@ class LoginViewModel {
             .map{!$0.0.isEmpty && !$0.1.isEmpty }
             .bind(to: output.enableLoginInButton)
             .disposed(by: disposeBag)
-
         
         input.tapLoginButton
             .withLatestFrom( Observable.combineLatest(input.idTextfield, input.passwordTextfield))

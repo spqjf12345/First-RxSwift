@@ -7,8 +7,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MakeFolder" customModule="PrivateRoom" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MakeFolder" customModule="First_RxSwift" customModuleProvider="target">
             <connections>
+                <outlet property="disMissButton" destination="4NV-AM-3zC" id="jYz-gW-V2Y"/>
+                <outlet property="doneButton" destination="Z76-p7-xHO" id="h4V-fc-9FP"/>
                 <outlet property="folderImage" destination="q7y-Nm-hNb" id="yUW-gn-nbG"/>
                 <outlet property="folderNameTextField" destination="8U9-kK-wlS" id="xQL-Jf-gK5"/>
                 <outlet property="folderTypeButton" destination="CWT-Sa-mM4" id="7iF-bd-hAt"/>
@@ -58,9 +60,6 @@
                             <state key="normal" title="완료">
                                 <color key="titleColor" red="0.99872905020000002" green="0.97840398549999996" blue="0.87449342009999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </state>
-                            <connections>
-                                <action selector="doneButton:" destination="-1" eventType="touchUpInside" id="IZg-4o-633"/>
-                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4NV-AM-3zC">
                             <rect key="frame" x="182" y="10.5" width="30" height="29"/>
@@ -70,9 +69,6 @@
                             </constraints>
                             <color key="tintColor" red="0.94509803920000002" green="0.94509803920000002" blue="0.94509803920000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <state key="normal" backgroundImage="xmark.circle.fill" catalog="system"/>
-                            <connections>
-                                <action selector="dismissButton:" destination="-1" eventType="touchUpInside" id="t3O-zi-ZAH"/>
-                            </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="폴더 이미지" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AD8-vo-fjh">
                             <rect key="frame" x="30" y="20" width="121" height="49.5"/>

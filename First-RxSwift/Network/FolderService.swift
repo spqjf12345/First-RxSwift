@@ -46,4 +46,18 @@ class FolderService {
             .asObservable()
     }
     
+    func deleteFolder(folderId: Int) -> Observable<String> {
+        self.provider.rx.request(.deleteFolder(userId: userId, folderId: folderId))
+            .filterSuccessfulStatusCodes()
+            .map(String.self)
+            .asObservable()
+    }
+    
+    func createFolder(folder: CreateFolderRequest) -> Observable<String> {
+        self.provider.rx.request(.createFolder(userId: userId, folderRequest: folder))
+            .filterSuccessfulStatusCodes()
+            .map(String.self)
+            .asObservable()
+    }
+    
 }

@@ -11,12 +11,15 @@ import RxSwift
 protocol FolderUseCateType {
     func getFolders()
     func viewFolder(folderId: Int) -> Observable<ViewFolderResponse>
+    func changeName(folderId: Int, changeName: String)
+    func changeImage(folderId: Int, imageData: Data)
+    func deleteFolder(folderId: Int)
+    func createFolder(folder: CreateFolderRequest)
 }
 
 class FolderUseCase: FolderUseCateType {
     
     var folders = PublishSubject<[SectionOfFolder]>()
-    var filteredFolders = PublishSubject<[SectionOfFolder]>()
     
     private let folderRepository: FolderRepository
     
@@ -47,17 +50,28 @@ class FolderUseCase: FolderUseCateType {
         self.folderRepository.changeImage(folderId: folderId, imageData: imageData)
     }
     
-    func filteredFolder(base folder: [SectionOfFolder], from text: String) -> Observable<[SectionOfFolder]> {
+    func deleteFolder(folderId: Int) {
+        self.folderRepository.deleteFolder(folderId: folderId)
+    }
+    
+    func createFolder(folder: CreateFolderRequest){
+        self.folderRepository.createFolder(folder: folder)
+    }
+    
+    func filteredFolder(base folder: [SectionOfFolder], from text: String) -> Observable<[SectionOfFolder]>  {
+        
+        //return folders.map { $0[0].items.map { $0.folderName.hasPrefix(text) == true }}
+        
         var filteredFolder = SectionOfFolder.EMPTY
         folders.subscribe(onNext: { folder in
-            
-            for f in folder {
-                f.items.forEach {
+            let folder = folder[0].items
+
+            folder.forEach {
                     if $0.folderName.hasPrefix(text) {
                         filteredFolder.items.append($0)
                     }
                 }
-            }
+
         }).disposed(by: disposeBag)
         return Observable.of([filteredFolder])
     }

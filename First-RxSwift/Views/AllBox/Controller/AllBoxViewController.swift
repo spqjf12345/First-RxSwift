@@ -80,10 +80,13 @@ class AllBoxViewController: UIViewController {
                             if index == 0 { // 이름 변경
                                 self.editFolderName(folderId: folderId, completionHandler: {(response) in
                                     cell.folderName.text = response
-                                    self.showAlert(title: "이름 변경 완료", message: "폴더 이름이 수정되었습니다", style: .alert, actions: [])
+                                    self.alertViewController(title: "이름 변경 완료", message: "폴더 이름이 수정되었습니다", completion: { str in })
                                 })
                             }else if index == 1 {
                                 self.presentPicker()
+                            }else if index == 2 {
+                                self.viewModel.deleteFolder(folderId: folderId)
+                                self.alertViewController(title: "폴더 삭제 완료", message: "폴더가 삭제 되었습니다", completion: { str in })
                             }
                         }
                         self.more_dropDown.clearSelection()
@@ -141,7 +144,6 @@ class AllBoxViewController: UIViewController {
     
     
     func bindViewModel(){
-        //let observable = Observable.of(viewModel.folders)
         viewModel.folderUseCase.folders
             .bind(to: folderCollectionView.rx.items(dataSource: dataSource))
             .disposed(by: disposeBag)
@@ -169,6 +171,13 @@ class AllBoxViewController: UIViewController {
             .asDriver(onErrorJustReturn: false)
             .drive(self.refreshControl.rx.isRefreshing)
             .disposed(by: self.disposeBag)
+        
+        output.didFilderedFolder
+            .asDriver(onErrorJustReturn: false)
+            .filter { $0 }
+            .drive(onNext: { [weak self] _ in
+                self?.folderCollectionView.reloadData()
+            }).disposed(by: disposeBag)
 
     }
     
@@ -185,13 +194,12 @@ class AllBoxViewController: UIViewController {
 
 extension AllBoxViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel.folderCount
+        return viewModel.filteredFolders[0].items.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FolderCollectionViewCell.identifier, for: indexPath) as? FolderCollectionViewCell else { return UICollectionViewCell() }
-        print("datasource \(viewModel.folders[0].items[indexPath.row])")
-        cell.configure(with: viewModel.folders[0].items[indexPath.row])
+        cell.configure(with: viewModel.filteredFolders[0].items[indexPath.row])
         return cell
     }
     
@@ -248,7 +256,7 @@ extension AllBoxViewController: PHPickerViewControllerDelegate {
                 if let image = image as? UIImage {
                     let folderId = self.viewModel.findFolderId(selectedCellIndexPath.row)
                     self.viewModel.changeFolderImage(folderId: folderId, imageData: image.pngData()!)
-                    self.showAlert(title: "이미지 변경", message: "이미지가 변경되었습니다", style: .alert, actions: [])
+                    self.alertViewController(title: "이미지 변경", message: "이미지가 변경되었습니다", completion: { str in })
                 } else { // TODO: Handle empty results or item providernot being able load UIImage
             print("can't load image")
                 }
@@ -265,7 +273,7 @@ extension AllBoxViewController: UICollectionViewDelegateFlowLayout {
 //        let cellWidth = (width - 30) / 2
 //        return CGSize(width: cellWidth, height: cellWidth / 2)
         let width: CGFloat = (view.frame.width - 47) / 2
-        let height: CGFloat = 200
+        let height: CGFloat = 220
         return CGSize(width: width, height: height)
     }
 }

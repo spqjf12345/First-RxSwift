@@ -13,7 +13,7 @@ pod 'RxDataSources', '~> 5.0'
 pod 'ReactorKit'
 pod 'Moya/RxSwift', '~> 15.0'
 pod 'DropDown'
-
+pod "RxGesture"
 pod 'SnapKit', '~> 5.0.0'
   target 'First-RxSwiftTests' do
     inherit! :search_paths

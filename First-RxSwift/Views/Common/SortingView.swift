@@ -33,8 +33,6 @@ class SortingView: UIViewController {
     }
     
     func setUpTableView() {
-        tableView.rowHeight = 100
-        
         //delegate didselecteRowAt
         tableView.rx.itemSelected
             .subscribe(onNext: { [weak self] indexPath in

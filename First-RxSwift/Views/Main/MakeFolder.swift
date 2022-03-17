@@ -9,20 +9,20 @@ import Foundation
 import UIKit
 
 
-protocol MakeFolderdelegate: AnyObject {
-    func dissMiss()
-    func done()
-    func tapImageView()
-    func folderType()
-}
+//protocol MakeFolderdelegate: AnyObject {
+//    func dissMiss()
+//    func done()
+//    func tapImageView()
+//    func folderType()
+//}
 
 //@IBDesignable
 class MakeFolder: UIView {
     
     
-    @IBAction func dismissButton(_ sender: Any) {
-        delegate?.dissMiss()
-    }
+//    @IBAction func dismissButton(_ sender: Any) {
+//        delegate?.dissMiss()
+//    }
     
  
     @IBOutlet weak var folderNameTextField: UITextField!
@@ -30,13 +30,15 @@ class MakeFolder: UIView {
     @IBOutlet var folderImage: UIImageView!
 
     @IBOutlet weak var folderTypeButton: UIButton!
-
-    @IBAction func doneButton(_ sender: Any) {
-        delegate?.done()
-    }
+    @IBOutlet weak var disMissButton: UIButton!
+    @IBOutlet weak var doneButton: UIButton!
+    
+//    @IBAction func doneButton(_ sender: Any) {
+//        delegate?.done()
+//    }
 
     
-    var delegate: MakeFolderdelegate?
+    //var delegate: MakeFolderdelegate?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -53,11 +55,9 @@ class MakeFolder: UIView {
     
     func UISetting(){
         folderImage.isUserInteractionEnabled = true
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapImageView))
-        folderImage.addGestureRecognizer(tapGestureRecognizer)
         folderImage.contentMode = .scaleToFill
         
-        folderTypeButton.addTarget(self, action: #selector(didTapFolderType), for: .touchUpInside)
+        //folderTypeButton.addTarget(self, action: #selector(didTapFolderType), for: .touchUpInside)
         folderNameTextField.borderStyle = .none
         let border = CALayer()
         border.frame = CGRect(x: 0, y: folderNameTextField.frame.size.height - 1, width: folderNameTextField.frame.width, height: 1)
@@ -66,15 +66,15 @@ class MakeFolder: UIView {
         folderNameTextField.textColor = UIColor.white
 
     }
-    
-    @objc func didTapImageView(){
-        delegate?.tapImageView()
-       
-    }
-    
-    @objc func didTapFolderType(){
-        delegate?.folderType()
-    }
+//
+//    @objc func didTapImageView(){
+//        delegate?.tapImageView()
+//
+//    }
+//
+//    @objc func didTapFolderType(){
+//        delegate?.folderType()
+//    }
 
 
     

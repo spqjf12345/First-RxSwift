@@ -44,4 +44,16 @@ class FolderRepository: FolderRepositoryType {
         }).disposed(by: disposeBag)
     }
     
+    func deleteFolder(folderId: Int) {
+        folderService.deleteFolder(folderId: folderId).subscribe(onNext: { str in
+            print(str)
+        }).disposed(by: disposeBag)
+    }
+    
+    func createFolder(folder: CreateFolderRequest) {
+        folderService.createFolder(folder: folder).subscribe(onNext: { str in
+            print(str)
+        }).disposed(by: disposeBag)
+    }
+    
 }

@@ -21,7 +21,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lay-ba-g4M">
                         <rect key="frame" x="0.0" y="0.0" width="299" height="244"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="7JX-05-zNn">
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="7JX-05-zNn">
                                 <rect key="frame" x="0.0" y="0.0" width="299" height="179.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="7JX-05-zNn" secondAttribute="height" multiplier="5:3" id="Zk9-dS-A7n"/>
