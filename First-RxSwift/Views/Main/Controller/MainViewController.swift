@@ -81,7 +81,6 @@ class MainViewController: UIViewController {
     }
     
     private func bind() {
-        print("btn list \(btnLists)")
         let tags = Observable.of(0,1,2,3,4,5)
         tags.subscribe(onNext: { [weak self] selectedIndex in
             self?.selectSegmentWith(selectedIndex: selectedIndex)

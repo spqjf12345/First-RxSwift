@@ -57,23 +57,71 @@ class FolderUseCase: FolderUseCateType {
         self.folderRepository.createFolder(folder: folder)
     }
     
-    func filteredFolder(base folder: [SectionOfFolder], from text: String) -> Observable<[SectionOfFolder]>  {
+    func updateFolder(folder: [SectionOfFolder], idx: Int ) {
+        print("update folder \(idx)")
+        //        case 0:
+        //            folders[0].items = self.folders[0].items.sorted { $0.folderName.localizedStandardCompare($1.folderName) == .orderedAscending }
+        //        case 1:
+        //            folders[0].items = self.folders[0].items.sorted {  $0.folderId < $1.folderId }
+        //        case 2:
+        //            folders[0].items = self.folders[0].items.sorted { $0.folderId > $1.folderId }
+        if idx == 0 {
+            let item = folder[0].items.sorted { $0.folderName.localizedStandardCompare($1.folderName) == .orderedAscending }
+            self.folders.onNext([SectionOfFolder(items: item)])
+            
+//            self.folders.map ({ (item) -> [Folder] in
+//                return item[0].items.sorted { $0.folderName.localizedStandardCompare($1.folderName) == .orderedAscending }
+//            }).subscribe(onNext: { [weak self] item in
+//                guard let self = self else { return }
+//                print("idx 0 \(item)")
+//                self.folders.onNext([SectionOfFolder(items: item)])
+//            }).disposed(by: disposeBag)
+        }else if idx == 1 {
+//            self.folders.map ({ (item) -> [Folder] in
+//                return item[0].items.sorted { $0.folderId < $1.folderId }
+//            }).subscribe(onNext: { [weak self] item in
+//                guard let self = self else { return }
+//                print("idx 1 \(item)")
+//                self.folders.onNext([SectionOfFolder(items: item)])
+//            }).disposed(by: disposeBag)
+            let item = folder[0].items.sorted { $0.folderId < $1.folderId }
+            self.folders.onNext([SectionOfFolder(items: item)])
+        }
+        else if idx == 2 {
+//            self.folders.map ({ (item) -> [Folder] in
+//                let sorted = item[0].items.sorted { $0.folderId > $1.folderId }
+//                print(sorted)
+//                return sorted
+//            }).subscribe(onNext: { [weak self] item in
+//                guard let self = self else { return }
+//                print("idx 2 \(item)")
+//                self.folders.onNext([SectionOfFolder(items: item)])
+//            }).disposed(by: disposeBag)
+            let item = folder[0].items.sorted { $0.folderId > $1.folderId }
+            self.folders.onNext([SectionOfFolder(items: item)])
+        }
         
-        //return folders.map { $0[0].items.map { $0.folderName.hasPrefix(text) == true }}
         
-        var filteredFolder = SectionOfFolder.EMPTY
-        folders.subscribe(onNext: { folder in
-            let folder = folder[0].items
-
-            folder.forEach {
-                    if $0.folderName.hasPrefix(text) {
-                        filteredFolder.items.append($0)
-                    }
-                }
-
-        }).disposed(by: disposeBag)
-        return Observable.of([filteredFolder])
+        
     }
+    
+//    func filteredFolder(base folder: [SectionOfFolder], from text: String) -> Observable<[SectionOfFolder]>  {
+//
+//        //return folders.map { $0[0].items.map { $0.folderName.hasPrefix(text) == true }}
+//
+//        var filteredFolder = SectionOfFolder.EMPTY
+//        folders.subscribe(onNext: { folder in
+//            let folder = folder[0].items
+//
+//            folder.forEach {
+//                    if $0.folderName.hasPrefix(text) {
+//                        filteredFolder.items.append($0)
+//                    }
+//                }
+//
+//        }).disposed(by: disposeBag)
+//        return Observable.of([filteredFolder])
+//    }
     
         
     

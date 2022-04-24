@@ -130,6 +130,7 @@ class AllBoxViewController: UIViewController {
         }).disposed(by: disposeBag)
         
         viewModel.sortBy(index.row)
+        print("sortBy")
         folderCollectionView.reloadData()
     }
     
@@ -175,7 +176,7 @@ class AllBoxViewController: UIViewController {
             .asDriver(onErrorJustReturn: false)
             .filter { $0 }
             .drive(onNext: { [weak self] _ in
-                self?.folderCollectionView.reloadData()
+                //self?.folderCollectionView.reloadData()
             }).disposed(by: disposeBag)
 
     }
@@ -184,7 +185,6 @@ class AllBoxViewController: UIViewController {
         let sortingView = UIStoryboard(name: "AllMain", bundle: nil).instantiateViewController(withIdentifier: "SortingView") as! SortingView
         sortingView.modalPresentationStyle = .overCurrentContext
         sortingView.modalTransitionStyle = .coverVertical
-        print("hhee")
         present(sortingView, animated: true)
     }
     
