@@ -13,7 +13,7 @@ class DefaultAppCoordinator: AppCoordinator {
     
     var navigationController: UINavigationController
     
-    var childCoordinators: [Coordinator]
+    var childCoordinators: [Coordinator] = []
     
     var type: CoordinatorType { .app }
     

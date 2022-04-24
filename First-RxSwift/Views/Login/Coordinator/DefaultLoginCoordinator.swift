@@ -19,7 +19,7 @@ class DefaultLoginCoordinator: LoginCoordinator {
     var finishDelegate: CoordinatorFinishDelegate?
     var navigationController: UINavigationController
     var loginViewController: LoginViewController
-    var childCoordinators: [Coordinator]
+    var childCoordinators: [Coordinator] = []
     
     var type: CoordinatorType { .login }
     
@@ -34,19 +34,19 @@ class DefaultLoginCoordinator: LoginCoordinator {
     }
     
     func showSingUpFlow() {
-        <#code#>
+        
     }
     
     func showFindIDFlow() {
-        <#code#>
+        
     }
     
     func showFindPWFlow() {
-        <#code#>
+        
     }
     
     func showTabFlow() {
-        <#code#>
+        
     }
     
     

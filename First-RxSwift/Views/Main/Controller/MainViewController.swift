@@ -46,6 +46,7 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         setBtnList()
         layout()
+        bind()
         setupSubView()
         guard let firstVC = nestedViewControllers.first else { return }
         pageViewController.setViewControllers([firstVC], direction: .forward, animated: false, completion: nil)
@@ -81,17 +82,15 @@ class MainViewController: UIViewController {
     }
     
     private func bind() {
-        let tags = btnLists
-            .map { ($0.rx.tap, $0.tag) }
-            .map { obs, tag in obs.map { tag } }
-        let values = Observable.merge(tags)
-        values.subscribe(onNext: { [weak self] selectedIndex in
+        print("btn list \(btnLists)")
+        let tags = Observable.of(0,1,2,3,4,5)
+        tags.subscribe(onNext: { [weak self] selectedIndex in
             self?.selectSegmentWith(selectedIndex: selectedIndex)
         }).disposed(by: disposeBag)
     }
     
     private func selectSegmentWith(selectedIndex: Int) {
-        print("here")
+        print("selectSegmentWith \(selectedIndex)")
         guard let currentViewController = pageViewController.viewControllers?.first,
             let index = nestedViewControllers.firstIndex(of: currentViewController),
             index != selectedIndex,
@@ -107,8 +106,7 @@ class MainViewController: UIViewController {
     
     
     
-    func setBtnList(){
-        allVC.tintColor = .orange
+    func setBtnList() {
         btnLists.append(allVC)
         btnLists.append(textVC)
         btnLists.append(linkVC)

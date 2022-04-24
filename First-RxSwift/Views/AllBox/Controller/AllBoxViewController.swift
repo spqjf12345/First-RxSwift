@@ -273,7 +273,7 @@ extension AllBoxViewController: UICollectionViewDelegateFlowLayout {
 //        let cellWidth = (width - 30) / 2
 //        return CGSize(width: cellWidth, height: cellWidth / 2)
         let width: CGFloat = (view.frame.width - 47) / 2
-        let height: CGFloat = 220
+        let height: CGFloat = 270
         return CGSize(width: width, height: height)
     }
 }
@@ -284,6 +284,5 @@ extension AllBoxViewController {
         MakeFolderViewController.type_dropDown.dataSource = ["텍스트", "링크"]
         self.modalPresentationStyle = .fullScreen
         self.present(vc, animated: true, completion: nil)
-        //self.navigationController?.pushViewController(vc, animated: true)
     }
 }
