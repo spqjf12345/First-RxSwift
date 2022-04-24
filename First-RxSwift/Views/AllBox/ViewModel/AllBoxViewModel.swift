@@ -93,7 +93,6 @@ class AllBoxViewModel {
             self.folders = folder
             self.filteredFolders = folder
             output.didFilderedFolder.accept(true)
-            print("allFolders \(self.folders)")
             self.folderCount = folder[0].items.count
         }).disposed(by: disposeBag)
         
@@ -112,6 +111,7 @@ class AllBoxViewModel {
         default:
             break
         }
+        
         print("changed \(folders[0].items)")
     }
     

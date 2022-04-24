@@ -35,7 +35,6 @@ class FolderUseCase: FolderUseCateType {
                 guard let self = self else { return }
                 self.folders.onNext([SectionOfFolder(items: folder)])
             }).disposed(by: self.disposeBag)
-        
     }
     
     func viewFolder(folderId: Int) -> Observable<ViewFolderResponse> {

@@ -15,8 +15,6 @@ class FolderService {
         return UserDefaults.standard.integer(forKey: UserDefaultKey.userID)
     }
     
-
-    
     func getFolders() -> Observable<[Folder]> {
         self.provider.rx.request(.getFolders(userId: userId))
             .filterSuccessfulStatusCodes()

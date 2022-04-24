@@ -80,6 +80,7 @@
 		8EE14A0527E1EAFF0020E75A /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EE14A0427E1EAFE0020E75A /* HeaderView.xib */; };
 		8EE14A0727E1F0580020E75A /* SortingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE14A0627E1F0580020E75A /* SortingView.swift */; };
 		8EE14A0A27E23D380020E75A /* MakeFolderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE14A0927E23D380020E75A /* MakeFolderViewModel.swift */; };
+		8EE79E2828154C4E00F770A5 /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE79E2728154C4E00F770A5 /* BaseCoordinator.swift */; };
 		8EEF332327D487CB00FD816A /* Folder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEF332227D487CB00FD816A /* Folder.swift */; };
 		8EEF332527D4953F00FD816A /* FolderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEF332427D4953F00FD816A /* FolderService.swift */; };
 		8EEF332727D4955600FD816A /* FolderAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEF332627D4955600FD816A /* FolderAPI.swift */; };
@@ -198,6 +199,7 @@
 		8EE14A0427E1EAFE0020E75A /* HeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
 		8EE14A0627E1F0580020E75A /* SortingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortingView.swift; sourceTree = "<group>"; };
 		8EE14A0927E23D380020E75A /* MakeFolderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeFolderViewModel.swift; sourceTree = "<group>"; };
+		8EE79E2728154C4E00F770A5 /* BaseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
 		8EEF332227D487CB00FD816A /* Folder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Folder.swift; sourceTree = "<group>"; };
 		8EEF332427D4953F00FD816A /* FolderService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderService.swift; sourceTree = "<group>"; };
 		8EEF332627D4955600FD816A /* FolderAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderAPI.swift; sourceTree = "<group>"; };
@@ -571,6 +573,7 @@
 		8ED47D3C272BAEDD00393397 /* First-RxSwift */ = {
 			isa = PBXGroup;
 			children = (
+				8EE79E2628154C3A00F770A5 /* Common */,
 				8E43010D27CF69DA008EA2A4 /* Resources */,
 				8E21C4FF2795B4DF00C0AD86 /* Network */,
 				8E21C4F8279561D000C0AD86 /* Repository */,
@@ -619,7 +622,6 @@
 			children = (
 				8EE14A0127E1CB980020E75A /* Common */,
 				8E27F7C027BCEC7B00D3E998 /* Main */,
-				8ED47D41272BAEDD00393397 /* ViewController.swift */,
 				8E2494A627CE3E8B009D03E8 /* Profile */,
 				8E21C4EC2795527E00C0AD86 /* Login */,
 				8E24949527CE3D30009D03E8 /* Calendar */,
@@ -632,6 +634,7 @@
 				8E21C4EB279551D300C0AD86 /* SearchCity */,
 				8E7877D7273ED8F0007C43E0 /* PhotoFilter */,
 				8E12408E274237A3000F97EF /* ToDoListPriority */,
+				8ED47D41272BAEDD00393397 /* ViewController.swift */,
 				8ED47D4B272BAEDF00393397 /* LaunchScreen.storyboard */,
 				8ED47D43272BAEDD00393397 /* Main.storyboard */,
 			);
@@ -668,6 +671,14 @@
 				8E86170E2797E2DD005B1A88 /* FindPWViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		8EE79E2628154C3A00F770A5 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				8EE79E2728154C4E00F770A5 /* BaseCoordinator.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 		8EEF336327DB810B00FD816A /* ViewModel */ = {
@@ -948,6 +959,7 @@
 				8E8AF70C27CE84E600578816 /* EditProfileViewController.swift in Sources */,
 				8ED47D48272BAEDD00393397 /* First_RxSwift.xcdatamodeld in Sources */,
 				8E2494D127CE8038009D03E8 /* AllBoxViewController.swift in Sources */,
+				8EE79E2828154C4E00F770A5 /* BaseCoordinator.swift in Sources */,
 				8E949E3B27A13EA900947EDA /* SignUpValidationError.swift in Sources */,
 				8EEF332927D4996400FD816A /* FolderRepository.swift in Sources */,
 				8E21C5022795B5B500C0AD86 /* Login+JoinAPI.swift in Sources */,
