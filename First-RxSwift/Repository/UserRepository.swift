@@ -25,6 +25,7 @@ class UserRepository: UserRepositoryType {
     }
     
     func saveLoginInfo(userId: Int32, jwtToken: String) {
+        print("save login \(userId) \(jwtToken)")
         UserDefaults.standard.setValue(userId, forKey: UserDefaultKey.userID)
         UserDefaults.standard.setValue(jwtToken, forKey: UserDefaultKey.jwtToken)
     }

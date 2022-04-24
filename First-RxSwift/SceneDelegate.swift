@@ -25,7 +25,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //        self.appCoordinator = DefaultAppCoordinator(navigationController)
 //        self.appCoordinator?.start()
         
-        if(UserDefaults.standard.string(forKey: UserDefaultKey.isNewUser) == "1" && UserDefaults.standard.string(forKey: UserDefaultKey.jwtToken) != nil) {
+        if(UserDefaults.standard.string(forKey: UserDefaultKey.jwtToken) != nil) {
             print("자동 로그인 성공 -> 메인 화면으로 이동")
             guard let mainVC = UIStoryboard.init(name: "AllMain", bundle: nil).instantiateViewController(identifier: "MainViewController") as? MainViewController else {
                 print("can not find mainVC")

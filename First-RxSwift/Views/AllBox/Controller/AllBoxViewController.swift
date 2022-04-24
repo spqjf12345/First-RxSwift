@@ -55,15 +55,14 @@ class AllBoxViewController: UIViewController {
 
     
     func setUpCollectionviewBinding(){
-        folderCollectionView.contentInset = UIEdgeInsets(top: 0, left: 15, bottom: 50, right: 15)
+        folderCollectionView.delegate = self
+        //folderCollectionView.collectionViewLayout = UICollectionViewFlowLayout()
+        folderCollectionView.contentInset = UIEdgeInsets(top: 0, left: 15, bottom: 15, right: 15)
         folderCollectionView.register(FolderCollectionViewCell.nib(), forCellWithReuseIdentifier: FolderCollectionViewCell.identifier)
         folderCollectionView.register(UINib(nibName: HeaderView.reuseIdentifier, bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: HeaderView.reuseIdentifier)
         folderCollectionView.refreshControl = self.refreshControl
         folderCollectionView.allowsSelection = true
         folderCollectionView.isUserInteractionEnabled = true
-//        folderCollectionView.rx.setDataSource(self).disposed(by: disposeBag)
-//        folderCollectionView.rx.setDelegate(self).disposed(by: disposeBag)
-        
         dataSource = RxCollectionViewSectionedReloadDataSource<SectionOfFolder>(
             configureCell: { datasource, collectionview, indexPath, item in
                 let cell = collectionview.dequeueReusableCell(withReuseIdentifier: FolderCollectionViewCell.identifier, for: indexPath) as! FolderCollectionViewCell
@@ -191,20 +190,30 @@ class AllBoxViewController: UIViewController {
     
     
 }
+extension AllBoxViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+     
+        let width: CGFloat = (view.frame.width - 47) / 2
+        let height: CGFloat = 180
+        return CGSize(width: width, height: height)
 
-extension AllBoxViewController: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel.filteredFolders[0].items.count
     }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FolderCollectionViewCell.identifier, for: indexPath) as? FolderCollectionViewCell else { return UICollectionViewCell() }
-        cell.configure(with: viewModel.filteredFolders[0].items[indexPath.row])
-        return cell
-    }
-    
-    
 }
+
+
+//extension AllBoxViewController: UICollectionViewDataSource {
+//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+//        return viewModel.filteredFolders[0].items.count
+//    }
+//
+//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+//        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FolderCollectionViewCell.identifier, for: indexPath) as? FolderCollectionViewCell else { return UICollectionViewCell() }
+//        cell.configure(with: viewModel.filteredFolders[0].items[indexPath.row])
+//        return cell
+//    }
+//
+//
+//}
 
 extension AllBoxViewController {
     func editFolderName(folderId: Int, completionHandler: @escaping ((String) -> Void)){
@@ -263,18 +272,6 @@ extension AllBoxViewController: PHPickerViewControllerDelegate {
                 }
         }
 
-    }
-}
-
-
-extension AllBoxViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        let width = collectionView.bounds.width
-//        let cellWidth = (width - 30) / 2
-//        return CGSize(width: cellWidth, height: cellWidth / 2)
-        let width: CGFloat = (view.frame.width - 47) / 2
-        let height: CGFloat = 270
-        return CGSize(width: width, height: height)
     }
 }
 
