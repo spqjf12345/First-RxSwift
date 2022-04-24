@@ -11,36 +11,43 @@ import RxSwift
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-
+    var appCoordinator: AppCoordinator?
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
         guard let windowScene = (scene as? UIWindowScene) else { return }
+        let navigationController = UINavigationController()
         
         self.window = UIWindow(windowScene: windowScene)
-        if(UserDefaults.standard.string(forKey: UserDefaultKey.isNewUser) == "1" && UserDefaults.standard.string(forKey: UserDefaultKey.jwtToken) != nil) {
-            print("자동 로그인 성공 -> 메인 화면으로 이동")
-            guard let mainVC = UIStoryboard.init(name: "AllMain", bundle: nil).instantiateViewController(identifier: "MainViewController") as? MainViewController else {
-                print("can not find mainVC")
-                return
-            }
-          
-            let rootNC = UINavigationController(rootViewController: mainVC)
-            window?.rootViewController = rootNC
-            window?.makeKeyAndVisible()
-            
-        }else {
-            print("jwtToken과 isNewUser 정보가 없어 로그인 뷰로 이동")
-            let loginStoryBoard = UIStoryboard(name: "Login", bundle: nil)
-            guard let loginVC = loginStoryBoard.instantiateViewController(withIdentifier: "Login") as? LoginViewController else {
-                print("can not find loginNavC")
-                return
-            }
-
-            let rootNC = UINavigationController(rootViewController: loginVC)
-            window?.rootViewController = rootNC
-            window?.makeKeyAndVisible()
-        }
+        self.window?.rootViewController = navigationController
+        self.window?.makeKeyAndVisible()
+        
+        self.appCoordinator = DefaultAppCoordinator(navigationController)
+        self.appCoordinator?.start()
+        
+//        if(UserDefaults.standard.string(forKey: UserDefaultKey.isNewUser) == "1" && UserDefaults.standard.string(forKey: UserDefaultKey.jwtToken) != nil) {
+//            print("자동 로그인 성공 -> 메인 화면으로 이동")
+//            guard let mainVC = UIStoryboard.init(name: "AllMain", bundle: nil).instantiateViewController(identifier: "MainViewController") as? MainViewController else {
+//                print("can not find mainVC")
+//                return
+//            }
+//
+//            let rootNC = UINavigationController(rootViewController: mainVC)
+//            window?.rootViewController = rootNC
+//            window?.makeKeyAndVisible()
+//
+//        }else {
+//            print("jwtToken과 isNewUser 정보가 없어 로그인 뷰로 이동")
+//            let loginStoryBoard = UIStoryboard(name: "Login", bundle: nil)
+//            guard let loginVC = loginStoryBoard.instantiateViewController(withIdentifier: "Login") as? LoginViewController else {
+//                print("can not find loginNavC")
+//                return
+//            }
+//
+//            let rootNC = UINavigationController(rootViewController: loginVC)
+//            window?.rootViewController = rootNC
+//            window?.makeKeyAndVisible()
+//        }
         
     }
 

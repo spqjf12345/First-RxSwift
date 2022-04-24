@@ -80,7 +80,11 @@
 		8EE14A0527E1EAFF0020E75A /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EE14A0427E1EAFE0020E75A /* HeaderView.xib */; };
 		8EE14A0727E1F0580020E75A /* SortingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE14A0627E1F0580020E75A /* SortingView.swift */; };
 		8EE14A0A27E23D380020E75A /* MakeFolderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE14A0927E23D380020E75A /* MakeFolderViewModel.swift */; };
-		8EE79E2828154C4E00F770A5 /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE79E2728154C4E00F770A5 /* BaseCoordinator.swift */; };
+		8EE79E2828154C4E00F770A5 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE79E2728154C4E00F770A5 /* Coordinator.swift */; };
+		8EE79E2B28154E5500F770A5 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE79E2A28154E5500F770A5 /* AppCoordinator.swift */; };
+		8EE79E2D28154E9000F770A5 /* DefaultAppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE79E2C28154E9000F770A5 /* DefaultAppCoordinator.swift */; };
+		8EE79E3028154F9100F770A5 /* DefaultLoginCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE79E2F28154F9100F770A5 /* DefaultLoginCoordinator.swift */; };
+		8EE79E37281552EE00F770A5 /* DefaultMainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE79E36281552EE00F770A5 /* DefaultMainCoordinator.swift */; };
 		8EEF332327D487CB00FD816A /* Folder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEF332227D487CB00FD816A /* Folder.swift */; };
 		8EEF332527D4953F00FD816A /* FolderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEF332427D4953F00FD816A /* FolderService.swift */; };
 		8EEF332727D4955600FD816A /* FolderAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEF332627D4955600FD816A /* FolderAPI.swift */; };
@@ -199,7 +203,11 @@
 		8EE14A0427E1EAFE0020E75A /* HeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
 		8EE14A0627E1F0580020E75A /* SortingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortingView.swift; sourceTree = "<group>"; };
 		8EE14A0927E23D380020E75A /* MakeFolderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeFolderViewModel.swift; sourceTree = "<group>"; };
-		8EE79E2728154C4E00F770A5 /* BaseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
+		8EE79E2728154C4E00F770A5 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		8EE79E2A28154E5500F770A5 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		8EE79E2C28154E9000F770A5 /* DefaultAppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultAppCoordinator.swift; sourceTree = "<group>"; };
+		8EE79E2F28154F9100F770A5 /* DefaultLoginCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultLoginCoordinator.swift; sourceTree = "<group>"; };
+		8EE79E36281552EE00F770A5 /* DefaultMainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultMainCoordinator.swift; sourceTree = "<group>"; };
 		8EEF332227D487CB00FD816A /* Folder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Folder.swift; sourceTree = "<group>"; };
 		8EEF332427D4953F00FD816A /* FolderService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderService.swift; sourceTree = "<group>"; };
 		8EEF332627D4955600FD816A /* FolderAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderAPI.swift; sourceTree = "<group>"; };
@@ -307,6 +315,7 @@
 		8E21C4EC2795527E00C0AD86 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				8EE79E2E28154F8600F770A5 /* Coordinator */,
 				8EE14A0B27E23E600020E75A /* ViewModel */,
 				8E8616F32796AA10005B1A88 /* Controller */,
 				8E21C4EF279557B200C0AD86 /* Login.storyboard */,
@@ -465,6 +474,7 @@
 		8E27F7C027BCEC7B00D3E998 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				8EE79E312815510C00F770A5 /* Coordinator */,
 				8EEF335D27DB737700FD816A /* MakeFolder.swift */,
 				8E24948F27CE39BB009D03E8 /* MakeFolder.xib */,
 				8E27F7C227BCEC8B00D3E998 /* Controller */,
@@ -676,9 +686,35 @@
 		8EE79E2628154C3A00F770A5 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				8EE79E2728154C4E00F770A5 /* BaseCoordinator.swift */,
+				8EE79E2928154E4100F770A5 /* Coordinator */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		8EE79E2928154E4100F770A5 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				8EE79E2728154C4E00F770A5 /* Coordinator.swift */,
+				8EE79E2A28154E5500F770A5 /* AppCoordinator.swift */,
+				8EE79E2C28154E9000F770A5 /* DefaultAppCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		8EE79E2E28154F8600F770A5 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				8EE79E2F28154F9100F770A5 /* DefaultLoginCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		8EE79E312815510C00F770A5 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				8EE79E36281552EE00F770A5 /* DefaultMainCoordinator.swift */,
+			);
+			path = Coordinator;
 			sourceTree = "<group>";
 		};
 		8EEF336327DB810B00FD816A /* ViewModel */ = {
@@ -959,7 +995,7 @@
 				8E8AF70C27CE84E600578816 /* EditProfileViewController.swift in Sources */,
 				8ED47D48272BAEDD00393397 /* First_RxSwift.xcdatamodeld in Sources */,
 				8E2494D127CE8038009D03E8 /* AllBoxViewController.swift in Sources */,
-				8EE79E2828154C4E00F770A5 /* BaseCoordinator.swift in Sources */,
+				8EE79E2828154C4E00F770A5 /* Coordinator.swift in Sources */,
 				8E949E3B27A13EA900947EDA /* SignUpValidationError.swift in Sources */,
 				8EEF332927D4996400FD816A /* FolderRepository.swift in Sources */,
 				8E21C5022795B5B500C0AD86 /* Login+JoinAPI.swift in Sources */,
@@ -980,14 +1016,18 @@
 				8EE14A0327E1CBA70020E75A /* HeaderView.swift in Sources */,
 				8E43011127CF6C72008EA2A4 /* AllBoxViewModel.swift in Sources */,
 				8EA90FF52747C14B00F12366 /* WeatherViewController.swift in Sources */,
+				8EE79E37281552EE00F770A5 /* DefaultMainCoordinator.swift in Sources */,
 				8E8616F227968EEF005B1A88 /* SignUpViewReactor.swift in Sources */,
 				8ED47D7A272BBC4800393397 /* FilterService.swift in Sources */,
+				8EE79E3028154F9100F770A5 /* DefaultLoginCoordinator.swift in Sources */,
 				8E2494C727CE7E41009D03E8 /* LinkViewController.swift in Sources */,
 				8E21C4EE2795568600C0AD86 /* User.swift in Sources */,
 				8E7877DE273EDC54007C43E0 /* Task.swift in Sources */,
 				8E12409527423B1A000F97EF /* ArticleTableviewCell.swift in Sources */,
 				8ED47D71272BAF4C00393397 /* PhotosCollectionViewController.swift in Sources */,
+				8EE79E2D28154E9000F770A5 /* DefaultAppCoordinator.swift in Sources */,
 				8E21C5042795BC0E00C0AD86 /* LoginJoinService.swift in Sources */,
+				8EE79E2B28154E5500F770A5 /* AppCoordinator.swift in Sources */,
 				8E86170F2797E2DD005B1A88 /* FindPWViewModel.swift in Sources */,
 				8E8616F027968B18005B1A88 /* SignUpViewController.swift in Sources */,
 				8E21C4FA279561E500C0AD86 /* UserRepository.swift in Sources */,
