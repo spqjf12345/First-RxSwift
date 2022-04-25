@@ -56,7 +56,6 @@ class AllBoxViewController: UIViewController {
     
     func setUpCollectionviewBinding(){
         folderCollectionView.delegate = self
-        //folderCollectionView.collectionViewLayout = UICollectionViewFlowLayout()
         folderCollectionView.contentInset = UIEdgeInsets(top: 0, left: 15, bottom: 15, right: 15)
         folderCollectionView.register(FolderCollectionViewCell.nib(), forCellWithReuseIdentifier: FolderCollectionViewCell.identifier)
         folderCollectionView.register(UINib(nibName: HeaderView.reuseIdentifier, bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: HeaderView.reuseIdentifier)
@@ -71,11 +70,10 @@ class AllBoxViewController: UIViewController {
                     .drive(onNext: { [weak self] _ in
                         guard let self = self else { return }
                         self.more_dropDown.anchorView = cell.moreButton
-                        self.selectedCellIndexPath = cell.indexPath
+                        self.selectedCellIndexPath = indexPath
                         self.more_dropDown.show()
                         self.more_dropDown.selectionAction = { [unowned self] (index: Int, item: String) in
                             let folderId = self.viewModel.findFolderId(indexPath.row)
-                            print("selected \(folderId)")
                             if index == 0 { // 이름 변경
                                 self.editFolderName(folderId: folderId, completionHandler: {(response) in
                                     cell.folderName.text = response
@@ -85,7 +83,9 @@ class AllBoxViewController: UIViewController {
                                 self.presentPicker()
                             }else if index == 2 {
                                 self.viewModel.deleteFolder(folderId: folderId)
-                                self.alertViewController(title: "폴더 삭제 완료", message: "폴더가 삭제 되었습니다", completion: { str in })
+                                self.alertViewController(title: "폴더 삭제 완료", message: "폴더가 삭제 되었습니다", completion: { str in
+                                    self.folderCollectionView.reloadData()
+                                })
                             }
                         }
                         self.more_dropDown.clearSelection()
@@ -144,7 +144,7 @@ class AllBoxViewController: UIViewController {
     
     
     func bindViewModel(){
-        viewModel.folderUseCase.folders
+        viewModel.folderUseCase.filteredFolders
             .bind(to: folderCollectionView.rx.items(dataSource: dataSource))
             .disposed(by: disposeBag)
         
@@ -172,12 +172,12 @@ class AllBoxViewController: UIViewController {
             .drive(self.refreshControl.rx.isRefreshing)
             .disposed(by: self.disposeBag)
         
-        output.didFilderedFolder
-            .asDriver(onErrorJustReturn: false)
-            .filter { $0 }
-            .drive(onNext: { [weak self] _ in
-                //self?.folderCollectionView.reloadData()
-            }).disposed(by: disposeBag)
+//        output.didFilderedFolder
+//            .asDriver(onErrorJustReturn: false)
+//            .filter { $0 }
+//            .drive(onNext: { [weak self] _ in
+//                //self?.folderCollectionView.reloadData()
+//            }).disposed(by: disposeBag)
 
     }
     
@@ -263,9 +263,12 @@ extension AllBoxViewController: PHPickerViewControllerDelegate {
         if let itemProvider = itemProvider, itemProvider.canLoadObject(ofClass: UIImage.self) {
             itemProvider.loadObject(ofClass: UIImage.self) { [self] (image, error) in
                 if let image = image as? UIImage {
+                    print("selectedCellIndexPath \(selectedCellIndexPath)")
                     let folderId = self.viewModel.findFolderId(selectedCellIndexPath.row)
                     self.viewModel.changeFolderImage(folderId: folderId, imageData: image.pngData()!)
-                    self.alertViewController(title: "이미지 변경", message: "이미지가 변경되었습니다", completion: { str in })
+                    DispatchQueue.main.async {
+                        self.alertViewController(title: "이미지 변경", message: "이미지가 변경되었습니다", completion: { str in })
+                    }
                 } else { // TODO: Handle empty results or item providernot being able load UIImage
             print("can't load image")
                 }

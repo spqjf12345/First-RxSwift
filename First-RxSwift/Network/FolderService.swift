@@ -33,28 +33,29 @@ class FolderService {
     func changeName(folderId: Int, changeName: String) -> Observable<String> {
         self.provider.rx.request(.changeFolderName(userId: userId, folderId: folderId, changeName: changeName))
             .filterSuccessfulStatusCodes()
-            .map(String.self)
+            .mapString()
             .asObservable()
+
     }
     
     func changeImage(folderId: Int, imageData: Data) -> Observable<String> {
         self.provider.rx.request(.changeFolderImage(userId: userId, folderId: folderId, imageData: imageData))
             .filterSuccessfulStatusCodes()
-            .map(String.self)
+            .mapString()
             .asObservable()
     }
     
     func deleteFolder(folderId: Int) -> Observable<String> {
         self.provider.rx.request(.deleteFolder(userId: userId, folderId: folderId))
             .filterSuccessfulStatusCodes()
-            .map(String.self)
+            .mapString()
             .asObservable()
     }
     
     func createFolder(folder: CreateFolderRequest) -> Observable<String> {
         self.provider.rx.request(.createFolder(userId: userId, folderRequest: folder))
             .filterSuccessfulStatusCodes()
-            .map(String.self)
+            .mapString()
             .asObservable()
     }
     

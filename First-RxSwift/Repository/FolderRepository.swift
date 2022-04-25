@@ -33,15 +33,17 @@ class FolderRepository: FolderRepositoryType {
     }
     
     func changeName(folderId: Int, changeName: String) {
-        folderService.changeName(folderId: folderId, changeName: changeName).subscribe(onNext: { str in
+        folderService.changeName(folderId: folderId, changeName: changeName)
+            .catchAndReturn("error").subscribe(onNext: { str in
             print(str)
-        }).disposed(by: disposeBag)
+            }, onError: { error in print("err \(error)")}).disposed(by: disposeBag)
     }
     
     func changeImage(folderId: Int, imageData: Data) {
-        folderService.changeImage(folderId: folderId, imageData: imageData).subscribe(onNext: { str in
-            print(str)
-        }).disposed(by: disposeBag)
+        folderService.changeImage(folderId: folderId, imageData: imageData)
+            .catchAndReturn("error").subscribe(onNext: { str in
+            print("changeImage \(str)")
+            }, onError: { error in print("err \(error)")}).disposed(by: disposeBag)
     }
     
     func deleteFolder(folderId: Int) {

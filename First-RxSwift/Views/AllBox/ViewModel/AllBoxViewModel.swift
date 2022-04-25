@@ -16,7 +16,7 @@ class AllBoxViewModel {
     
     let disposeBag = DisposeBag()
     var folders = [SectionOfFolder]()
-    var filteredFolders = [SectionOfFolder]()
+    
     var selectedFolder: ViewFolderResponse!
     var folderCount : Int = 0
     
@@ -50,20 +50,6 @@ class AllBoxViewModel {
                 guard let self = self else { return }
                 self.folderUseCase.getFolders()
             }).disposed(by: disposeBag)
-        
-        input.searchTextField
-            .debounce(.microseconds(5), scheduler: MainScheduler.instance)
-            .distinctUntilChanged()
-            .subscribe(onNext: { [weak self] text in
-                print("text \(text)")
-                guard let self = self else { return }
-//                self.folderUseCase.filteredFolder(base: self.folders, from: text)
-//                    .subscribe(onNext: { [weak self] filter in
-//                        guard let self = self else { return }
-//                        self.filteredFolders = filter
-//                        print(self.filteredFolders)
-//                    }).disposed(by: disposeBag)
-            }).disposed(by: disposeBag)
             
         
         input.folderCellTap
@@ -87,14 +73,28 @@ class AllBoxViewModel {
             }).disposed(by: disposeBag)
                
         ///binding usecase
-        folderUseCase.folders
+        folderUseCase.filteredFolders
             .subscribe(onNext: { [weak self] folder in
             guard let self = self else { return }
+            print("binding \(folder)")
             self.folders = folder
-            self.filteredFolders = folder
-            output.didFilderedFolder.accept(true)
             self.folderCount = folder[0].items.count
         }).disposed(by: disposeBag)
+        
+        input.searchTextField
+            .debounce(.microseconds(5), scheduler: MainScheduler.instance)
+            .distinctUntilChanged()
+            .filter { !$0.isEmpty }
+            .subscribe(onNext: { [weak self] text in
+                print("text \(text)")
+                guard let self = self else { return }
+                self.folderUseCase.filteredFolder(base: self.folders, from: text)
+//                    .subscribe(onNext: { [weak self] filter in
+//                        guard let self = self else { return }
+//                        self.filteredFolders = filter
+//                        print(self.filteredFolders)
+//                    }).disposed(by: disposeBag)
+            }).disposed(by: disposeBag)
         
         return output
        
@@ -102,19 +102,6 @@ class AllBoxViewModel {
     
     func sortBy(_ index: Int){
         folderUseCase.updateFolder(folder: folders, idx: index)
-//        switch index {
-//        case 0:
-//            folders[0].items = self.folders[0].items.sorted { $0.folderName.localizedStandardCompare($1.folderName) == .orderedAscending }
-//        case 1:
-//            folders[0].items = self.folders[0].items.sorted {  $0.folderId < $1.folderId }
-//        case 2:
-//            folders[0].items = self.folders[0].items.sorted { $0.folderId > $1.folderId }
-//        default:
-//            break
-//        }
-//
-//
-//        print("changed \(folders[0].items)")
     }
     
     func findFolderId(_ index: Int) -> Int {
@@ -130,7 +117,8 @@ class AllBoxViewModel {
     }
     
     func deleteFolder(folderId: Int) {
-        self.deleteFolder(folderId: folderId)
+        self.folderUseCase.deleteFolder(folderId: folderId)
+        
     }
     
     

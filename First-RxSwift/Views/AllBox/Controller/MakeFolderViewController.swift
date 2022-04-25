@@ -56,7 +56,9 @@ class MakeFolderViewController: UIViewController {
         self.dismiss(animated: true)
     }
     
-//    func done() {
+    func done() {
+        print("done")
+    }
         
 //        do {
 //            try checkingNameValidating()
@@ -153,41 +155,44 @@ class MakeFolderViewController: UIViewController {
         viewModel.imageView
             .bind(to: folderView.folderImage.rx.image)
             .disposed(by: disposeBag)
-        
+
         input.touchImage
             .subscribe(onNext: { _ in
                 self.tapImageView()
             }).disposed(by: disposeBag)
-        
+
         input.foderTypeButtonTap
             .subscribe(onNext: { _ in
                 self.folderType()
             }).disposed(by: disposeBag)
-        
+
         input.deleteButtonTap
             .subscribe(onNext: { _ in
                 self.dissMiss()
             }).disposed(by: disposeBag)
         
+
         output.folderType
             .bind(to: folderView.folderTypeButton.rx.title())
             .disposed(by: disposeBag)
-        
+
         output.errorMessage
             .observe(on: MainScheduler.instance)
            .bind(onNext: showAlert)
            .disposed(by: disposeBag)
+
         
-        output.enableDoneButton
-            .subscribe(onNext: { bool in
-                if bool {
-                    self.alertViewController(title: "폴더 생성 완료", message: "폴더가 생성 되었습니다.", completion: { str in
-                        if(str == "OK") {
-                            self.dissMiss()
-                        }
-                    })
-                }
-            }).disposed(by: disposeBag)
+//        output.enableDoneButton
+//            .subscribe(onNext: { bool in
+//                print(bool)
+//                if bool {
+//                    self.alertViewController(title: "폴더 생성 완료", message: "폴더가 생성 되었습니다.", completion: { str in
+//                        if(str == "OK") {
+//                            self.dissMiss()
+//                        }
+//                    })
+//                }
+//            }).disposed(by: disposeBag)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

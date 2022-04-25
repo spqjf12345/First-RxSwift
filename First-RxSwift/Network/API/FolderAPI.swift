@@ -62,6 +62,7 @@ extension FolderAPI: TargetType {
             for (key, value) in parameters {
                 multipartFormData.append(MultipartFormData(provider: .data("\(value)".data(using: .utf8)!), name: key))
             }
+            //print("foldername \(multipartFormData)")
             return .uploadMultipart(multipartFormData)
             
         case .changeFolderImage(_, _, let changeImage):

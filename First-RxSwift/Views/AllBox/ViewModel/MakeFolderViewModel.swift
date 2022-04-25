@@ -42,7 +42,7 @@ class MakeFolderViewModel {
         input.storeButtonTap
             .withLatestFrom(Observable.combineLatest( imageView, input.folderNameTextField, output.folderType))
             .bind { (image, name, type) in
-                print(type)
+                print("storeButtonTap \(type)")
                 if(image == nil){
                     output.errorMessage.accept("이미지를 선택해주세요")
                     output.enableDoneButton.accept(false)
