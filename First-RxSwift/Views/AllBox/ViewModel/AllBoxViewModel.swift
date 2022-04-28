@@ -36,7 +36,7 @@ class AllBoxViewModel {
   
     struct Output {
         var sortingTap = PublishRelay<Bool>()
-        var didFilderedFolder = PublishRelay<Bool>()
+        var didFilderedFolder = PublishSubject<Bool>()
         let reloadData = PublishRelay<Bool>()
     }
     
@@ -73,27 +73,21 @@ class AllBoxViewModel {
             }).disposed(by: disposeBag)
                
         ///binding usecase
-        folderUseCase.filteredFolders
+        folderUseCase.folders
             .subscribe(onNext: { [weak self] folder in
             guard let self = self else { return }
-            print("binding \(folder)")
             self.folders = folder
             self.folderCount = folder[0].items.count
         }).disposed(by: disposeBag)
         
         input.searchTextField
-            .debounce(.microseconds(5), scheduler: MainScheduler.instance)
+            .debounce(.microseconds(10), scheduler: MainScheduler.instance)
             .distinctUntilChanged()
             .filter { !$0.isEmpty }
             .subscribe(onNext: { [weak self] text in
-                print("text \(text)")
                 guard let self = self else { return }
                 self.folderUseCase.filteredFolder(base: self.folders, from: text)
-//                    .subscribe(onNext: { [weak self] filter in
-//                        guard let self = self else { return }
-//                        self.filteredFolders = filter
-//                        print(self.filteredFolders)
-//                    }).disposed(by: disposeBag)
+                output.didFilderedFolder.onNext(true)
             }).disposed(by: disposeBag)
         
         return output

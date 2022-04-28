@@ -130,7 +130,6 @@ class AllBoxViewController: UIViewController {
         }).disposed(by: disposeBag)
         
         viewModel.sortBy(index.row)
-        print("sortBy")
         folderCollectionView.reloadData()
     }
     
@@ -144,16 +143,16 @@ class AllBoxViewController: UIViewController {
     
     
     func bindViewModel(){
-        viewModel.folderUseCase.filteredFolders
+        viewModel.folderUseCase.folders
             .bind(to: folderCollectionView.rx.items(dataSource: dataSource))
             .disposed(by: disposeBag)
         
         let input = AllBoxViewModel.Input (
             viewWillAppearEvent: self.rx.methodInvoked(#selector(UIViewController.viewWillAppear)).map { _ in },
         refreshEvent: self.refreshControl.rx.controlEvent(.valueChanged).asObservable(),
-            searchTextField: self.searchTextfield.rx.text.orEmpty.asObservable(),
+        searchTextField: self.searchTextfield.rx.text.orEmpty.asObservable(),
         floatingButtonTap: self.floatingButton.rx.tap.asObservable(),
-            folderCellTap: self.folderCollectionView.rx.itemSelected.map { $0 },
+        folderCellTap: self.folderCollectionView.rx.itemSelected.map { $0 },
             folderMoreButtonTap :self.folderCollectionView.rx.itemSelected.map { $0.row },
         sortingButtonTap: self.sortingButton.rx.tap.asObservable()
         )
@@ -172,12 +171,11 @@ class AllBoxViewController: UIViewController {
             .drive(self.refreshControl.rx.isRefreshing)
             .disposed(by: self.disposeBag)
         
-//        output.didFilderedFolder
-//            .asDriver(onErrorJustReturn: false)
-//            .filter { $0 }
-//            .drive(onNext: { [weak self] _ in
-//                //self?.folderCollectionView.reloadData()
-//            }).disposed(by: disposeBag)
+        output.didFilderedFolder
+            .subscribe(onNext: { [weak self] _ in
+                guard let self = self else { return }
+                self.folderCollectionView.reloadData()
+            }).disposed(by: disposeBag)
 
     }
     
@@ -199,21 +197,6 @@ extension AllBoxViewController: UICollectionViewDelegate, UICollectionViewDelega
 
     }
 }
-
-
-//extension AllBoxViewController: UICollectionViewDataSource {
-//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        return viewModel.filteredFolders[0].items.count
-//    }
-//
-//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FolderCollectionViewCell.identifier, for: indexPath) as? FolderCollectionViewCell else { return UICollectionViewCell() }
-//        cell.configure(with: viewModel.filteredFolders[0].items[indexPath.row])
-//        return cell
-//    }
-//
-//
-//}
 
 extension AllBoxViewController {
     func editFolderName(folderId: Int, completionHandler: @escaping ((String) -> Void)){
