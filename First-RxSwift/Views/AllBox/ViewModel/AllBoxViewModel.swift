@@ -10,6 +10,10 @@ import RxSwift
 import RxCocoa
 import PhotosUI
 
+struct SelectedFolderType {
+    var type: String
+    var item: ViewFolderResponse
+}
 class AllBoxViewModel {
     
     let folderUseCase: FolderUseCase!
@@ -17,7 +21,6 @@ class AllBoxViewModel {
     let disposeBag = DisposeBag()
     var folders = [SectionOfFolder]()
     
-    var selectedFolder: ViewFolderResponse!
     var folderCount : Int = 0
     
     init(folderUseCase: FolderUseCase){
@@ -35,6 +38,7 @@ class AllBoxViewModel {
     }
   
     struct Output {
+        var selectedFolder = PublishSubject<SelectedFolderType>()
         var sortingTap = PublishRelay<Bool>()
         var didFilderedFolder = PublishSubject<Bool>()
         let reloadData = PublishRelay<Bool>()
@@ -57,19 +61,11 @@ class AllBoxViewModel {
                 guard let self = self else { return }
                 let folderId = self.folders[0].items[indexPath.row].folderId
                 let folderType = self.folders[0].items[indexPath.row].type
-                if folderType == "PHRASE" {
-                    //self.steps.accept(AllStep.textIn(folderId: folderId))
-                }else if folderType == "LINK" {
-                    //self.steps.accept(AllStep.linkIn(folderId: folderId))
-                }
-                   
-                    
-    //                self.folderUseCase.viewFolder(folderId: folderId)
-    //                    .subscribe(onNext: { selected in
-    //                        self.selectedFolder = selected
-    //
-    //
-    //                    }).disposed(by: disposeBag)
+
+                self.folderUseCase.viewFolder(folderId: folderId)
+                    .subscribe(onNext: { selected in
+                        output.selectedFolder.onNext(SelectedFolderType(type: folderType, item: selected))
+                    }).disposed(by: disposeBag)
             }).disposed(by: disposeBag)
                
         ///binding usecase

@@ -115,6 +115,7 @@ class AllBoxViewController: UIViewController {
     }
     
     func setUpUI(){
+        searchTextfield.layer.cornerRadius = 15
         headerView?.updateFolderCount(count: viewModel.folderCount)
     }
     
@@ -162,7 +163,7 @@ class AllBoxViewController: UIViewController {
             .subscribe(onNext: {
                 self.navigateToMakeFolder()
             }).disposed(by: disposeBag)
-        
+
         let output = self.viewModel.transform(from: input, disposeBag: self.disposeBag)
 
         output.reloadData
@@ -175,6 +176,12 @@ class AllBoxViewController: UIViewController {
             .subscribe(onNext: { [weak self] _ in
                 guard let self = self else { return }
                 self.folderCollectionView.reloadData()
+            }).disposed(by: disposeBag)
+        
+        output.selectedFolder
+            .subscribe(onNext: { [weak self] respone in
+                guard let self = self else { return }
+                self.navigateToInVC(response: respone)
             }).disposed(by: disposeBag)
 
     }
@@ -267,5 +274,20 @@ extension AllBoxViewController {
         MakeFolderViewController.type_dropDown.dataSource = ["텍스트", "링크"]
         self.modalPresentationStyle = .fullScreen
         self.present(vc, animated: true, completion: nil)
+    }
+    
+    private func navigateToInVC(response: SelectedFolderType) {
+        switch response.type {
+        case "PHRASE":
+            let storyBoard = UIStoryboard(name: "Phrase", bundle: nil)
+            guard let textInVC = storyBoard.instantiateViewController(identifier: "textIn") as? TextInViewController else { return }
+            self.navigationController?.pushViewController(textInVC, animated: true)
+        case "LINK" :
+            let storyBoard = UIStoryboard(name: "Link", bundle: nil)
+            guard let linkInVC = storyBoard.instantiateViewController(identifier: "linkFolderIn") as? LinkInViewController else { return }
+            self.navigationController?.pushViewController(linkInVC, animated: true)
+        default:
+            print("nothing")
+        }
     }
 }

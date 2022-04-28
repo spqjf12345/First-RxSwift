@@ -372,14 +372,14 @@
 			path = AllBox;
 			sourceTree = "<group>";
 		};
-		8E24949227CE3D1A009D03E8 /* Text */ = {
+		8E24949227CE3D1A009D03E8 /* Phrase */ = {
 			isa = PBXGroup;
 			children = (
 				8EEF336327DB810B00FD816A /* ViewModel */,
 				8E2494BF27CE7DDE009D03E8 /* Controller */,
 				8E2494B927CE7ABE009D03E8 /* Phrase.storyboard */,
 			);
-			path = Text;
+			path = Phrase;
 			sourceTree = "<group>";
 		};
 		8E24949327CE3D21009D03E8 /* Link */ = {
@@ -637,7 +637,7 @@
 				8E24949527CE3D30009D03E8 /* Calendar */,
 				8E24949427CE3D27009D03E8 /* Gift */,
 				8E24949327CE3D21009D03E8 /* Link */,
-				8E24949227CE3D1A009D03E8 /* Text */,
+				8E24949227CE3D1A009D03E8 /* Phrase */,
 				8E24949127CE3CEE009D03E8 /* AllBox */,
 				8EA90FF32747C13500F12366 /* GoodWeather */,
 				8E12408F274237BB000F97EF /* NewsAPI */,
