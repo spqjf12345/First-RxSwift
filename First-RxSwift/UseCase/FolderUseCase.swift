@@ -55,7 +55,7 @@ class FolderUseCase: FolderUseCateType {
         self.folderRepository.getFolders()
             .subscribe(onNext: { [weak self] folder in
                 guard let self = self else { return }
-                let phraseFolder = folder.filter { $0.type == "LINßK"}
+                let phraseFolder = folder.filter { $0.type == "LINK"}
                 self.originalFolder = [SectionOfFolder(items: phraseFolder)]
                 self.folders.onNext([SectionOfFolder(items: phraseFolder)])
             }).disposed(by: self.disposeBag)
