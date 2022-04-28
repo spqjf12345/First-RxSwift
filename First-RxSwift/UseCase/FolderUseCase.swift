@@ -10,15 +10,17 @@ import RxSwift
 
 protocol FolderUseCateType {
     func getFolders()
+    func getPhraseFolders()
+    func getLinkFolders()
     func viewFolder(folderId: Int) -> Observable<ViewFolderResponse>
     func changeName(folderId: Int, changeName: String)
     func changeImage(folderId: Int, imageData: Data)
     func deleteFolder(folderId: Int)
     func createFolder(folder: CreateFolderRequest)
+    
 }
 
 class FolderUseCase: FolderUseCateType {
-    
     var originalFolder = [SectionOfFolder]()
     var folders = PublishSubject<[SectionOfFolder]>()
     private let folderRepository: FolderRepository
@@ -37,6 +39,28 @@ class FolderUseCase: FolderUseCateType {
                 self.folders.onNext([SectionOfFolder(items: folder)])
             }).disposed(by: self.disposeBag)
     }
+    
+    func getPhraseFolders() {
+        self.folderRepository.getFolders()
+            .subscribe(onNext: { [weak self] folder in
+                guard let self = self else { return }
+                let phraseFolder = folder.filter { $0.type == "PHRASE"}
+                self.originalFolder = [SectionOfFolder(items: phraseFolder)]
+                self.folders.onNext([SectionOfFolder(items: phraseFolder)])
+            }).disposed(by: self.disposeBag)
+    }
+    
+    
+    func getLinkFolders() {
+        self.folderRepository.getFolders()
+            .subscribe(onNext: { [weak self] folder in
+                guard let self = self else { return }
+                let phraseFolder = folder.filter { $0.type == "LINßK"}
+                self.originalFolder = [SectionOfFolder(items: phraseFolder)]
+                self.folders.onNext([SectionOfFolder(items: phraseFolder)])
+            }).disposed(by: self.disposeBag)
+    }
+    
     
     func viewFolder(folderId: Int) -> Observable<ViewFolderResponse> {
         return self.folderRepository.viewFolder(folderId: folderId)

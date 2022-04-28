@@ -24,7 +24,7 @@ class AllBoxViewController: UIViewController {
    
     let sortingButton = UIButton()
     
-    private lazy var refreshControl = UIRefreshControl()
+    var refreshControl = UIRefreshControl()
 
     private var viewModel = AllBoxViewModel(folderUseCase: FolderUseCase(repository: FolderRepository(folderService: FolderService())))
     
@@ -110,12 +110,13 @@ class AllBoxViewController: UIViewController {
             self.headerView = headerView
             return headerView
         }
-
-
     }
     
     func setUpUI(){
         searchTextfield.layer.cornerRadius = 15
+        searchTextfield.clipsToBounds = true
+        searchTextfield.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 15, height: 0));
+        searchTextfield.leftViewMode = .always
         headerView?.updateFolderCount(count: viewModel.folderCount)
     }
     

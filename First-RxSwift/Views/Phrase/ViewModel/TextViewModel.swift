@@ -1,21 +1,15 @@
 //
-//  AllBoxViewModel.swift
+//  TextViewModel.swift
 //  First-RxSwift
 //
-//  Created by JoSoJeong on 2022/03/02.
+//  Created by JoSoJeong on 2022/04/28.
 //
 
 import Foundation
 import RxSwift
 import RxCocoa
 
-struct SelectedFolderType {
-    var type: String
-    var item: ViewFolderResponse
-}
-
-class AllBoxViewModel {
-    
+class TextViewModel {
     let folderUseCase: FolderUseCase!
     
     let disposeBag = DisposeBag()
@@ -52,7 +46,7 @@ class AllBoxViewModel {
             .merge()
             .subscribe(onNext: { [weak self] in
                 guard let self = self else { return }
-                self.folderUseCase.getFolders()
+                self.folderUseCase.getPhraseFolders()
             }).disposed(by: disposeBag)
             
         
@@ -114,5 +108,3 @@ class AllBoxViewModel {
     
     
 }
-
-

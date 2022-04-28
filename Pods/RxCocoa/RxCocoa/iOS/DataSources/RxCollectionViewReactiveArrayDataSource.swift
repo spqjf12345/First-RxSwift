@@ -21,20 +21,20 @@ class _RxCollectionViewReactiveArrayDataSource
         1
     }
 
-    func _collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func _collectionView(_ folderCollectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         0
     }
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        _collectionView(collectionView, numberOfItemsInSection: section)
+    func collectionView(_ folderCollectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        _collectionView(folderCollectionView, numberOfItemsInSection: section)
     }
 
-    fileprivate func _collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    fileprivate func _collectionView(_ folderCollectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         rxAbstractMethod()
     }
 
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        _collectionView(collectionView, cellForItemAt: indexPath)
+    func collectionView(_ folderCollectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        _collectionView(folderCollectionView, cellForItemAt: indexPath)
     }
 }
 
@@ -47,10 +47,10 @@ class RxCollectionViewReactiveArrayDataSourceSequenceWrapper<Sequence: Swift.Seq
         super.init(cellFactory: cellFactory)
     }
     
-    func collectionView(_ collectionView: UICollectionView, observedEvent: Event<Sequence>) {
+    func collectionView(_ folderCollectionView: UICollectionView, observedEvent: Event<Sequence>) {
         Binder(self) { collectionViewDataSource, sectionModels in
             let sections = Array(sectionModels)
-            collectionViewDataSource.collectionView(collectionView, observedElements: sections)
+            collectionViewDataSource.collectionView(folderCollectionView, observedElements: sections)
         }.on(observedEvent)
     }
 }
@@ -85,23 +85,23 @@ class RxCollectionViewReactiveArrayDataSource<Element>
     
     // data source
     
-    override func _collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    override func _collectionView(_ folderCollectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         itemModels?.count ?? 0
     }
     
-    override func _collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        cellFactory(collectionView, indexPath.item, itemModels![indexPath.item])
+    override func _collectionView(_ folderCollectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        cellFactory(folderCollectionView, indexPath.item, itemModels![indexPath.item])
     }
     
     // reactive
     
-    func collectionView(_ collectionView: UICollectionView, observedElements: [Element]) {
+    func collectionView(_ folderCollectionView: UICollectionView, observedElements: [Element]) {
         self.itemModels = observedElements
         
-        collectionView.reloadData()
+        folderCollectionView.reloadData()
 
         // workaround for http://stackoverflow.com/questions/39867325/ios-10-bug-uicollectionview-received-layout-attributes-for-a-cell-with-an-index
-        collectionView.collectionViewLayout.invalidateLayout()
+        folderCollectionView.collectionViewLayout.invalidateLayout()
     }
 }
 

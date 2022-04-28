@@ -34,7 +34,7 @@ class FolderCollectionViewCell: UICollectionViewCell {
     }
     
     static func nib() -> UINib {
-           return UINib(nibName: "FolderCollectionViewCell", bundle: nil)
+        return UINib(nibName: "FolderCollectionViewCell", bundle: nil)
     }
 
     
