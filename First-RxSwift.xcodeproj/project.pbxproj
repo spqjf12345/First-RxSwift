@@ -82,6 +82,8 @@
 		8EDDB44A281BE2870064DFD7 /* GiftUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDDB449281BE2870064DFD7 /* GiftUseCase.swift */; };
 		8EDDB44C281BE3C50064DFD7 /* GiftRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDDB44B281BE3C50064DFD7 /* GiftRepository.swift */; };
 		8EDDB44E281BE40C0064DFD7 /* GiftService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDDB44D281BE40C0064DFD7 /* GiftService.swift */; };
+		8EDDB450281BE4500064DFD7 /* GiftAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDDB44F281BE4500064DFD7 /* GiftAPI.swift */; };
+		8EDDB452281BE4FA0064DFD7 /* Gift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDDB451281BE4FA0064DFD7 /* Gift.swift */; };
 		8EE14A0327E1CBA70020E75A /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE14A0227E1CBA70020E75A /* HeaderView.swift */; };
 		8EE14A0527E1EAFF0020E75A /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EE14A0427E1EAFE0020E75A /* HeaderView.xib */; };
 		8EE14A0727E1F0580020E75A /* SortingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE14A0627E1F0580020E75A /* SortingView.swift */; };
@@ -211,6 +213,8 @@
 		8EDDB449281BE2870064DFD7 /* GiftUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftUseCase.swift; sourceTree = "<group>"; };
 		8EDDB44B281BE3C50064DFD7 /* GiftRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftRepository.swift; sourceTree = "<group>"; };
 		8EDDB44D281BE40C0064DFD7 /* GiftService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftService.swift; sourceTree = "<group>"; };
+		8EDDB44F281BE4500064DFD7 /* GiftAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftAPI.swift; sourceTree = "<group>"; };
+		8EDDB451281BE4FA0064DFD7 /* Gift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gift.swift; sourceTree = "<group>"; };
 		8EE14A0227E1CBA70020E75A /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		8EE14A0427E1EAFE0020E75A /* HeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
 		8EE14A0627E1F0580020E75A /* SortingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortingView.swift; sourceTree = "<group>"; };
@@ -373,6 +377,7 @@
 			children = (
 				8E21C5012795B5B500C0AD86 /* Login+JoinAPI.swift */,
 				8EEF332627D4955600FD816A /* FolderAPI.swift */,
+				8EDDB44F281BE4500064DFD7 /* GiftAPI.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -544,6 +549,7 @@
 				8EA90FF62747C1C100F12366 /* WeatherResult.swift */,
 				8E21C4ED2795568500C0AD86 /* User.swift */,
 				8EEF332227D487CB00FD816A /* Folder.swift */,
+				8EDDB451281BE4FA0064DFD7 /* Gift.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1024,6 +1030,7 @@
 			files = (
 				8E2494C127CE7DFA009D03E8 /* TextViewController.swift in Sources */,
 				8E21C4F2279557F800C0AD86 /* LoginViewController.swift in Sources */,
+				8EDDB450281BE4500064DFD7 /* GiftAPI.swift in Sources */,
 				8E12409327423A2B000F97EF /* Article.swift in Sources */,
 				8E21C4F427955B6300C0AD86 /* LoginViewModel.swift in Sources */,
 				8E8AF70C27CE84E600578816 /* EditProfileViewController.swift in Sources */,
@@ -1074,6 +1081,7 @@
 				8E2494AE27CE7943009D03E8 /* PageViewController.swift in Sources */,
 				8EEF332727D4955600FD816A /* FolderAPI.swift in Sources */,
 				8EA90FF92747C59600F12366 /* URL.swift in Sources */,
+				8EDDB452281BE4FA0064DFD7 /* Gift.swift in Sources */,
 				8E27F7BD27BCE9F800D3E998 /* UIViewController.swift in Sources */,
 				8E9A41F1279B188A003215E3 /* FindIDViewController.swift in Sources */,
 				8E8617012797C851005B1A88 /* UIColors.swift in Sources */,
