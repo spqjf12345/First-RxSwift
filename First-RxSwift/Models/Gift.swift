@@ -17,7 +17,7 @@ struct Gift {
     var imageData: Data?
 }
 
-struct createGift {
+struct CreateGift {
     var userId: Int
     var title: String
     var deadline: String
@@ -26,7 +26,7 @@ struct createGift {
     var imageFile: Data
 }
 
-struct updateGift {
+struct UpdateGift {
     var timeoutId: Int
     var userId: Int
     var title: String

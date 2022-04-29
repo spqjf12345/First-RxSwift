@@ -52,9 +52,7 @@ extension FolderAPI: TargetType {
     
     var task: Task {
         switch self {
-        case .getFolders:
-            return .requestPlain
-        case .viewFolder, .deleteFolder:
+        case .getFolders, .viewFolder, .deleteFolder:
             return .requestPlain
         case .changeFolderName(_, _, let changeName):
             var multipartFormData = [MultipartFormData]()
