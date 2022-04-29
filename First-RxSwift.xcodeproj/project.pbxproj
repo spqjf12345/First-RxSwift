@@ -78,6 +78,10 @@
 		8ED47D7A272BBC4800393397 /* FilterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED47D79272BBC4800393397 /* FilterService.swift */; };
 		8EDDB437281A8C8A0064DFD7 /* TextViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDDB436281A8C8A0064DFD7 /* TextViewModel.swift */; };
 		8EDDB43A281A93CA0064DFD7 /* LinkViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDDB439281A93C90064DFD7 /* LinkViewModel.swift */; };
+		8EDDB448281BE24C0064DFD7 /* GiftViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDDB447281BE24C0064DFD7 /* GiftViewModel.swift */; };
+		8EDDB44A281BE2870064DFD7 /* GiftUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDDB449281BE2870064DFD7 /* GiftUseCase.swift */; };
+		8EDDB44C281BE3C50064DFD7 /* GiftRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDDB44B281BE3C50064DFD7 /* GiftRepository.swift */; };
+		8EDDB44E281BE40C0064DFD7 /* GiftService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDDB44D281BE40C0064DFD7 /* GiftService.swift */; };
 		8EE14A0327E1CBA70020E75A /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE14A0227E1CBA70020E75A /* HeaderView.swift */; };
 		8EE14A0527E1EAFF0020E75A /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EE14A0427E1EAFE0020E75A /* HeaderView.xib */; };
 		8EE14A0727E1F0580020E75A /* SortingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE14A0627E1F0580020E75A /* SortingView.swift */; };
@@ -203,6 +207,10 @@
 		8ED47D79272BBC4800393397 /* FilterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterService.swift; sourceTree = "<group>"; };
 		8EDDB436281A8C8A0064DFD7 /* TextViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewModel.swift; sourceTree = "<group>"; };
 		8EDDB439281A93C90064DFD7 /* LinkViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkViewModel.swift; sourceTree = "<group>"; };
+		8EDDB447281BE24C0064DFD7 /* GiftViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftViewModel.swift; sourceTree = "<group>"; };
+		8EDDB449281BE2870064DFD7 /* GiftUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftUseCase.swift; sourceTree = "<group>"; };
+		8EDDB44B281BE3C50064DFD7 /* GiftRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftRepository.swift; sourceTree = "<group>"; };
+		8EDDB44D281BE40C0064DFD7 /* GiftService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftService.swift; sourceTree = "<group>"; };
 		8EE14A0227E1CBA70020E75A /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		8EE14A0427E1EAFE0020E75A /* HeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
 		8EE14A0627E1F0580020E75A /* SortingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortingView.swift; sourceTree = "<group>"; };
@@ -332,6 +340,7 @@
 			children = (
 				8E21C4F6279560FB00C0AD86 /* LoginUseCase.swift */,
 				8EEF332A27D49A2000FD816A /* FolderUseCase.swift */,
+				8EDDB449281BE2870064DFD7 /* GiftUseCase.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -341,6 +350,7 @@
 			children = (
 				8E21C4F9279561E500C0AD86 /* UserRepository.swift */,
 				8EEF332827D4996400FD816A /* FolderRepository.swift */,
+				8EDDB44B281BE3C50064DFD7 /* GiftRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -353,6 +363,7 @@
 				8E86170A2797DE5D005B1A88 /* AppService.swift */,
 				8EEF332427D4953F00FD816A /* FolderService.swift */,
 				8EEF336527DB825000FD816A /* TextService.swift */,
+				8EDDB44D281BE40C0064DFD7 /* GiftService.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -399,6 +410,7 @@
 		8E24949427CE3D27009D03E8 /* Gift */ = {
 			isa = PBXGroup;
 			children = (
+				8EDDB446281BE23D0064DFD7 /* ViewModel */,
 				8E2494C427CE7E26009D03E8 /* Controller */,
 				8E2494B527CE7AB1009D03E8 /* Timeout.storyboard */,
 			);
@@ -660,6 +672,14 @@
 			isa = PBXGroup;
 			children = (
 				8EDDB439281A93C90064DFD7 /* LinkViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		8EDDB446281BE23D0064DFD7 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				8EDDB447281BE24C0064DFD7 /* GiftViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1023,12 +1043,15 @@
 				8EEF336627DB825000FD816A /* TextService.swift in Sources */,
 				8E12409827423C1F000F97EF /* URLRequest+Extensions.swift in Sources */,
 				8EEF335827DB718D00FD816A /* TextInViewController.swift in Sources */,
+				8EDDB44A281BE2870064DFD7 /* GiftUseCase.swift in Sources */,
 				8EA90FF72747C1C100F12366 /* WeatherResult.swift in Sources */,
+				8EDDB448281BE24C0064DFD7 /* GiftViewModel.swift in Sources */,
 				8E8616F52796AA42005B1A88 /* SignUpViewModel.swift in Sources */,
 				8EEF335C27DB730B00FD816A /* MakeFolderViewController.swift in Sources */,
 				8ED47D3E272BAEDD00393397 /* AppDelegate.swift in Sources */,
 				8EE14A0327E1CBA70020E75A /* HeaderView.swift in Sources */,
 				8E43011127CF6C72008EA2A4 /* AllBoxViewModel.swift in Sources */,
+				8EDDB44C281BE3C50064DFD7 /* GiftRepository.swift in Sources */,
 				8EA90FF52747C14B00F12366 /* WeatherViewController.swift in Sources */,
 				8EE79E37281552EE00F770A5 /* DefaultMainCoordinator.swift in Sources */,
 				8E8616F227968EEF005B1A88 /* SignUpViewReactor.swift in Sources */,
@@ -1038,6 +1061,7 @@
 				8E21C4EE2795568600C0AD86 /* User.swift in Sources */,
 				8E7877DE273EDC54007C43E0 /* Task.swift in Sources */,
 				8E12409527423B1A000F97EF /* ArticleTableviewCell.swift in Sources */,
+				8EDDB44E281BE40C0064DFD7 /* GiftService.swift in Sources */,
 				8ED47D71272BAF4C00393397 /* PhotosCollectionViewController.swift in Sources */,
 				8EE79E2D28154E9000F770A5 /* DefaultAppCoordinator.swift in Sources */,
 				8E21C5042795BC0E00C0AD86 /* LoginJoinService.swift in Sources */,

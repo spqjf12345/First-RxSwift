@@ -10,6 +10,8 @@ import RxSwift
 
 protocol LoginUseCaseType {
     func logIn(_: User)
+    func checkValidID(_: String) -> Observable<Int>
+    func checkIdValid()
 }
 
 class LoginUseCase: LoginUseCaseType {
