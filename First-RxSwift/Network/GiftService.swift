@@ -22,16 +22,16 @@ class GiftService {
             .asObservable()
     }
     
-    func createGifts(gifts: CreateGift) -> Observable<String> {
-        return self.provider.rx.request(.createGift(userId: userId, gift: gifts))
+    func createGifts(gift: CreateGift) -> Observable<String> {
+        return self.provider.rx.request(.createGift(userId: userId, gift: gift))
             .filterSuccessfulStatusCodes()
             .mapString()
             .asObservable()
     }
     
-    func updateGifts(giftId: Int, image: Data, gifts: UpdateGift) -> Observable<String> {
+    func updateGifts(giftId: Int, image: Data, gift: UpdateGift) -> Observable<String> {
         
-        let dataObservable = self.provider.rx.request(.updateGiftData(userId: userId, giftId: giftId, gift: gifts))
+        let dataObservable = self.provider.rx.request(.updateGiftData(userId: userId, giftId: giftId, gift: gift))
             .filterSuccessfulStatusCodes()
             .mapString()
             .asObservable()
