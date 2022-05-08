@@ -10,39 +10,50 @@ import RxSwift
 
 protocol GiftUseCaseType {
     func getGifticon()
-    func updateGifticon() //-> image, data
-    func deleteGifticon()
-    func makeGifticon()
-    func usedGofticon()
+    func updateGifticon(giftId: Int, image: Data, gift: UpdateGift)
+    func deleteGifticon(giftId: Int)
+    func createGifticon(gift: CreateGift)
+    func usedGifticon(giftId: Int)
 }
 
 class GiftUseCase: GiftUseCaseType {
     
     private let giftRepository: GiftRepositoryType
-    
+    var count = PublishSubject<Int>()
+    var gifticon = BehaviorSubject<[Gift]>(value: [])
     var disposeBag = DisposeBag()
     
-    init(repository: GiftRepositoryType) {
+    init(repository: GiftReposotory) {
         self.giftRepository = repository
     }
     
     func getGifticon() {
-        <#code#>
+        giftRepository.getGifticon()
+            .subscribe(onNext: { [weak self] gifts in
+                guard !gifts.isEmpty else {
+                    guard let self = self else { return }
+                    self.count.onNext(0)
+                    return
+                }
+                self?.gifticon.onNext(gifts)
+                self?.count.onNext(gifts.count)
+                
+            }).disposed(by: disposeBag)
     }
     
-    func updateGifticon() {
-        <#code#>
+    func updateGifticon(giftId: Int, image: Data, gift: UpdateGift) {
+        giftRepository.updateGifticon(gifdId: giftId, image: image, gift: gift)
     }
     
-    func deleteGifticon() {
-        <#code#>
+    func deleteGifticon(giftId: Int) {
+        giftRepository.deleteGifticon(giftId: giftId)
     }
     
-    func makeGifticon() {
-        <#code#>
+    func createGifticon(gift: CreateGift) {
+        giftRepository.createGift(gift: gift)
     }
     
-    func usedGofticon() {
-        <#code#>
+    func usedGifticon(giftId: Int) {
+        giftRepository.usedGofticon(giftId: giftId)
     }
 }

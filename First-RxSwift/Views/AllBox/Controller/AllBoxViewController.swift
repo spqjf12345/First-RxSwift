@@ -135,14 +135,6 @@ class AllBoxViewController: UIViewController {
         folderCollectionView.reloadData()
     }
     
-    func presentPicker(){
-        var configuration = PHPickerConfiguration()
-        configuration.filter = .any(of: [.images])
-        let picker = PHPickerViewController(configuration: configuration)
-        picker.delegate = self
-        self.present(picker, animated: true, completion: nil)
-    }
-    
     
     func bindViewModel(){
         viewModel.folderUseCase.folders
@@ -185,13 +177,6 @@ class AllBoxViewController: UIViewController {
                 self.navigateToInVC(response: respone)
             }).disposed(by: disposeBag)
 
-    }
-    
-    func showSortingTap(){
-        let sortingView = UIStoryboard(name: "AllMain", bundle: nil).instantiateViewController(withIdentifier: "SortingView") as! SortingView
-        sortingView.modalPresentationStyle = .overCurrentContext
-        sortingView.modalTransitionStyle = .coverVertical
-        present(sortingView, animated: true)
     }
     
     
@@ -290,5 +275,20 @@ extension AllBoxViewController {
         default:
             print("nothing")
         }
+    }
+    
+    private func showSortingTap(){
+        let sortingView = UIStoryboard(name: "AllMain", bundle: nil).instantiateViewController(withIdentifier: "SortingView") as! SortingView
+        sortingView.modalPresentationStyle = .overCurrentContext
+        sortingView.modalTransitionStyle = .coverVertical
+        present(sortingView, animated: true)
+    }
+    
+    private func presentPicker(){
+        var configuration = PHPickerConfiguration()
+        configuration.filter = .any(of: [.images])
+        let picker = PHPickerViewController(configuration: configuration)
+        picker.delegate = self
+        self.present(picker, animated: true, completion: nil)
     }
 }

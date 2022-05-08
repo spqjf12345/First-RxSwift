@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import RxDataSources
 
 struct Gift: Codable {
     var timeoutId: Int
@@ -33,4 +34,16 @@ struct UpdateGift: Codable {
     var deadline: String
     var isValid: Bool
     var selected: [Int]
+}
+
+struct SectionOfGift {
+    var items: [Gift]
+}
+
+
+extension SectionOfGift: SectionModelType {
+    init(original: SectionOfGift, items: [Gift]){
+        self = original
+        self.items = items
+    }
 }

@@ -57,4 +57,5 @@ class GiftService {
             .mapString()
             .asObservable()
     }
+    
 }
