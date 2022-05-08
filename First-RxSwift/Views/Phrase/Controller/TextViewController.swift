@@ -52,7 +52,7 @@ class TextViewController: UIViewController {
         searchTextfield.clipsToBounds = true
         searchTextfield.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 15, height: 0));
         searchTextfield.leftViewMode = .always
-        headerView?.updateFolderCount(count: viewModel.folderCount)
+        headerView?.updateCount(text: "\(self.viewModel.folderCount)개의 폴더")
     }
     
     func addObserver(){
@@ -117,7 +117,7 @@ class TextViewController: UIViewController {
         dataSource.configureSupplementaryView = {(dataSource, collectionView, kind, indexPath) -> UICollectionReusableView in
             guard let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: HeaderView.reuseIdentifier, for: indexPath) as? HeaderView else { fatalError() }
             
-            headerView.updateFolderCount(count: self.viewModel.folderCount)
+            headerView.updateCount(text: "\(self.viewModel.folderCount)개의 폴더")
             headerView.sortingButton.rx.tap
                 .subscribe(onNext: { [weak self] _ in
                     guard let self = self else { return }

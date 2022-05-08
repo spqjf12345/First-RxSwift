@@ -47,8 +47,8 @@ class HeaderView: UICollectionReusableView {
         
     }
     
-    func updateFolderCount(count: Int){
-        folderCountLabel.text = "\(count)개의 폴더"
+    func updateCount(text: String){
+        folderCountLabel.text = text
     }
    
     

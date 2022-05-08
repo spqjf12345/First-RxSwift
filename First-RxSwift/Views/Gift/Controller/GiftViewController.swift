@@ -12,7 +12,7 @@ import RxCocoa
 import RxDataSources
 import RxGesture
 
-class GiftViewController: UIViewController {
+class GiftViewController: UIViewController, UIGestureRecognizerDelegate {
 
     let refreshControl = UIRefreshControl()
     @IBOutlet weak var floatingButton: UIButton!
@@ -39,6 +39,14 @@ class GiftViewController: UIViewController {
         setUpCollectionviewBinding()
         bindViewModel()
         addObserver()
+        setupUI()
+    }
+    
+    func setupUI(){
+        searchTextField.layer.cornerRadius = 15
+        searchTextField.clipsToBounds = true
+        searchTextField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 15, height: 0));
+        searchTextField.leftViewMode = .always
     }
     
     func addObserver(){
@@ -61,6 +69,13 @@ class GiftViewController: UIViewController {
         collectionView.contentInset = UIEdgeInsets(top: 0, left: 15, bottom: 15, right: 15)
         collectionView.register(TimeOutCollectionViewCell.nib(), forCellWithReuseIdentifier: TimeOutCollectionViewCell.identifier)
         collectionView.register(UINib(nibName: HeaderView.reuseIdentifier, bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: HeaderView.reuseIdentifier)
+        
+        let longPressedGesture = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress(gestureRecognizer:)))
+        longPressedGesture.minimumPressDuration = 0.5
+        longPressedGesture.delegate = self
+        longPressedGesture.delaysTouchesBegan = true
+        self.collectionView.addGestureRecognizer(longPressedGesture)
+        
         collectionView.refreshControl = self.refreshControl
         collectionView.allowsSelection = true
         collectionView.isUserInteractionEnabled = true
@@ -91,7 +106,7 @@ class GiftViewController: UIViewController {
         dataSource.configureSupplementaryView = {(dataSource, collectionView, kind, indexPath) -> UICollectionReusableView in
             guard let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: HeaderView.reuseIdentifier, for: indexPath) as? HeaderView else { fatalError() }
             
-            headerView.updateFolderCount(count: self.viewModel.count)
+            headerView.updateCount(text: "\(self.viewModel.count)개의 기프티콘")
             headerView.sortingButton.rx.tap
                 .subscribe(onNext: { [weak self] _ in
                     guard let self = self else { return }
@@ -100,6 +115,32 @@ class GiftViewController: UIViewController {
             self.headerView = headerView
             return headerView
         }
+    }
+    
+    @objc func handleLongPress(gestureRecognizer : UILongPressGestureRecognizer){
+        if (gestureRecognizer.state != .began) {
+                return
+            }
+
+        let p = gestureRecognizer.location(in: collectionView)
+
+        if let indexPath = collectionView?.indexPathForItem(at: p) {
+            self.alertWithNoViewController(title: "알림 삭제", message: "알림을 삭제 하시겠습니까?", completion: { [self] (response) in
+                    if (response == "OK") {
+                        let index = indexPath.row
+                        let giftId = self.viewModel.findGiftId(index: index)
+                        viewModel.deleteGifticon(giftId: giftId)
+
+                        DispatchQueue.main.async {
+                            self.collectionView.reloadData()
+                        }
+                        self.alertViewController(title: "삭제 완료", message: "알림이 삭제 되었습니다.", completion: {(response) in
+                            self.viewModel.deleteGifticon(giftId: giftId)
+                        })
+                       }
+                })
+            }
+
     }
     
     private func bindViewModel(){
@@ -114,9 +155,9 @@ class GiftViewController: UIViewController {
         searchTextField: self.searchTextField.rx.text.orEmpty.asObservable(),
         floatingButtonTap: self.floatingButton.rx.tap.asObservable(),
         giftCellTap: self.collectionView.rx.itemSelected.map { $0 },
-            folderMoreButtonTap :self.collectionView.rx.itemSelected.map { $0.row },
+            folderMoreButtonTap :self.collectionView.rx.itemSelected.map { $0.row }
        // sortingButtonTap: self.headerView?.sortingButton.rx.tap.asObservable(),
-        deleteTap: self.collectionView.rx.longPressGesture()
+//            deleteTap: self.collectionView.rx.a
         )
         
         input.floatingButtonTap
@@ -130,8 +171,7 @@ class GiftViewController: UIViewController {
                     self.navigateToDetailGift()
                 }
             }).disposed(by: disposeBag)
-//        input.deleteTap
-//            .bind(onNext: <#T##(ControlEvent<UILongPressGestureRecognizer>.Element) -> Void#>)
+        
         let output = self.viewModel.transform(from: input, disposeBag: self.disposeBag)
         output.didFilderedGift
             .subscribe(onNext: { [weak self] _ in

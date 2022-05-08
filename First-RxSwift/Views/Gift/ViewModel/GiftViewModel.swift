@@ -26,7 +26,7 @@ class GiftViewModel {
         let giftCellTap: Observable<IndexPath> // giftId
         let folderMoreButtonTap:Observable<Int>
 //        let sortingButtonTap: Observable<Void>
-        let deleteTap: ControlEvent<UILongPressGestureRecognizer>
+//        let deleteTap: ControlEvent<UILongPressGestureRecognizer>
     }
     
     struct Output {
@@ -82,8 +82,27 @@ class GiftViewModel {
         return self.gift[0].items[index].timeoutId
     }
     
+    func getGiftSelected(giftId: Int) -> [Int] {
+        return self.gift[0].items.filter { $0.timeoutId == giftId }[0].selected
+    }
+    
     func sortBy(_ index: Int){
         giftUsecase.updateGift(gift: self.gift, idx: index)
+    }
+    
+    func deleteNotification(giftId: Int) {
+        let notiManager = LocalNotificationManager()
+        let notiidentifier = "t_\(giftId)_"
+        let selectedArray: [Int] = self.getGiftSelected(giftId: giftId)
+        
+        DispatchQueue.global().async {
+            notiManager.deleteSchedule(notificationId: notiidentifier + "0")
+            for i in selectedArray {
+                notiManager.deleteSchedule(notificationId: notiidentifier +
+                   "\(i)")
+            }
+        }
+        
     }
 
     

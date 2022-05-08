@@ -13,6 +13,7 @@
 		8E0B207D2827CC3D00B43ADC /* TimeOutCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0B207C2827CC3D00B43ADC /* TimeOutCollectionViewCell.swift */; };
 		8E0B207F2827CC7800B43ADC /* DateUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0B207E2827CC7800B43ADC /* DateUtil.swift */; };
 		8E0B20812827CCC000B43ADC /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0B20802827CCBF00B43ADC /* Date.swift */; };
+		8E0B20842827DC6F00B43ADC /* LocalNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0B20832827DC6F00B43ADC /* LocalNotificationManager.swift */; };
 		8E12409127423800000F97EF /* NewsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E12409027423800000F97EF /* NewsTableViewController.swift */; };
 		8E12409327423A2B000F97EF /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E12409227423A2B000F97EF /* Article.swift */; };
 		8E12409527423B1A000F97EF /* ArticleTableviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E12409427423B1A000F97EF /* ArticleTableviewCell.swift */; };
@@ -141,6 +142,7 @@
 		8E0B207C2827CC3D00B43ADC /* TimeOutCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeOutCollectionViewCell.swift; sourceTree = "<group>"; };
 		8E0B207E2827CC7800B43ADC /* DateUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateUtil.swift; sourceTree = "<group>"; };
 		8E0B20802827CCBF00B43ADC /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		8E0B20832827DC6F00B43ADC /* LocalNotificationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalNotificationManager.swift; sourceTree = "<group>"; };
 		8E12409027423800000F97EF /* NewsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewController.swift; sourceTree = "<group>"; };
 		8E12409227423A2B000F97EF /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		8E12409427423B1A000F97EF /* ArticleTableviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleTableviewCell.swift; sourceTree = "<group>"; };
@@ -284,6 +286,14 @@
 				352F36738ED28FF73D712510 /* Pods_First_RxSwiftTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8E0B20822827DC6200B43ADC /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				8E0B20832827DC6F00B43ADC /* LocalNotificationManager.swift */,
+			);
+			path = Manager;
 			sourceTree = "<group>";
 		};
 		8E12408E274237A3000F97EF /* ToDoListPriority */ = {
@@ -737,6 +747,7 @@
 		8EE79E2628154C3A00F770A5 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				8E0B20822827DC6200B43ADC /* Manager */,
 				8EE79E2928154E4100F770A5 /* Coordinator */,
 			);
 			path = Common;
@@ -1076,6 +1087,7 @@
 				8EA90FF52747C14B00F12366 /* WeatherViewController.swift in Sources */,
 				8EE79E37281552EE00F770A5 /* DefaultMainCoordinator.swift in Sources */,
 				8E8616F227968EEF005B1A88 /* SignUpViewReactor.swift in Sources */,
+				8E0B20842827DC6F00B43ADC /* LocalNotificationManager.swift in Sources */,
 				8ED47D7A272BBC4800393397 /* FilterService.swift in Sources */,
 				8EE79E3028154F9100F770A5 /* DefaultLoginCoordinator.swift in Sources */,
 				8E2494C727CE7E41009D03E8 /* LinkViewController.swift in Sources */,
