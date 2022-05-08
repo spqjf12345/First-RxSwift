@@ -52,7 +52,6 @@
 		8E8616F227968EEF005B1A88 /* SignUpViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8616F127968EEF005B1A88 /* SignUpViewReactor.swift */; };
 		8E8616F52796AA42005B1A88 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8616F42796AA42005B1A88 /* SignUpViewModel.swift */; };
 		8E8617012797C851005B1A88 /* UIColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8617002797C851005B1A88 /* UIColors.swift */; };
-		8E86170B2797DE5D005B1A88 /* AppService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E86170A2797DE5D005B1A88 /* AppService.swift */; };
 		8E86170D2797E29E005B1A88 /* FindIDViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E86170C2797E29E005B1A88 /* FindIDViewModel.swift */; };
 		8E86170F2797E2DD005B1A88 /* FindPWViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E86170E2797E2DD005B1A88 /* FindPWViewModel.swift */; };
 		8E8AF70A27CE84BD00578816 /* AddGiftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8AF70927CE84BD00578816 /* AddGiftViewController.swift */; };
@@ -176,7 +175,6 @@
 		8E8616F127968EEF005B1A88 /* SignUpViewReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewReactor.swift; sourceTree = "<group>"; };
 		8E8616F42796AA42005B1A88 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		8E8617002797C851005B1A88 /* UIColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColors.swift; sourceTree = "<group>"; };
-		8E86170A2797DE5D005B1A88 /* AppService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppService.swift; sourceTree = "<group>"; };
 		8E86170C2797E29E005B1A88 /* FindIDViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindIDViewModel.swift; sourceTree = "<group>"; };
 		8E86170E2797E2DD005B1A88 /* FindPWViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindPWViewModel.swift; sourceTree = "<group>"; };
 		8E8AF70927CE84BD00578816 /* AddGiftViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGiftViewController.swift; sourceTree = "<group>"; };
@@ -364,7 +362,6 @@
 			children = (
 				8E21C5002795B58D00C0AD86 /* API */,
 				8E21C5032795BC0E00C0AD86 /* LoginJoinService.swift */,
-				8E86170A2797DE5D005B1A88 /* AppService.swift */,
 				8EEF332427D4953F00FD816A /* FolderService.swift */,
 				8EEF336527DB825000FD816A /* TextService.swift */,
 				8EDDB44D281BE40C0064DFD7 /* GiftService.swift */,
@@ -1040,7 +1037,6 @@
 				8E949E3B27A13EA900947EDA /* SignUpValidationError.swift in Sources */,
 				8EEF332927D4996400FD816A /* FolderRepository.swift in Sources */,
 				8E21C5022795B5B500C0AD86 /* Login+JoinAPI.swift in Sources */,
-				8E86170B2797DE5D005B1A88 /* AppService.swift in Sources */,
 				8E86170D2797E29E005B1A88 /* FindIDViewModel.swift in Sources */,
 				8E24948E27CE395A009D03E8 /* MainViewController.swift in Sources */,
 				8E2494CE27CE7E8D009D03E8 /* ProfileViewController.swift in Sources */,
