@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Gift {
+struct Gift: Codable {
     var timeoutId: Int
     var userId: Int
     var title: String
@@ -17,7 +17,7 @@ struct Gift {
     var imageData: Data?
 }
 
-struct CreateGift {
+struct CreateGift: Codable {
     var userId: Int
     var title: String
     var deadline: String
@@ -26,7 +26,7 @@ struct CreateGift {
     var imageFile: Data
 }
 
-struct UpdateGift {
+struct UpdateGift: Codable {
     var timeoutId: Int
     var userId: Int
     var title: String
