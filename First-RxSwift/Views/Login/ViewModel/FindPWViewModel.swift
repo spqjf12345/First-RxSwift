@@ -49,7 +49,7 @@ class FindPWViewModel {
                     output.errorMessage.accept("아이디를 입력해주세요")
                 }else {
                     //call network
-                    self.loginUseCase.checkValidID(nickname: textfield)
+                    self.loginUseCase.checkValidID(textfield)
                         .subscribe(onNext : { value in
                             if(value == -1){
                                 output.inValidIDMessage.accept(true)

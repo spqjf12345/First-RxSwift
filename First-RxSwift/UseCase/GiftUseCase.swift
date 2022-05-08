@@ -20,7 +20,8 @@ class GiftUseCase: GiftUseCaseType {
     
     private let giftRepository: GiftRepositoryType
     var count = PublishSubject<Int>()
-    var gifticon = BehaviorSubject<[Gift]>(value: [])
+    var gifticon = BehaviorSubject<[SectionOfGift]>(value: [])
+    var originalGifticon = [SectionOfGift]()
     var disposeBag = DisposeBag()
     
     init(repository: GiftReposotory) {
@@ -28,6 +29,7 @@ class GiftUseCase: GiftUseCaseType {
     }
     
     func getGifticon() {
+        print("usecase getGifticon")
         giftRepository.getGifticon()
             .subscribe(onNext: { [weak self] gifts in
                 guard !gifts.isEmpty else {
@@ -35,7 +37,9 @@ class GiftUseCase: GiftUseCaseType {
                     self.count.onNext(0)
                     return
                 }
-                self?.gifticon.onNext(gifts)
+                print(gifts)
+                self?.gifticon.onNext([SectionOfGift(items: gifts)])
+                self?.originalGifticon = [SectionOfGift(items: gifts)]
                 self?.count.onNext(gifts.count)
                 
             }).disposed(by: disposeBag)
@@ -55,5 +59,27 @@ class GiftUseCase: GiftUseCaseType {
     
     func usedGifticon(giftId: Int) {
         giftRepository.usedGofticon(giftId: giftId)
+    }
+    
+    func filteredFolder(base gift: [SectionOfGift], from text: String) {
+        let gift = gift[0].items.filter { $0.title.hasPrefix(text) }
+        if gift.isEmpty {
+            self.gifticon.onNext(originalGifticon)
+        }else {
+            self.gifticon.onNext([SectionOfGift(items: gift)])
+        }
+    }
+    
+    func updateGift(gift: [SectionOfGift], idx: Int) {
+        if idx == 0 {
+            let item = gift[0].items.sorted { $0.title.localizedStandardCompare($1.title) == .orderedAscending }
+            self.gifticon.onNext([SectionOfGift(items: item)])
+        }else if idx == 1 {
+            let item = gift[0].items.sorted { $0.timeoutId < $1.timeoutId }
+            self.gifticon.onNext([SectionOfGift(items: item)])
+        }else if idx == 2 {
+            let item = gift[0].items.sorted { $0.timeoutId > $1.timeoutId }
+            self.gifticon.onNext([SectionOfGift(items: item)])
+        }
     }
 }

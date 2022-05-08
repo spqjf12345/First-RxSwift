@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		4BAD1A3EF3D160C8601E52E5 /* Pods_First_RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14D641DECD6F009F3A72A040 /* Pods_First_RxSwift.framework */; };
 		8E0B2073282784B300B43ADC /* ViewNotiController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0B2072282784B300B43ADC /* ViewNotiController.swift */; };
+		8E0B207B2827CC2E00B43ADC /* TimeOutCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E0B207A2827CC2E00B43ADC /* TimeOutCollectionViewCell.xib */; };
+		8E0B207D2827CC3D00B43ADC /* TimeOutCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0B207C2827CC3D00B43ADC /* TimeOutCollectionViewCell.swift */; };
+		8E0B207F2827CC7800B43ADC /* DateUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0B207E2827CC7800B43ADC /* DateUtil.swift */; };
+		8E0B20812827CCC000B43ADC /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0B20802827CCBF00B43ADC /* Date.swift */; };
 		8E12409127423800000F97EF /* NewsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E12409027423800000F97EF /* NewsTableViewController.swift */; };
 		8E12409327423A2B000F97EF /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E12409227423A2B000F97EF /* Article.swift */; };
 		8E12409527423B1A000F97EF /* ArticleTableviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E12409427423B1A000F97EF /* ArticleTableviewCell.swift */; };
@@ -133,6 +137,10 @@
 		4B40CF55A2F63045F1142CD3 /* Pods-First-RxSwiftTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-First-RxSwiftTests.release.xcconfig"; path = "Target Support Files/Pods-First-RxSwiftTests/Pods-First-RxSwiftTests.release.xcconfig"; sourceTree = "<group>"; };
 		667A3DFE82C346A8BFD50878 /* Pods-First-RxSwiftTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-First-RxSwiftTests.debug.xcconfig"; path = "Target Support Files/Pods-First-RxSwiftTests/Pods-First-RxSwiftTests.debug.xcconfig"; sourceTree = "<group>"; };
 		8E0B2072282784B300B43ADC /* ViewNotiController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewNotiController.swift; sourceTree = "<group>"; };
+		8E0B207A2827CC2E00B43ADC /* TimeOutCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimeOutCollectionViewCell.xib; sourceTree = "<group>"; };
+		8E0B207C2827CC3D00B43ADC /* TimeOutCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeOutCollectionViewCell.swift; sourceTree = "<group>"; };
+		8E0B207E2827CC7800B43ADC /* DateUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateUtil.swift; sourceTree = "<group>"; };
+		8E0B20802827CCBF00B43ADC /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		8E12409027423800000F97EF /* NewsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewController.swift; sourceTree = "<group>"; };
 		8E12409227423A2B000F97EF /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		8E12409427423B1A000F97EF /* ArticleTableviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleTableviewCell.swift; sourceTree = "<group>"; };
@@ -300,10 +308,12 @@
 		8E12409627423C04000F97EF /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				8E0B207E2827CC7800B43ADC /* DateUtil.swift */,
 				8E12409727423C1F000F97EF /* URLRequest+Extensions.swift */,
 				8EA90FF82747C59600F12366 /* URL.swift */,
 				8E8617002797C851005B1A88 /* UIColors.swift */,
 				8E27F7BC27BCE9F700D3E998 /* UIViewController.swift */,
+				8E0B20802827CCBF00B43ADC /* Date.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -417,6 +427,7 @@
 				8EDDB446281BE23D0064DFD7 /* ViewModel */,
 				8E2494C427CE7E26009D03E8 /* Controller */,
 				8E2494B527CE7AB1009D03E8 /* Timeout.storyboard */,
+				8E0B207A2827CC2E00B43ADC /* TimeOutCollectionViewCell.xib */,
 			);
 			path = Gift;
 			sourceTree = "<group>";
@@ -468,6 +479,7 @@
 		8E2494C427CE7E26009D03E8 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				8E0B207C2827CC3D00B43ADC /* TimeOutCollectionViewCell.swift */,
 				8E2494C927CE7E58009D03E8 /* GiftViewController.swift */,
 				8E8AF70927CE84BD00578816 /* AddGiftViewController.swift */,
 				8E0B2072282784B300B43ADC /* ViewNotiController.swift */,
@@ -898,6 +910,7 @@
 				8E24949027CE39BB009D03E8 /* MakeFolder.xib in Resources */,
 				8E2494B427CE7AA6009D03E8 /* Calendar.storyboard in Resources */,
 				8E2494BA27CE7ABE009D03E8 /* Phrase.storyboard in Resources */,
+				8E0B207B2827CC2E00B43ADC /* TimeOutCollectionViewCell.xib in Resources */,
 				8ED47D4D272BAEDF00393397 /* LaunchScreen.storyboard in Resources */,
 				8E2494B227CE7A9B009D03E8 /* Profile.storyboard in Resources */,
 				8ED47D4A272BAEDF00393397 /* Assets.xcassets in Resources */,
@@ -1041,6 +1054,7 @@
 				8EEF332927D4996400FD816A /* FolderRepository.swift in Sources */,
 				8E21C5022795B5B500C0AD86 /* Login+JoinAPI.swift in Sources */,
 				8E86170D2797E29E005B1A88 /* FindIDViewModel.swift in Sources */,
+				8E0B20812827CCC000B43ADC /* Date.swift in Sources */,
 				8E24948E27CE395A009D03E8 /* MainViewController.swift in Sources */,
 				8E2494CE27CE7E8D009D03E8 /* ProfileViewController.swift in Sources */,
 				8EEF335E27DB737700FD816A /* MakeFolder.swift in Sources */,
@@ -1052,6 +1066,7 @@
 				8EDDB44A281BE2870064DFD7 /* GiftUseCase.swift in Sources */,
 				8EA90FF72747C1C100F12366 /* WeatherResult.swift in Sources */,
 				8EDDB448281BE24C0064DFD7 /* GiftViewModel.swift in Sources */,
+				8E0B207F2827CC7800B43ADC /* DateUtil.swift in Sources */,
 				8E8616F52796AA42005B1A88 /* SignUpViewModel.swift in Sources */,
 				8EEF335C27DB730B00FD816A /* MakeFolderViewController.swift in Sources */,
 				8ED47D3E272BAEDD00393397 /* AppDelegate.swift in Sources */,
@@ -1100,6 +1115,7 @@
 				8E12409127423800000F97EF /* NewsTableViewController.swift in Sources */,
 				8ED47D78272BB67200393397 /* PhotoCollectionViewCell.swift in Sources */,
 				8E2494CC27CE7E66009D03E8 /* CalendarViewController.swift in Sources */,
+				8E0B207D2827CC3D00B43ADC /* TimeOutCollectionViewCell.swift in Sources */,
 				8EEF332327D487CB00FD816A /* Folder.swift in Sources */,
 				8E7877D6273ED6F7007C43E0 /* NotViewController.swift in Sources */,
 				8E43011527CF6DF7008EA2A4 /* FolderCollectionViewCell.swift in Sources */,

@@ -77,6 +77,11 @@
                             <constraint firstItem="nSI-tO-emI" firstAttribute="leading" secondItem="0Lw-Ia-yN6" secondAttribute="leading" id="veC-sd-PrJ"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="collectionView" destination="nSI-tO-emI" id="4dM-Qz-bWw"/>
+                        <outlet property="floatingButton" destination="Rfo-HJ-9EO" id="UZe-Q9-hOQ"/>
+                        <outlet property="searchTextField" destination="tid-a9-bfw" id="zUH-hX-wPk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tBT-Rl-CJ8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -137,9 +142,6 @@
                             <constraint firstItem="vog-kU-eYW" firstAttribute="leading" secondItem="GSw-4u-jX5" secondAttribute="leading" id="tpa-6w-kpD"/>
                         </constraints>
                     </view>
-                    <connections>
-                        <outlet property="imageView" destination="vog-kU-eYW" id="SL8-gO-3dD"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UcB-gx-MGf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

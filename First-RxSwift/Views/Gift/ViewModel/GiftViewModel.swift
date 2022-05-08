@@ -13,6 +13,7 @@ import RxGesture
 class GiftViewModel {
     var giftUsecase: GiftUseCase!
     var count = 0
+    var gift: [SectionOfGift] = []
     init(giftUsecase: GiftUseCase) {
         self.giftUsecase = giftUsecase
     }
@@ -24,14 +25,14 @@ class GiftViewModel {
         let floatingButtonTap: Observable<Void>
         let giftCellTap: Observable<IndexPath> // giftId
         let folderMoreButtonTap:Observable<Int>
-        let sortingButtonTap: Observable<Void>
+//        let sortingButtonTap: Observable<Void>
         let deleteTap: ControlEvent<UILongPressGestureRecognizer>
     }
     
     struct Output {
         var selectedGift = PublishSubject<SelectedFolderType>()
         var sortingTap = PublishRelay<Bool>()
-        var didFilderedFolder = PublishSubject<Bool>()
+        var didFilderedGift = PublishSubject<Bool>()
         let reloadData = PublishRelay<Bool>()
     }
     
@@ -45,12 +46,28 @@ class GiftViewModel {
                self.giftUsecase.getGifticon()
             }).disposed(by: disposeBag)
         
+        ///usecase binding
         self.giftUsecase.count
             .subscribe(onNext: { cnt in
                 self.count = cnt
             }).disposed(by: disposeBag)
         
+        self.giftUsecase.gifticon
+            .subscribe(onNext: { gift in
+                self.gift = gift
+            }).disposed(by: disposeBag)
         
+        input.searchTextField
+            .debounce(.microseconds(10), scheduler: MainScheduler.instance)
+            .distinctUntilChanged()
+            .filter { !$0.isEmpty }
+            .subscribe(onNext: { [weak self] text in
+                guard let self = self else { return }
+                self.giftUsecase.filteredFolder(base: self.gift, from: text)
+                output.didFilderedGift.onNext(true)
+            }).disposed(by: disposeBag)
+        
+        return output
     }
     
     func deleteGifticon(giftId: Int){
@@ -58,16 +75,17 @@ class GiftViewModel {
     }
     
     func checkIsValid(index: IndexPath) -> Bool {
-        return self.giftUsecase.isValidGifticon(index: index)
+        return gift[0].items[index.row].isValid
+    }
+    
+    func findGiftId(index: Int) -> Int {
+        return self.gift[0].items[index].timeoutId
     }
     
     func sortBy(_ index: Int){
-    
+        giftUsecase.updateGift(gift: self.gift, idx: index)
     }
-    
-    func findGiftId(){
-        
-    }
+
     
     
 }

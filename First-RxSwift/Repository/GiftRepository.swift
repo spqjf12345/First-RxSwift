@@ -18,7 +18,7 @@ protocol GiftRepositoryType {
 
 class GiftReposotory: GiftRepositoryType {
     
-    let giftService = GiftService()
+    let giftService: GiftService
     
     let disposeBag = DisposeBag()
     
