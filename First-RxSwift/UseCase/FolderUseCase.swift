@@ -23,11 +23,11 @@ protocol FolderUseCateType {
 class FolderUseCase: FolderUseCateType {
     var originalFolder = [SectionOfFolder]()
     var folders = PublishSubject<[SectionOfFolder]>()
-    private let folderRepository: FolderRepository
+    private let folderRepository: FolderRepositoryType
     
     var disposeBag = DisposeBag()
     
-    init(repository: FolderRepository) {
+    init(repository: FolderRepositoryType) {
         self.folderRepository = repository
     }
     

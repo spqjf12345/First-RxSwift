@@ -16,7 +16,7 @@ protocol LoginUseCaseType {
 
 class LoginUseCase: LoginUseCaseType {
     
-    private let userRepository: UserRepository
+    private let userRepository: UserRepositoryType
     var nicknameValidationState = BehaviorSubject<ValidationState>(value: .failure)
     var passwordValidationState = BehaviorSubject<ValidationState>(value: .failure)
     
@@ -28,7 +28,7 @@ class LoginUseCase: LoginUseCaseType {
     
     var disposeBag = DisposeBag()
     
-    init(repository: UserRepository) {
+    init(repository: UserRepositoryType) {
         self.userRepository = repository
     }
     
@@ -36,7 +36,7 @@ class LoginUseCase: LoginUseCaseType {
         userRepository.logIn(nickName: requestValue.nickName, password: requestValue.password)
     }
     
-    public func checkValidID(nickname: String) -> Observable<Int> { //findPW
+    public func checkValidID(_ nickname: String) -> Observable<Int> { //findPW
         return userRepository.checkValidId(nickname: nickname)
     }
     

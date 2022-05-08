@@ -13,6 +13,9 @@ protocol UserRepositoryType {
     func saveLoginInfo(userId: Int32, jwtToken: String)
     func logIn(nickName: String, password: String)
     func signUp(user: SignUpRequest) ->Observable<Int>
+    func checkValidId(nickname: String) -> Observable<Int>
+    func checkIdValid(nickname: String) -> Observable<Bool>
+    func sendMessage(phoneNumber: String) -> Observable<Int>
 }
 
 class UserRepository: UserRepositoryType {

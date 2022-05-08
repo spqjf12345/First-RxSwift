@@ -13,6 +13,9 @@ protocol FolderRepositoryType {
     func getFolders() -> Observable<[Folder]>
     func viewFolder(folderId: Int) -> Observable<ViewFolderResponse>
     func changeName(folderId: Int, changeName: String)
+    func changeImage(folderId: Int, imageData: Data)
+    func deleteFolder(folderId: Int)
+    func createFolder(folder: CreateFolderRequest)
 }
 
 class FolderRepository: FolderRepositoryType {

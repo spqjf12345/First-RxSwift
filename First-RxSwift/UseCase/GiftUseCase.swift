@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import RxSwift
 
 protocol GiftUseCaseType {
     func getGifticon()
@@ -15,6 +16,33 @@ protocol GiftUseCaseType {
     func usedGofticon()
 }
 
-class GiftUseCase {
+class GiftUseCase: GiftUseCaseType {
     
+    private let giftRepository: GiftRepositoryType
+    
+    var disposeBag = DisposeBag()
+    
+    init(repository: GiftRepositoryType) {
+        self.giftRepository = repository
+    }
+    
+    func getGifticon() {
+        <#code#>
+    }
+    
+    func updateGifticon() {
+        <#code#>
+    }
+    
+    func deleteGifticon() {
+        <#code#>
+    }
+    
+    func makeGifticon() {
+        <#code#>
+    }
+    
+    func usedGofticon() {
+        <#code#>
+    }
 }
