@@ -262,8 +262,8 @@ extension TextViewController: PHPickerViewControllerDelegate {
 
 extension TextViewController {
     private func navigateToMakeFolder() {
-        let vc = UIStoryboard(name: "AllMain", bundle: nil).instantiateViewController(identifier: "MakeFolderViewController") as! MakeFolderViewController
-        MakeFolderViewController.type_dropDown.dataSource = ["텍스트"]
+        let vc = UIStoryboard(name: "AllMain", bundle: nil).instantiateViewController(identifier: "MakeFolderViewController") as! AddFolderViewController
+        AddFolderViewController.type_dropDown.dataSource = ["텍스트"]
         self.modalPresentationStyle = .fullScreen
         self.present(vc, animated: true, completion: nil)
     }

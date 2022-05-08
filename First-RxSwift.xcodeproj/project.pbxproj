@@ -15,6 +15,8 @@
 		8E0B20812827CCC000B43ADC /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0B20802827CCBF00B43ADC /* Date.swift */; };
 		8E0B20842827DC6F00B43ADC /* LocalNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0B20832827DC6F00B43ADC /* LocalNotificationManager.swift */; };
 		8E0B20862827DFB200B43ADC /* AddGiftViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0B20852827DFB200B43ADC /* AddGiftViewModel.swift */; };
+		8E0B20882827E4C900B43ADC /* AddNotiFolderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E0B20872827E4C900B43ADC /* AddNotiFolderView.xib */; };
+		8E0B208A2827E4FC00B43ADC /* AddNotiFolderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0B20892827E4FC00B43ADC /* AddNotiFolderView.swift */; };
 		8E12409127423800000F97EF /* NewsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E12409027423800000F97EF /* NewsTableViewController.swift */; };
 		8E12409327423A2B000F97EF /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E12409227423A2B000F97EF /* Article.swift */; };
 		8E12409527423B1A000F97EF /* ArticleTableviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E12409427423B1A000F97EF /* ArticleTableviewCell.swift */; };
@@ -30,7 +32,7 @@
 		8E21C5022795B5B500C0AD86 /* Login+JoinAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E21C5012795B5B500C0AD86 /* Login+JoinAPI.swift */; };
 		8E21C5042795BC0E00C0AD86 /* LoginJoinService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E21C5032795BC0E00C0AD86 /* LoginJoinService.swift */; };
 		8E24948E27CE395A009D03E8 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E24948D27CE395A009D03E8 /* MainViewController.swift */; };
-		8E24949027CE39BB009D03E8 /* MakeFolder.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E24948F27CE39BB009D03E8 /* MakeFolder.xib */; };
+		8E24949027CE39BB009D03E8 /* AddFolder.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E24948F27CE39BB009D03E8 /* AddFolder.xib */; };
 		8E2494AA27CE5060009D03E8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8ED47D43272BAEDD00393397 /* Main.storyboard */; };
 		8E2494AC27CE510D009D03E8 /* AllMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E2494AB27CE510D009D03E8 /* AllMain.storyboard */; };
 		8E2494AE27CE7943009D03E8 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2494AD27CE7943009D03E8 /* PageViewController.swift */; };
@@ -106,8 +108,8 @@
 		8EEF332B27D49A2000FD816A /* FolderUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEF332A27D49A2000FD816A /* FolderUseCase.swift */; };
 		8EEF335827DB718D00FD816A /* TextInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEF335727DB718D00FD816A /* TextInViewController.swift */; };
 		8EEF335A27DB719B00FD816A /* LinkInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEF335927DB719B00FD816A /* LinkInViewController.swift */; };
-		8EEF335C27DB730B00FD816A /* MakeFolderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEF335B27DB730B00FD816A /* MakeFolderViewController.swift */; };
-		8EEF335E27DB737700FD816A /* MakeFolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEF335D27DB737700FD816A /* MakeFolder.swift */; };
+		8EEF335C27DB730B00FD816A /* AddFolderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEF335B27DB730B00FD816A /* AddFolderViewController.swift */; };
+		8EEF335E27DB737700FD816A /* AddFolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEF335D27DB737700FD816A /* AddFolder.swift */; };
 		8EEF336227DB810700FD816A /* TextInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEF336127DB810700FD816A /* TextInViewModel.swift */; };
 		8EEF336627DB825000FD816A /* TextService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEF336527DB825000FD816A /* TextService.swift */; };
 		E00698A0A040B291D9EFAC57 /* Pods_First_RxSwift_First_RxSwiftUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D65B8FC0921D093937AF5F0 /* Pods_First_RxSwift_First_RxSwiftUITests.framework */; };
@@ -145,6 +147,8 @@
 		8E0B20802827CCBF00B43ADC /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		8E0B20832827DC6F00B43ADC /* LocalNotificationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalNotificationManager.swift; sourceTree = "<group>"; };
 		8E0B20852827DFB200B43ADC /* AddGiftViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGiftViewModel.swift; sourceTree = "<group>"; };
+		8E0B20872827E4C900B43ADC /* AddNotiFolderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddNotiFolderView.xib; sourceTree = "<group>"; };
+		8E0B20892827E4FC00B43ADC /* AddNotiFolderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddNotiFolderView.swift; sourceTree = "<group>"; };
 		8E12409027423800000F97EF /* NewsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewController.swift; sourceTree = "<group>"; };
 		8E12409227423A2B000F97EF /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		8E12409427423B1A000F97EF /* ArticleTableviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleTableviewCell.swift; sourceTree = "<group>"; };
@@ -161,7 +165,7 @@
 		8E21C5012795B5B500C0AD86 /* Login+JoinAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Login+JoinAPI.swift"; sourceTree = "<group>"; };
 		8E21C5032795BC0E00C0AD86 /* LoginJoinService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginJoinService.swift; sourceTree = "<group>"; };
 		8E24948D27CE395A009D03E8 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		8E24948F27CE39BB009D03E8 /* MakeFolder.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MakeFolder.xib; sourceTree = "<group>"; };
+		8E24948F27CE39BB009D03E8 /* AddFolder.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddFolder.xib; sourceTree = "<group>"; };
 		8E2494AB27CE510D009D03E8 /* AllMain.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AllMain.storyboard; sourceTree = "<group>"; };
 		8E2494AD27CE7943009D03E8 /* PageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		8E2494B127CE7A9B009D03E8 /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
@@ -243,8 +247,8 @@
 		8EEF332A27D49A2000FD816A /* FolderUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderUseCase.swift; sourceTree = "<group>"; };
 		8EEF335727DB718D00FD816A /* TextInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInViewController.swift; sourceTree = "<group>"; };
 		8EEF335927DB719B00FD816A /* LinkInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkInViewController.swift; sourceTree = "<group>"; };
-		8EEF335B27DB730B00FD816A /* MakeFolderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeFolderViewController.swift; sourceTree = "<group>"; };
-		8EEF335D27DB737700FD816A /* MakeFolder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MakeFolder.swift; sourceTree = "<group>"; };
+		8EEF335B27DB730B00FD816A /* AddFolderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFolderViewController.swift; sourceTree = "<group>"; };
+		8EEF335D27DB737700FD816A /* AddFolder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddFolder.swift; sourceTree = "<group>"; };
 		8EEF336127DB810700FD816A /* TextInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInViewModel.swift; sourceTree = "<group>"; };
 		8EEF336527DB825000FD816A /* TextService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextService.swift; sourceTree = "<group>"; };
 		A39627D2CEFE0F9B1068D70F /* Pods-First-RxSwift-First-RxSwiftUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-First-RxSwift-First-RxSwiftUITests.debug.xcconfig"; path = "Target Support Files/Pods-First-RxSwift-First-RxSwiftUITests/Pods-First-RxSwift-First-RxSwiftUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -296,6 +300,17 @@
 				8E0B20832827DC6F00B43ADC /* LocalNotificationManager.swift */,
 			);
 			path = Manager;
+			sourceTree = "<group>";
+		};
+		8E0B208B2827E50100B43ADC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8E2494B527CE7AB1009D03E8 /* Timeout.storyboard */,
+				8E0B207A2827CC2E00B43ADC /* TimeOutCollectionViewCell.xib */,
+				8E0B20892827E4FC00B43ADC /* AddNotiFolderView.swift */,
+				8E0B20872827E4C900B43ADC /* AddNotiFolderView.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		8E12408E274237A3000F97EF /* ToDoListPriority */ = {
@@ -436,10 +451,9 @@
 		8E24949427CE3D27009D03E8 /* Gift */ = {
 			isa = PBXGroup;
 			children = (
+				8E0B208B2827E50100B43ADC /* View */,
 				8EDDB446281BE23D0064DFD7 /* ViewModel */,
 				8E2494C427CE7E26009D03E8 /* Controller */,
-				8E2494B527CE7AB1009D03E8 /* Timeout.storyboard */,
-				8E0B207A2827CC2E00B43ADC /* TimeOutCollectionViewCell.xib */,
 			);
 			path = Gift;
 			sourceTree = "<group>";
@@ -512,7 +526,7 @@
 			isa = PBXGroup;
 			children = (
 				8E2494D027CE8038009D03E8 /* AllBoxViewController.swift */,
-				8EEF335B27DB730B00FD816A /* MakeFolderViewController.swift */,
+				8EEF335B27DB730B00FD816A /* AddFolderViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -521,8 +535,8 @@
 			isa = PBXGroup;
 			children = (
 				8EE79E312815510C00F770A5 /* Coordinator */,
-				8EEF335D27DB737700FD816A /* MakeFolder.swift */,
-				8E24948F27CE39BB009D03E8 /* MakeFolder.xib */,
+				8EEF335D27DB737700FD816A /* AddFolder.swift */,
+				8E24948F27CE39BB009D03E8 /* AddFolder.xib */,
 				8E27F7C227BCEC8B00D3E998 /* Controller */,
 				8E2494AB27CE510D009D03E8 /* AllMain.storyboard */,
 			);
@@ -921,8 +935,9 @@
 				8EE14A0527E1EAFF0020E75A /* HeaderView.xib in Resources */,
 				8E2494AC27CE510D009D03E8 /* AllMain.storyboard in Resources */,
 				8E21C4F0279557B200C0AD86 /* Login.storyboard in Resources */,
-				8E24949027CE39BB009D03E8 /* MakeFolder.xib in Resources */,
+				8E24949027CE39BB009D03E8 /* AddFolder.xib in Resources */,
 				8E2494B427CE7AA6009D03E8 /* Calendar.storyboard in Resources */,
+				8E0B20882827E4C900B43ADC /* AddNotiFolderView.xib in Resources */,
 				8E2494BA27CE7ABE009D03E8 /* Phrase.storyboard in Resources */,
 				8E0B207B2827CC2E00B43ADC /* TimeOutCollectionViewCell.xib in Resources */,
 				8ED47D4D272BAEDF00393397 /* LaunchScreen.storyboard in Resources */,
@@ -1071,7 +1086,7 @@
 				8E0B20812827CCC000B43ADC /* Date.swift in Sources */,
 				8E24948E27CE395A009D03E8 /* MainViewController.swift in Sources */,
 				8E2494CE27CE7E8D009D03E8 /* ProfileViewController.swift in Sources */,
-				8EEF335E27DB737700FD816A /* MakeFolder.swift in Sources */,
+				8EEF335E27DB737700FD816A /* AddFolder.swift in Sources */,
 				8EEF335A27DB719B00FD816A /* LinkInViewController.swift in Sources */,
 				8ED47D42272BAEDD00393397 /* ViewController.swift in Sources */,
 				8EEF336627DB825000FD816A /* TextService.swift in Sources */,
@@ -1082,7 +1097,7 @@
 				8EDDB448281BE24C0064DFD7 /* GiftViewModel.swift in Sources */,
 				8E0B207F2827CC7800B43ADC /* DateUtil.swift in Sources */,
 				8E8616F52796AA42005B1A88 /* SignUpViewModel.swift in Sources */,
-				8EEF335C27DB730B00FD816A /* MakeFolderViewController.swift in Sources */,
+				8EEF335C27DB730B00FD816A /* AddFolderViewController.swift in Sources */,
 				8ED47D3E272BAEDD00393397 /* AppDelegate.swift in Sources */,
 				8EE14A0327E1CBA70020E75A /* HeaderView.swift in Sources */,
 				8E43011127CF6C72008EA2A4 /* AllBoxViewModel.swift in Sources */,
@@ -1093,6 +1108,7 @@
 				8E0B20842827DC6F00B43ADC /* LocalNotificationManager.swift in Sources */,
 				8E0B20862827DFB200B43ADC /* AddGiftViewModel.swift in Sources */,
 				8ED47D7A272BBC4800393397 /* FilterService.swift in Sources */,
+				8E0B208A2827E4FC00B43ADC /* AddNotiFolderView.swift in Sources */,
 				8EE79E3028154F9100F770A5 /* DefaultLoginCoordinator.swift in Sources */,
 				8E2494C727CE7E41009D03E8 /* LinkViewController.swift in Sources */,
 				8E21C4EE2795568600C0AD86 /* User.swift in Sources */,

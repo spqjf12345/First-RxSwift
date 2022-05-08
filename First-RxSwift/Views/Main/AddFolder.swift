@@ -1,5 +1,5 @@
 //
-//  MakeFolder.swift
+//  AddFolder.swift
 //  PrivateRoom
 //
 //  Created by JoSoJeong on 2021/07/13.
@@ -8,37 +8,13 @@
 import Foundation
 import UIKit
 
+class AddFolder: UIView {
 
-//protocol MakeFolderdelegate: AnyObject {
-//    func dissMiss()
-//    func done()
-//    func tapImageView()
-//    func folderType()
-//}
-
-//@IBDesignable
-class MakeFolder: UIView {
-    
-    
-//    @IBAction func dismissButton(_ sender: Any) {
-//        delegate?.dissMiss()
-//    }
-    
- 
     @IBOutlet weak var folderNameTextField: UITextField!
-
     @IBOutlet var folderImage: UIImageView!
-
     @IBOutlet weak var folderTypeButton: UIButton!
     @IBOutlet weak var disMissButton: UIButton!
     @IBOutlet weak var doneButton: UIButton!
-    
-//    @IBAction func doneButton(_ sender: Any) {
-//        delegate?.done()
-//    }
-
-    
-    //var delegate: MakeFolderdelegate?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -56,8 +32,6 @@ class MakeFolder: UIView {
     func UISetting(){
         folderImage.isUserInteractionEnabled = true
         folderImage.contentMode = .scaleToFill
-        
-        //folderTypeButton.addTarget(self, action: #selector(didTapFolderType), for: .touchUpInside)
         folderNameTextField.borderStyle = .none
         let border = CALayer()
         border.frame = CGRect(x: 0, y: folderNameTextField.frame.size.height - 1, width: folderNameTextField.frame.width, height: 1)
@@ -66,20 +40,9 @@ class MakeFolder: UIView {
         folderNameTextField.textColor = UIColor.white
 
     }
-//
-//    @objc func didTapImageView(){
-//        delegate?.tapImageView()
-//
-//    }
-//
-//    @objc func didTapFolderType(){
-//        delegate?.folderType()
-//    }
 
-
-    
     private func loadView() {
-        let view = Bundle.main.loadNibNamed("MakeFolder",owner: self, options: nil)?.first as! UIView
+        let view = Bundle.main.loadNibNamed("AddFolder",owner: self, options: nil)?.first as! UIView
         view.frame = bounds
         addSubview(view)
         

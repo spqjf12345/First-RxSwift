@@ -12,41 +12,41 @@ import DropDown
 import PhotosUI
 import RxGesture
 
-enum MakeFolderError: Error {
-    case folderNameCount
-    case folderImage
-    case folderName
-    case folderType
-}
+//enum MakeFolderError: Error {
+//    case folderNameCount
+//    case folderImage
+//    case folderName
+//    case folderType
+//}
 
-class MakeFolderViewController: UIViewController {
+class AddFolderViewController: UIViewController {
     
     static let type_dropDown = DropDown()
     let disposeBag = DisposeBag()
     
     var viewModel = AddFolderViewModel(folderUseCase: FolderUseCase(repository: FolderRepository(folderService: FolderService())))
     
-    @IBOutlet var folderView: MakeFolder!
+    @IBOutlet var folderView: AddFolder!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         bindViewModel()
         type_dropDownSetting()
         
-        MakeFolderViewController.type_dropDown.selectionAction = { [unowned self] (index: Int, item: String) in
+        AddFolderViewController.type_dropDown.selectionAction = { [unowned self] (index: Int, item: String) in
             folderView.folderTypeButton.setTitle("\(item)", for: .normal)
             folderView.folderTypeButton.setTitleColor(UIColor.black, for: .normal)
             folderView.folderTypeButton.layer.borderWidth = 1
             folderView.folderTypeButton.layer.borderColor = UIColor.black.cgColor
             folderView.folderTypeButton.backgroundColor = UIColor.clear
             folderView.folderTypeButton.setTitleColor(.white, for: .normal)
-            MakeFolderViewController.type_dropDown.clearSelection()
+            AddFolderViewController.type_dropDown.clearSelection()
         }
     }
     
     func type_dropDownSetting(){
-        MakeFolderViewController.type_dropDown.textColor = .white
-        MakeFolderViewController.type_dropDown.backgroundColor = #colorLiteral(red: 0.2659958005, green: 0.3394620717, blue: 0.6190373302, alpha: 1)
+        AddFolderViewController.type_dropDown.textColor = .white
+        AddFolderViewController.type_dropDown.backgroundColor = #colorLiteral(red: 0.2659958005, green: 0.3394620717, blue: 0.6190373302, alpha: 1)
     }
     
 
@@ -126,8 +126,8 @@ class MakeFolderViewController: UIViewController {
 //    }
     
     func folderType() {
-        MakeFolderViewController.type_dropDown.anchorView = folderView.folderTypeButton
-        MakeFolderViewController.type_dropDown.show()
+        AddFolderViewController.type_dropDown.anchorView = folderView.folderTypeButton
+        AddFolderViewController.type_dropDown.show()
     }
     
     
@@ -206,7 +206,7 @@ class MakeFolderViewController: UIViewController {
     
 }
 
-extension MakeFolderViewController: PHPickerViewControllerDelegate {
+extension AddFolderViewController: PHPickerViewControllerDelegate {
     func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
         picker.dismiss(animated: true, completion: nil)
         let itemProvider = results.first?.itemProvider
