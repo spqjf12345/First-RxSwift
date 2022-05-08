@@ -11,6 +11,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddNotiFolderView" customModule="First_RxSwift" customModuleProvider="target">
             <connections>
                 <outlet property="datePicker" destination="P3G-aC-HMC" id="hBd-C6-Npu"/>
+                <outlet property="dismissButton" destination="deI-oV-rmG" id="vyU-oG-l5Z"/>
+                <outlet property="doneButton" destination="aTc-K9-xW0" id="xMd-Qq-crt"/>
                 <outlet property="imageView" destination="Mzh-OV-0tI" id="dva-6L-8vc"/>
                 <outlet property="nameTextField" destination="NbD-zq-l9C" id="6zc-ZJ-9c7"/>
                 <outlet property="oneDayButton" destination="xkM-z7-tpH" id="1Zn-cw-bjO"/>
@@ -67,9 +69,6 @@
                             <state key="normal" backgroundImage="xmark.circle.fill" catalog="system">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
-                            <connections>
-                                <action selector="disMissButton:" destination="-1" eventType="touchUpInside" id="yZj-PM-4ZR"/>
-                            </connections>
                         </button>
                         <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Fq0-qZ-ahM">
                             <rect key="frame" x="20" y="120" width="360" height="320.5"/>
@@ -114,9 +113,6 @@
                                             <state key="normal" title="1주일 전">
                                                 <color key="titleColor" red="0.92931753399999995" green="0.92156678439999995" blue="0.9215686917" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             </state>
-                                            <connections>
-                                                <action selector="weekDayButton:" destination="-1" eventType="touchUpInside" id="slj-Kh-Nfg"/>
-                                            </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0HK-Yf-HR7">
                                             <rect key="frame" x="120" y="0.0" width="120" height="40"/>
@@ -124,9 +120,6 @@
                                             <state key="normal" title="3일 전">
                                                 <color key="titleColor" red="0.92931753399999995" green="0.92156678439999995" blue="0.9215686917" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             </state>
-                                            <connections>
-                                                <action selector="threeDayButton:" destination="-1" eventType="touchUpInside" id="B4J-Sa-Y96"/>
-                                            </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xkM-z7-tpH">
                                             <rect key="frame" x="240" y="0.0" width="120" height="40"/>
@@ -134,9 +127,6 @@
                                             <state key="normal" title="하루 전">
                                                 <color key="titleColor" red="0.92931753399999995" green="0.92156678439999995" blue="0.9215686917" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             </state>
-                                            <connections>
-                                                <action selector="oneDayButton:" destination="-1" eventType="touchUpInside" id="cMu-2H-4hT"/>
-                                            </connections>
                                         </button>
                                     </subviews>
                                     <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -163,9 +153,6 @@
                             <state key="normal" title="완료">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
-                            <connections>
-                                <action selector="doneButton:" destination="-1" eventType="touchUpInside" id="02w-zc-hsm"/>
-                            </connections>
                         </button>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="e6E-eL-UR4">
                             <rect key="frame" x="0.0" y="477" width="400" height="110"/>

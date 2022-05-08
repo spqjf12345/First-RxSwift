@@ -21,37 +21,40 @@ class AddNotiFolderView: UIView {
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var datePicker: UIDatePicker!
+    @IBOutlet weak var dismissButton: UIButton!
+    
     @IBOutlet weak var weekDayButton: UIButton!
-    
-    @IBAction func weekDayButton(_ sender: UIButton) {
-        if(sender.isSelected){
-            sender.isSelected = false
-        }else {
-            sender.isSelected = true
-        }
-    }
-    
     @IBOutlet weak var threeDayButton: UIButton!
-    
-    @IBAction func threeDayButton(_ sender: UIButton) {
-        if(sender.isSelected){
-            sender.isSelected = false
-        }else {
-            sender.isSelected = true
-        }
-    }
-    
-    
     @IBOutlet weak var oneDayButton: UIButton!
+    @IBOutlet weak var doneButton: UIButton!
     
-    @IBAction func oneDayButton(_ sender: UIButton) {
-        if(sender.isSelected){
-            sender.isSelected = false
-        }else {
-            sender.isSelected = true
-        }
-        
-    }
+//    @IBAction func weekDayButton(_ sender: UIButton) {
+//        if(sender.isSelected){
+//            sender.isSelected = false
+//        }else {
+//            sender.isSelected = true
+//        }
+//    }
+//    
+//  
+//    
+//    @IBAction func threeDayButton(_ sender: UIButton) {
+//        if(sender.isSelected){
+//            sender.isSelected = false
+//        }else {
+//            sender.isSelected = true
+//        }
+//    }
+//
+//    
+//    @IBAction func oneDayButton(_ sender: UIButton) {
+//        if(sender.isSelected){
+//            sender.isSelected = false
+//        }else {
+//            sender.isSelected = true
+//        }
+//        
+//    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -70,16 +73,11 @@ class AddNotiFolderView: UIView {
         let view = Bundle.main.loadNibNamed("AddNotiFolderView",owner: self, options: nil)?.first as! UIView
         view.frame = bounds
         addSubview(view)
-        
     }
     
     func UISetting(){
         imageView.isUserInteractionEnabled = true
-//        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapImageView))
-//        imageView.addGestureRecognizer(tapGestureRecognizer)
         imageView.contentMode = .scaleToFill
-        
-        
         nameTextField.borderStyle = .none
         let border = CALayer()
         border.frame = CGRect(x: 0, y: nameTextField.frame.size.height - 1, width: nameTextField.frame.width / 2 + 10, height: 1)
@@ -88,12 +86,6 @@ class AddNotiFolderView: UIView {
         nameTextField.textColor = UIColor.white
 
     }
-//
-//        @objc func didTapImageView(){
-//            print("did tap")
-//            delegate?.tapImageView()
-//
-//        }
     
     func configure(cell: Gift){
         nameTextField.text = cell.title

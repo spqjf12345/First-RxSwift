@@ -114,7 +114,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="makeNotiFolderView" destination="dPU-Xm-NzS" id="iSx-Jl-0jm"/>
+                        <outlet property="addNotiView" destination="dPU-Xm-NzS" id="5D5-y7-asS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KUd-Ku-I05" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -31,8 +31,16 @@ class AddFolderViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         bindViewModel()
-        type_dropDownSetting()
-        
+        setupUI()
+        setupDropDown()
+    }
+    
+    func setupUI(){
+        AddFolderViewController.type_dropDown.textColor = .white
+        AddFolderViewController.type_dropDown.backgroundColor = #colorLiteral(red: 0.2659958005, green: 0.3394620717, blue: 0.6190373302, alpha: 1)
+    }
+    
+    func setupDropDown(){
         AddFolderViewController.type_dropDown.selectionAction = { [unowned self] (index: Int, item: String) in
             folderView.folderTypeButton.setTitle("\(item)", for: .normal)
             folderView.folderTypeButton.setTitleColor(UIColor.black, for: .normal)
@@ -42,18 +50,6 @@ class AddFolderViewController: UIViewController {
             folderView.folderTypeButton.setTitleColor(.white, for: .normal)
             AddFolderViewController.type_dropDown.clearSelection()
         }
-    }
-    
-    func type_dropDownSetting(){
-        AddFolderViewController.type_dropDown.textColor = .white
-        AddFolderViewController.type_dropDown.backgroundColor = #colorLiteral(red: 0.2659958005, green: 0.3394620717, blue: 0.6190373302, alpha: 1)
-    }
-    
-
-    
-    func dissMiss() {
-//        self.navigationController?.popViewController(animated: true)
-        self.dismiss(animated: true)
     }
     
     func done() {
@@ -131,15 +127,6 @@ class AddFolderViewController: UIViewController {
     }
     
     
-    func tapImageView(){
-        var configuration = PHPickerConfiguration()
-        configuration.filter = .any(of: [.images])
-        let picker = PHPickerViewController(configuration: configuration)
-        picker.delegate = self
-        self.present(picker, animated: true, completion: nil)
-    }
-    
-    
 
     func bindViewModel(){
         let input = AddFolderViewModel.Input (
@@ -157,19 +144,16 @@ class AddFolderViewController: UIViewController {
             .disposed(by: disposeBag)
 
         input.touchImage
-            .subscribe(onNext: { _ in
-                self.tapImageView()
-            }).disposed(by: disposeBag)
+            .bind(onNext: tapImageView(_:))
+            .disposed(by: disposeBag)
 
         input.foderTypeButtonTap
-            .subscribe(onNext: { _ in
-                self.folderType()
-            }).disposed(by: disposeBag)
+            .bind(onNext: folderType)
+            .disposed(by: disposeBag)
 
         input.deleteButtonTap
-            .subscribe(onNext: { _ in
-                self.dissMiss()
-            }).disposed(by: disposeBag)
+            .bind(onNext: dissMiss)
+            .disposed(by: disposeBag)
         
 
         output.folderType
@@ -198,11 +182,6 @@ class AddFolderViewController: UIViewController {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
-
-    
-    private func showAlert(message: String){
-        self.alertViewController(title: "알림", message: message, completion: { str in })
-    }
     
 }
 
@@ -224,6 +203,25 @@ extension AddFolderViewController: PHPickerViewControllerDelegate {
             
         }
 
+    }
+}
+
+extension AddFolderViewController {
+    private func showAlert(message: String){
+        self.alertViewController(title: "알림", message: message, completion: { str in })
+    }
+    
+    private func tapImageView(_ recog: UITapGestureRecognizer){
+        var configuration = PHPickerConfiguration()
+        configuration.filter = .any(of: [.images])
+        let picker = PHPickerViewController(configuration: configuration)
+        picker.delegate = self
+        self.present(picker, animated: true, completion: nil)
+    }
+    
+    private func dissMiss() {
+//        self.navigationController?.popViewController(animated: true)
+        self.dismiss(animated: true)
     }
 }
 

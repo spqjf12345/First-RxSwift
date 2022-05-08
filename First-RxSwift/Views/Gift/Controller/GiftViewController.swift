@@ -212,24 +212,3 @@ extension GiftViewController {
     }
     
 }
-
-//extension GiftViewController: PHPickerViewControllerDelegate {
-//    func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
-//        picker.dismiss(animated: true, completion: nil)
-//        let itemProvider = results.first?.itemProvider
-//        if let itemProvider = itemProvider, itemProvider.canLoadObject(ofClass: UIImage.self) {
-//            itemProvider.loadObject(ofClass: UIImage.self) { [self] (image, error) in
-//                if let image = image as? UIImage {
-//                    let folderId = self.viewModel.findGiftId(index: selectedCellIndexPath.row)
-//                    self.viewModel.changeFolderImage(folderId: folderId, imageData: image.pngData()!)
-//                    DispatchQueue.main.async {
-//                        self.alertViewController(title: "이미지 변경", message: "이미지가 변경되었습니다", completion: { str in })
-//                    }
-//                } else { // TODO: Handle empty results or item providernot being able load UIImage
-//            print("can't load image")
-//                }
-//                }
-//        }
-//
-//    }
-//}
