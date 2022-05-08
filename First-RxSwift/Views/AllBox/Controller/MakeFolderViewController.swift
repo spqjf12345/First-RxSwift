@@ -24,7 +24,7 @@ class MakeFolderViewController: UIViewController {
     static let type_dropDown = DropDown()
     let disposeBag = DisposeBag()
     
-    var viewModel = MakeFolderViewModel(folderUseCase: FolderUseCase(repository: FolderRepository(folderService: FolderService())))
+    var viewModel = AddFolderViewModel(folderUseCase: FolderUseCase(repository: FolderRepository(folderService: FolderService())))
     
     @IBOutlet var folderView: MakeFolder!
     
@@ -142,7 +142,7 @@ class MakeFolderViewController: UIViewController {
     
 
     func bindViewModel(){
-        let input = MakeFolderViewModel.Input (
+        let input = AddFolderViewModel.Input (
             touchImage: folderView.folderImage.rx.tapGesture().when(.recognized),
             deleteButtonTap: folderView.disMissButton.rx.tap.asObservable(),
             folderNameTextField: folderView.folderNameTextField.rx.text.orEmpty.asObservable(),

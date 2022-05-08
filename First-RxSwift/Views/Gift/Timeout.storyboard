@@ -87,10 +87,10 @@
             </objects>
             <point key="canvasLocation" x="4784" y="71"/>
         </scene>
-        <!--Make Noti Folder View Controller-->
+        <!--Add Gift View Controller-->
         <scene sceneID="r1H-1d-xXm">
             <objects>
-                <viewController storyboardIdentifier="MakeNotiFolderViewController" id="ZZl-a7-XoD" customClass="MakeNotiFolderViewController" customModule="First_RxSwift" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddGiftViewController" id="ZZl-a7-XoD" customClass="AddGiftViewController" customModule="First_RxSwift" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="e4u-Ro-moi">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

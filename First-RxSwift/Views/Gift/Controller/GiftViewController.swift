@@ -202,8 +202,8 @@ extension GiftViewController {
     }
     
     private func navigateToCreateGifticon(){
-        let giftVC = UIStoryboard(name: "Timeout", bundle: nil).instantiateViewController(withIdentifier: "MakeNotiFolderViewController")
-        self.navigationController?.pushViewController(giftVC, animated: true)
+        let addGiftVC = UIStoryboard(name: "Timeout", bundle: nil).instantiateViewController(withIdentifier: "AddGiftViewController")
+        self.navigationController?.pushViewController(addGiftVC, animated: true)
     }
     
     private func navigateToDetailGift(){
