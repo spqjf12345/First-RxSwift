@@ -13,9 +13,8 @@ class AddGiftViewModel {
     private let giftUsecase: GiftUseCaseType
     
     let disposeBag = DisposeBag()
-    let defaultImageView = UIImage(systemName: "questionmark.square")
-    let imageView = PublishRelay<UIImage?>()
     let userId = UserDefaults.standard.integer(forKey: UserDefaultKey.userID)
+    let imageView = BehaviorRelay<UIImage?>(value: UIImage(systemName: "questionmark.square"))
     
     init(giftUsecase: GiftUseCase){
         self.giftUsecase = giftUsecase
@@ -41,12 +40,11 @@ class AddGiftViewModel {
     
     func transform(from input: Input, disposeBag: DisposeBag) -> Output {
         let output = Output()
-        imageView.accept(defaultImageView)
         
         input.storeButtonTap
             .withLatestFrom(Observable.combineLatest(imageView, input.giftNameTextField, output.setAlarmDate, input.giftDueDatePicker))
             .bind { (image, name, alarm, dueDate) in
-                if(image == self.defaultImageView){
+                if(image == UIImage(systemName: "questionmark.square")){
                     output.errorMessage.accept("이미지를 선택해주세요")
                     output.enableDoneButton.accept(false)
                 }else if(name.isEmpty) {
@@ -58,7 +56,6 @@ class AddGiftViewModel {
                     output.errorMessage.accept("알림을 한개 이상 선택해 주세요")
                     output.enableDoneButton.accept(false)
                 }else {
-                    print("here")
                     self.giftUsecase.createGifticon(gift: CreateGift(userId: self.userId, title: name, deadline: dueDate, isValid: true, selected: alarm, imageFile: image!.pngData()!))
                     output.enableDoneButton.accept(true)
                 }

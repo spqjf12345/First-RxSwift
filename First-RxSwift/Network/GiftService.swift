@@ -11,6 +11,8 @@ import RxSwift
 
 class GiftService {
     let provider = MoyaProvider<GiftAPI>()
+    let disposeBag = DisposeBag()
+    
     var userId: Int {
         return UserDefaults.standard.integer(forKey: UserDefaultKey.userID)
     }
@@ -22,11 +24,25 @@ class GiftService {
             .asObservable()
     }
     
-    func createGifts(gift: CreateGift) -> Observable<String> {
-        return self.provider.rx.request(.createGift(userId: userId, gift: gift))
-            .filterSuccessfulStatusCodes()
-            .mapString()
-            .asObservable()
+    func createGifts(gift: CreateGift)   {
+        print("giftService \(gift)")
+        self.provider.rx.request(.createGift(userId: userId, gift: gift))
+            .mapString().subscribe({ str in
+                print(str)
+            }).disposed(by: disposeBag)
+//            .subscribe { event in
+//                print("event \(event)")
+//                switch event {
+//                   case let .success(response):
+//                       print("response \(response)")
+//                    case let .failure(error):
+//                       print("error in \(error)")
+//                   }
+//
+//            }.disposed(by: DisposeBag())
+//            .filterSuccessfulStatusCodes()
+//            .mapString()
+//            .asObservable()
     }
     
     func updateGifts(giftId: Int, image: Data, gift: UpdateGift) -> Observable<String> {
@@ -59,3 +75,4 @@ class GiftService {
     }
     
 }
+

@@ -30,7 +30,7 @@ class AddGiftViewController: UIViewController {
         addNotiView.weekDayButton.tag = 7
         addNotiView.threeDayButton.tag = 3
         addNotiView.oneDayButton.tag = 1
-        
+    
         input.touchImage
             .bind(onNext: tapImageView(_:))
             .disposed(by: disposeBag)
@@ -59,6 +59,10 @@ class AddGiftViewController: UIViewController {
            .bind(onNext: showAlert)
            .disposed(by: disposeBag)
        
+        viewModel.imageView
+            .bind(to: addNotiView.imageView.rx.image)
+            .disposed(by: disposeBag)
+        
         output.enableDoneButton
             .bind(onNext: { [weak self] bool in
                 if bool { self?.disMiss() }
@@ -111,14 +115,11 @@ extension AddGiftViewController: PHPickerViewControllerDelegate {
             picker.dismiss(animated: true, completion: nil)
             let itemProvider = results.first?.itemProvider
             if let itemProvider = itemProvider, itemProvider.canLoadObject(ofClass: UIImage.self) {
-                itemProvider.loadObject(ofClass: UIImage.self) { [self] (image, error) in
+                itemProvider.loadObject(ofClass: UIImage.self) { (image, error) in
                     if let image = image as? UIImage {
-                        DispatchQueue.main.async {
-                            self.viewModel.imageView.accept(image)
-                            self.addNotiView.imageView.image = image
-                        }
+                        self.viewModel.imageView.accept(image)
                     }
-                    }
+                }
             }
     
         }

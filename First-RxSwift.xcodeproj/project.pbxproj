@@ -313,6 +313,16 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		8E0B208F2828EAFD00B43ADC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8EEF335D27DB737700FD816A /* AddFolder.swift */,
+				8E24948F27CE39BB009D03E8 /* AddFolder.xib */,
+				8E2494AB27CE510D009D03E8 /* AllMain.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		8E12408E274237A3000F97EF /* ToDoListPriority */ = {
 			isa = PBXGroup;
 			children = (
@@ -534,11 +544,9 @@
 		8E27F7C027BCEC7B00D3E998 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				8E0B208F2828EAFD00B43ADC /* View */,
 				8EE79E312815510C00F770A5 /* Coordinator */,
-				8EEF335D27DB737700FD816A /* AddFolder.swift */,
-				8E24948F27CE39BB009D03E8 /* AddFolder.xib */,
 				8E27F7C227BCEC8B00D3E998 /* Controller */,
-				8E2494AB27CE510D009D03E8 /* AllMain.storyboard */,
 			);
 			path = Main;
 			sourceTree = "<group>";

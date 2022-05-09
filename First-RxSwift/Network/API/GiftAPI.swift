@@ -52,17 +52,59 @@ extension GiftAPI: TargetType {
         case .getGift, .usedGift, .deleteGift:
             return .requestPlain
         case .createGift( _, let gift):
-            return .requestPlain
+            var multipartFormData = [MultipartFormData]()
+            let parameter: [String: Any] = ["userId" : gift.userId,
+                                            "title" : gift.title,
+                                            "deadline" : gift.deadline,
+                                            "isValid" : gift.isValid,
+                                            "selected" : gift.selected ]
+            print(parameter)
+            var fileName = "\(gift.imageFile).jpg"
+            fileName = fileName.replacingOccurrences(of: " ", with: "_")
+            multipartFormData.append(MultipartFormData(provider: .data(gift.imageFile), name: "imageFile", fileName: fileName, mimeType: "image/jpg"))
+            
+            for (key, value) in parameter {
+                if let temp = value as? NSArray {
+                    temp.forEach({ element in
+                        if let string = element as? String {
+                            multipartFormData.append(MultipartFormData(provider: .data("\(string)".data(using: .utf8)!), name: key))
+                            
+                        } else
+                            if let num = element as? Int { // tags, amentities
+                                let value = "\(num)"
+                            multipartFormData.append(MultipartFormData(provider: .data("\(value)".data(using: .utf8)!), name: key))
+                        }
+                    })
+                    print(temp)
+                } else {
+                    multipartFormData.append(MultipartFormData(provider: .data("\(value)".data(using: .utf8)!), name: key))
+                    print("\(key) : \(value)")
+                }
+            }
+
+            
+            print("multi \(multipartFormData)")
+            return .uploadMultipart(multipartFormData)
+
         case .updateGiftImage(_, _, let image):
-            return .requestPlain
+            var multipartFormData = [MultipartFormData]()
+            
+            let createdAt = String(Int(Date().timeIntervalSince1970 * 1000))
+            multipartFormData.append(MultipartFormData(provider: .data(image), name: "imageFile", fileName: "\(createdAt).jpeg", mimeType: "image/jpeg"))
+            return .uploadMultipart(multipartFormData)
         case .updateGiftData(_, _, let gift):
-            return .requestPlain
+            var multipartFormData = [MultipartFormData]()
+            for (key, value) in gift.dictionary {
+                multipartFormData.append(MultipartFormData(provider: .data("\(value)".data(using: .utf8)!), name: key))
+            }
+            return .uploadMultipart(multipartFormData)
         
         }
     }
     
     var headers: [String : String]? {
         if let jwtToken = UserDefaults.standard.string(forKey: UserDefaultKey.jwtToken) {
+            print(jwtToken)
             return ["Authorization": jwtToken]
         }
         return nil

@@ -29,7 +29,6 @@ class GiftUseCase: GiftUseCaseType {
     }
     
     func getGifticon() {
-        print("usecase getGifticon")
         giftRepository.getGifticon()
             .subscribe(onNext: { [weak self] gifts in
                 guard !gifts.isEmpty else {
@@ -37,7 +36,6 @@ class GiftUseCase: GiftUseCaseType {
                     self.count.onNext(0)
                     return
                 }
-                print(gifts)
                 self?.gifticon.onNext([SectionOfGift(items: gifts)])
                 self?.originalGifticon = [SectionOfGift(items: gifts)]
                 self?.count.onNext(gifts.count)

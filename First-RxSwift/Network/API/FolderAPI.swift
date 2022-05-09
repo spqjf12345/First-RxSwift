@@ -56,18 +56,13 @@ extension FolderAPI: TargetType {
             return .requestPlain
         case .changeFolderName(_, _, let changeName):
             var multipartFormData = [MultipartFormData]()
-            let parameters = ["folderName": changeName]
-            for (key, value) in parameters {
-                multipartFormData.append(MultipartFormData(provider: .data("\(value)".data(using: .utf8)!), name: key))
-            }
-            //print("foldername \(multipartFormData)")
+            multipartFormData.append(MultipartFormData(provider: .data("\(changeName)".data(using: .utf8)!), name: "folderName"))
             return .uploadMultipart(multipartFormData)
             
         case .changeFolderImage(_, _, let changeImage):
             var multipartFormData = [MultipartFormData]()
             var fileName = "\(changeImage).jpg"
             fileName = fileName.replacingOccurrences(of: " ", with: "_")
-            print(fileName)
             multipartFormData.append(MultipartFormData(provider: .data(changeImage), name: "imageFile", fileName: fileName, mimeType: "image/jpg"))
             return .uploadMultipart(multipartFormData)
             

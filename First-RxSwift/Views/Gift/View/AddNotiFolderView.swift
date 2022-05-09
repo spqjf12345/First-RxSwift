@@ -8,14 +8,6 @@
 import Foundation
 import UIKit
 
-//protocol MakeNotiFolderViewdelegate: AnyObject {
-//    func dissMiss()
-//    func done()
-//    func tapImageView()
-//}
-//
-
-
 class AddNotiFolderView: UIView {
     
     @IBOutlet weak var nameTextField: UITextField!
@@ -27,34 +19,6 @@ class AddNotiFolderView: UIView {
     @IBOutlet weak var threeDayButton: UIButton!
     @IBOutlet weak var oneDayButton: UIButton!
     @IBOutlet weak var doneButton: UIButton!
-    
-//    @IBAction func weekDayButton(_ sender: UIButton) {
-//        if(sender.isSelected){
-//            sender.isSelected = false
-//        }else {
-//            sender.isSelected = true
-//        }
-//    }
-//    
-//  
-//    
-//    @IBAction func threeDayButton(_ sender: UIButton) {
-//        if(sender.isSelected){
-//            sender.isSelected = false
-//        }else {
-//            sender.isSelected = true
-//        }
-//    }
-//
-//    
-//    @IBAction func oneDayButton(_ sender: UIButton) {
-//        if(sender.isSelected){
-//            sender.isSelected = false
-//        }else {
-//            sender.isSelected = true
-//        }
-//        
-//    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -84,27 +48,5 @@ class AddNotiFolderView: UIView {
         border.backgroundColor = UIColor.white.cgColor
         nameTextField.layer.addSublayer((border))
         nameTextField.textColor = UIColor.white
-
-    }
-    
-    func configure(cell: Gift){
-        nameTextField.text = cell.title
-        if(cell.imageData != nil){
-            imageView.image = UIImage(data: cell.imageData!)
-        }
-        
-        let parseDate = DateUtil.parseDateTime(cell.deadline)
-        datePicker.date = parseDate
-        for i in cell.selected {
-            if(i == 7){
-                weekDayButton.isSelected = true
-            }
-            if(i == 3){
-                threeDayButton.isSelected = true
-            }
-            if(i == 1){
-                oneDayButton.isSelected = true
-            }
-        }
     }
 }

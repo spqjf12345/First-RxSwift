@@ -40,7 +40,13 @@ class GiftReposotory: GiftRepositoryType {
     }
     
     func createGift(gift: CreateGift) {
-        self.giftService.createGifts(gift: gift).catchAndReturn("error").subscribe { string in print(string) }.disposed(by: disposeBag)
+        self.giftService.createGifts(gift: gift)
+//            .subscribe(onNext: { item in
+//                print("error happend ", item)
+//            }).disposed(by: disposeBag)
+            
+            
+            //.catchAndReturn("error").subscribe { string in print(string) }.disposed(by: disposeBag)
     }
     
     func usedGofticon(giftId: Int) {
