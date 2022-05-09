@@ -33,6 +33,13 @@ class MainViewController: UIViewController {
     @IBOutlet weak var giftVC: UIButton!
     @IBOutlet weak var calendarVC: UIButton!
     @IBOutlet weak var profileVC: UIButton!
+    
+    @IBAction func profileVC(_ sender: Any) {
+        let profileVC = UIStoryboard(name: "Profile", bundle: nil).instantiateViewController(identifier: "ProfileViewController") as? ProfileViewController
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
+        self.navigationController?.pushViewController(profileVC!, animated: true)
+       
+    }
 
     var btnLists : [UIButton] = []
         

@@ -18,6 +18,10 @@ protocol UserRepositoryType {
     func sendMessage(phoneNumber: String) -> Observable<Int>
 }
 
+protocol ProfileRepositoryType {
+    func getUserInfo()
+}
+
 class UserRepository: UserRepositoryType {
     
     let userService: LoginJoinService
@@ -55,6 +59,14 @@ class UserRepository: UserRepositoryType {
     
     func sendMessage(phoneNumber: String) -> Observable<Int> {
         return userService.sendMessage(phoneNumber: phoneNumber)
+    }
+    
+    
+}
+
+extension UserRepository: ProfileRepositoryType {
+    func getUserInfo() {
+        
     }
     
     

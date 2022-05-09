@@ -77,6 +77,7 @@
                             <constraint firstItem="nSI-tO-emI" firstAttribute="leading" secondItem="0Lw-Ia-yN6" secondAttribute="leading" id="veC-sd-PrJ"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="YAd-zv-b7N"/>
                     <connections>
                         <outlet property="collectionView" destination="nSI-tO-emI" id="4dM-Qz-bWw"/>
                         <outlet property="floatingButton" destination="Rfo-HJ-9EO" id="UZe-Q9-hOQ"/>

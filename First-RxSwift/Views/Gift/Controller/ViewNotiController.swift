@@ -31,8 +31,6 @@ class ViewNotiController: UIViewController, UIScrollViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
-        
-        
     }
     
     func configureUI() {

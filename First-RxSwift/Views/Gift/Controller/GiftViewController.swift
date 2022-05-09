@@ -42,6 +42,11 @@ class GiftViewController: UIViewController, UIGestureRecognizerDelegate {
         setupUI()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        self.navigationController?.isNavigationBarHidden = true
+    }
+    
     func setupUI(){
         searchTextField.layer.cornerRadius = 15
         searchTextField.clipsToBounds = true
@@ -211,6 +216,7 @@ extension GiftViewController {
     private func navigateToDetailGift(selectedGift: Gift) {
         let viewNotiVC = UIStoryboard(name: "Timeout", bundle: nil).instantiateViewController(withIdentifier: "ViewNotiController") as! ViewNotiController
         viewNotiVC.imageView.image = UIImage(data: selectedGift.imageData!)
+        viewNotiVC.navigationItem.title = selectedGift.title
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         self.navigationController?.pushViewController(viewNotiVC, animated: true)
     }

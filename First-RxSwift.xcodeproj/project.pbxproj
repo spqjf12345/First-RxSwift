@@ -17,6 +17,10 @@
 		8E0B20862827DFB200B43ADC /* AddGiftViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0B20852827DFB200B43ADC /* AddGiftViewModel.swift */; };
 		8E0B20882827E4C900B43ADC /* AddNotiFolderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E0B20872827E4C900B43ADC /* AddNotiFolderView.xib */; };
 		8E0B208A2827E4FC00B43ADC /* AddNotiFolderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0B20892827E4FC00B43ADC /* AddNotiFolderView.swift */; };
+		8E0B209428290C6500B43ADC /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0B209328290C6500B43ADC /* ProfileViewModel.swift */; };
+		8E0B209628290C8800B43ADC /* ProfileUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0B209528290C8800B43ADC /* ProfileUsecase.swift */; };
+		8E0B209828290DB300B43ADC /* UserProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0B209728290DB300B43ADC /* UserProfileService.swift */; };
+		8E0B209A28290E1400B43ADC /* ProfileAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0B209928290E1400B43ADC /* ProfileAPI.swift */; };
 		8E12409127423800000F97EF /* NewsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E12409027423800000F97EF /* NewsTableViewController.swift */; };
 		8E12409327423A2B000F97EF /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E12409227423A2B000F97EF /* Article.swift */; };
 		8E12409527423B1A000F97EF /* ArticleTableviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E12409427423B1A000F97EF /* ArticleTableviewCell.swift */; };
@@ -149,6 +153,10 @@
 		8E0B20852827DFB200B43ADC /* AddGiftViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGiftViewModel.swift; sourceTree = "<group>"; };
 		8E0B20872827E4C900B43ADC /* AddNotiFolderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddNotiFolderView.xib; sourceTree = "<group>"; };
 		8E0B20892827E4FC00B43ADC /* AddNotiFolderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddNotiFolderView.swift; sourceTree = "<group>"; };
+		8E0B209328290C6500B43ADC /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		8E0B209528290C8800B43ADC /* ProfileUsecase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileUsecase.swift; sourceTree = "<group>"; };
+		8E0B209728290DB300B43ADC /* UserProfileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileService.swift; sourceTree = "<group>"; };
+		8E0B209928290E1400B43ADC /* ProfileAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAPI.swift; sourceTree = "<group>"; };
 		8E12409027423800000F97EF /* NewsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewController.swift; sourceTree = "<group>"; };
 		8E12409227423A2B000F97EF /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		8E12409427423B1A000F97EF /* ArticleTableviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleTableviewCell.swift; sourceTree = "<group>"; };
@@ -323,6 +331,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		8E0B209228290C5200B43ADC /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				8E0B209328290C6500B43ADC /* ProfileViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		8E12408E274237A3000F97EF /* ToDoListPriority */ = {
 			isa = PBXGroup;
 			children = (
@@ -392,6 +408,7 @@
 				8E21C4F6279560FB00C0AD86 /* LoginUseCase.swift */,
 				8EEF332A27D49A2000FD816A /* FolderUseCase.swift */,
 				8EDDB449281BE2870064DFD7 /* GiftUseCase.swift */,
+				8E0B209528290C8800B43ADC /* ProfileUsecase.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -414,6 +431,7 @@
 				8EEF332427D4953F00FD816A /* FolderService.swift */,
 				8EEF336527DB825000FD816A /* TextService.swift */,
 				8EDDB44D281BE40C0064DFD7 /* GiftService.swift */,
+				8E0B209728290DB300B43ADC /* UserProfileService.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -424,6 +442,7 @@
 				8E21C5012795B5B500C0AD86 /* Login+JoinAPI.swift */,
 				8EEF332627D4955600FD816A /* FolderAPI.swift */,
 				8EDDB44F281BE4500064DFD7 /* GiftAPI.swift */,
+				8E0B209928290E1400B43ADC /* ProfileAPI.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -480,6 +499,7 @@
 		8E2494A627CE3E8B009D03E8 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				8E0B209228290C5200B43ADC /* ViewModel */,
 				8E2494C227CE7E03009D03E8 /* Controller */,
 				8E2494B127CE7A9B009D03E8 /* Profile.storyboard */,
 			);
@@ -1106,6 +1126,7 @@
 				8E0B207F2827CC7800B43ADC /* DateUtil.swift in Sources */,
 				8E8616F52796AA42005B1A88 /* SignUpViewModel.swift in Sources */,
 				8EEF335C27DB730B00FD816A /* AddFolderViewController.swift in Sources */,
+				8E0B209428290C6500B43ADC /* ProfileViewModel.swift in Sources */,
 				8ED47D3E272BAEDD00393397 /* AppDelegate.swift in Sources */,
 				8EE14A0327E1CBA70020E75A /* HeaderView.swift in Sources */,
 				8E43011127CF6C72008EA2A4 /* AllBoxViewModel.swift in Sources */,
@@ -1122,6 +1143,7 @@
 				8E21C4EE2795568600C0AD86 /* User.swift in Sources */,
 				8E7877DE273EDC54007C43E0 /* Task.swift in Sources */,
 				8E12409527423B1A000F97EF /* ArticleTableviewCell.swift in Sources */,
+				8E0B209A28290E1400B43ADC /* ProfileAPI.swift in Sources */,
 				8EDDB44E281BE40C0064DFD7 /* GiftService.swift in Sources */,
 				8ED47D71272BAF4C00393397 /* PhotosCollectionViewController.swift in Sources */,
 				8EE79E2D28154E9000F770A5 /* DefaultAppCoordinator.swift in Sources */,
@@ -1130,6 +1152,7 @@
 				8EE79E2B28154E5500F770A5 /* AppCoordinator.swift in Sources */,
 				8E86170F2797E2DD005B1A88 /* FindPWViewModel.swift in Sources */,
 				8E8616F027968B18005B1A88 /* SignUpViewController.swift in Sources */,
+				8E0B209628290C8800B43ADC /* ProfileUsecase.swift in Sources */,
 				8E21C4FA279561E500C0AD86 /* UserRepository.swift in Sources */,
 				8E8AF70A27CE84BD00578816 /* AddGiftViewController.swift in Sources */,
 				8E2494AE27CE7943009D03E8 /* PageViewController.swift in Sources */,
@@ -1152,6 +1175,7 @@
 				8EBFF4F22748C45700629B26 /* SearchCityViewController.swift in Sources */,
 				8E21C4F7279560FB00C0AD86 /* LoginUseCase.swift in Sources */,
 				8EEF332527D4953F00FD816A /* FolderService.swift in Sources */,
+				8E0B209828290DB300B43ADC /* UserProfileService.swift in Sources */,
 				8E12409127423800000F97EF /* NewsTableViewController.swift in Sources */,
 				8ED47D78272BB67200393397 /* PhotoCollectionViewCell.swift in Sources */,
 				8E2494CC27CE7E66009D03E8 /* CalendarViewController.swift in Sources */,
