@@ -6,24 +6,52 @@
 //
 
 import UIKit
+import SnapKit
 
-class ViewNotiController: UIViewController {
+class ViewNotiController: UIViewController, UIScrollViewDelegate {
+
+    private lazy var scrollView: UIScrollView = {
+        let scrollView = UIScrollView()
+        scrollView.contentInsetAdjustmentBehavior = .always
+        scrollView.delegate = self
+        scrollView.zoomScale = 1.0
+        scrollView.minimumZoomScale = 1.0
+        scrollView.maximumZoomScale = 2.0
+        scrollView.showsHorizontalScrollIndicator = false
+        return scrollView
+    }()
+
+    var imageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleToFill
+        imageView.backgroundColor = .red
+        return imageView
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        configureUI()
+        
+        
     }
     
+    func configureUI() {
+        self.view.addSubview(self.scrollView)
+        self.scrollView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        scrollView.addSubview(imageView)
+        imageView.snp.makeConstraints { make in
+            make.edges.equalTo(self.scrollView)
+            make.height.equalTo(self.scrollView)
+            make.width.equalTo(self.scrollView)
+        }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
     }
-    */
+    
+    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
+        return self.imageView
+    }
 
 }
+

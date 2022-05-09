@@ -104,7 +104,6 @@ extension GiftAPI: TargetType {
     
     var headers: [String : String]? {
         if let jwtToken = UserDefaults.standard.string(forKey: UserDefaultKey.jwtToken) {
-            print(jwtToken)
             return ["Authorization": jwtToken]
         }
         return nil

@@ -37,7 +37,7 @@ class GiftViewModel {
     }
     
     func transform(from input: Input, disposeBag: DisposeBag) -> Output {
-        var output = Output()
+        let output = Output()
         ///get folders
         Observable.of(input.viewWillAppearEvent, input.refreshEvent)
             .merge()
@@ -74,12 +74,17 @@ class GiftViewModel {
         self.giftUsecase.deleteGifticon(giftId: giftId)
     }
     
-    func checkIsValid(index: IndexPath) -> Bool {
-        return gift[0].items[index.row].isValid
+    func checkIsValid(index: Int) -> Bool {
+        return gift[0].items[index].isValid
     }
     
     func findGiftId(index: Int) -> Int {
         return self.gift[0].items[index].timeoutId
+    }
+    
+    func getSelectedGift(index: Int) -> Gift {
+//        let giftId = findGiftId(index: index)
+        return self.gift[0].items[index]
     }
     
     func getGiftSelected(giftId: Int) -> [Int] {

@@ -50,7 +50,7 @@ class AddGiftViewController: UIViewController {
             .bind(to: addNotiView.oneDayButton.rx.isSelected)
             .disposed(by: disposeBag)
 
-        output.disMiss
+        input.deleteButtonTap
             .bind(onNext: disMiss)
             .disposed(by: disposeBag)
         

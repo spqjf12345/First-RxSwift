@@ -167,11 +167,13 @@ class GiftViewController: UIViewController, UIGestureRecognizerDelegate {
         input.giftCellTap
             .bind(onNext: { [weak self] index in
                 guard let self = self else { return }
-                if self.viewModel.checkIsValid(index: index) {
-                    self.navigateToDetailGift()
+                if self.viewModel.checkIsValid(index: index.row) {
+                    let gift = self.viewModel.getSelectedGift(index: index.row)
+                    self.navigateToDetailGift(selectedGift: gift)
                 }
             }).disposed(by: disposeBag)
         
+            
         let output = self.viewModel.transform(from: input, disposeBag: self.disposeBag)
         output.didFilderedGift
             .subscribe(onNext: { [weak self] _ in
@@ -206,8 +208,10 @@ extension GiftViewController {
         self.navigationController?.pushViewController(addGiftVC, animated: true)
     }
     
-    private func navigateToDetailGift(){
-        let viewNotiVC =  UIStoryboard(name: "Timeout", bundle: nil).instantiateViewController(identifier: "ViewNotiController")
+    private func navigateToDetailGift(selectedGift: Gift) {
+        let viewNotiVC = UIStoryboard(name: "Timeout", bundle: nil).instantiateViewController(withIdentifier: "ViewNotiController") as! ViewNotiController
+        viewNotiVC.imageView.image = UIImage(data: selectedGift.imageData!)
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
         self.navigationController?.pushViewController(viewNotiVC, animated: true)
     }
     

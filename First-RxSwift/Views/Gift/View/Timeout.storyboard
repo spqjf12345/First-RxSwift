@@ -122,30 +122,19 @@
             <point key="canvasLocation" x="5494" y="71"/>
         </scene>
         <!--View Noti Controller-->
-        <scene sceneID="ftf-BF-Xx9">
+        <scene sceneID="Yqp-Ns-0QP">
             <objects>
-                <viewController storyboardIdentifier="ViewNotiController" id="ZAA-ck-Xgb" customClass="ViewNotiController" customModule="First_RxSwift" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Pvv-46-j6R">
+                <viewController storyboardIdentifier="ViewNotiController" id="xHF-e5-7RX" customClass="ViewNotiController" customModule="First_RxSwift" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="y2t-39-Exo">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vog-kU-eYW">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
-                            </imageView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="GSw-4u-jX5"/>
+                        <viewLayoutGuide key="safeArea" id="mDr-t0-Bw5"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="GSw-4u-jX5" firstAttribute="bottom" secondItem="vog-kU-eYW" secondAttribute="bottom" id="2LO-eF-FPC"/>
-                            <constraint firstItem="vog-kU-eYW" firstAttribute="trailing" secondItem="GSw-4u-jX5" secondAttribute="trailing" id="dKu-52-hEe"/>
-                            <constraint firstItem="vog-kU-eYW" firstAttribute="top" secondItem="GSw-4u-jX5" secondAttribute="top" id="oGX-28-B6p"/>
-                            <constraint firstItem="vog-kU-eYW" firstAttribute="leading" secondItem="GSw-4u-jX5" secondAttribute="leading" id="tpa-6w-kpD"/>
-                        </constraints>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="UcB-gx-MGf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MgD-bZ-fw8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6246.376811594203" y="73.660714285714278"/>
+            <point key="canvasLocation" x="6196" y="82"/>
         </scene>
     </scenes>
     <resources>
