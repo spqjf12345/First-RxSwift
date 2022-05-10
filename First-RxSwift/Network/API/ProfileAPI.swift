@@ -63,6 +63,7 @@ extension ProfileAPI: TargetType {
         case .changeUserNickName(_, let nickName):
             var multipartFormData = [MultipartFormData]()
             multipartFormData.append(MultipartFormData(provider: .data("\(nickName)".data(using: .utf8)!), name: "updateNickname"))
+            return .uploadMultipart(multipartFormData)
         case .changeUserImage(_, let image):
             var multipartFormData = [MultipartFormData]()
             var fileName = "\(image).jpg"

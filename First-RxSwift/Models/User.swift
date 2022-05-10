@@ -32,3 +32,11 @@ struct SignUpRequest: Codable {
     var phone: String
 }
 
+
+struct ProfileResponse: Codable {
+    var userId: Int
+    var nickname: String
+    var phone: String
+    var alarm: Bool
+    var imageData: Data? // data
+}

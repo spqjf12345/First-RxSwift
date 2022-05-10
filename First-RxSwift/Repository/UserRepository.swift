@@ -19,16 +19,19 @@ protocol UserRepositoryType {
 }
 
 protocol ProfileRepositoryType {
-    func getUserInfo()
+    func getUserInfo() -> Observable<ProfileResponse>
 }
 
 class UserRepository: UserRepositoryType {
     
-    let userService: LoginJoinService
+    let loginJoinService: LoginJoinService
+    let profileService: UserProfileService
+    
     let disposeBag = DisposeBag()
     
-    init(userService: LoginJoinService){
-        self.userService = userService
+    init(userService: LoginJoinService, profileService: UserProfileService){
+        self.loginJoinService = userService
+        self.profileService = profileService
     }
     
     func saveLoginInfo(userId: Int32, jwtToken: String) {
@@ -38,7 +41,7 @@ class UserRepository: UserRepositoryType {
     }
     
     func logIn(nickName: String, password: String) {
-        userService.login(nickName: nickName, password: password).subscribe { loginResponse in
+        loginJoinService.login(nickName: nickName, password: password).subscribe { loginResponse in
             self.saveLoginInfo(userId: loginResponse.userId, jwtToken: loginResponse.jwtToken)
         }.disposed(by: disposeBag)
         
@@ -46,27 +49,29 @@ class UserRepository: UserRepositoryType {
     
     
     func signUp(user: SignUpRequest) -> Observable<Int> {
-        return userService.signUp(user: user)
+        return loginJoinService.signUp(user: user)
     }
     
     func checkValidId(nickname: String) -> Observable<Int> {
-        return userService.checkValidId(nickName: nickname)
+        return loginJoinService.checkValidId(nickName: nickname)
     }
     
     func checkIdValid(nickname: String) -> Observable<Bool> {
-        return userService.checkIdValid(nickName: nickname)
+        return loginJoinService.checkIdValid(nickName: nickname)
     }
     
     func sendMessage(phoneNumber: String) -> Observable<Int> {
-        return userService.sendMessage(phoneNumber: phoneNumber)
+        return loginJoinService.sendMessage(phoneNumber: phoneNumber)
     }
+    
+    
     
     
 }
 
 extension UserRepository: ProfileRepositoryType {
-    func getUserInfo() {
-        
+    func getUserInfo() -> Observable<ProfileResponse> {
+        return self.profileService.getUserInfo()
     }
     
     
