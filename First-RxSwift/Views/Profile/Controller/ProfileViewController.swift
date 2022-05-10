@@ -15,8 +15,20 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var backButton: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        bindViewModel()
+        setupUI()
+    }
+    
+    func setupUI(){
+        profileImage.makeCircleShape()
+        
+    }
+    
+    private func bindViewModel(){
+        
     }
     
 
