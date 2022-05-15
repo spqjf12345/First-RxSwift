@@ -93,11 +93,7 @@ class AllBoxViewController: UIViewController {
                 cell.configure(with: item)
                 return cell
             })
-        
-        
-        
-        
-        
+
         dataSource.configureSupplementaryView = {(dataSource, collectionView, kind, indexPath) -> UICollectionReusableView in
             guard let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: HeaderView.reuseIdentifier, for: indexPath) as? HeaderView else { fatalError() }
             

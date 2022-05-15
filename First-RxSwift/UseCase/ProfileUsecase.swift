@@ -11,11 +11,12 @@ import RxCocoa
 
 protocol ProfileUsecaseType {
     func getUserInfo()
+    func logout()
 }
 
 class ProfileUsecase: ProfileUsecaseType {
     
-    var nickName: String?
+    var nickName = PublishSubject<String>()
     var imageData = PublishSubject<Data>()
     let userRepository: UserRepository
     let disposeBag = DisposeBag()
@@ -27,8 +28,14 @@ class ProfileUsecase: ProfileUsecaseType {
     func getUserInfo() {
         self.userRepository.getUserInfo()
             .subscribe(onNext: { [weak self] userInfo in
-                self?.imageData.onNext(userInfo.imageData ?? Data())
+                print("get user info \(userInfo)")
+                self?.imageData.onNext(userInfo.imageData!)
+                self?.nickName.onNext(userInfo.nickname)
             }).disposed(by: disposeBag)
+    }
+    
+    func logout() {
+        self.userRepository.logout()
     }
     
 }

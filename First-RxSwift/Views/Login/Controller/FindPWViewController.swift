@@ -33,7 +33,7 @@ class FindPWViewController: UIViewController {
     
     var disposeBag = DisposeBag()
     
-    var viewModel = FindPWViewModel(loginUseCase: LoginUseCase(repository: UserRepository(userService: LoginJoinService())))
+    var viewModel = FindPWViewModel(loginUseCase: LoginUseCase(repository: UserRepository(userService: LoginJoinService(), profileService: UserProfileService())))
     
     override func viewDidLoad() {
         super.viewDidLoad()

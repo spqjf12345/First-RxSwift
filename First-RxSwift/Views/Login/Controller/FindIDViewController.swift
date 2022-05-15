@@ -25,7 +25,7 @@ class FindIDViewController: UIViewController {
     
     var disposeBag = DisposeBag()
     
-    var viewModel = FindIDViewModel(loginUseCase: LoginUseCase(repository: UserRepository(userService: LoginJoinService())))
+    var viewModel = FindIDViewModel(loginUseCase: LoginUseCase(repository: UserRepository(userService: LoginJoinService(), profileService: UserProfileService())))
     
     override func viewDidLoad() {
         super.viewDidLoad()

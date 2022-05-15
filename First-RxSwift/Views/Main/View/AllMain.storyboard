@@ -27,6 +27,9 @@
                                         <state key="normal" title="보관함">
                                             <color key="titleColor" red="0.099970199169999996" green="0.11900150029999999" blue="0.21177518370000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </state>
+                                        <connections>
+                                            <action selector="allVC:" destination="tk0-kn-y6q" eventType="touchUpInside" id="B3t-6L-HmB"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q8P-Id-fma">
                                         <rect key="frame" x="65.5" y="0.0" width="46" height="70"/>
@@ -34,6 +37,9 @@
                                         <state key="normal" title="텍스트">
                                             <color key="titleColor" red="0.099970199169999996" green="0.11900150029999999" blue="0.21177518370000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </state>
+                                        <connections>
+                                            <action selector="textVC:" destination="tk0-kn-y6q" eventType="touchUpInside" id="SCI-V0-Poz"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z3N-na-XG3">
                                         <rect key="frame" x="131.5" y="0.0" width="45.5" height="70"/>
@@ -41,6 +47,9 @@
                                         <state key="normal" title="링크">
                                             <color key="titleColor" red="0.099970199169999996" green="0.11900150029999999" blue="0.21177518370000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </state>
+                                        <connections>
+                                            <action selector="linkVC:" destination="tk0-kn-y6q" eventType="touchUpInside" id="kgX-VW-Vjp"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J7u-7r-Sf1">
                                         <rect key="frame" x="197" y="0.0" width="45.5" height="70"/>
@@ -48,6 +57,9 @@
                                         <state key="normal" title="선물">
                                             <color key="titleColor" red="0.099970199169999996" green="0.11900150029999999" blue="0.21177518370000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </state>
+                                        <connections>
+                                            <action selector="giftVC:" destination="tk0-kn-y6q" eventType="touchUpInside" id="nbT-R2-egH"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LrN-ge-gr0">
                                         <rect key="frame" x="262.5" y="0.0" width="46" height="70"/>
@@ -55,6 +67,9 @@
                                         <state key="normal" title="캘린더">
                                             <color key="titleColor" red="0.099970199169999996" green="0.11900150029999999" blue="0.21177518370000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </state>
+                                        <connections>
+                                            <action selector="calendarVC:" destination="tk0-kn-y6q" eventType="touchUpInside" id="AE9-TL-bUz"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U7c-e2-djP">
                                         <rect key="frame" x="328.5" y="1.5" width="45.5" height="67"/>
@@ -64,7 +79,7 @@
                                             <imageReference key="backgroundImage" image="person.fill" catalog="system" renderingMode="original"/>
                                         </state>
                                         <connections>
-                                            <action selector="profileVC:" destination="tk0-kn-y6q" eventType="touchDown" id="R1A-gc-DDc"/>
+                                            <action selector="profileVC:" destination="tk0-kn-y6q" eventType="touchUpInside" id="FHB-jB-Bpw"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -95,6 +110,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fnu-0m-odF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-745" y="71"/>
+        </scene>
+        <!--ProfileViewController-->
+        <scene sceneID="qxK-TX-vE4">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Profile" referencedIdentifier="ProfileViewController" id="nq2-cY-8oF" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="efh-hK-geu"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XfF-HE-es3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-375" y="-171"/>
         </scene>
         <!--Page View Controller-->
         <scene sceneID="CR8-W3-x9x">

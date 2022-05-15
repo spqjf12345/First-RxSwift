@@ -29,7 +29,7 @@ class DefaultLoginCoordinator: LoginCoordinator {
     }
     
     func start() {
-        self.loginViewController.viewModel = LoginViewModel(loginUseCase: LoginUseCase(repository: UserRepository(userService: LoginJoinService())))
+        self.loginViewController.viewModel = LoginViewModel(loginUseCase: LoginUseCase(repository: UserRepository(userService: LoginJoinService(), profileService: UserProfileService())))
         self.navigationController.viewControllers = [self.loginViewController]
     }
     

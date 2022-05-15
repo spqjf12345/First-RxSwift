@@ -38,8 +38,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         }else {
             print("jwtToken과 isNewUser 정보가 없어 로그인 뷰로 이동")
-            let loginStoryBoard = UIStoryboard(name: "Login", bundle: nil)
-            guard let loginVC = loginStoryBoard.instantiateViewController(withIdentifier: "Login") as? LoginViewController else {
+            let login = UIStoryboard(name: "Login", bundle: nil)
+            guard let loginVC = login.instantiateViewController(withIdentifier: "Login") as? LoginViewController else {
                 print("can not find loginNavC")
                 return
             }

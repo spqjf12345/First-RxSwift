@@ -20,23 +20,26 @@ class ProfileViewModel {
     
     struct Input {
         let viewWillAppearEvent: Observable<Void>
-        let cellDidTap: Observable<Void>
+        let cellDidTap: Observable<Int>
         let editImageButtonTap: Observable<Void>
     }
     
     struct Output {
-        var nickname: String
+        var nickName: String?
         var imageData =  PublishSubject<Data>()
     }
     
     func transform(from input: Input, disposeBag: DisposeBag) -> Output {
-        let output = Output(
-            nickname: self.profileUsecase.nickName ?? "알 수 없는 사용자"
-        )
-        
+        var output = Output()
         input.viewWillAppearEvent
             .subscribe(onNext: { [weak self] in
                 self?.profileUsecase.getUserInfo()
+            })
+            .disposed(by: disposeBag)
+        
+        self?.profileUsecase.nickName
+            .subscribe(onNext: { str in
+                output.nickName = str
             })
             .disposed(by: disposeBag)
         
@@ -44,7 +47,9 @@ class ProfileViewModel {
     }
     
     func logout() {
-        self.profileUsecase.
+        self.profileUsecase.logout()
     }
+    
+   // func update
     
 }

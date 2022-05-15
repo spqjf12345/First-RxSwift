@@ -21,7 +21,7 @@ class LoginViewController: UIViewController {
     
     private let disposeBag = DisposeBag()
     
-    var viewModel = LoginViewModel(loginUseCase: LoginUseCase(repository: UserRepository(userService: LoginJoinService())))
+    var viewModel = LoginViewModel(loginUseCase: LoginUseCase(repository: UserRepository(userService: LoginJoinService(), profileService: UserProfileService())))
     
     
     override func viewDidLoad() {

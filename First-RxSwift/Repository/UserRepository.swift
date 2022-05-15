@@ -20,6 +20,7 @@ protocol UserRepositoryType {
 
 protocol ProfileRepositoryType {
     func getUserInfo() -> Observable<ProfileResponse>
+    func logout()
 }
 
 class UserRepository: UserRepositoryType {
@@ -70,8 +71,17 @@ class UserRepository: UserRepositoryType {
 }
 
 extension UserRepository: ProfileRepositoryType {
+    
     func getUserInfo() -> Observable<ProfileResponse> {
         return self.profileService.getUserInfo()
+    }
+    
+    func logout() {
+        UserDefaults.standard.removeObject(forKey: UserDefaultKey.phoneNumber)
+        UserDefaults.standard.removeObject(forKey: UserDefaultKey.userID)
+        UserDefaults.standard.removeObject(forKey: UserDefaultKey.userNickName)
+        UserDefaults.standard.removeObject(forKey: UserDefaultKey.isNewUser)
+        UserDefaults.standard.removeObject(forKey: UserDefaultKey.jwtToken)
     }
     
     
