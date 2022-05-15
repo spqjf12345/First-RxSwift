@@ -37,7 +37,7 @@ class ProfileViewModel {
             })
             .disposed(by: disposeBag)
         
-        self?.profileUsecase.nickName
+        self.profileUsecase.nickName
             .subscribe(onNext: { str in
                 output.nickName = str
             })
@@ -50,6 +50,12 @@ class ProfileViewModel {
         self.profileUsecase.logout()
     }
     
-   // func update
+    func changeImage(image: Data){
+        self.profileUsecase.changeImage(image: image)
+    }
+    
+    func changeNickName(nickName: String) {
+        self.profileUsecase.changeNickName(nickName: nickName)
+    }
     
 }

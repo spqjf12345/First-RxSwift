@@ -21,6 +21,8 @@ protocol UserRepositoryType {
 protocol ProfileRepositoryType {
     func getUserInfo() -> Observable<ProfileResponse>
     func logout()
+    func changeUserImage(image: Data) -> Observable<Bool>
+    func changeUserNickName(nickName: String) -> Observable<Bool>
 }
 
 class UserRepository: UserRepositoryType {
@@ -71,7 +73,7 @@ class UserRepository: UserRepositoryType {
 }
 
 extension UserRepository: ProfileRepositoryType {
-    
+
     func getUserInfo() -> Observable<ProfileResponse> {
         return self.profileService.getUserInfo()
     }
@@ -83,6 +85,16 @@ extension UserRepository: ProfileRepositoryType {
         UserDefaults.standard.removeObject(forKey: UserDefaultKey.isNewUser)
         UserDefaults.standard.removeObject(forKey: UserDefaultKey.jwtToken)
     }
+    
+    func changeUserImage(image: Data) -> Observable<Bool> {
+        return profileService.changeImage(image: image)
+    }
+    
+    func changeUserNickName(nickName: String) -> Observable<Bool> {
+        return profileService.changeNickName(text: nickName)
+    }
+    
+    
     
     
 }

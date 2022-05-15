@@ -24,5 +24,39 @@ class UserProfileService {
             .asObservable()
     }
     
+    func changeImage(image: Data) -> Observable<Bool> {
+        return Observable<Bool>.create { observer -> Disposable in
+            return self.provider.rx.request(.changeUserImage(userId: self.userId, image: image))
+                .filterSuccessfulStatusCodes()
+                .mapString()
+                .asObservable().subscribe(onNext: {str in
+                    if str.isEmpty {
+                        observer.onNext(false)
+                    }else {
+                        observer.onNext(true)
+                    }
+                })
+                observer.onCompleted()
+              return Disposables.create()
+        }
+            
+    }
+    
+    func changeNickName(text: String) -> Observable<Bool> {
+        return Observable<Bool>.create { observer -> Disposable in
+            return self.provider.rx.request(.changeUserNickName(userId: self.userId, nickName: text))
+                .filterSuccessfulStatusCodes()
+                .mapString()
+                .asObservable().subscribe(onNext: {str in
+                    if str.isEmpty {
+                        observer.onNext(false)
+                    }else {
+                        observer.onNext(true)
+                    }
+                })
+                observer.onCompleted()
+              return Disposables.create()
+        }
+    }
     
 }
