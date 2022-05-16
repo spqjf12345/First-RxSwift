@@ -12,8 +12,8 @@ import RxCocoa
 protocol ProfileUsecaseType {
     func getUserInfo()
     func logout()
-    func changeImage()
-    func changeNickName()
+    func changeImage(image: Data)
+    func changeNickName(nickName: String)
 }
 
 class ProfileUsecase: ProfileUsecaseType {
@@ -55,4 +55,6 @@ class ProfileUsecase: ProfileUsecaseType {
                 self.nickName.onNext(nickName)
             }).disposed(by: disposeBag)
     }
+    
+    
 }

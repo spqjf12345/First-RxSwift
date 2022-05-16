@@ -6,24 +6,24 @@
 //
 
 import UIKit
+import PhotosUI
 
 class EditProfileViewController: UIViewController {
-
+    @IBOutlet weak var profileImage: UIImageView!
+    @IBOutlet weak var editButton: UIButton!
+    @IBOutlet weak var backButton: UIBarButtonItem!
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var quitButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        bindViewModel()
 
-        // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    private func bindViewModel() {
+        
     }
-    */
+
 
 }
