@@ -10,7 +10,7 @@ import RxSwift
 import RxCocoa
 
 class ProfileViewModel {
-    private let profileUsecase: ProfileUsecase
+    let profileUsecase: ProfileUsecase
     
     let disposeBag = DisposeBag()
     
@@ -20,13 +20,13 @@ class ProfileViewModel {
     
     struct Input {
         let viewWillAppearEvent: Observable<Void>
-        let cellDidTap: Observable<Int>
+        let cellDidTap: Observable<IndexPath>
         let editImageButtonTap: Observable<Void>
     }
     
     struct Output {
         var nickName: String?
-        var imageData =  PublishSubject<Data>()
+        var imageData: Data?
     }
     
     func transform(from input: Input, disposeBag: DisposeBag) -> Output {
@@ -42,6 +42,11 @@ class ProfileViewModel {
                 output.nickName = str
             })
             .disposed(by: disposeBag)
+        
+        self.profileUsecase.imageData
+            .subscribe(onNext: { image in
+                output.imageData = image
+            }).disposed(by: disposeBag)
         
         return output
     }

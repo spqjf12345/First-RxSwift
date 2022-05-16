@@ -10,7 +10,7 @@ import RxSwift
 import RxCocoa
 
 class ProfileEditViewModel {
-    private let profileUsecase: ProfileUsecase
+    let profileUsecase: ProfileUsecase
     
     let disposeBag = DisposeBag()
     
@@ -20,7 +20,7 @@ class ProfileEditViewModel {
     
     struct Input {
         var editButtonTap: Observable<Void>
-        
+        var quiAppTap: Observable<Void>
     }
     
     struct Output {

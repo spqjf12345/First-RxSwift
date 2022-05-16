@@ -9,12 +9,12 @@ import UIKit
 import RxSwift
 import RxCocoa
 
+struct List: Hashable {
+    var text: String
+    var id = UUID()
+}
+
 class ProfileViewController: UIViewController {
-    
-    struct List: Hashable {
-        var text: String
-        var id = UUID()
-    }
     
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var profileName: UILabel!
@@ -41,9 +41,7 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("view load")
         bindViewModel()
-
         configureDataSource()
         setupUI()
     }
@@ -81,54 +79,31 @@ class ProfileViewController: UIViewController {
         snapshot.appendItems(list)
         dataSource.apply(snapshot)
 
-        
-//        print("here")
-//        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
-//        self.dataSource = UITableViewDiffableDataSource<Section, List>(tableView: tableView){ [weak self] (tableView: UITableView, indexPath: IndexPath, item: List) ->
-//            UITableViewCell? in
-//            print("hh")
-//            let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-//            print(cell)
-//            var content = cell.defaultContentConfiguration()
-//            print(item.text)
-//            content.text = item.text
-//            if indexPath.row == 2 { //버전 정보
-//                cell.accessoryType = .detailDisclosureButton
-//                cell.accessoryView = nil
-//            }else {
-//                cell.accessoryView = self?.versionLabel
-//            }
-//            cell.contentConfiguration = content
-//            return cell
-//        }
-//        tableView.dataSource = dataSource
-
     }
 
     private func bindViewModel(){
-        let input = ProfileViewModel.Input (viewWillAppearEvent: self.rx.methodInvoked(#selector(UIViewController.viewWillAppear)).map { _ in }, cellDidTap: self.tableView.rx.itemSelected.map { $0.row }, editImageButtonTap: self.editButton.rx.tap.asObservable()
+        let input = ProfileViewModel.Input (viewWillAppearEvent: self.rx.methodInvoked(#selector(UIViewController.viewWillAppear)).map { _ in }, cellDidTap: self.tableView.rx.itemSelected.asObservable(), editImageButtonTap: self.editButton.rx.tap.asObservable()
         )
 
         let output = viewModel.transform(from: input, disposeBag: self.disposeBag)
-        
-        profileName.text = output.nickName ?? "알 수 없는 사용자"
-        
-    
 
+        viewModel.profileUsecase.nickName
+                .bind(to: profileName.rx.text)
+                .disposed(by: disposeBag)
+        
         input.editImageButtonTap
             .bind(onNext: navigateToEditProfile)
             .disposed(by: disposeBag)
 
         input.cellDidTap
-            .subscribe(onNext: { [weak self] index in
-                self?.navigateToDetail(index: index)
+            .subscribe(onNext: { [weak self] indexPath in
+                self?.navigateToDetail(index: indexPath)
             }).disposed(by: disposeBag)
-
-        output.imageData
+        
+        viewModel.profileUsecase.imageData
             .asDriver(onErrorJustReturn: Data())
-            .drive(onNext: { [weak self] imageData in
-                guard let self = self else { return }
-                self.profileImage.image = UIImage(data: imageData)
+            .drive(onNext: { data in
+                self.profileImage.image = UIImage(data: data)
             }).disposed(by: disposeBag)
 
     }
@@ -139,12 +114,13 @@ class ProfileViewController: UIViewController {
 
 extension ProfileViewController {
     func navigateToEditProfile() {
-        let editProfileVC = self.storyboard?.instantiateViewController(withIdentifier: "EditProfileViewController")
+        let editProfileVC = self.storyboard?.instantiateViewController(withIdentifier: "EditProfileViewController") as? EditProfileViewController
         self.navigationController?.pushViewController(editProfileVC!, animated: true)
     }
 
-    func navigateToDetail(index: Int) {
-        switch index {
+    func navigateToDetail(index: IndexPath) {
+        tableView.deselectRow(at: index, animated: true)
+        switch index.row {
         case 0: //내 북마크
             let bookMarkVC = self.storyboard?.instantiateViewController(withIdentifier: "BookMarkViewController")
             self.navigationController?.pushViewController(bookMarkVC!, animated: true)
